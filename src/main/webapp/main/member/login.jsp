@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html> <html lang="ko">
 <!-- layout -->
+<!-- 로그인시 1 비 로그인시 0 값을 넘겨줘서 플레이어 구분할 수 있게 하자 -->
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
