@@ -47,9 +47,12 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
-          <!-- <div class="add_banner"><a href="#"><img src="images/addbanner_728x90_V1.jpg" alt=""></a></div> -->
-          <div align="right">로그인 <br>
-          아이디,비밀번호 찾기 <br>회원가입</div>
+          <div align="right">
+          	<input type="text" placeholder="Id*"><br>
+            <input type="password" placeholder="Password*"><br>
+            <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>
+            <input type="button" value="로그인"  style="width:170px">
+          </div>
         </div>
       </div>
     </div>

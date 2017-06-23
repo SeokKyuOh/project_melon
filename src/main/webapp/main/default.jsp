@@ -11,7 +11,7 @@
   <!-- 최신 앨범 이미지 보이는 곳 -->
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="slick_slider">
+        <div class="slick_slider"> <!-- 이동 버튼 -->
           <div class="single_iteam"> <a href="pages/single_page.html"> <img src="images/slider_img4.jpg" alt=""></a>
             <div class="slider_article">
               <h2><a class="slider_tittle" href="pages/single_page.html">최신 앨범 이미지 구현할 예정</a></h2>
