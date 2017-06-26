@@ -39,11 +39,7 @@ public class MainController {
 	
 	@RequestMapping("main/notice.do")
 	public String notice_page(Model model){
-<<<<<<< HEAD
 		model.addAttribute("main_jsp","board/board_list.jsp");
-=======
-		model.addAttribute("main_jsp","notice/notice.jsp");
->>>>>>> 9d38ec7c2a1d307b589b57cc326b1534f1c69c5a
 		return "main/main";
 	}
 	
