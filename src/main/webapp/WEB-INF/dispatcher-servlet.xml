@@ -13,13 +13,23 @@
 	<context:component-scan base-package="com.sist.*" />
 	<util:properties id="db" location="/WEB-INF/db.properties" />
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
-		p:driverClassName="#{db['driver']}" p:url="#{db['url']}" p:username="#{db['username']}"
+		p:driverClassName="#{db['driver']}" 
+		p:url="#{db['url']}" 
+		p:username="#{db['username']}"
 		p:password="#{db['password']}" />
+		
 	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="ds" />
-	
+		
+	<!-- PlaylistMapper -->
+	<bean id="pMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:mapperInterface="com.sist.playlist.dao.PlaylistMapper"
+		p:sqlSessionFactory-ref="ssf"
+	/>
+
 	<mvc:annotation-driven>
-		<mvc:message-converters> 
+		<mvc:message-converters>
 			<!-- @ResponseBody로 String 처리할때 한글처리 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
