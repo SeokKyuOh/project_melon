@@ -1,0 +1,34 @@
+package com.sist.board.dao;
+
+import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BoardDAO {
+	@Autowired
+	private BoardMapper boardMapper;
+	
+	//먼저 공지사항 볼 수있는 게시판
+	//boardType_id 가 1인 것으로 가져오기 
+	public List<BoardVO> boardList(int boardType_id){
+		return boardMapper.boardList(boardType_id);
+		
+	}
+	
+	public BoardVO boardContent(int board_id){
+		boardMapper.boardHitIncrement(board_id);
+		return boardMapper.boardContent(board_id);
+		
+	}
+	
+
+	
+	//insert
+/*	public void boardInsert(BoardVO vo){
+		boardMapper.bo
+	}
+*/
+}

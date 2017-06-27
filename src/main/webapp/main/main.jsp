@@ -79,7 +79,7 @@
           </li>
           <li><a href="ganre.do">장르</a></li>
           <li><a href="buy_ticket.do">이용권구매</a></li>
-          <li><a href="notice.do">공지사항</a></li>
+          <li><a href="board_list.do?boardType_id=1">공지사항</a></li>
           <li><a href="mypage.do">마이뮤직</a></li>
         </ul>
       </div>
