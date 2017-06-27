@@ -8,23 +8,42 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="<c:url value="/resources/js/soundmanager2.js"/>"></script>
 <script src="<c:url value="/resources/js/bar-ui.js"/>"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <link rel="stylesheet" href="<c:url value="/resources/css/bar-ui.css"/>" />
 <script>
-	 
+	
 	var albumURL="http://211.238.142.109:8080/food/main/album_img/";
 	var songURL="http://211.238.142.109:8080/food/main/music/";
-
+	
+	$(function(){
+		var isImageClicked=false;
+		// 앨범 아트를 클릭하면 현재 재생되고 있는 곡의 가사 불러오기
+		$('#album').click(function(){
+			// 다시 클릭하면 원래 이미지대로 출력
+			if(isImageClicked==true){
+				$('#image').fadeTo(1000, 1);
+				isIageClicked==false;
+			}
+			else{
+				// 현재 재생되고 있는 곡인지 check
+				isImageClicked=true;	
+				// 이미지의 투명도(opacity)를 낮추고 가사 출력
+				$('#image').fadeTo(1000, 0.4);	
+			}
+		});
+	});
+	
 </script>
 </head>
 <body>
 	<!-- 앨범아트 및 가사 구현 -->
 	<!-- 선택된 곡이 여러개일 경우 가장 위에 있는 곡의 앨범아트, 곡 하나를 클릭해 추가되었을 경우 해당 곡의 앨범아트 -->
-	<div>
-		<c:set var="playlist" value="${playlist }"/>
-		<%-- <c:out value="album_art : ${playlist.album_art }"/>
-		<c:out value="music_number : ${playlist.music_number }"/> --%>
-		<c:out value="playlist.album_art"/>
-		<img src="http://211.238.142.109:8080/food/main/album_img/${playlist.album_art }.jpg" width=450 height=400>
+	<div id="album">
+		<%-- <c:set var="playlist" value="${playlist }"/> --%>
+		<%-- <c:out value="playlist.music_number"/> --%>
+		<%-- <img src="http://211.238.142.109:8080/food/main/album_img/${playlist.album_art }.jpg" width=450 height=400> --%>
+		<!-- <img src="/cover/album.jpg" width=450 height=400> -->
+		<img src="../main/player/album.jpg" id="image" width=450 height=400>
 	</div>
 	<div class="sm2-bar-ui playlist-open">
 		<div class="bd sm2-main-controls">
@@ -124,7 +143,7 @@
 					 -->
 					 
 					<c:forEach var="vo" items="${playlist}">
-						<li>
+						<li id="${vo.music_number }">
 							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }.mp3">
 								${vo.music_name } - ${vo.music_artist }
 							</a>

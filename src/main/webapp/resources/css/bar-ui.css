@@ -704,7 +704,7 @@
  height: 100%;
  top: 0px;
  left: 0px;
- background: none, url(spinner.svg);
+ background: none, url("../img/spinner.svg");
  background-size: 72%;
  background-position: 50%;
  background-repeat: no-repeat;
