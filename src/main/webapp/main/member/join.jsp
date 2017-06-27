@@ -1,24 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Melon:음악이 필요한 순간</title>
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel="stylesheet" type='text/css'>
-        <link rel="stylesheet" type="text/css" href="../assets/css/join.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/join.css">
     </head>
     <body>
 
-      <form action="index.html" method="post">
+      <form method="post" action="join_ok.do" name="join_frm">
       
         <h1>회원가입</h1>
         
         <fieldset>
           <label for="name">아이디</label>
-          <input type="text" id="nick" name="user_nick">
+          <input type="text" id="nick" name="user_nick" required>
+          <input type="button" value="ID 중복체크" id="idcheckBtn">
                     
           <label for="password">비밀번호</label>
-          <input type="password" id="password" name="user_password">
+          <input type="password" id="password" name="user_password" required>
+          재입력
           <input type="password" id="password_check" name="user_password_check">
           <label for="password">비밀번호가 일치합니다/안합니다.</label>
           
