@@ -15,6 +15,6 @@
 		</script>
 	</c:when>
 	<c:when test="${res=='OK' }">
-		<redirect url="main.do">
+		<c:redirect url="main.do" />
 	</c:when>
 </c:choose>
