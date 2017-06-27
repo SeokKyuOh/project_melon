@@ -8,12 +8,15 @@ public class MemberDAO {
 	@Autowired
 	private MemberMapper mMapper;
 	
-	public String memberGetPwd(String id){
-		return mMapper.memberGetPwd(id);
+	public String memberGetPwd(String member_nick){
+		return mMapper.memberGetPwd(member_nick);
 	}
 	
-	public MemberVO MemberInfo(String id){
-		return mMapper.MemberInfo(id);
+	public int memberIdCheck(String member_nick){
+		return mMapper.memberIdCheck(member_nick);
 	}
 	
+	public MemberVO memberInfoData(String member_nick){
+		return mMapper.memberInfoData(member_nick);
+	}
 }

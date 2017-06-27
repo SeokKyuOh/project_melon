@@ -1,16 +1,17 @@
 package com.sist.member.dao;
 
 public class MemberVO {
-	private String regdate;
-	private String cash;
-	private String name;
-	private String phone;
-	private String email;
-	private String addr;
-	private String nick;
-	private String pwd;
-	private String birthdate;
-	private String gender;
+	private int member_id;
+	private String member_name;
+	private String member_phone;
+	private String member_email;
+	private String member_addr;
+	private String member_nick;
+	private String member_pwd;
+	private String member_birthdate;
+	private String member_gender;
+	private String member_regdate;
+	private int member_cash;
 	
 	private String phone1;
 	private String phone2;
@@ -18,66 +19,6 @@ public class MemberVO {
 	private String addr2;
 	
 	
-	public String getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(String regdate) {
-		this.regdate = regdate;
-	}
-	public String getCash() {
-		return cash;
-	}
-	public void setCash(String cash) {
-		this.cash = cash;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getAddr() {
-		return addr;
-	}
-	public void setAddr(String addr) {
-		this.addr = addr;
-	}
-	public String getNick() {
-		return nick;
-	}
-	public void setNick(String nick) {
-		this.nick = nick;
-	}
-	public String getPwd() {
-		return pwd;
-	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-	public String getBirthdate() {
-		return birthdate;
-	}
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 	public String getPhone1() {
 		return phone1;
 	}
@@ -102,7 +43,73 @@ public class MemberVO {
 	public void setAddr2(String addr2) {
 		this.addr2 = addr2;
 	}
-	
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public String getMember_name() {
+		return member_name;
+	}
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+	public String getMember_phone() {
+		return member_phone;
+	}
+	public void setMember_phone(String member_phone) {
+		this.member_phone = member_phone;
+	}
+	public String getMember_email() {
+		return member_email;
+	}
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
+	}
+	public String getMember_addr() {
+		return member_addr;
+	}
+	public void setMember_addr(String member_addr) {
+		this.member_addr = member_addr;
+	}
+	public String getMember_nick() {
+		return member_nick;
+	}
+	public void setMember_nick(String member_nick) {
+		this.member_nick = member_nick;
+	}
+	public String getMember_pwd() {
+		return member_pwd;
+	}
+	public void setMember_pwd(String member_pwd) {
+		this.member_pwd = member_pwd;
+	}
+	public String getMember_birthdate() {
+		return member_birthdate;
+	}
+	public void setMember_birthdate(String member_birthdate) {
+		this.member_birthdate = member_birthdate;
+	}
+	public String getMember_gender() {
+		return member_gender;
+	}
+	public void setMember_gender(String member_gender) {
+		this.member_gender = member_gender;
+	}
+	public String getMember_regdate() {
+		return member_regdate;
+	}
+	public void setMember_regdate(String member_regdate) {
+		this.member_regdate = member_regdate;
+	}
+	public int getMember_cash() {
+		return member_cash;
+	}
+	public void setMember_cash(int member_cash) {
+		this.member_cash = member_cash;
+	}
 	
 	
 }
+
