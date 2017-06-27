@@ -48,10 +48,10 @@
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
           <div align="right">
-          	<input type="text" placeholder="Id*"><br>
-            <input type="password" placeholder="Password*"><br>
+          	<input type="button" value="로그인"  style="width:170px; height:70px">
+          	<a href="login.do">회원가입</a>
             <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>
-            <input type="button" value="로그인"  style="width:170px">
+            
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@
           </li>
           <li><a href="ganre.do">장르</a></li>
           <li><a href="buy_ticket.do">이용권구매</a></li>
-          <li><a href="notice.do">공지사항</a></li>
+          <li><a href="board_list.do?boardType_id=1">공지사항</a></li>
           <li><a href="mypage.do">마이뮤직</a></li>
         </ul>
       </div>
@@ -108,7 +108,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInLeftBig">
-            <h2>Footer 구현 창</h2>
+            <h2>구현 창</h2>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">

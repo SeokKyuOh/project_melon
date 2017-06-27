@@ -1,36 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Melon:������ �ʿ��� ����</title>
-        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <title>Melon:음악이 필요한 순간</title>
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel="stylesheet" type='text/css'>
         <link rel="stylesheet" type="text/css" href="assets/css/join.css">
     </head>
     <body>
 
-      <form action="index.html" method="post">
+      <form method="post" action="join_ok.do" name="join_frm">
       
-        <h1>ȸ������</h1>
+        <h1>회원가입</h1>
         
         <fieldset>
-          <label for="name">���̵�</label>
-          <input type="text" id="nick" name="user_nick">
+          <label for="nick">아이디</label>
+          <input type="text" id="nick" name="user_nick" required>
+          <input type="button" value="ID 중복체크" id="idcheckBtn">
                     
-          <label for="password">��й�ȣ</label>
-          <input type="password" id="password" name="user_password">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" name="user_password" required>
+          재입력
           <input type="password" id="password_check" name="user_password_check">
-          <label for="password">��й�ȣ�� ��ġ�մϴ�/���մϴ�.</label>
+          <label for="password">비밀번호가 일치합니다/안합니다.</label>
+                    
+          <label for="mail">이메일</label>
+          <input type="email" id="mail" name="user_email" required>
           
-          <label for="mail">�̸���</label>
-          <input type="email" id="mail" name="user_email">
+          <label for="name">이름</label>
+          <input type="text" id="name" name="user_name" required>
           
-          <label>����</label>
-          <input type="radio" id="genderM" value="genderM" name="gender">����&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="radio" id="genderF" value="genderF" name="gender">����
+          <label>성별</label>
+          <input type="radio" id="genderM" value="genderM" name="gender" checked>남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio" id="genderF" value="genderF" name="gender">여자
           
-          <label for="phone">��ȭ��ȣ</label>
-          <select id="phone1" name="user_phone1">
+          <label for="phone">전화번호</label>
+          <select id="phone1" name="user_phone1" required>
           	<option value="">010</option>
           	<option value="">011</option>
           	<option value="">016</option>
@@ -40,12 +47,12 @@
           <input type="phone" id="phone" name="user_phone2">-
           <input type="phone" id="phone" name="user_phone3">
           
-          <label for="birth">�������</label>
-          <input type="birth" id="birth" name="user_birth_year">��
-          <input type="birth" id="birth" name="user_birth_month">��
-          <input type="birth" id="birth" name="user_birth_day">��
+          <label for="birth">생년월일</label>
+          <input type="birth" id="birth" name="user_birth_year">년
+          <input type="birth" id="birth" name="user_birth_month">월
+          <input type="birth" id="birth" name="user_birth_day">일
           
-          <label for="addr">�ּ�</label>
+          <label for="addr">주소</label>
           <input type="addr" id="addr" name="user_addr">
         
         <!-- 
@@ -80,7 +87,7 @@
           <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
          -->
         </fieldset>
-        <button type="submit">�����ϱ�</button>
+        <button type="submit">가입하기</button>
       </form>
       
     </body>

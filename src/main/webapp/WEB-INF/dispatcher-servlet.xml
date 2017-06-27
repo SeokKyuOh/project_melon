@@ -27,6 +27,22 @@
 		p:sqlSessionFactory-ref="ssf"
 		p:mapperInterface="com.sist.playlist.dao.PlaylistMapper"
 	/>
+	
+	<!-- MemberMapper -->
+	<bean id="mMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:mapperInterface="com.sist.member.dao.MemberMapper"
+		p:sqlSessionFactory-ref="ssf"
+	/>
+	
+	<!-- BoardMapper -->
+	<bean
+		id="boardMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:sqlSessionFactory-ref="ssf"
+		p:mapperInterface="com.sist.board.dao.BoardMapper"
+	/>
+	
 
 	<mvc:annotation-driven>
 		<mvc:message-converters>
