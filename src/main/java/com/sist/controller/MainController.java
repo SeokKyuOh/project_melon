@@ -55,6 +55,11 @@ public class MainController {
 		return "main/member/join";
 	}
 	
+	@RequestMapping("main/login.do")
+	public String login_page(Model model){
+		return "main/member/login";
+	}
+	
 	
 }
 
