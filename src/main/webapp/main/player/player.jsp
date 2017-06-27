@@ -6,20 +6,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script type="text/javascript" src="../assets/js/soundmanager2.js"></script>
-<script src="../assets/js/bar-ui.js"></script>
-<link rel="stylesheet" href="bar-ui.css" />
+<script type="text/javascript" src="<c:url value="/resources/js/soundmanager2.js"/>"></script>
+<script src="<c:url value="/resources/js/bar-ui.js"/>"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<link rel="stylesheet" href="<c:url value="/resources/css/bar-ui.css"/>" />
 <script>
-	 
+	
 	var albumURL="http://211.238.142.109:8080/food/main/album_img/";
 	var songURL="http://211.238.142.109:8080/food/main/music/";
-
+	
+	$(function(){
+		var isImageClicked=false;
+		// 앨범 아트를 클릭하면 현재 재생되고 있는 곡의 가사 불러오기
+		$('#album').click(function(){
+			// 다시 클릭하면 원래 이미지대로 출력
+			if(isImageClicked==true){
+				$('#image').fadeTo(1000, 1);
+				isIageClicked==false;
+			}
+			else{
+				// 현재 재생되고 있는 곡인지 check
+				isImageClicked=true;	
+				// 이미지의 투명도(opacity)를 낮추고 가사 출력
+				$('#image').fadeTo(1000, 0.4);	
+			}
+		});
+	});
+	
 </script>
 </head>
 <body>
 	<!-- 앨범아트 및 가사 구현 -->
-	<div>
-		<img src="http://211.238.142.109:8080/food/main/album_img/1884049.jpg" width=450 height=400>
+	<!-- 선택된 곡이 여러개일 경우 가장 위에 있는 곡의 앨범아트, 곡 하나를 클릭해 추가되었을 경우 해당 곡의 앨범아트 -->
+	<div id="album">
+		<%-- <c:set var="playlist" value="${playlist }"/> --%>
+		<%-- <c:out value="playlist.music_number"/> --%>
+		<%-- <img src="http://211.238.142.109:8080/food/main/album_img/${playlist.album_art }.jpg" width=450 height=400> --%>
+		<!-- <img src="/cover/album.jpg" width=450 height=400> -->
+		<img src="../main/player/album.jpg" id="image" width=450 height=400>
 	</div>
 	<div class="sm2-bar-ui playlist-open">
 		<div class="bd sm2-main-controls">
@@ -108,19 +132,20 @@
 					<!-- 211.238.142.109:8080/food/main/music/18360609.mp3 
 					../song/01. Amazons of Themyscira.mp3
 					-->
-					<!-- 
+					<!--  
 					<li><a href="http://211.238.142.109:8080/food/main/music/18360609.mp3">Amazons
 							of Themyscira</a></li>
-					<li><a href="../player/song/02. History Lesson.mp3">History
+					<li><a href="song/02. History Lesson.mp3">History
 							Lesson</a></li>
-					<li><a href="../player/song/02. History Lesson.mp3">Angel on
+					<li><a href="song/02. History Lesson.mp3">Angel on
 							the Wing</a>
 					</li>
 					 -->
-					<c:forEach var=vo items=playlist>
-						<li>
-							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }">
-								${vo.music_name }
+					 
+					<c:forEach var="vo" items="${playlist}">
+						<li id="${vo.music_number }">
+							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }.mp3">
+								${vo.music_name } - ${vo.music_artist }
 							</a>
 						</li>
 					</c:forEach>

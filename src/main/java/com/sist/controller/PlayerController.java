@@ -20,6 +20,13 @@ public class PlayerController {
 	public String getPlaylist(int member_id, Model model){
 		// Playlist, Playlist_music, Album, Music 조인한 결과 가져오기
 		List<PlaylistMusicVO> playlist=playlistDAO.getPlaylist(member_id);
+		System.out.println(playlist.get(0).getAlbum_art());
+		/*// music_number만 number로 값을 저장하기 때문에 변환 필요
+		for(int i=0; i<playlist.size(); i++){
+			String music_number=Integer.toString(playlist.get(i).getMusic_number());
+			
+		}*/
+		
 		model.addAttribute("playlist", playlist);
 		return "main/player/player";
 	}

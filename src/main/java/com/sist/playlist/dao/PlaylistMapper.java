@@ -21,23 +21,25 @@ public interface PlaylistMapper {
 		inner join MUSIC m on playlist_music.music_id=m.music_id inner join ALBUM a on m.album_id=a.album_id;
 	*/
 	// 회원의 플레이리스트 목록 가져오기
-/*	@Results( //Results가 Select 바로 위에 있으면 조인을 의미
+/*
+	@Results( //Results가 Select 바로 위에 있으면 조인을 의미
 			{
 			@Result(property="playlist_music_id", column="playlist_music_id"),
-			@Result(property="p.playlist_id", column="playlist_id"),
-			@Result(property="m.music_number", column="music_number"),
-			@Result(property="p.member_id", column="member_id"),
-			@Result(property="m.music_name", column="music_name"),
-			@Result(property="m.music_artist", column="music_artist"),
-			@Result(property="m.music_lyrics", column="music_lyrics"),
-			@Result(property="a.album_name", column="album_name")
+			@Result(property="playlist_id", column="playlist_id"),
+			@Result(property="music_number", column="music_number"),
+			@Result(property="member_id", column="member_id"),
+			@Result(property="music_name", column="music_name"),
+			@Result(property="music_artist", column="music_artist"),
+			@Result(property="music_lyrics", column="music_lyrics"),
+			@Result(property="album_name", column="album_name")
 			}
 	)
-*/	
-	@Select("select playlist_music_id, playlist_id, music_number,"
-			+"member_id,"
-			+"music_name, music_artist, music_lyrics,"
-			+"album_name, album_art "
+
+*/
+	@Select("select playlist_music_id, p.playlist_id, m.music_number,"
+			+"p.member_id,"
+			+"m.music_name, m.music_artist, m.music_lyrics,"
+			+"a.album_name, a.album_art "
 			+"from playlist_music full outer join PLAYLIST p on playlist_music.playlist_id=p.playlist_id "
 			+"inner join MUSIC m on playlist_music.music_id=m.music_id "
 			+"inner join ALBUM a on m.album_id=a.album_id "
