@@ -28,6 +28,16 @@
 		p:sqlSessionFactory-ref="ssf"
 	/>
 
+
+
+	<bean
+		id="boardMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:sqlSessionFactory-ref="ssf"
+		p:mapperInterface="com.sist.board.dao.BoardMapper"
+	/>
+	
+
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<!-- @ResponseBody로 String 처리할때 한글처리 -->

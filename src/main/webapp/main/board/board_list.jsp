@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,9 +14,7 @@
 		<h3>게시판 목록</h3>
 		<table id="table_content" width=700>
 			<tr>
-				<td align=left>
-					<a href="board_insert.do">새글</a>
-				</td>
+				<td align=left><a href="board_insert.do">새글</a></td>
 			</tr>
 		</table>
 		<table id="table_content" width=700>
@@ -28,30 +26,21 @@
 				<th width=10%>조회수</th>
 			</tr>
 			<c:forEach var="vo" items="${list}">
-				<tr class="dataTr"><!-- 갖다대면 색깔 변하는. -->
-					<td width=10% align=center>${vo.no}</td>
-					<td width=45%>	
-						<a href="board_content.do?no=${vo.no }&page=${curpage}">${vo.subject}</a><!-- 수정한 위치와 답변 올린 위치로 다시 돌아가야하기때문에 page를 주는것! -->			
-						<c:if test="${vo.replycount>0 }">
-							(${vo.replycount })
-						</c:if>
-					</td>
-					<td width=15% align=center>${vo.name}</td>
-					<td width=20% align=center>
-						<fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
-					</td>
-					<td width=10% align=center>${vo.hit}</td>
+				<tr class="dataTr">
+					<!-- 갖다대면 색깔 변하는. -->
+					<td width=10% align=center>${vo.boardType_id}</td>
+					<td width=45%><a href="board_content.do?board_id=${vo.board_id }">${vo.board_title}</a></td>
+					<td width=15% align=center>${vo.board_writer}</td>
+					<td width=20% align=center><fmt:formatDate
+							value="${vo.board_regdate}" pattern="yyyy-MM-dd" /></td>
+					<td width=10% align=center>${vo.board_hit}</td>
 				</tr>
 			</c:forEach>
 		</table>
 		<table border=0 width=700>
 			<tr>
-				<td align=left>
-					
-				</td>
-				<td align=right>
-					
-				</td>
+				<td align=left></td>
+				<td align=right></td>
 			</tr>
 		</table>
 	</center>
