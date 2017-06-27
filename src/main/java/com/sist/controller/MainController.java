@@ -52,7 +52,7 @@ public class MainController {
 	@RequestMapping("main/join.do")
 	public String join_page(Model model){
 		model.addAttribute("main_jsp", "member/join.jsp");
-		return "main/main";
+		return "main/member/join";
 	}
 	
 	

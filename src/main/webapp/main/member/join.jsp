@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Melon:음악이 필요한 순간</title>
-        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href="assets/css/join.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel="stylesheet" type='text/css'>
+        <link rel="stylesheet" type="text/css" href="../assets/css/join.css">
     </head>
     <body>
 

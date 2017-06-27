@@ -108,7 +108,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInLeftBig">
-            <h2>Footer 구현 창</h2>
+            <h2>구현 창</h2>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
