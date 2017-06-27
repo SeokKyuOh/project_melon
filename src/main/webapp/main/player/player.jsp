@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,14 +13,13 @@
 	 
 	var albumURL="http://211.238.142.109:8080/food/main/album_img/";
 	var songURL="http://211.238.142.109:8080/food/main/music/";
-	
 
 </script>
 </head>
 <body>
 	<!-- 앨범아트 및 가사 구현 -->
 	<div>
-		<img src="../player/cover/album.jpg" width=450 height=400>
+		<img src="http://211.238.142.109:8080/food/main/album_img/1884049.jpg" width=450 height=400>
 	</div>
 	<div class="sm2-bar-ui playlist-open">
 		<div class="bd sm2-main-controls">
@@ -108,13 +108,22 @@
 					<!-- 211.238.142.109:8080/food/main/music/18360609.mp3 
 					../song/01. Amazons of Themyscira.mp3
 					-->
-					<li><a href="211.238.142.109:8080/food/main/music/18360609.mp3">Amazons
+					<!-- 
+					<li><a href="http://211.238.142.109:8080/food/main/music/18360609.mp3">Amazons
 							of Themyscira</a></li>
-					<li><a href="..player/song/02. History Lesson.mp3">History
+					<li><a href="../player/song/02. History Lesson.mp3">History
 							Lesson</a></li>
-					<li><a href="/song/03. Angel on the Wing.mp3">Angel on
+					<li><a href="../player/song/02. History Lesson.mp3">Angel on
 							the Wing</a>
 					</li>
+					 -->
+					<c:forEach var=vo items=playlist>
+						<li>
+							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }">
+								${vo.music_name }
+							</a>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 			<div class="sm2-extra-controls">
