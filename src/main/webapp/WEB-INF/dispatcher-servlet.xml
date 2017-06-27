@@ -35,11 +35,7 @@
 		p:sqlSessionFactory-ref="ssf"
 	/>
 	
-	
-	
-
-
-
+	<!-- BoardMapper -->
 	<bean
 		id="boardMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean"
