@@ -14,7 +14,7 @@ public class MemberController {
 	@Autowired
 	private MemberDAO dao;
 	
-	@RequestMapping("main/login.do")
+	@RequestMapping("main/login_ok.do")
 	public String member_login(String member_nick, String member_pwd, HttpSession session, Model model){
 		int idCount=dao.memberIdCheck(member_nick);
 		String res="";
@@ -37,6 +37,7 @@ public class MemberController {
 		return "main/member/login_ok";
 	}
 	
+<<<<<<< HEAD
 	//회원가입
 	@RequestMapping("main/join.do")
 	public String join_page(Model model){
@@ -59,4 +60,10 @@ public class MemberController {
 		return "main/member/idcheck_result";
 	}
 
+=======
+	@RequestMapping("main/logout.do")
+	public String member_logout(){
+		return ""; //여기할거야~(유경)	
+	}
+>>>>>>> d49e12f6e4b98118f506dd309222ce5d71fcaff6
 }

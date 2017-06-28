@@ -24,8 +24,8 @@
 	<!-- PlaylistMapper -->
 	<bean id="pMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.sist.playlist.dao.PlaylistMapper"
 		p:sqlSessionFactory-ref="ssf"
+		p:mapperInterface="com.sist.playlist.dao.PlaylistMapper"
 	/>
 	
 	<!-- MemberMapper -->
@@ -56,6 +56,9 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+	
+	<!-- 앞으로 css, js, img, png파일들은 모두 /webapp/resources에 저장합시다! -->
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"

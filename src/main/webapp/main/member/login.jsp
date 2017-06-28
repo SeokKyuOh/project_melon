@@ -15,8 +15,8 @@
       
         <h1>로그인</h1>
         
-          <input type="text" id="nick" name="user_nick"  placeholder="아이디" required>
-          <input type="password" id="password" name="user_password" placeholder="비밀번호" required>
+          <input type="text" id="nick" name="member_nick"  placeholder="아이디" required>
+          <input type="password" id="password" name="member_pwd" placeholder="비밀번호" required>
           <h5 style="text-align: center"> <a href="#">아이디찾기</a>   |   <a href="#">비밀번호찾기</a>   |   <a href="join.do">회원가입</a></h1>
           
 

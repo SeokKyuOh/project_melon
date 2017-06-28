@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Select;
 
 public interface MemberMapper {
 	//비밀번호 확인
-	@Select("SELECT pwd FROM members WHERE member_nick=#{member_nick}")
+	@Select("SELECT member_pwd FROM members WHERE member_nick=#{member_nick}")
 	public String memberGetPwd(String member_nick);
 	
 	//로그인 (중복) 체크
