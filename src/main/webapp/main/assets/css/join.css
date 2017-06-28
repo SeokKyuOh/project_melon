@@ -25,8 +25,7 @@ h1 {
 
 
 input[type="phone"],
-input[type="birth"],
-input[type="addr"],
+input[type="post"],
 textarea,
 select {
   background: rgba(255,255,255,0.1);

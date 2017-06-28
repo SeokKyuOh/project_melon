@@ -1,14 +1,6 @@
 package com.sist.controller;
 
-<<<<<<< HEAD
-import org.springframework.stereotype.Controller;
-
-@Controller
-public class MemberController {
-	
-=======
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,5 +36,27 @@ public class MemberController {
 		model.addAttribute("res", res);
 		return "main/member/login_ok";
 	}
->>>>>>> c1ee099ab4a1ed40331eb9e125b2ca51118c41fd
+	
+	//회원가입
+	@RequestMapping("main/join.do")
+	public String join_page(Model model){
+		model.addAttribute("main_jsp", "member/join.jsp");		
+		return "main/member/join";
+	}
+	
+	//아이디 체크
+	@RequestMapping("main/idcheck.do")
+	public String member_idcheck(){
+		return "main/member/idcheck";
+	}
+	
+	//아이디 체크 확인
+	@RequestMapping("main/idcheck_result.do")
+	public String member_idcheck_result(String member_nick, Model model){
+		int count=dao.memberIdCheck(member_nick);
+		model.addAttribute("count", count);
+		model.addAttribute("member_nick", member_nick);
+		return "main/member/idcheck_result";
+	}
+
 }

@@ -49,7 +49,7 @@
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
           <div align="right">
           	<input type="button" value="로그인"  style="width:170px; height:70px">
-          	<a href="login.do">회원가입</a>
+          	<a href="login_go.do">회원가입</a>
             <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>
             
           </div>

@@ -49,13 +49,8 @@ public class MainController {
 		return "main/main";
 	}
 	
-	@RequestMapping("main/join.do")
-	public String join_page(Model model){
-		model.addAttribute("main_jsp", "member/join.jsp");		
-		return "main/member/join";
-	}
 	
-	@RequestMapping("main/login.do")
+	@RequestMapping("main/login_go.do")
 	public String login_page(Model model){
 		return "main/member/login";
 	}
