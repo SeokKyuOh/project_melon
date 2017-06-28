@@ -21,6 +21,14 @@
 <script src="assets/js/html5shiv.min.js"></script>
 <script src="assets/js/respond.min.js"></script>
 <![endif]-->
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#logoutBtn').click(function(){
+		$('#logoutForm').submit();
+	});
+});
+</script>
 </head>
 <body>
 <div id="preloader">
@@ -56,7 +64,9 @@
           <c:if test="${sessionScope.nick!=null}">
 	          <div align="right">
 	          	<h5>${sessionScope.name }(${ sessionScope.nick})님 환영합니다</h5>
-	            <h6><a href="logout.do">로그아웃</a></h6>          
+	            <form method=post action="logout.do" id=logoutForm>
+	            <input type=button value="로그아웃" id=logoutBtn>   
+	            </form>       
 	          </div>
           </c:if>
         </div>
