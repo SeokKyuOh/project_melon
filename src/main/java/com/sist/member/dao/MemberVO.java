@@ -17,8 +17,14 @@ public class MemberVO {
 	private String phone2;
 	private String addr1;
 	private String addr2;
+	private String member_post;
 	
-	
+	public String getMember_post() {
+		return member_post;
+	}
+	public void setMember_post(String member_post) {
+		this.member_post = member_post;
+	}
 	public String getPhone1() {
 		return phone1;
 	}
