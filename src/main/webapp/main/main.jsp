@@ -21,6 +21,14 @@
 <script src="assets/js/html5shiv.min.js"></script>
 <script src="assets/js/respond.min.js"></script>
 <![endif]-->
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#logoutBtn').click(function(){
+		$('#logoutForm').submit();
+	});
+});
+</script>
 </head>
 <body>
 <div id="preloader">
@@ -47,12 +55,20 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
-          <div align="right">
-          	<input type="text" placeholder="Id*"><br>
-            <input type="password" placeholder="Password*"><br>
-            <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>
-            <input type="button" value="로그인"  style="width:170px">
-          </div>
+          <c:if test="${sessionScope.nick==null}">
+	          <div align="right">
+	          	<a href="login.do"><input type="button" class="btn btn-theme" value="로그인"></a>
+	            <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>          
+	          </div>
+          </c:if>
+          <c:if test="${sessionScope.nick!=null}">
+	          <div align="right">
+	          	<h5>${sessionScope.name }(${ sessionScope.nick})님 환영합니다</h5>
+	            <form method=post action="logout.do" id=logoutForm>
+	            <input type=button value="로그아웃" id=logoutBtn>   
+	            </form>       
+	          </div>
+          </c:if>
         </div>
       </div>
     </div>

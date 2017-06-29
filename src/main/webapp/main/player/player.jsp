@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sist.playlist.dao.PlaylistMusicVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -6,21 +9,89 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script type="text/javascript" src="../assets/js/soundmanager2.js"></script>
-<script src="../assets/js/bar-ui.js"></script>
-<link rel="stylesheet" href="bar-ui.css" />
+<script type="text/javascript" src="<c:url value="/resources/js/soundmanager2.js"/>"></script>
+<script src="<c:url value="/resources/js/bar-ui.js"/>"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<link rel="stylesheet" href="<c:url value="/resources/css/bar-ui.css"/>" />
 <script>
-	 
+	
 	var albumURL="http://211.238.142.109:8080/food/main/album_img/";
-	var songURL="http://211.238.142.109:8080/food/main/music/";
-
+	var musicURL="http://211.238.142.109:8080/food/main/music/";
+	
+	var isImageClicked=0;		// 앨범아트 클릭 여부 확인
+	
+	$(function(){
+		$('#lyrics').hide();
+		
+		// 앨범 아트를 클릭하면 현재 재생되고 있는 곡의 가사 불러오기
+		$('#album').click(function(){
+			if(isImageClicked==0){
+				//alert(isImageClicked);
+				isImageClicked++;
+				$('#image').fadeTo(1000, 0.4);
+				$('#lyrics').show();
+			}
+			// 다시 클릭하면 원래 이미지대로 출력
+			else{
+				//alert(isImageClicked);
+				isImageClicked--;
+				$('#image').fadeTo(1000, 1);
+				// 이미지의 투명도(opacity)를 낮추고 가사 출력
+				$('#lyrics').hide();
+				
+				// 현재 재생되고 있는 곡인지 check -> <li> 클릭 시 index로 구분
+			}
+		});
+		/* 
+		$('.sm2-playlist-bd').find('li').each(function(){
+			
+		});
+		 */
+		// 현재 재생되고 있는 곡인지 check -> <li> 클릭 시 index로 구분
+		// 각 곡을 클릭하면 곡에 해당하는 앨범아트와 가사 가져오기
+		$("li").click(function(){
+			var index=$("li").index(this);
+			//alert(index);
+			//$("li:eq("+index+")")
+			//var url=$("#image").attr("src");
+			//alert(url);
+			
+			// 앨범아트 바꾸기(추후 클릭한 곡의 album_art url 넣기)
+			var album_art="${playlist[0].album_art}";
+			//$("#image").attr("src", "../main/player/album"+index+".jpg");
+			$("#image").attr("src", albumURL+album_art+".jpg");
+			//alert(album_art);
+			
+			// 가사 바꾸기
+			var lyrics="${playlist[0].music_lyrics}";
+			alert(lyrics);
+		})
+	});
+	
 </script>
 </head>
 <body>
+
 	<!-- 앨범아트 및 가사 구현 -->
-	<div>
-		<img src="http://211.238.142.109:8080/food/main/album_img/1884049.jpg" width=450 height=400>
+	<!-- 선택된 곡이 여러개일 경우 가장 위에 있는 곡의 앨범아트, 곡 하나를 클릭해 추가되었을 경우 해당 곡의 앨범아트 -->
+	<div id="album" style="position:relative; width:450px; height:400">
+		<c:set var="album_art" value="${playlist[0].album_art }"/>
+		<c:set var="lyric" value="${playlist[0].music_lyrics }"/>
+		<%-- <img id="image" src="http://211.238.142.109:8080/food/main/album_img/${album_art}.jpg" width=450 height=400> --%>
+		<img src="../main/player/album.jpg" id="image" width=450 height=400>
+		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:20%; left:50%">
+			<p>
+				${lyric }
+			</p>
+		</div>
 	</div>
+<!-- 	
+	<div id="lyrics" style="overflow-y:scroll; overflow-x:hidden; background-color:blue; width:450px; height:400" >
+		111111111111111111111<br>
+		111111111111111111111<br>
+		111111111111111111111<br>
+	</div>
+-->
 	<div class="sm2-bar-ui playlist-open">
 		<div class="bd sm2-main-controls">
 			<div class="sm2-inline-texture"></div>
@@ -108,22 +179,25 @@
 					<!-- 211.238.142.109:8080/food/main/music/18360609.mp3 
 					../song/01. Amazons of Themyscira.mp3
 					-->
-					<!-- 
+					<!--  
 					<li><a href="http://211.238.142.109:8080/food/main/music/18360609.mp3">Amazons
 							of Themyscira</a></li>
-					<li><a href="../player/song/02. History Lesson.mp3">History
+					<li><a href="song/02. History Lesson.mp3">History
 							Lesson</a></li>
-					<li><a href="../player/song/02. History Lesson.mp3">Angel on
+					<li><a href="song/02. History Lesson.mp3">Angel on
 							the Wing</a>
 					</li>
 					 -->
-					<c:forEach var=vo items=playlist>
-						<li>
-							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }">
-								${vo.music_name }
+					 
+					<c:forEach var="vo" items="${playlist}" varStatus="status">
+						<%-- <li id="${vo.music_number }"> --%>
+						<li id="${status.index }">
+							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }.mp3">
+								${vo.music_name } - ${vo.music_artist }
 							</a>
 						</li>
 					</c:forEach>
+					
 				</ul>
 			</div>
 			<div class="sm2-extra-controls">
