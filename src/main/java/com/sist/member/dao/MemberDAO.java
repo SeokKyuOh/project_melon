@@ -1,5 +1,7 @@
 package com.sist.member.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +21,15 @@ public class MemberDAO {
 	public MemberVO memberInfoData(String member_nick){
 		return mMapper.memberInfoData(member_nick);
 	}
+	
+	public List<ZipcodeVO> zipcodeListData(String dong){
+		return mMapper.zipcodeListData(dong);
+	}
+	
+	public void memberInsert(MemberVO vo){
+		mMapper.memberInsert(vo);
+		
+	}
+	
+	
 }

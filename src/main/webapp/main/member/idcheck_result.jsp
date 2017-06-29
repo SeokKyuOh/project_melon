@@ -1,16 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="assets/css/table.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#okBtn').click(function(){
-		parent.join_frm.id.value=$('#id').val();			//parent´Â ÇöÀç join.jsp¿¡¼­ ¶ç¿î°ÍÀÌ±â ¶§¹®¿¡ °Â´Ù.
+		parent.join_frm.member_nick.value=$('#member_nick').val();			//parentëŠ” í˜„ì¬ join.jspì—ì„œ ë„ìš´ê²ƒì´ê¸° ë•Œë¬¸ì— ê±”ë‹¤.
 		parent.Shadowbox.close();
 	});
 });
@@ -19,25 +20,25 @@ $(function(){
 <body>
 	<center>
 		<table id="table_content" width=300>
-			<c:if test="${count==0 }">		<!-- id Áßº¹Ã¼Å© ¾È°É·ÈÀ»¶§ -->
+			<c:if test="${count==0 }">		<!-- id ì¤‘ë³µì²´í¬ ì•ˆê±¸ë ¸ì„ë•Œ -->
 				<tr>
 					<td align=center>
 						<font color=yellow>
-							${id }´Â(Àº) »ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù.
+							${member_nick }ëŠ”(ì€) ì‚¬ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 						</font>
 					</td>
 				</tr>
 				<tr>
 					<td align=center>
-						<input type=button value="È®ÀÎ" id="okBtn">
+						<input type=button value="í™•ì¸" id="okBtn">
 					</td>
 				</tr>
 			</c:if>
-			<c:if test="${count!=0 }">		<!-- id Áßº¹Ã¼Å© °É·ÈÀ»¶§ -->
+			<c:if test="${count!=0 }">		<!-- id ì¤‘ë³µì²´í¬ ê±¸ë ¸ì„ë•Œ -->
 				<tr>
 					<td align=cent>
 						<font color=blue>
-							${id }´Â(Àº) ÀÌ¹Ì »ç¿ëÁßÀÔ´Ï´Ù.
+							${member_nick }ëŠ”(ì€) ì´ë¯¸ ì‚¬ìš©ì¤‘ì…ë‹ˆë‹¤.
 						</font>
 					</td>
 				</tr>

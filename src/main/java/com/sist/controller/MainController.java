@@ -49,23 +49,11 @@ public class MainController {
 		return "main/main";
 	}
 	
-<<<<<<< HEAD
-	
-	@RequestMapping("main/login_go.do")
-=======
-	@RequestMapping("main/join.do")
-	public String join_page(Model model){
-		model.addAttribute("main_jsp", "member/join.jsp");		
-		return "main/member/join";
-	}
-/*	
 	@RequestMapping("main/login.do")
->>>>>>> d49e12f6e4b98118f506dd309222ce5d71fcaff6
 	public String login_page(Model model){
 		return "main/member/login";
 	}
-	
-*/	
+
 }
 
 

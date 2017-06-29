@@ -47,14 +47,6 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
-<<<<<<< HEAD
-          <div align="right">
-          	<input type="button" value="로그인"  style="width:170px; height:70px">
-          	<a href="login_go.do">회원가입</a>
-            <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>
-            
-          </div>
-=======
           <c:if test="${sessionScope.nick==null}">
 	          <div align="right">
 	          	<a href="login.do"><input type="button" class="btn btn-theme" value="로그인"></a>
@@ -67,7 +59,6 @@
 	            <h6><a href="logout.do">로그아웃</a></h6>          
 	          </div>
           </c:if>
->>>>>>> d49e12f6e4b98118f506dd309222ce5d71fcaff6
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 package com.sist.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
+import com.sist.member.dao.ZipcodeVO;
 
 @Controller
 public class MemberController {
@@ -37,12 +40,26 @@ public class MemberController {
 		return "main/member/login_ok";
 	}
 	
-<<<<<<< HEAD
-	//회원가입
+	@RequestMapping("main/logout.do")
+	public String member_logout(){
+		return ""; //여기할거야~(유경)	
+	}
+	
+	//회원가입 연결
 	@RequestMapping("main/join.do")
 	public String join_page(Model model){
 		model.addAttribute("main_jsp", "member/join.jsp");		
 		return "main/member/join";
+	}
+	//회원가입 완료
+	@RequestMapping("main/join_ok.do")
+	public String member_join_ok(MemberVO vo, Model model){
+		vo.setMember_phone(vo.getMember_phone1()+"-"+vo.getMember_phone2()+"-"+vo.getMember_phone3());
+		vo.setMember_post(vo.getMember_post1()+"-"+vo.getMember_post2());
+		vo.setMember_addr(vo.getMember_addr1()+"-"+vo.getMember_addr2());
+		dao.memberInsert(vo);
+		model.addAttribute("main_jsp", "member/join_ok.jsp");
+		return "main/main";
 	}
 	
 	//아이디 체크
@@ -59,11 +76,22 @@ public class MemberController {
 		model.addAttribute("member_nick", member_nick);
 		return "main/member/idcheck_result";
 	}
-
-=======
-	@RequestMapping("main/logout.do")
-	public String member_logout(){
-		return ""; //여기할거야~(유경)	
+	
+	//주소찾기
+	@RequestMapping("main/postfind.do")
+	public String member_postfind(){
+		return "main/member/postfind";
 	}
->>>>>>> d49e12f6e4b98118f506dd309222ce5d71fcaff6
+	
+	//주소찾으면 입력하기
+	@RequestMapping("main/postfind_result.do")
+	public String member_postfind_result(String dong, Model model){
+		System.out.println(dong);
+		List<ZipcodeVO> list=dao.zipcodeListData(dong);
+		model.addAttribute("list", list);
+		model.addAttribute("count", list.size());
+		return "main/member/postfind_result";
+	}
+
+	
 }

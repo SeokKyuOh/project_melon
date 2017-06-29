@@ -1,47 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="assets/css/table.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#idBtn').click(function(){
-		var id=$('#id').val();		//ÀÔ·ÂµÈ °ª °¡Á®¿À´Â °Í val
-		if(id.trim()==""){
-			alert("ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
-			$('#id').focus();
+		var member_nick=$('#member_nick').val();		//ìž…ë ¥ëœ ê°’ ê°€ì ¸ì˜¤ëŠ” ê²ƒ val
+		if(member_nick==""){
+			alert("IDë¥¼ ìž…ë ¥í•˜ì„¸ìš”");
+			$('#member_nick').focus();
 			return;
 		}
-		
-		/*
-			HttpRequest => req
-			req.open(METHOD, URL, true)			//type, url
-			req.onreadystatechange=callback;
-			req.send("id="+id)							// data
-			
-			function callback(){
-				if(req.readystate==4){
-					if(req.status==200){
-						
-					}			
-				}
-			}
-			
-			À§ÀÇ ³»¿ëµéÀ» ¾Æ·¡ÀÇ ajax¿¡¼­ success¶ó´Â ÇÔ¼ö·Î ³¡³»¹ö¸°´Ù.
-		*/
-		
+				
 		$.ajax({
 			type:"POST",
 			url:"idcheck_result.do",
-			data:{"id":id},
+			data:{"member_nick":member_nick},
 			success:function(response){
-				$('#id_view').html(response);
-				// ¤¤ var dir=document.getElementById("");
-				//    dir.innerHTML=req.responseText;			ÀÌ°Í°ú °°Àº È¿°ú
+				$('#nick_view').html(response);
+				
 			}
 		});
 	});
@@ -55,12 +37,12 @@ $(function(){
 		<table id="table_content" width=300>
 			<tr>
 				<td align=left>
-					ID:<input type=text name=id size=12 id="id">
-					<input type=button value="¾ÆÀÌµðÃ¼Å©" id="idBtn">
+					ID:<input type=text name=member_nick size=12 id="member_nick">
+					<input type=button value="ì•„ì´ë””ì²´í¬" id="idBtn">
 				</td>
 			</tr>
 		</table>
-		<div id="id_view"></div>
+		<div id="nick_view"></div>
 	</center>
 </body>
 </html>
