@@ -18,8 +18,8 @@ public class MemberDAO {
 		return mMapper.memberIdCheck(member_nick);
 	}
 	
-	public MemberVO memberInfoData(String member_nick){
-		return mMapper.memberInfoData(member_nick);
+	public MemberVO memberAllData(String member_nick){
+		return mMapper.memberAllData(member_nick);
 	}
 	
 	public List<ZipcodeVO> zipcodeListData(String dong){

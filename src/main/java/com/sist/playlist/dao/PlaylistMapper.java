@@ -45,4 +45,5 @@ public interface PlaylistMapper {
 			+"inner join ALBUM a on m.album_id=a.album_id "
 			+"where p.member_id=#{member_id}")
 	public List<PlaylistMusicVO> getPlaylist(int member_id);
+	
 }
