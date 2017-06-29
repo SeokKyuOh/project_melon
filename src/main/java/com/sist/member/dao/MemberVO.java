@@ -14,7 +14,6 @@ public class MemberVO {
 	private String member_regdate;
 	private int member_cash;
 	
-<<<<<<< HEAD
 	private String member_phone1;
 	private String member_phone2;
 	private String member_phone3;
@@ -23,44 +22,6 @@ public class MemberVO {
 	private String member_post1;
 	private String member_post2;
 	
-=======
-	private String phone1;
-	private String phone2;
-	private String addr1;
-	private String addr2;
-	private String member_post;
-	
-	public String getMember_post() {
-		return member_post;
-	}
-	public void setMember_post(String member_post) {
-		this.member_post = member_post;
-	}
-	public String getPhone1() {
-		return phone1;
-	}
-	public void setPhone1(String phone1) {
-		this.phone1 = phone1;
-	}
-	public String getPhone2() {
-		return phone2;
-	}
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
-	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
->>>>>>> d4a1648799861afc7bf27e99df149097e7959444
 	public int getMember_id() {
 		return member_id;
 	}
