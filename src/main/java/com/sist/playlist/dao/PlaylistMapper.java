@@ -46,4 +46,7 @@ public interface PlaylistMapper {
 			+"where p.member_id=#{member_id}")
 	public List<PlaylistMusicVO> getPlaylist(int member_id);
 	
+	// 비회원 or 이용권이 없는 경우 playlist_music을 통해 값을 가져오지 않고 music_id로 가져옴!(1곡만 재생됨)
+	// 1분 미리듣기 구현 or 무료 재생 횟수 제한 걸기(session에 값 넣어놓기)
+	
 }

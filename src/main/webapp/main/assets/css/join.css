@@ -23,10 +23,9 @@ h1 {
   text-align: center;
 }
 
-
+/* 추가설정 */
 input[type="phone"],
-input[type="birth"],
-input[type="addr"],
+input[type="post"],
 textarea,
 select {
   background: rgba(255,255,255,0.1);
@@ -42,7 +41,21 @@ select {
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
 }
-
+/* 버튼 추가설정 */
+input[type="button"],
+select {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 12px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 20%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+}
 
 input[type="text"],
 input[type="password"],
