@@ -52,14 +52,16 @@ public class BoardController {
 		
 	}
 	
-/*	@RequestMapping("main/board_update.do")
+	@RequestMapping("main/board_update.do")
 	public String board_update(Model model,int board_id){
-		BoardVO vo = dao.
+		BoardVO vo = dao.boardUpdate(board_id);
+		model.addAttribute("vo", vo);
+		model.addAttribute("main_jsp", "board/board_update.jsp");
 		
 		
 		return "main/man";
 		
-	}*/
+	}
 	
 	
 	

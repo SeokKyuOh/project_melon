@@ -24,6 +24,10 @@ public class BoardDAO {
 		
 	}
 	
+	public BoardVO boardUpdate(int board_id){
+		return boardMapper.boardUpdate(board_id);
+		
+	}
 
 	
 	//insert

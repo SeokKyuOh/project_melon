@@ -14,7 +14,7 @@
 		DOM => 태그를 제어하는 프로그램
 		1)selector - 태그 갖고올 때 쓰는것
  
- 
+ */
  var fileIndex=0;
  $(function(){
  	$('#addBtn').click(function(){
@@ -35,7 +35,7 @@
  	});
  });
  
- */
+ 
 </script>
 </head>
 <body>
