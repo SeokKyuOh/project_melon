@@ -1,4 +1,4 @@
-@CHARSET "EUC-KR";
+@CHARSET "UTF-8";
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -24,25 +24,22 @@ h1 {
 }
 
 
-input[type="phone"],
-input[type="birth"],
-input[type="addr"],
-textarea,
-select {
-  background: rgba(255,255,255,0.1);
-  border: none;
+/* 버튼 추가설정 */
+input[type="button"] {
+  padding: 1px 5px 1px 5px;
+  color: #FFF;
+  background-color: #4bc970;
   font-size: 16px;
-  height: 40px;
-  margin: 0;
-  outline: 0;
-  padding: 15px;
-  width: 20%;
-  background-color: #e8eeef;
-  color: #8a97a0;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-  margin-bottom: 30px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 25%;
+  height: 50px;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 3px;
 }
-
 
 input[type="text"],
 input[type="password"],
@@ -75,7 +72,7 @@ input[type="checkbox"] {
 }
 
 select {
-  width: 20%;
+  width: 25%;
   padding: 6px;
   height: 40px;
   border-radius: 2px;

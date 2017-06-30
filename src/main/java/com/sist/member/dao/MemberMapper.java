@@ -1,5 +1,8 @@
 package com.sist.member.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 public interface MemberMapper {
@@ -7,7 +10,7 @@ public interface MemberMapper {
 	@Select("SELECT member_pwd FROM members WHERE member_nick=#{member_nick}")
 	public String memberGetPwd(String member_nick);
 	
-	//로그인 (중복) 체크
+	//로그인 (중복) 체크 결과값 0=없음, 1=있음
 	@Select("SELECT COUNT(*) FROM members WHERE member_nick=#{member_nick}")
 	public int memberIdCheck(String member_nick);
 	
@@ -19,4 +22,13 @@ public interface MemberMapper {
 		@Select("SELECT member_id,member_name, member_nick, member_phone, member_email, member_addr, member_nick, member_pwd, member_birthdate,member_gender,member_regdate,member_cash,member_post FROM members WHERE member_nick=#{member_nick}")
 		public MemberVO memberAllData(String member_nick);
 	
+	//주소입력
+	@Select("SELECT zipcode,sido,gugun,dong,NVL(bunji, ' ') as bunji FROM zipcode "
+			+ "WHERE dong LIKE '%'||#{dong}||'%'")
+	public List<ZipcodeVO> zipcodeListData(String dong);
+	
+	//회원가입 입력	(시퀀스 만들어야함)
+	@Insert("INSERT INTO members VALUES("
+			+ "members_seq.nextval, #{member_name}, #{member_phone}, #{member_email}, #{member_addr}, #{member_nick}, #{member_pwd},#{member_birthdate}, #{member_gender}, SYSDATE, 0, #{member_post})")
+	public void memberInsert(MemberVO vo);
 }

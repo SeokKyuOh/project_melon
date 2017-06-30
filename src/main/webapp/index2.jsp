@@ -37,13 +37,19 @@
 		ARIES </a>
 	</div>
 	<!-- Collect the nav links, forms, and other content for toggling -->
+
 	<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 		<ul class="nav navbar-nav">
 			<li>
-			<a href="index.html">Home</a>
+			<a href="index2.jsp">Home</a>
 			</li>
-			<li>
-			<a href="portfolio-item.html">Single Project</a>
+			
+			<li class="dropdown">
+			<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chart<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+      			<li><a href="#">일간</a></li>
+      			<li><a href="#">주간</a></li>
+    		</ul>
 			</li>
 			<li>
 			<a href="page-sample.html">Page Sample</a>
@@ -51,8 +57,15 @@
 			<li>
 			<a href="contact.html">Hire me</a>
 			</li>
+			<li>
+			<a href="contact.html">Chart</a>
+			</li>
+			<li>
+			<a href="contact.html">Chart</a>
+			</li>
 		</ul>
 	</div>
+
 	<!-- /.navbar-collapse -->
 </div>
 <!-- /.container -->
@@ -201,5 +214,8 @@
 <script src="resources/boot/js/jquery.easing.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="resources/boot/js/theme.js"></script>
+
+<!-- ajax, bootstrap -->
+
 </body>
 </html>

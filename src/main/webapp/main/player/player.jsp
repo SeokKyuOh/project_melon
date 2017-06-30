@@ -19,9 +19,15 @@
 	var musicURL="http://211.238.142.109:8080/food/main/music/";
 	
 	var isImageClicked=0;		// 앨범아트 클릭 여부 확인
-	
+	<%-- <%
+		List<PlaylistMusicVO> list=(List<PlaylistMusicVO>)request.getAttribute("playlist");
+		
+	%> --%>
 	$(function(){
 		$('#lyrics').hide();
+		
+		var album_art=[];
+		var music_lyrics=[];
 		
 		// 앨범 아트를 클릭하면 현재 재생되고 있는 곡의 가사 불러오기
 		$('#album').click(function(){
@@ -47,24 +53,27 @@
 			
 		});
 		 */
+		 
 		// 현재 재생되고 있는 곡인지 check -> <li> 클릭 시 index로 구분
 		// 각 곡을 클릭하면 곡에 해당하는 앨범아트와 가사 가져오기
-		$("li").click(function(){
-			var index=$("li").index(this);
+		$(".mclick").click(function(){
+			var index=$(this).attr("index");
+			var album_art=$(this).attr("album_art");
+			var music_lyrics=$(this).attr("music_lyrics");
 			//alert(index);
 			//$("li:eq("+index+")")
 			//var url=$("#image").attr("src");
 			//alert(url);
-			
+
 			// 앨범아트 바꾸기(추후 클릭한 곡의 album_art url 넣기)
-			var album_art="${playlist[0].album_art}";
-			//$("#image").attr("src", "../main/player/album"+index+".jpg");
-			$("#image").attr("src", albumURL+album_art+".jpg");
-			//alert(album_art);
-			
+			var album_replace="../main/player/cover/album.jpg";
+			$("#image").attr("src", album_replace);
+			//$("#image").attr("src", albumURL+album_art+".jpg");
+			$("#image").attr("src", "../main/player/cover/album"+index+".jpg");
 			// 가사 바꾸기
-			var lyrics="${playlist[0].music_lyrics}";
-			alert(lyrics);
+			var lyrics=lyrics;
+			alert(album_replace);
+			alert("album_art : "+album_art+", music_lyrics : "+music_lyrics);
 		})
 	});
 	
@@ -77,9 +86,9 @@
 	<div id="album" style="position:relative; width:450px; height:400">
 		<c:set var="album_art" value="${playlist[0].album_art }"/>
 		<c:set var="lyric" value="${playlist[0].music_lyrics }"/>
-		<%-- <img id="image" src="http://211.238.142.109:8080/food/main/album_img/${album_art}.jpg" width=450 height=400> --%>
-		<img src="../main/player/album.jpg" id="image" width=450 height=400>
-		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:20%; left:50%">
+		<%-- <img id="image" src="http://211.238.142.109:8080/food/main/album_img/${album_art}.jpg" width=450 height=400>  --%>
+		<img src="../main/player/cover/album1.jpg" id="image" width=450 height=400>
+		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:20%; left:45%">
 			<p>
 				${lyric }
 			</p>
@@ -191,7 +200,7 @@
 					 
 					<c:forEach var="vo" items="${playlist}" varStatus="status">
 						<%-- <li id="${vo.music_number }"> --%>
-						<li id="${status.index }">
+						<li class="mclick" album_art="${vo.album_art }" music_lyrics="${vo.music_lyrics}" index="${status.index }">
 							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }.mp3">
 								${vo.music_name } - ${vo.music_artist }
 							</a>
