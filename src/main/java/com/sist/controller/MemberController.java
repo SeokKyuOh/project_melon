@@ -29,7 +29,8 @@ public class MemberController {
 			if(member_pwd.equals(pwd_db)){
 				res="OK";
 				MemberVO vo=dao.memberAllData(member_nick);
-				session.setAttribute("nick", vo.getMember_nick());
+				session.setAttribute("membervo", vo);
+				/*session.setAttribute("nick", vo.getMember_nick());
 				session.setAttribute("name", vo.getMember_name());
 				session.setAttribute("id", vo.getMember_id());
 				session.setAttribute("phone", vo.getMember_phone());
@@ -40,7 +41,7 @@ public class MemberController {
 				session.setAttribute("gender", vo.getMember_gender());
 				session.setAttribute("regdate", vo.getMember_regdate());
 				session.setAttribute("cash", vo.getMember_cash());
-				session.setAttribute("post", vo.getMember_post());
+				session.setAttribute("post", vo.getMember_post());*/
 				
 			}else{
 				res="NOPWD";
