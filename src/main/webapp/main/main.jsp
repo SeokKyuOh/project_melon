@@ -55,20 +55,33 @@ $(function(){
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
+          <form action="post" class="contact_form">
+		  <div style="margin:5px 5px -90px 5px">
+		  <select class="form-control" style="width:12%">
+		  	<option>가수</option>
+          	<option>제목</option>
+          	<option>앨범</option>
+		  </select>
+          <input type="text" style="width:34%; height:40px ;margin:30px 5px -120px 5px" placeholder="  검색어를 입력하세요*">
+          <a href="search.do"><input type="button" class="btn btn-theme" value="검색"></a>
+          </form>
+          
+          </div>     
           <c:if test="${sessionScope.nick==null}">
-	          <div align="right">
+	          <div align="right" style="margin:60px 0px -20px 0px">
 	          	<a href="login.do"><input type="button" class="btn btn-theme" value="로그인"></a>
 	            <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>          
 	          </div>
           </c:if>
           <c:if test="${sessionScope.nick!=null}">
-	          <div align="right">
+	          <div align="right" style="margin:60px 0px -20px 0px">
 	          	<h5>${sessionScope.name }(${ sessionScope.nick})님 환영합니다</h5>
 	            <form method=post action="logout.do" id=logoutForm>
 	            <input type=button value="로그아웃" id=logoutBtn>   
 	            </form>       
 	          </div>
           </c:if>
+          </div>
         </div>
       </div>
     </div>
