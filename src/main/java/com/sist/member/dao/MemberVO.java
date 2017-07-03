@@ -6,6 +6,7 @@ public class MemberVO {
 	private String member_phone;
 	private String member_email;
 	private String member_addr;
+	private String member_post;
 	private String member_nick;
 	private String member_pwd;
 	private String member_birthdate;
@@ -13,42 +14,14 @@ public class MemberVO {
 	private String member_regdate;
 	private int member_cash;
 	
-	private String phone1;
-	private String phone2;
-	private String addr1;
-	private String addr2;
-	private String member_post;
+	private String member_phone1;
+	private String member_phone2;
+	private String member_phone3;
+	private String member_addr1;
+	private String member_addr2;
+	private String member_post1;
+	private String member_post2;
 	
-	public String getMember_post() {
-		return member_post;
-	}
-	public void setMember_post(String member_post) {
-		this.member_post = member_post;
-	}
-	public String getPhone1() {
-		return phone1;
-	}
-	public void setPhone1(String phone1) {
-		this.phone1 = phone1;
-	}
-	public String getPhone2() {
-		return phone2;
-	}
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
-	}
-	public String getAddr1() {
-		return addr1;
-	}
-	public void setAddr1(String addr1) {
-		this.addr1 = addr1;
-	}
-	public String getAddr2() {
-		return addr2;
-	}
-	public void setAddr2(String addr2) {
-		this.addr2 = addr2;
-	}
 	public int getMember_id() {
 		return member_id;
 	}
@@ -78,6 +51,12 @@ public class MemberVO {
 	}
 	public void setMember_addr(String member_addr) {
 		this.member_addr = member_addr;
+	}
+	public String getMember_post() {
+		return member_post;
+	}
+	public void setMember_post(String member_post) {
+		this.member_post = member_post;
 	}
 	public String getMember_nick() {
 		return member_nick;
@@ -115,6 +94,51 @@ public class MemberVO {
 	public void setMember_cash(int member_cash) {
 		this.member_cash = member_cash;
 	}
+	public String getMember_phone1() {
+		return member_phone1;
+	}
+	public void setMember_phone1(String member_phone1) {
+		this.member_phone1 = member_phone1;
+	}
+	public String getMember_phone2() {
+		return member_phone2;
+	}
+	public void setMember_phone2(String member_phone2) {
+		this.member_phone2 = member_phone2;
+	}
+	public String getMember_phone3() {
+		return member_phone3;
+	}
+	public void setMember_phone3(String member_phone3) {
+		this.member_phone3 = member_phone3;
+	}
+	public String getMember_addr1() {
+		return member_addr1;
+	}
+	public void setMember_addr1(String member_addr1) {
+		this.member_addr1 = member_addr1;
+	}
+	public String getMember_addr2() {
+		return member_addr2;
+	}
+	public void setMember_addr2(String member_addr2) {
+		this.member_addr2 = member_addr2;
+	}
+	public String getMember_post1() {
+		return member_post1;
+	}
+	public void setMember_post1(String member_post1) {
+		this.member_post1 = member_post1;
+	}
+	public String getMember_post2() {
+		return member_post2;
+	}
+	public void setMember_post2(String member_post2) {
+		this.member_post2 = member_post2;
+	}
+	
+	
+	
 	
 	
 }

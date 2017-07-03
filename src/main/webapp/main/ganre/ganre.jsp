@@ -7,20 +7,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>장르</title>
+ 
+  
 </head>
 <body>
 <section id="contentSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
-          <div class="contact_area">
-            <h2>내용</h2>
-            <p>장르 내용구성</p>
-            <form action="#" class="contact_form">
-              <input class="form-control" type="text" placeholder="Name*">
-              <input class="form-control" type="email" placeholder="Email*">
-              <textarea class="form-control" cols="30" rows="10" placeholder="Message*"></textarea>
-            </form>
+          <div class="container contact_area ">
+			  <p>The .table-hover class enables a hover state on table rows:</p>            
+			  
+			  <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>Firstname</th>
+			        <th>Lastname</th>
+			        <th>Email</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td>John</td>
+			        <td>Doe</td>
+			        <td>john@example.com</td>
+			      </tr>
+			      <tr>
+			        <td>Mary</td>
+			        <td>Moe</td>
+			        <td>mary@example.com</td>
+			      </tr>
+			      <tr>
+			        <td>July</td>
+			        <td>Dooley</td>
+			        <td>july@example.com</td>
+			      </tr>
+			    </tbody>
+			  </table>
+
           </div>
         </div>
       </div>

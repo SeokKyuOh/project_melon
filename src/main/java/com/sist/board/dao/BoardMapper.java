@@ -28,7 +28,7 @@ public interface BoardMapper {
 			+"board_title=#{board_title},board_content=#{board_content},"
 			+"board_regdate=#{board_regdate},board_hit=#{board_hit} "
 			+"WHERE board_id=#{board_id}")
-	public void boardUpdate(BoardVO vo);
+	public BoardVO boardUpdate(int board_id);
 	
 
 	

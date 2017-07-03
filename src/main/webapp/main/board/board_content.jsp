@@ -11,6 +11,64 @@
 <link rel="stylesheet" type="text/css" href="style/table.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="shadow/js/shadowbox.js"></script>
+<!-- <script type="text/javascript">
+	var i = 0;
+	var u = 0;
+	Shadowbox.init({
+		players:['iframe']
+	
+	});
+	$(function() {
+		var offset = $(".mytable").offset();
+		$('html, body').animate({
+			scrollTop : offset.top
+		}, 100);
+		$('.mytable').fadeIn("slow");
+		$('.modify').click(function() {
+			var no = $(this).attr("value");
+			if (u == 0) {
+				$('#u' + no).show();
+				u = 1;
+			} else {
+				$('#u' + no).hide();
+				u = 0;
+			}
+
+			var offset = $("#reply_view").offset();
+			$('html, body').animate({
+				scrollTop : offset.top
+			}, 100);
+			$('#reply_view').fadeIn("slow");
+		});
+		$('.insert').click(function() {
+			var no = $(this).attr("value");
+			if (i == 0) {
+				$('#i' + no).show();
+				i = 1;
+			} else {
+				$('#i' + no).hide();
+				i = 0;
+			}
+			var offset = $("#reply_view").offset();
+			$('html, body').animate({
+				scrollTop : offset.top
+			}, 'slow');
+
+		});
+		$('#del').click(function(){
+			var no=$('#del').attr("data1");
+			var page=$('#del').attr("data2");
+			Shadowbox.open({
+				content:'board_delete.do?no='+no+'&page='+page,
+				player:'iframe',
+				title:'삭제',
+				width:300,
+				height:150
+			});
+		});
+		
+	});
+</script> -->
 </head>
 <body>
 	<center>
@@ -49,13 +107,13 @@
 		</table>
 		<table id="table_content" width=600>
 			<tr>
-				<td align=right><a>수정</a>&nbsp; 
+				<td align=right><a href="board_update.do?board_id=1 ">수정</a>&nbsp; 
 					<a>삭제</a>&nbsp; 
-					<a>목록</a>
+					<a href="board_list.do?boardType_id=1">목록</a>
 				</td>
 			</tr>
 		</table>
-<%-- 		<div id="reply_view">
+<%--  		<div id="reply_view">
 			<table id="table_content" width=600>
 				<c:forEach var="rvo" items="${rList }">
 					<tr>
@@ -128,8 +186,8 @@
 					</tr>
 				</c:if>
 			</table>
-		</div> --%>
-	</center>
+		</div> 
+ --%>	</center>
 </body>
 </html>
 

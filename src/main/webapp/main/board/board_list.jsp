@@ -17,7 +17,7 @@
 				<td align=left><a href="board_insert.do">새글</a></td>
 			</tr>
 		</table>
-		<table id="table_content" width=700>
+		<table id="table_content" width=700 class="table_content table-striped">
 			<tr>
 				<th width=10%>번호</th>
 				<th width=45%>제목</th>
