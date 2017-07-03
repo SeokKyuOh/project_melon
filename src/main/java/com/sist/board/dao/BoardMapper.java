@@ -2,6 +2,7 @@ package com.sist.board.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -30,6 +31,15 @@ public interface BoardMapper {
 			+"WHERE board_id=#{board_id}")
 	public BoardVO boardUpdate(int board_id);
 	
-
+	  @Insert("INSERT INTO dataBoard VALUES("
+				 +"board_seq.nextval,#{},#{},"
+				 +"#{},#{},SYSDATE,0,"
+				 +"#{filename},#{filesize},#{filecount})")
+		  public void boardInsert(BoardVO vo);
+		  
+		  //삭제하기
+		  @Delete("DELETE FROM Board "
+		  		+ "WHERE board_id=#{board_id}")
+		  public void boardDelete(int board_id);
 	
 }
