@@ -31,8 +31,12 @@ public class BoardDAO {
 
 	
 	//insert
-/*	public void boardInsert(BoardVO vo){
-		boardMapper.bo
+	public void boardInsert(BoardVO vo){
+		boardMapper.boardInsert(vo);
 	}
-*/
+	//delete
+	public void boardDelete(int board_id){
+		
+		boardMapper.boardDelete(board_id);
+	}
 }

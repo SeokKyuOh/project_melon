@@ -55,6 +55,7 @@ $(function(){
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
+<<<<<<< HEAD
           <form action="post" class="contact_form">
 		  <div style="margin:5px 5px -90px 5px">
 		  <select class="form-control" style="width:12%">
@@ -69,13 +70,23 @@ $(function(){
           </div>     
           <c:if test="${sessionScope.nick==null}">
 	          <div align="right" style="margin:60px 0px -20px 0px">
+=======
+          <c:if test="${sessionScope.membervo.member_nick==null}">
+	          <div align="right">
+>>>>>>> 0ef7ea230a42c2976544b166265ec2d12d982699
 	          	<a href="login.do"><input type="button" class="btn btn-theme" value="로그인"></a>
 	            <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>          
 	          </div>
           </c:if>
+<<<<<<< HEAD
           <c:if test="${sessionScope.nick!=null}">
 	          <div align="right" style="margin:60px 0px -20px 0px">
 	          	<h5>${sessionScope.name }(${ sessionScope.nick})님 환영합니다</h5>
+=======
+          <c:if test="${sessionScope.membervo.member_nick!=null}">
+	          <div align="right">
+	          	<h5>${sessionScope.membervo.member_name }(${ sessionScope.membervo.member_nick})님 환영합니다</h5>
+>>>>>>> 0ef7ea230a42c2976544b166265ec2d12d982699
 	            <form method=post action="logout.do" id=logoutForm>
 	            <input type=button value="로그아웃" id=logoutBtn>   
 	            </form>       
