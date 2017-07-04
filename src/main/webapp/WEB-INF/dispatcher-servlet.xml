@@ -43,6 +43,13 @@
 		p:mapperInterface="com.sist.board.dao.BoardMapper"
 	/>
 	
+	<!-- SearchMapper -->
+	<bean
+		id="searchMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:sqlSessionFactory-ref="ssf"
+		p:mapperInterface="com.sist.search.dao.SearchMapper"
+	/>
 
 	<mvc:annotation-driven>
 		<mvc:message-converters>

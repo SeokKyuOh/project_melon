@@ -53,6 +53,12 @@ public class MainController {
 	public String login_page(Model model){
 		return "main/member/login";
 	}
+	/*
+	@RequestMapping("main/search.do")
+	public String search_page(Model model){
+		model.addAttribute("main_jsp", "search/search.jsp");
+		return "main/main";
+	}*/
 
 }
 
