@@ -87,17 +87,17 @@
 				<th width=20%>조회수</th>
 				<td width=30% align=center>${vo.board_hit}</td>
 			</tr>
-<%-- 			<c:if test="${vo.filecount>0 }">
+ 			<c:if test="${vo.board_filecount>0 }">
 				<tr>
 					<th width=20%>첨부파일</th>
 					<td colspan="3" align=left><c:forEach var="fvo"
-							items="${vo.fileList }">
-							<a href="board_download.do?fn=${fvo.filename}">${fvo.filename }</a>
-          (${fvo.filesize }Bytes)<br>
+							items="${vo.board_fileList }">
+							<a href="board_download.do?fn=${fvo.board_filename}">${fvo.board_filename }</a>
+          (${fvo.board_filesize }Bytes)<br>
 						</c:forEach></td>
 				</tr>
 			</c:if>
- --%>			<tr>
+			<tr>
 				<th width=20%>제목</th>
 				<td colspan="3" align=left>${vo.board_title }</td>
 			</tr>

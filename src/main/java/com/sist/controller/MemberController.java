@@ -17,6 +17,7 @@ public class MemberController {
 	@Autowired
 	private MemberDAO dao;
 	
+	//로그인
 	@RequestMapping("main/login_ok.do")
 	public String member_login(String member_nick, String member_pwd, HttpSession session, Model model){
 		int idCount=dao.memberIdCheck(member_nick);
@@ -51,11 +52,25 @@ public class MemberController {
 		return "main/member/login_ok";
 	}
 	
+	//로그아웃
 	@RequestMapping("main/logout.do")
 	public String member_logout(HttpSession session){
 		session.invalidate();
 		return "redirect:/main/main.do"; 
 	}
+	
+	//회원정보 수정창 띄우기
+		@RequestMapping("main/info_update.do")
+		public String member_info_update(){
+			return "main/mypage/info_update";
+		}
+		
+		//회원정보 수정 완료
+		@RequestMapping("main/info_update_ok.do")
+		public String member_info_update_ok(){
+			//mypage 페이지에 수정된 정보 넘기기. 세션에는?
+			return "main/mypage/mypage";
+		}
 	
 	//회원가입 연결
 	@RequestMapping("main/join.do")

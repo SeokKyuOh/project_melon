@@ -1,14 +1,17 @@
 package com.sist.controller;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sist.board.dao.BoardDAO;
 import com.sist.board.dao.BoardVO;
+
 
 @Controller
 public class BoardController {
@@ -45,12 +48,7 @@ public class BoardController {
 		
 		
 	}
-	@RequestMapping("main/board_insert.do")
-	public String board_insert(Model model){
-		model.addAttribute("main_jsp", "board/board_insert.jsp");
-		return "main/main";
-		
-	}
+
 	
 	@RequestMapping("main/board_update.do")
 	public String board_update(Model model,int board_id){
@@ -59,14 +57,51 @@ public class BoardController {
 		model.addAttribute("main_jsp", "board/board_update.jsp");
 		
 		
-		return "main/man";
+		return "main/main";
 		
+	}
+
+	@RequestMapping("main/board_insert.do")
+	public String board_insert(Model model){
+		model.addAttribute("main_jsp", "board/board_insert.jsp");
+		return "main/main";
+		
+	}
+	//insert,update(board_content),delete(board_list)
+	@RequestMapping("main/board_insert_ok.do")
+	public String board_insert_ok(BoardVO vo){
+		List<MultipartFile> list=vo.getUpload();
+		if(list==null){ //업로드 안된거
+			vo.setBoard_filename("");
+			vo.setBoard_filesize("");
+			vo.setBoard_filecount(0);
+		}else{ //업로드 된거
+			String strName="";
+			String strSize="";
+			for(MultipartFile mf:list){
+				try{
+					String filename=mf.getOriginalFilename();
+					File file=new File("c:\\melon1\\"+filename);
+					mf.transferTo(file);
+					int size=(int)file.length();
+					
+					strName+=filename+",";
+					strSize+=size+",";
+				}catch(Exception ex){
+					
+				}
+			}
+			vo.setBoard_filename(strName.substring(0, strName.lastIndexOf(",")));
+			vo.setBoard_filesize(strSize.substring(0, strSize.lastIndexOf(",")));
+			vo.setBoard_filecount(list.size());
+			
+			
+		}
+		dao.boardInsert(vo); //업로드 후 디비저장
+		return "redirect:/main/board_list.do"; //sendRedirect 
 	}
 	
 	
-	
-	
-	
-	
+
 		
 }

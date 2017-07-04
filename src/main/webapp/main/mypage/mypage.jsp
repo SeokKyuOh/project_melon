@@ -12,7 +12,7 @@
 <body>
 	<section id="contentSection">
 	<div class="row">
-		<div class="col-lg-8 col-md-8 col-sm-8">
+		<div class="col-lg-8 col-md-8 col-sm-8" height=500>
 			<div class="left_content">
 				<div class="single_page">
 					<ol class="breadcrumb">
@@ -20,10 +20,101 @@
 						<li><a href="#">마이뮤직</a></li>
 						<!-- <li class="active">내정보?</li> -->
 					</ol>
+					<div class="panel panel-default">
+					  <div class="panel-body" >
+					  <div class="col-sm-6 col-md-4" >
+                       <!--  <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" /> -->
+                    </div>
+
+
+					    <h4>nick</h4>
+					    <small style="display: block; line-height:1.428571429; color: #999;">
+					    	<cite title="San Francisco, USA">San Francisco, USA 
+					    		<i class="glyphicon glyphicon-map-marker"></i>
+					    	</cite></small><br>
+                        <p>
+                        	<i class="glyphicon glyphicon-user"></i>&nbsp;name
+                            <br /><br>
+                            <i class="glyphicon glyphicon-envelope"></i>&nbsp;email@example.com
+                            <br /><br>
+                            <i class="glyphicon glyphicon-gift"></i>&nbsp;June 02, 1988</p><br>
+                            <a href="info_update.do" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
+					  </div>
+					</div>
+					
+					
+					<div class="panel panel-default">
+					  <div class="panel-body" >
+					    <h3>내 구매 정보</h3>
+                        <p><br><br>
+                            <i></i>보유중인 이용권이 없습니다
+                            <br />
+                            </p><br>
+					  </div>
+					</div>
 							
 				</div>
 			</div>
 		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+        <aside class="right_content">
+          <div class="single_sidebar" style="OVERFLOW:auto; width:100%; height:350px;">
+            <h2><span>나의 플레이리스트</span></h2>
+            <table class="table table-hover" valign=center>
+			    <thead>
+			      <tr>
+			        <th>곡명</th>
+			        <th>아티스트</th>
+			        <th></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			    	<c:forEach var="i" begin="0" end="10">
+				      <tr>
+				        <td style="width:30%">악뮤</td>
+				        <td style="width:60%">Doedfdfdfdfdfdfdf</td>
+				        <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>
+				      </tr>
+			      </c:forEach>
+			    </tbody>
+			  </table>
+          </div>
+        </aside>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <aside class="right_content">
+          <div class="single_sidebar" style="OVERFLOW:auto; width:100%; height:200px;">
+            <h2><span>내 문의 내역</span></h2>
+            <table class="table table-hover">
+			   <thead>
+                <tr>
+			        <th style="width:75%">문의글</th>
+			        <th style="width:25%">작성일</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td>John</td>
+			        <td>Doe</td>
+			      </tr>
+			      <tr>
+			        <td>Mary</td>
+			        <td>Moe</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			  <input type=button value="내 상세 문의 내역 보기" class="btn btn-theme">
+          </div>
+        </aside>
+      </div>
+      
+
+      
+      
+      
+      
+
+
 	</div>
 	</section>
 </body>

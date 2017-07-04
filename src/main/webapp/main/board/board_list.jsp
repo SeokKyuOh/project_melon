@@ -1,48 +1,76 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<!-- ì´ìš©ê¶Œêµ¬ë§¤ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="style/table.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ì´ìš©ê¶Œêµ¬ë§¤</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script><!-- ë¼ì´ë¸ŒëŸ¬ë¦¬ ë¡œë“œ -->
+<script type="text/javascript">
+
+
+
+$(document).ready(function(){
+
+	$(".accordion h3:first").addClass("active");
+	$(".accordion p:not(:first)").hide();
+
+
+	$(".accordion h3").click(function(){
+	
+	  $(this).next("p").slideToggle("slow")
+	  .siblings("p:visible").slideUp("slow");
+	  $(this).toggleClass("active");
+	  $(this).siblings("h3").removeClass("active");
+	
+	});
+
+});
+
+
+</script>
+
 </head>
 <body>
-	<center>
-		<h3>°Ô½ÃÆÇ ¸ñ·Ï</h3>
-		<table id="table_content" width=700>
+	<section id="contentSection">
+	<tr>
+		<td>
+			<a href="board_insert.do">ìƒˆê¸€</a>
+		</td>
+	</tr>
+	<table class="table table-hover">
+
+		<thead>
 			<tr>
-				<td align=left><a href="board_insert.do">»õ±Û</a></td>
+				<th width=15%>ë²ˆí˜¸</th>
+				<th width=15%>ì‘ì„±ì</th>
+				<th width=30%>ì œëª©</th>
+				<th width=20%>ë“±ë¡ì¼</th>
+				<th width=20%>ì¡°íšŒìˆ˜</th>
 			</tr>
-		</table>
-		<table id="table_content" width=700 class="table_content table-striped">
+		</thead>
+		<tbody>
+			<c:forEach var="vo" items="${list }">
 			<tr>
-				<th width=10%>¹øÈ£</th>
-				<th width=45%>Á¦¸ñ</th>
-				<th width=15%>ÀÌ¸§</th>
-				<th width=20%>ÀÛ¼ºÀÏ</th>
-				<th width=10%>Á¶È¸¼ö</th>
+				<td>${vo.board_id }</td>
+				<td>${vo.board_writer }</td>
+				<td>
+					<a href="board_content.do?board_id=1">${vo.board_title }</a>
+				
+				</td>
+				<td>
+					<fmt:formatDate value="${vo.board_regdate }" pattern="yyyy-MM-dd"/>
+				</td>
+				<td>${vo.board_hit }</td>
 			</tr>
-			<c:forEach var="vo" items="${list}">
-				<tr class="dataTr">
-					<!-- °®´Ù´ë¸é »ö±ò º¯ÇÏ´Â. -->
-					<td width=10% align=center>${vo.boardType_id}</td>
-					<td width=45%><a href="board_content.do?board_id=${vo.board_id }">${vo.board_title}</a></td>
-					<td width=15% align=center>${vo.board_writer}</td>
-					<td width=20% align=center><fmt:formatDate
-							value="${vo.board_regdate}" pattern="yyyy-MM-dd" /></td>
-					<td width=10% align=center>${vo.board_hit}</td>
-				</tr>
-			</c:forEach>
-		</table>
-		<table border=0 width=700>
-			<tr>
-				<td align=left></td>
-				<td align=right></td>
-			</tr>
-		</table>
-	</center>
+		</c:forEach>
+		</tbody>
+	</table>
+	</section>
+
 </body>
 </html>
