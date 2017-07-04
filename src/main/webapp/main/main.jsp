@@ -35,42 +35,6 @@ $(function() {
 </script>
 </head>
 <body>
-<<<<<<< HEAD
-	<div id="preloader">
-		<div id="status">&nbsp;</div>
-	</div>
-	<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-	<div class="container">
-		<header id="header">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="header_top">
-						<div class="header_top_left">
-							<ul class="top_nav">
-								<li><a href="main.do">Home</a></li>
-								<li><a href="#">About</a></li>
-								<li><a href="pages/contact.html">Contact</a></li>
-							</ul>
-						</div>
-						<div class="header_top_right">
-							<p>Friday, December 05, 2045</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="header_bottom">
-						<div class="logo_area">
-							<a href="main.do" class="logo">
-								<img src="images/logo_melon.png" alt="">
-							</a>
-						</div>
-							<div style="margin: 5px 5px -90px 5px"> 
-								<form method="post" action="search.do" class="contact_form">
-									<input type="text" name=music_search style="width: 25%; height: 40px; margin: 30px 5px -120px 5px" placeholder="  검색어를 입력하세요"> 	
-									<input type="submit" class="btn btn-theme" style="height: 40px" value="검색">
-								</form>
-							</div>
-=======
 <div id="preloader">
   <div id="status">&nbsp;</div>
 </div>
@@ -95,6 +59,12 @@ $(function() {
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
+          	<div style="margin: 5px 5px -90px 5px"> 
+				<form method="post" action="search.do" class="contact_form">
+					<input type="text" name=music_search style="width: 25%; height: 40px; margin: 30px 5px -120px 5px" placeholder="  검색어를 입력하세요"> 	
+					<input type="submit" class="btn btn-theme" style="height: 40px" value="검색">
+				</form>
+			</div>
           <c:if test="${sessionScope.membervo.member_nick==null}">
 	          <div align="right">
 	          	<a href="login.do"><input type="button" class="btn btn-theme" value="로그인"></a>
@@ -159,88 +129,6 @@ $(function() {
   </section>
 <!-- 바디 부분 이미지들 시작-->
 <jsp:include page="${main_jsp }"></jsp:include>
->>>>>>> 9fa6fb2ff11319ffbe208f15eaf4218adc15d884
-
-					<c:if test="${sessionScope.nick==null}">
-						<div align="right" style="margin: 60px 0px -20px 0px">
-							<a href="login.do"><input type="button" class="btn btn-theme"
-								value="로그인"></a>
-							<h6>
-								<a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a>
-							</h6>
-						</div>
-					</c:if>
-					<c:if test="${sessionScope.nick!=null}">
-						<div align="right" style="margin: 60px 0px -20px 0px">
-							<h5>${sessionScope.name }(${ sessionScope.nick})님환영합니다</h5>
-							<form method=post action="logout.do" id=logoutForm>
-								<input type=button value="로그아웃" id=logoutBtn>
-							</form>
-						</div>
-					</c:if>
-				</div>
-			</div>
-			</div>
-	
-	
-	</header>
-
-	<section id="navArea">
-		<nav class="navbar navbar-inverse" role="navigation">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav main_nav">
-					<li class="active"><a href="main.do"><span
-							class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">멜론차트</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="chart.do">일간</a></li>
-							<li><a href="#">주간</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">최신</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="new.do">뮤비</a></li>
-							<li><a href="#">예약</a></li>
-						</ul></li>
-					<li><a href="ganre.do">장르</a></li>
-					<li><a href="buy_ticket.do">이용권구매</a></li>
-					<li><a href="board_list.do?boardType_id=1">공지사항</a></li>
-					<li><a href="mypage.do">마이뮤직</a></li>
-				</ul>
-			</div>
-		</nav>
-	</section>
-	<section id="newsSection">
-		<div class="row">
-			<div class="col-lg-12 col-md-12">
-				<div class="latest_newsarea">
-					<span>실시간 앨범 순위</span>
-					<ul id="ticker01" class="news_sticker">
-						<li><a href="#"><img src="images/news_thumbnail3.jpg"
-								alt="">1위 - 남이 될 수 있을까 - 볼빨간사춘기</a></li>
-						<li><a href="#"><img src="images/news_thumbnail3.jpg"
-								alt="">2위 - 무제(無題) (Untitled, 2014) G-DRAGON</a></li>
-						<li><a href="#"><img src="images/news_thumbnail3.jpg"
-								alt="">3위 - 처음부터 너와 나 - 볼빨간사춘기</a></li>
-						<li><a href="#"><img src="images/news_thumbnail3.jpg"
-								alt="">4위 - SIGNAL TWICE (트와이스)</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- 바디 부분 이미지들 시작-->
-	<jsp:include page="${main_jsp }"></jsp:include>
 
 	<!-- 메인컨텐츠 끝 -->
 	<footer id="footer">
