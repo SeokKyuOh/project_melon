@@ -6,54 +6,63 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>이용권구매</title>
+<script type="text/javascript">
+function sendBuy() {
+ location.href="payment.jsp";
+}
+</script>
 </head>
-<body>
-<section id="contentSection">
-    <div class="row">
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="left_content">
-          <div class="single_post_content">
-            <h2><span>멜론이용권 구매</span></h2>
-            <div class="single_post_content_left">
-              <ul class="business_catgnav  wow fadeInDown">
-                <li>
-                  <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img1.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="pages/single_page.html">추가정보 구현1(타이틀)</a> </figcaption>
-                    <p>추가정보 구현1(상세)</p>
-                  </figure>
-                </li>
-              </ul>
-            </div>
-            <div class="single_post_content_right">
-              <ul class="spost_nav">
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)1</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)2</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)3</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)4</a> </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+<body> 
+ <div class="container">
+    <h2 align="center">이용권 구매</h2>
+    <div class="panel-body">
+     <img src="../images/attention.png" width="50px" height="50px">
+     <font style="font-size: 9;font-weight: bold; font-family: 나눔고딕;color: gray">이용권은 결제한 당일부터 이용기간 마감일까지 유효한 이용권입니다.</font>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">스트리밍</div>
+      <div class="panel-body">
+       <img src="../images/30.JPG">
+       <span style="width: 50px">스트리밍 15</span>
+       <span style="width: 100px">가격 : 8000원</span>
+       <div class="btn-group" role="group" align="right" style="float:right">
+        <button type="button" class="btn btn-primary" style="top: 50px" onclick="sendBuy()">구매</button>
       </div>
       </div>
-      </section>
-      
+      <div class="panel-body">
+       <img src="../images/30.JPG">
+       <span style="width: 50px">스트리밍 30</span>
+       <span style="width: 100px">가격 : 10000원</span>
+       <div class="btn-group" role="group" align="right" style="float: right"> 
+        <button type="button" class="btn btn-primary" style="top: 50px">구매</button>
+      </div>
+      </div>
+    </div>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">다운로드</div>
+      <div class="panel-body">
+       <img src="../images/30.JPG">
+       <span style="width: 50px">다운로드 15</span>
+       <span style="width: 100px">가격 : 8000원</span>
+       <div class="btn-group" role="group" align="right" style="float: right">
+        <button type="button" class="btn btn-primary" style="top: 50px">구매</button>
+      </div>
+      </div>
+      <div class="panel-body">
+       <img src="../images/50.JPG">
+       <span style="width: 50px">다운로드 30</span>
+       <span style="width: 100px">가격 : 12000원</span>
+       <div class="btn-group" role="group" align="right" style="float: right">
+        <button type="button" class="btn btn-primary" style="top: 50px">구매</button>
+      </div>
+      </div>
+    </div>
+ </div>
 </body>
 </html>

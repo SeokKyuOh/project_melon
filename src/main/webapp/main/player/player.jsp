@@ -19,11 +19,10 @@
 	var musicURL="http://211.238.142.109:8080/food/main/music/";
 	
 	var isImageClicked=0;		// 앨범아트 클릭 여부 확인
-	<%-- <%
-		List<PlaylistMusicVO> list=(List<PlaylistMusicVO>)request.getAttribute("playlist");
-		
-	%> --%>
+	
 	$(function(){
+		// 이용권 여부 확인
+		
 		$('#lyrics').hide();
 		
 		var album_art=[];
@@ -64,7 +63,6 @@
 			//$("li:eq("+index+")")
 			//var url=$("#image").attr("src");
 			//alert(url);
-
 			// 앨범아트 바꾸기(추후 클릭한 곡의 album_art url 넣기)
 			var album_replace="../main/player/cover/album.jpg";
 			$("#image").attr("src", album_replace);
@@ -74,7 +72,47 @@
 			var lyrics=lyrics;
 			alert(album_replace);
 			alert("album_art : "+album_art+", music_lyrics : "+music_lyrics);
-		})
+			
+			// 재생 횟수 늘리기
+			// + 재생 횟수 늘리기(어떻게...???)
+			// 재생 횟수 늘리는 방법
+			/*
+			1) 다른 페이지로 값을 넘기며 요청 -> 넘긴 페이지에서 재생 횟수를 증가시키기(창이 띄워지지는 않음)
+			
+			*/
+			var playlist_music_id=$(this).attr("playlist_music_id");
+			alert("main/player_db.do?playlist_music_id="+playlist_music_id);
+			$.ajax({
+				type:"GET",
+				url:"player_db.do?playlist_music_id="+playlist_music_id,
+				dataType:"text",
+				error:function(){
+					alert('통신 실패');
+				},
+				success:function(){
+					alert("성공");
+				}
+			});
+		});
+		/* 	
+		// 삭제 버튼 클릭 시 
+		$('.btclick').click({
+			var playlist_music_id=$(this).attr('playlist_music_id');
+			alert(playlist_music_id);
+			$.ajax({
+				type:"GET",
+				url:"player_delete.do?playlist_music_id="+playlist_music_id,
+				dataType:"text",
+				error:function(){
+					alert('통신 실패');
+				},
+				success:function(){
+					alert("성공");
+					$('.mclick').remove();
+				}
+			})
+		});
+		 */
 	});
 	
 </script>
@@ -200,11 +238,12 @@
 					 
 					<c:forEach var="vo" items="${playlist}" varStatus="status">
 						<%-- <li id="${vo.music_number }"> --%>
-						<li class="mclick" album_art="${vo.album_art }" music_lyrics="${vo.music_lyrics}" index="${status.index }">
+						<li class="mclick" album_art="${vo.album_art }" music_lyrics="${vo.music_lyrics}" playlist_music_id="${vo.playlist_music_id }" index="${status.index }">
 							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }.mp3">
 								${vo.music_name } - ${vo.music_artist }
 							</a>
 						</li>
+						<%-- <input type="button" value="edit" class="btclick" playlist_music_id="${vo.playlist_music_id }"> --%>
 					</c:forEach>
 					
 				</ul>

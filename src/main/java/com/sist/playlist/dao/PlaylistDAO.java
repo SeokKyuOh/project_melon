@@ -20,4 +20,15 @@ public class PlaylistDAO {
 		return pMapper.getPlaylist(member_id);
 	}
 	
+	// 스트리밍 이용권을 가지고 있는지 확인(유효 : 1, 무효 : 0)
+	public int isStreamingValid(int member_id){
+		return pMapper.isStreamingValid(member_id);
+	}
+	
+	// 선택한 곡의 재생 횟수 늘리기
+	public void increaseCount(int playlist_music_id){
+		System.out.println("id : "+playlist_music_id);
+		pMapper.increaseCount(playlist_music_id);
+		System.out.println("성공");
+	}
 }

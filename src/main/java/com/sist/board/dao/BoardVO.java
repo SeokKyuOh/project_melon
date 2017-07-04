@@ -1,6 +1,9 @@
 package com.sist.board.dao;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class BoardVO {
 	private int board_id;
@@ -14,6 +17,15 @@ public class BoardVO {
 	private int board_filecount;
 	private int question_id;
 	private int boardType_id;
+	private List<MultipartFile> upload;
+
+	public List<MultipartFile> getUpload() {
+		return upload;
+	}
+
+	public void setUpload(List<MultipartFile> upload) {
+		this.upload = upload;
+	}
 
 	public int getBoard_id() {
 		return board_id;

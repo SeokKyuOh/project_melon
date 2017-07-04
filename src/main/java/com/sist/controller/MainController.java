@@ -1,11 +1,17 @@
 package com.sist.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.member.dao.MemberDAO;
+import com.sist.member.dao.MemberVO;
+
 @Controller
 public class MainController {
+	@Autowired
+	MemberDAO dao;
 	
 	@RequestMapping("main/main.do")
 	public String main_page(Model model){
@@ -25,9 +31,9 @@ public class MainController {
 		return "main/main";
 	}
 	
-	@RequestMapping("main/ganre.do")
+	@RequestMapping("main/genre.do")
 	public String ganre_page(Model model){
-		model.addAttribute("main_jsp","ganre/ganre.jsp");
+		model.addAttribute("main_jsp","genre/genre.jsp");
 		return "main/main";
 	}
 	
@@ -44,8 +50,12 @@ public class MainController {
 	}
 	
 	@RequestMapping("main/mypage.do")
-	public String mypage_page(Model model){
+	public String mypage_page(Model model, String nick){
 		model.addAttribute("main_jsp","mypage/mypage.jsp");
+		MemberVO vo=dao.memberAllData(nick);
+		MemberVO qvo=dao.mypageQuestionSummary(nick);
+		model.addAttribute("vo", vo);
+		model.addAttribute("qvo",qvo);
 		return "main/main";
 	}
 	

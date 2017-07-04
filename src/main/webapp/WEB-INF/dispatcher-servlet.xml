@@ -43,12 +43,34 @@
 		p:mapperInterface="com.sist.board.dao.BoardMapper"
 	/>
 	
+<<<<<<< HEAD
 	<!-- SearchMapper -->
 	<bean
 		id="searchMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean"
 		p:sqlSessionFactory-ref="ssf"
 		p:mapperInterface="com.sist.search.dao.SearchMapper"
+=======
+	<bean id="dMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.chart.Daily_ChartMapper"
+	/>
+	<bean id="nMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.newest.NewMusicMapper"
+	/>
+	<bean id="aMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.newest.NewAlbumMapper"
+	/>
+	<bean id="gMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.genre.GenreMapper"
+>>>>>>> 9fa6fb2ff11319ffbe208f15eaf4218adc15d884
 	/>
 
 	<mvc:annotation-driven>
