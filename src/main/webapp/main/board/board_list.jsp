@@ -2,12 +2,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>이용권구매</title>
-<link rel="stylesheet" type="text/css" href="style/table.css">
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script><!-- 라이브러리 로드 -->
 <script type="text/javascript">
 
@@ -36,8 +37,13 @@ $(document).ready(function(){
 </head>
 <body>
 	<section id="contentSection">
-
+	<tr>
+		<td>
+			<a href="board_insert.do">새글</a>
+		</td>
+	</tr>
 	<table class="table table-hover">
+
 		<thead>
 			<tr>
 				<th width=15%>번호</th>
@@ -48,14 +54,20 @@ $(document).ready(function(){
 			</tr>
 		</thead>
 		<tbody>
+			<c:forEach var="vo" items="${list }">
 			<tr>
-				<td>1</td>
-				<td>작성자</td>
-				<td></td>
-				<td>john@example.com</td>
-				<td>1</td>
+				<td>${vo.board_id }</td>
+				<td>${vo.board_writer }</td>
+				<td>
+					<a href="board_content.do?board_id=1">${vo.board_title }</a>
+				
+				</td>
+				<td>
+					<fmt:formatDate value="${vo.board_regdate }" pattern="yyyy-MM-dd"/>
+				</td>
+				<td>${vo.board_hit }</td>
 			</tr>
-
+		</c:forEach>
 		</tbody>
 	</table>
 	</section>

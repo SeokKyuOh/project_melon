@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
+
 @Repository
 public class BoardDAO {
 	@Autowired
@@ -29,11 +31,17 @@ public class BoardDAO {
 		
 	}
 
-	
+
+	public BoardVO boardGetFileInfo(int board_id){
+		return boardMapper.boardGetFileInfo(board_id);
+	}
 	//insert
 	public void boardInsert(BoardVO vo){
 		boardMapper.boardInsert(vo);
 	}
+	
+	
+	
 	//delete
 	public void boardDelete(int board_id){
 		

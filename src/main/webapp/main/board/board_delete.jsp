@@ -53,8 +53,8 @@ $(function(){
     <table id="table_content" width=250>
      <tr>
       <td align=left>
-      <input type=hidden name=no value="${no }" id="no">
-      <input type=hidden name=page value="${page }" id="page">
+      <input type=hidden name=no value="${board_id } }" id="board_id">
+      
        비밀번호:<input type="password" name=pwd id=pwd size=12>
       </td>
      </tr>
