@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="style/table.css">
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script><!-- 라이브러리 로드 -->
 <script type="text/javascript">
 /*
@@ -15,9 +15,10 @@
 		1)selector - 태그 갖고올 때 쓰는것
  
  */
- var fileIndex=0;
+  var fileIndex=0;
  $(function(){
  	$('#addBtn').click(function(){
+ 		
  		$('#fileView').append(
  		   '<tr id=f'+fileIndex+'>'
  		  +'<td width=20%>파일'+(fileIndex+1)+'</td>'
@@ -33,55 +34,59 @@
  		  fileIndex=fileIndex-1;
      	}
  	});
- });
+ }); 
 </script>
 </head>
 <body>
 	<center>
 		<h3>글쓰기</h3>
 		<form method=post action="board_insert_ok.do" enctype="multipart/form-data">
-			<table id="table_content" width=600>
+			<table id="table_content" width=1000>
+				<tr>									
+
+				<th>작성자</th>						
+
+				<td><input type="text" name="board_writer" size="20" /></td>
+
+			</tr>
+			<tr>
+
+				<th>제목</th>
+
+				<td><input type="text" name="board_title" size="60" /></td>
+
+			</tr>
+
+
+		<tr>
+
+				<th height="500px">내용</th>
+
+				<td><textarea rows="30" cols="80" name="board_content"></textarea></td>
+
+			</tr>
+
 				<tr>
-					<td width=15%>이름</td>
-					<td width=85%>
-						<input type="text" name="name" size=12>
-					</td>
-				</tr>
-				<tr>
-					<td width=15%>제목</td>
-					<td width=85%>
-						<input type="text" name="subject" size=50>
-					</td>
-				</tr>
-				<tr>
-					<td width=15%>내용</td>
-					<td width=85%>
-						<textarea rows="10" cols="55" name="content"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td width=15%>첨부파일</td>
-					<td width=85%>
-						<table border=0 width=450>
+					<th>첨부파일</th>
+					<td>
+						<table>
 							<tr>
-								<td align=right>
+								<td>
 									<input type=button id="addBtn" value="추가">
 									<input type=button id="removeBtn" value="삭제">
 								</td>
 							</tr>
 						</table>
-						<table border=0 width=450 id="fileView">
+						<table id="fileView">
 						</table>
 					</td>
 				</tr>
+
+
+
+
 				<tr>
-					<td width=15%>비밀번호</td>
-					<td width=85%>
-						<input type="password" name=pwd size=10>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center">
+					<td colspan="2" align="right">
 						<input type=submit value="글쓰기">
 						<input type=button value="취소" onClick="javascript:history.back()"> <!-- 공백이 없으면 따옴표 안 붙여도 되지만 있으면 따옴표 반드시 붙여야해 -->
 					</td>
