@@ -96,7 +96,7 @@ $(function(){
           <li><a href="ganre.do">장르</a></li>
           <li><a href="buy_ticket.do">이용권구매</a></li>
           <li><a href="board_list.do?boardType_id=1">공지사항</a></li>
-          <li><a href="mypage.do">마이뮤직</a></li>
+          <li><a href="mypage_into.do?nick=${sessionScope.membervo.member_nick }">마이뮤직</a></li>
         </ul>
       </div>
     </nav>

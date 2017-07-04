@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,17 +28,17 @@
                     </div>
 
 
-					    <h4>nick</h4>
+					    <h4>${vo.member_nick }</h4>
 					    <small style="display: block; line-height:1.428571429; color: #999;">
-					    	<cite title="San Francisco, USA">San Francisco, USA 
+					    	<cite title="San Francisco, USA">${vo.member_addr } 
 					    		<i class="glyphicon glyphicon-map-marker"></i>
 					    	</cite></small><br>
                         <p>
-                        	<i class="glyphicon glyphicon-user"></i>&nbsp;name
+                        	<i class="glyphicon glyphicon-user"></i>&nbsp;${vo.member_name }
                             <br /><br>
-                            <i class="glyphicon glyphicon-envelope"></i>&nbsp;email@example.com
+                            <i class="glyphicon glyphicon-envelope"></i>&nbsp;${vo.member_email }
                             <br /><br>
-                            <i class="glyphicon glyphicon-gift"></i>&nbsp;June 02, 1988</p><br>
+                            <i class="glyphicon glyphicon-gift"></i>&nbsp;<fmt:formatDate value="${vo.member_birthdate }" pattern="yyyy-MM-dd" /></p><br>
                             <a href="info_update.do" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
 					  </div>
 					</div>
@@ -88,19 +89,17 @@
             <table class="table table-hover">
 			   <thead>
                 <tr>
-			        <th style="width:75%">문의글</th>
+			        <th style="width:75%">내 문의글</th>
 			        <th style="width:25%">작성일</th>
 			      </tr>
 			    </thead>
 			    <tbody>
-			      <tr>
-			        <td>John</td>
-			        <td>Doe</td>
-			      </tr>
-			      <tr>
-			        <td>Mary</td>
-			        <td>Moe</td>
-			      </tr>
+				    <c:forEach var="qvo" items="${qvo }">
+				      <tr>
+				        <td>${qvo.question_title }</td>
+				        <td><fmt:formatDate value="${qvo.question_regdate }" pattern="yyyy-MM-dd"/></td>
+				      </tr>
+				    </c:forEach> 
 			    </tbody>
 			  </table>
 			  <input type=button value="내 상세 문의 내역 보기" class="btn btn-theme">
