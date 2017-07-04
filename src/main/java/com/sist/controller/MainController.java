@@ -25,9 +25,9 @@ public class MainController {
 		return "main/main";
 	}
 	
-	@RequestMapping("main/ganre.do")
+	@RequestMapping("main/genre.do")
 	public String ganre_page(Model model){
-		model.addAttribute("main_jsp","ganre/ganre.jsp");
+		model.addAttribute("main_jsp","genre/genre.jsp");
 		return "main/main";
 	}
 	

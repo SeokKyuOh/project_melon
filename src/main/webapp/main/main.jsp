@@ -83,17 +83,19 @@ $(function(){
           <li class="active"><a href="main.do"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">멜론차트</a>
           	<ul class="dropdown-menu" role="menu">
-          		<li><a href="chart.do">일간</a></li>
-          		<li><a href="#">주간</a></li>
+          		<li><a href="daily_chart.do">일간</a></li>
+          		<li><a href="weekly_chart.do">주간</a></li>
           	</ul>
           </li>
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">최신</a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="new.do">뮤비</a></li>
-              <li><a href="#">예약</a></li>
+              	<li><a href="newAlbumChart.do">최신곡</a></li>
+              	<li><a href="newAlbum.do">최신앨범</a></li>
+              	<li><a href="#">최신뮤직비디오</a></li>
+              	<li><a href="#">예약</a></li>
             </ul>
           </li>
-          <li><a href="ganre.do">장르</a></li>
+          <li><a href="genreMusicChart.do?genre_id=1">장르</a></li>
           <li><a href="buy_ticket.do">이용권구매</a></li>
           <li><a href="board_list.do?boardType_id=1">공지사항</a></li>
           <li><a href="mypage.do">마이뮤직</a></li>
