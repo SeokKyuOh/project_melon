@@ -19,6 +19,7 @@ import com.sist.chart.Daily_ChartVO;
 public class ChartController {
 	   @Autowired
 	   private ChartService service;
+	   
 	   @RequestMapping("main/daily_chart.do")
 	   public String dayliyChart_list(Model model){
 	

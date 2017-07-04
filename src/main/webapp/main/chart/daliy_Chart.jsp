@@ -12,25 +12,31 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript">
 	$(function() { //전체선택 체크박스 클릭 
+		var checkArr=[];	// 선택된 곡의 music_id 저장
 		$("#allCheck").click(function() { //만약 전체 선택 체크박스가 체크된 상태일 경우 
 			if ($("#allCheck").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다 
-				$("input[type=checkbox]").prop("checked", true); // 전체선택 체크박스가 해제된 경우 
+				$("input[type=checkbox]").prop("checked", true); // 전체선택 체크박스가 해제된 경우
 			} else { //해당화면에 모든 checkbox들의 체크를 해제시킨다. 
 				$("input[type=checkbox]").prop("checked", false);
 			}
-		})
-	})
-	$(function() {
-		$('input:checkbox[name="checkbox_name"]').click(function() {
-
-			this.checked = true; //checked 처리
-
-			if (this.checked) {//checked 처리된 항목의 값
-
-				//alert(this.value);
-			}
 		});
-	});
+		// 체크박스 개별 선택
+		$('input:checkbox[name="checkbox_name"]').click(function() {
+			this.checked = true; //checked 처리	
+			/* if (this.checked) {//checked 처리된 항목의 값
+				//alert(this.value);
+				
+			} */
+		});
+		
+		$('#bt_send').click(function(){
+			alert('버튼 클릭');
+			$("input[type=checkbox]:checked").each(function(){
+				checkArr.push($(this).val());	// 체크된 모든 music_id값을 배열에 저장
+			});
+			//alert(checkArr);
+		});
+	})
 </script>
 
 <!-- <link rel="stylesheet"
@@ -147,7 +153,7 @@
 			</c:forEach>
 		</tbody>
 	</table> --%>
-	<input type=button class="btn btn-theme" value="선택담기">
+	<input type=button class="btn btn-theme" value="선택담기" id="bt_send">
 
 	<table class="table table-hover">
 		<thead>
@@ -173,7 +179,7 @@
 					<td><span><%=i%></span><span>위</span></td>
 					<td><img
 						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"
-						width=50 height=50> <input type="button" value="재생">
+						width=50 height=50> <a href="main/player.do?member_id=${sessionScope.membervo.member_id}"><img src="<c:url value="/resources/img/play.png"/>"></a>
 						<input type="button" value="담기"></td>
 					<td>${vo.music_name }</td>
 					<td>${vo.music_artist }</td>
