@@ -2,9 +2,11 @@ package com.sist.playlist.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 public interface PlaylistMapper {
@@ -47,7 +49,15 @@ public interface PlaylistMapper {
 			+"where p.member_id=#{member_id} order by playlist_music.MUSIC_ID")
 	public List<PlaylistMusicVO> getPlaylist(int member_id);
 	
-	// 비회원 or 이용권이 없는 경우 playlist_music을 통해 값을 가져오지 않고 music_id로 가져옴!(1곡만 재생됨)
+	// 임시 플레이어 구동(비회원 or 회원이지만 이용권이 없는 경우)
+	@Select("select album_art, music_lyrics, music_name, music_artist from music inner join ALBUM a on a.ALBUM_ID = music.ALBUM_ID and a.ALBUM_ID=#{album_id}")
+	public List<MusicVO> getTempList(int album_id);
+	
+	// member_id를 가지고 playlist_id찾기(없는 경우 null값 return)
+	@Select("select playlist_id from playlist where member_id=#{member_id}")
+	public String getPlaylistId(int member_id);
+	
+	// 비회원 or 이용권이 없는 경우 playlist_music을 통해 값을 가져오지 않고 music_id로 가져옴!
 	// 1분 미리듣기 구현 or 무료 재생 횟수 제한 걸기(session에 값 넣어놓기)
 	// 현재 날짜(재생 버튼을 누를 때 시간)와 이용권 마감기한을 비교하여 유효햐면 1, 무효하면 0 return
 	@Select("select count(*) from buy_streaming "
@@ -57,5 +67,11 @@ public interface PlaylistMapper {
 	// 곡 클릭시마다 재생횟수 늘리기
 	@Update("update playlist_music set playlist_count=playlist_count+1 where playlist_music_id=#{playlist_music_id}")
 	public void increaseCount(int playlist_music_id);
+	
+	// playlist_music_seq.nextval
+	// 곡 선택 후 playlist_music에 저장
+	@SelectKey(keyProperty="playlist_music_id", resultType=int.class, before=true, statement="select nvl(max(playlist_music_id)+1, 1) as playlist_music_id from playlist_music")
+	@Insert("insert into PLAYLIST_MUSIC (PLAYLIST_MUSIC_ID, PLAYLIST_COUNT, PLAYLIST_ID, MUSIC_ID) VALUES (#{playlist_music_id}, 0, #{playlist_id}, #{music_id})")
+	public void insertMusic(PlaylistMusicVO vo);
 	
 }
