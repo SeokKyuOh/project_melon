@@ -27,10 +27,9 @@ public interface BoardMapper {
 	//수정하기
 	@Update("UPDATE board SET "
 			+"board_id=#{board_id},board_writer=#{board_writer},"
-			+"board_title=#{board_title},board_content=#{board_content},"
-			
+			+"board_title=#{board_title},board_content=#{board_content} "
 			+"WHERE board_id=#{board_id}")
-	public BoardVO boardUpdate(int board_id);
+	public void boardUpdate(int board_id);
 	//UPDATE board SET board_id=3,board_writer='무내지',board_title='작성글',board_content='내용',board_regdate='2017-07-04',board_hit='0' where board_id=1;
 
 	
@@ -40,10 +39,12 @@ public interface BoardMapper {
 		  public BoardVO boardGetFileInfo(int board_id);
 	
 	  @Insert("INSERT INTO Board VALUES("
-				 +"board_seq.nextval,#{question_id},#{boardType_id},#{board_writer},#{board_title},"
-				 +"#{board_content},SYSDATE,0,"
-				 +"#{board_filename},#{board_filesize},#{board_filecount})")
+				 +"board_seq.nextval,#{board_title},#{board_writer},#{board_content},SYSDATE,0,"
+				 + "#{board_filename},#{board_filesize},#{board_filecount}"
+				 + ",#{question_id},#{boardType_id}"
+				 +")")
 		  public void boardInsert(BoardVO vo);
+	  //board_id, 'board_title', 'board_writer', board_content, board_regdate, board_hit, 'board_filename', 'board_filesize', board_filecount, question_id, boardtype_id
 		  
 		  //삭제하기
 		  @Delete("DELETE FROM Board "

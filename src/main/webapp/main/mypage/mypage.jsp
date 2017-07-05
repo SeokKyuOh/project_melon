@@ -94,8 +94,8 @@
 			   <thead>
 			   	  
 	                <tr>
-				        <th style="width:75%">내 문의글</th>
-				        <th style="width:25%">작성일</th>
+				        <th style="width:70%">내 문의글</th>
+				        <th style="width:30%">작성일</th>
 				      </tr>
 			     
 			    </thead>
