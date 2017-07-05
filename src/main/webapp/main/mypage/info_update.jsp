@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -95,7 +95,7 @@ $(function(){
           <input type="tel" name="member_phone3" style="width:25%" value="${vo.member_phone3 }">
           
           <label for="birth">생년월일</label>
-          <input type="date" name="member_birthdate" value="${vo.member_birthdate }">
+          <input type="date" name="member_birthdate" value="${birthdate }">
           
           <label for="post">우편번호</label>
           <input type="number" name="member_post1" style="width:35%" value="${vo.member_post1 }" readonly required>-

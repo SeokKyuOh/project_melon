@@ -38,22 +38,33 @@
                             <br /><br>
                             <i class="glyphicon glyphicon-envelope"></i>&nbsp;${vo.member_email }
                             <br /><br>
-                            <i class="glyphicon glyphicon-gift"></i>&nbsp;${vo.member_birthdate }</p><br>
+                            <i class="glyphicon glyphicon-gift"></i>&nbsp;<fmt:formatDate value="${vo.member_birthdate }" pattern="yyyy-MM-dd"/></p><br>
                             <a href="info_update.do?nick=${vo.member_nick }" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
 					  </div>
 					</div>
-					
 					<div class="panel panel-default">
 					  <div class="panel-body" >
 					    <h3>내 구매 정보</h3>
                         <p><br><br>
                                 <!--보유중인 이용권이 없습니다  -->
-                                <c:forEach var="bsvo" items="${bsvo }">
-                                	${bsvo.streaming_name }&nbsp;&nbsp;
-                                	${bsvo.buy_streaming_start }&nbsp;&nbsp;
-                                	${bsvo.buy_streaming_end }&nbsp;&nbsp;
-                                	<br>
-                                </c:forEach>
+                                <table class="table table-hover" valign=center>
+									<thead>
+										<tr>
+											<th>구매한 이용권</th>
+											<th>시작일</th>
+											<th>종료일</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="bsvo" items="${bsvo }">
+											<tr>
+												<td style="width: 60px">${bsvo.streaming_name }</td>
+												<td style="width: 30px">${bsvo.buy_streaming_start }</td>
+												<td style="width: 30px">${bsvo.buy_streaming_end }</td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
                         	<br />
                         </p><br>
 					  </div>
@@ -63,7 +74,7 @@
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
-          <div class="single_sidebar" style="OVERFLOW:auto; width:100%; height:350px;">
+          <div class="single_sidebar" style="OVERFLOW:auto; width:100%; height:330px;">
             <h2><span>나의 플레이리스트</span></h2>
             <table class="table table-hover" valign=center>
 			    <thead>
