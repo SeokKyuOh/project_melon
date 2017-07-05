@@ -135,7 +135,7 @@ public class TicketController {
 		    doDao.insert_buy_download(dvo);
 		}
 		
-		return "redirect:/main/mypage.do?nick=" + mvo.getMember_nick();
+		return "redirect:/main/mypage.do?nick=" + mvo.getMember_nick() + "&id=" + mvo.getMember_id();
 	}
 	
 	
