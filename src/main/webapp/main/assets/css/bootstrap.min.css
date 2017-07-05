@@ -2745,7 +2745,7 @@ input[type=radio][disabled], input[type=checkbox][disabled], input[type=radio].d
 
 select.input-sm, select.form-group-sm .form-control {
 	height: 30px;
-	line-height: 30px
+	line-height: 30px;
 }
 
 textarea.input-sm, textarea.form-group-sm .form-control, select[multiple].input-sm,

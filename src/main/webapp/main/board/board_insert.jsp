@@ -41,6 +41,7 @@
 	<center>
 		<h3>±Û¾²±â</h3>
 		<form method=post action="board_insert_ok.do" enctype="multipart/form-data">
+			<input type="hidden" name="boardType_id" value="1">
 			<table id="table_content" width=1000>
 				<tr>									
 

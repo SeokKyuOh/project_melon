@@ -107,7 +107,7 @@
 		</table>
 		<table id="table_content" width=600>
 			<tr>
-				<td align=right><a href="board_update.do?board_id=1 ">수정</a>&nbsp; 
+				<td align=right><a href="board_update.do?board_id=${vo.board_id }">수정</a>&nbsp; 
 					<a>삭제</a>&nbsp; 
 					<a href="board_list.do?boardType_id=1">목록</a>
 				</td>

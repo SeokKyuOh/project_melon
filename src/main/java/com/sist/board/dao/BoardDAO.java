@@ -19,18 +19,20 @@ public class BoardDAO {
 		return boardMapper.boardList(boardType_id);
 		
 	}
-	
+	//업데이트
 	public BoardVO boardContent(int board_id){
 		boardMapper.boardHitIncrement(board_id);
 		return boardMapper.boardContent(board_id);
-		
 	}
 	
-	public BoardVO boardUpdate(int board_id){
-		return boardMapper.boardUpdate(board_id);
+	public void boardUpdate(int board_id){
+		boardMapper.boardUpdate(board_id);
 		
 	}
-
+	public BoardVO boardUpdateData(int board_id){
+		return boardMapper.boardContent(board_id);
+	}
+	
 
 	public BoardVO boardGetFileInfo(int board_id){
 		return boardMapper.boardGetFileInfo(board_id);
@@ -41,7 +43,7 @@ public class BoardDAO {
 	}
 	
 	
-	
+
 	//delete
 	public void boardDelete(int board_id){
 		

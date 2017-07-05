@@ -5,6 +5,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
+import com.sist.board.dao.QuestionVO;
+import com.sist.ticket.dao.Buy_streamingVO;
+
 public interface MemberMapper {
 	//비밀번호 확인
 	@Select("SELECT member_pwd FROM members WHERE member_nick=#{member_nick}")
@@ -19,8 +22,16 @@ public interface MemberMapper {
 	public MemberVO memberInfoData(String member_nick);*/
 	
 	//로그인전체정보
-		@Select("SELECT member_id,member_name, member_nick, member_phone, member_email, member_addr, member_nick, member_pwd, member_birthdate,member_gender,member_regdate,member_cash,member_post FROM members WHERE member_nick=#{member_nick}")
-		public MemberVO memberAllData(String member_nick);
+	@Select("SELECT member_id,member_name, member_nick, member_phone, member_email, member_addr, member_nick, member_pwd, member_birthdate,member_gender,member_regdate,member_cash,member_post FROM members WHERE member_nick=#{member_nick}")
+	public MemberVO memberAllData(String member_nick);
+	
+	//마이페이지 문의내역 요약정보(타이틀, 작성날짜만)
+	@Select("SELECT question_title, question_regdate FROM question,members m where m.member_id=#{member_id}")
+	public List<QuestionVO> mypageQuestionSummary(int id);
+	
+	//마이페이지 구매내역 정보 출력
+	@Select("SELECT s.streaming_name, bs.buy_streaming_start, bs.buy_streaming_end FROM buy_streaming bs, streaming s WHERE bs.member_id=#{member_id} and s.streaming_id = bs.streaming_id ORDER BY bs.buy_streaming_start ASC")
+	public List<Buy_streamingVO> mypageStreamingInfo(int id);
 	
 	//주소입력
 	@Select("SELECT zipcode,sido,gugun,dong,NVL(bunji, ' ') as bunji FROM zipcode "

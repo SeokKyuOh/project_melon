@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,32 +28,36 @@
                     </div>
 
 
-					    <h4>nick</h4>
+					    <h4>${vo.member_nick }</h4>
 					    <small style="display: block; line-height:1.428571429; color: #999;">
-					    	<cite title="San Francisco, USA">San Francisco, USA 
+					    	<cite title="San Francisco, USA">${vo.member_addr } 
 					    		<i class="glyphicon glyphicon-map-marker"></i>
 					    	</cite></small><br>
                         <p>
-                        	<i class="glyphicon glyphicon-user"></i>&nbsp;name
+                        	<i class="glyphicon glyphicon-user"></i>&nbsp;${vo.member_name }
                             <br /><br>
-                            <i class="glyphicon glyphicon-envelope"></i>&nbsp;email@example.com
+                            <i class="glyphicon glyphicon-envelope"></i>&nbsp;${vo.member_email }
                             <br /><br>
-                            <i class="glyphicon glyphicon-gift"></i>&nbsp;June 02, 1988</p><br>
-                            <a href="info_update.do" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
+                            <i class="glyphicon glyphicon-gift"></i>&nbsp;${vo.member_birthdate }</p><br>
+                            <a href="info_update.do?nick=${vo.member_nick }" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
 					  </div>
 					</div>
-					
 					
 					<div class="panel panel-default">
 					  <div class="panel-body" >
 					    <h3>내 구매 정보</h3>
                         <p><br><br>
-                            <i></i>보유중인 이용권이 없습니다
-                            <br />
-                            </p><br>
+                                <!--보유중인 이용권이 없습니다  -->
+                                <c:forEach var="bsvo" items="${bsvo }">
+                                	${bsvo.streaming_name }&nbsp;&nbsp;
+                                	${bsvo.buy_streaming_start }&nbsp;&nbsp;
+                                	${bsvo.buy_streaming_end }&nbsp;&nbsp;
+                                	<br>
+                                </c:forEach>
+                        	<br />
+                        </p><br>
 					  </div>
 					</div>
-							
 				</div>
 			</div>
 		</div>
@@ -87,34 +92,26 @@
             <h2><span>내 문의 내역</span></h2>
             <table class="table table-hover">
 			   <thead>
-                <tr>
-			        <th style="width:75%">문의글</th>
-			        <th style="width:25%">작성일</th>
-			      </tr>
+			   	  
+	                <tr>
+				        <th style="width:70%">내 문의글</th>
+				        <th style="width:30%">작성일</th>
+				      </tr>
+			     
 			    </thead>
 			    <tbody>
-			      <tr>
-			        <td>John</td>
-			        <td>Doe</td>
-			      </tr>
-			      <tr>
-			        <td>Mary</td>
-			        <td>Moe</td>
-			      </tr>
+				    <c:forEach var="q" items="${qvo }">
+				      <tr>
+				        <td>${q.question_title }</td>
+				        <td><fmt:formatDate value="${q.question_regdate }" pattern="yyyy-MM-dd"/></td>
+				      </tr>
+				    </c:forEach>
 			    </tbody>
 			  </table>
 			  <input type=button value="내 상세 문의 내역 보기" class="btn btn-theme">
           </div>
         </aside>
       </div>
-      
-
-      
-      
-      
-      
-
-
 	</div>
 	</section>
 </body>
