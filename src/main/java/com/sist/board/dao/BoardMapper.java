@@ -28,9 +28,11 @@ public interface BoardMapper {
 	@Update("UPDATE board SET "
 			+"board_id=#{board_id},board_writer=#{board_writer},"
 			+"board_title=#{board_title},board_content=#{board_content},"
-			+"board_regdate=#{board_regdate},board_hit=#{board_hit} "
+			
 			+"WHERE board_id=#{board_id}")
 	public BoardVO boardUpdate(int board_id);
+	//UPDATE board SET board_id=3,board_writer='무내지',board_title='작성글',board_content='내용',board_regdate='2017-07-04',board_hit='0' where board_id=1;
+
 	
 	  @Select("SELECT board_filename,board_filesize,board_filecount "
 		  		+ "FROM board "

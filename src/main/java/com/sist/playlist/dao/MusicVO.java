@@ -11,6 +11,10 @@ public class MusicVO {
 	private int album_id;
 	private int genre_id;
 	
+	//join(검색결과 찾기 용)
+	private String album_name;
+	
+	
 	public int getMusic_id() {
 		return music_id;
 	}
@@ -65,6 +69,13 @@ public class MusicVO {
 	public void setGenre_id(int genre_id) {
 		this.genre_id = genre_id;
 	}
+	public String getAlbum_name() {
+		return album_name;
+	}
+	public void setAlbum_name(String album_name) {
+		this.album_name = album_name;
+	}
+	
 	
 	
 }

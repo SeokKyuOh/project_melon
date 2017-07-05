@@ -43,6 +43,14 @@
 		p:mapperInterface="com.sist.board.dao.BoardMapper"
 	/>
 	
+	<!-- SearchMapper -->
+	<bean
+		id="searchMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:sqlSessionFactory-ref="ssf"
+		p:mapperInterface="com.sist.search.dao.SearchMapper"
+	/>
+	
 	<bean id="dMapper"
 	   class="org.mybatis.spring.mapper.MapperFactoryBean"
 	   p:sqlSessionFactory-ref="ssf"
@@ -62,6 +70,17 @@
 	   class="org.mybatis.spring.mapper.MapperFactoryBean"
 	   p:sqlSessionFactory-ref="ssf"
 	   p:mapperInterface="com.sist.genre.GenreMapper"
+	/>
+	<bean id="sMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.ticket.dao.StreamingMapper"
+	/>
+	
+	<bean id="downMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.ticket.dao.DownloadMapper"
 	/>
 
 	<mvc:annotation-driven>

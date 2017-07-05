@@ -40,11 +40,11 @@ public class MainController {
 		return "main/main";
 	}
 	
-	@RequestMapping("main/buy_ticket.do")
+	/*@RequestMapping("main/buy_ticket.do")
 	public String buy_ticket_page(Model model){
 		model.addAttribute("main_jsp","buy_ticket/buy_ticket.jsp");
 		return "main/main";
-	}
+	}*/
 	
 	@RequestMapping("main/notice.do")
 	public String notice_page(Model model){
@@ -66,6 +66,12 @@ public class MainController {
 	public String login_page(Model model){
 		return "main/member/login";
 	}
+	/*
+	@RequestMapping("main/search.do")
+	public String search_page(Model model){
+		model.addAttribute("main_jsp", "search/search.jsp");
+		return "main/main";
+	}*/
 
 }
 
