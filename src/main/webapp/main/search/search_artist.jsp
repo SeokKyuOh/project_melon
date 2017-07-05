@@ -13,7 +13,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>아티스트(검색갯수)</th>
+					<th>아티스트명으로 검색(<span style="color:red">${artist_list_size }</span>)</th>
 					<th></th>
 					<th></th>
 					<th></th>
@@ -26,14 +26,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="mvo_artist" items="${mvo_artist }">
-					<c:forEach var="i" begin="1" end="${mvo_artist.length }" step="1"></c:forEach>
+				<% int i = 1; %>
+				<c:forEach var="artist_list" items="${artist_list }">
 						<tr>
-							<td>${i }</td>
-							<td>${mvo_artist.music_name }</td>
-							<td>${mvo_artist.music_artist }</td>
-							<td>${mvo_artist.album_name }</td>
+							<td><%=i %></td>
+							<td>${artist_list.music_name }</td>
+							<td>${artist_list.music_artist }</td>
+							<td>${artist_list.album_name }</td>
 						</tr>
+						<%i++; %>
 				</c:forEach>
 			</tbody>
 		</table>
