@@ -27,10 +27,9 @@ public interface BoardMapper {
 	//수정하기
 	@Update("UPDATE board SET "
 			+"board_id=#{board_id},board_writer=#{board_writer},"
-			+"board_title=#{board_title},board_content=#{board_content},"
-			
+			+"board_title=#{board_title},board_content=#{board_content} "
 			+"WHERE board_id=#{board_id}")
-	public BoardVO boardUpdate(int board_id);
+	public void boardUpdate(int board_id);
 	//UPDATE board SET board_id=3,board_writer='무내지',board_title='작성글',board_content='내용',board_regdate='2017-07-04',board_hit='0' where board_id=1;
 
 	

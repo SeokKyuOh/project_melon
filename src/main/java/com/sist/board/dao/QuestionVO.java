@@ -12,6 +12,7 @@ public class QuestionVO {
 	private String  question_filesize;
 	private int  question_filecount;
 	private int member_id;
+	
 	public int getQuestion_id() {
 		return question_id;
 	}
