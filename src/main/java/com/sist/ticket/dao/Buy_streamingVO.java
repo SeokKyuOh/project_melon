@@ -4,11 +4,22 @@ import java.util.Date;
 
 public class Buy_streamingVO {
 	private int buy_streaming_id;
-	private String buy_streaming_start;
+	private Date buy_streaming_start;
 	private String buy_streaming_end;
 	private Date buy_streaming_date;
 	private int streaming_id;
 	private int member_id;
+	
+	//join
+	private String streaming_name;
+	
+	public String getStreaming_name() {
+		return streaming_name;
+	}
+
+	public void setStreaming_name(String streaming_name) {
+		this.streaming_name = streaming_name;
+	}
 
 	public int getBuy_streaming_id() {
 		return buy_streaming_id;
@@ -18,11 +29,11 @@ public class Buy_streamingVO {
 		this.buy_streaming_id = buy_streaming_id;
 	}
 
-	public String getBuy_streaming_start() {
+	public Date getBuy_streaming_start() {
 		return buy_streaming_start;
 	}
 
-	public void setBuy_streaming_start(String buy_streaming_start) {
+	public void setBuy_streaming_start(Date buy_streaming_start) {
 		this.buy_streaming_start = buy_streaming_start;
 	}
 

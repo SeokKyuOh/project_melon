@@ -43,17 +43,21 @@
 					  </div>
 					</div>
 					
-					
 					<div class="panel panel-default">
 					  <div class="panel-body" >
 					    <h3>내 구매 정보</h3>
                         <p><br><br>
-                            <i></i>보유중인 이용권이 없습니다
-                            <br />
-                            </p><br>
+                                <!--보유중인 이용권이 없습니다  -->
+                                <c:forEach var="bsvo" items="${bsvo }">
+                                	${bsvo.streaming_name }&nbsp;&nbsp;
+                                	${bsvo.buy_streaming_start }&nbsp;&nbsp;
+                                	${bsvo.buy_streaming_end }&nbsp;&nbsp;
+                                	<br>
+                                </c:forEach>
+                        	<br />
+                        </p><br>
 					  </div>
 					</div>
-							
 				</div>
 			</div>
 		</div>
@@ -108,14 +112,6 @@
           </div>
         </aside>
       </div>
-      
-
-      
-      
-      
-      
-
-
 	</div>
 	</section>
 </body>

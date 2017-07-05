@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import com.sist.board.dao.QuestionVO;
+import com.sist.ticket.dao.Buy_streamingVO;
 
 public interface MemberMapper {
 	//비밀번호 확인
@@ -25,8 +26,13 @@ public interface MemberMapper {
 	public MemberVO memberAllData(String member_nick);
 	
 	//마이페이지 문의내역 요약정보(타이틀, 작성날짜만)
-	@Select("SELECT question_title, question_regdate from question,members m where m.member_id=#{member_id}")
+	@Select("SELECT question_title, question_regdate FROM question,members m where m.member_id=#{member_id}")
 	public List<QuestionVO> mypageQuestionSummary(int id);
+	
+	//마이페이지 구매내역 정보 출력
+	@Select("SELECT s.streaming_name, bs.buy_streaming_start, bs.buy_streaming_end FROM buy_streaming bs, streaming s WHERE bs.member_id=#{member_id} and s.streaming_id = bs.streaming_id ORDER BY bs.buy_streaming_start ASC")
+	public List<Buy_streamingVO> mypageStreamingInfo(int id);
+	
 	//주소입력
 	@Select("SELECT zipcode,sido,gugun,dong,NVL(bunji, ' ') as bunji FROM zipcode "
 			+ "WHERE dong LIKE '%'||#{dong}||'%'")
