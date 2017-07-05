@@ -38,8 +38,8 @@
                             <br /><br>
                             <i class="glyphicon glyphicon-envelope"></i>&nbsp;${vo.member_email }
                             <br /><br>
-                            <i class="glyphicon glyphicon-gift"></i>&nbsp;<fmt:formatDate value="${vo.member_birthdate }" pattern="yyyy-MM-dd" /></p><br>
-                            <a href="info_update.do" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
+                            <i class="glyphicon glyphicon-gift"></i>&nbsp;${vo.member_birthdate }</p><br>
+                            <a href="info_update.do?nick=${vo.member_nick }" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
 					  </div>
 					</div>
 					
@@ -88,18 +88,20 @@
             <h2><span>내 문의 내역</span></h2>
             <table class="table table-hover">
 			   <thead>
-                <tr>
-			        <th style="width:75%">내 문의글</th>
-			        <th style="width:25%">작성일</th>
-			      </tr>
+			   	  
+	                <tr>
+				        <th style="width:75%">내 문의글</th>
+				        <th style="width:25%">작성일</th>
+				      </tr>
+			     
 			    </thead>
 			    <tbody>
-				    <c:forEach var="qvo" items="${qvo }">
+				    <c:forEach var="q" items="${qvo }">
 				      <tr>
-				        <td>${qvo.question_title }</td>
-				        <td><fmt:formatDate value="${qvo.question_regdate }" pattern="yyyy-MM-dd"/></td>
+				        <td>${q.question_title }</td>
+				        <td><fmt:formatDate value="${q.question_regdate }" pattern="yyyy-MM-dd"/></td>
 				      </tr>
-				    </c:forEach> 
+				    </c:forEach>
 			    </tbody>
 			  </table>
 			  <input type=button value="내 상세 문의 내역 보기" class="btn btn-theme">

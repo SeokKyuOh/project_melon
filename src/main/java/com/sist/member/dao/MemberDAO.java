@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.sist.board.dao.QuestionVO;
+
 @Repository
 public class MemberDAO {
 	@Autowired
@@ -31,8 +33,8 @@ public class MemberDAO {
 		
 	}
 	
-	public MemberVO mypageQuestionSummary(String member_nick){
-		return mMapper.mypageQuestionSummary(member_nick);
+	public List<QuestionVO> mypageQuestionSummary(int id){
+		return mMapper.mypageQuestionSummary(id);
 	}
 	
 	
