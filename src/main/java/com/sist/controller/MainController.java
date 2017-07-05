@@ -1,10 +1,13 @@
 package com.sist.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.board.dao.QuestionVO;
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
 
@@ -37,11 +40,11 @@ public class MainController {
 		return "main/main";
 	}
 	
-	@RequestMapping("main/buy_ticket.do")
+	/*@RequestMapping("main/buy_ticket.do")
 	public String buy_ticket_page(Model model){
 		model.addAttribute("main_jsp","buy_ticket/buy_ticket.jsp");
 		return "main/main";
-	}
+	}*/
 	
 	@RequestMapping("main/notice.do")
 	public String notice_page(Model model){
@@ -50,10 +53,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("main/mypage.do")
-	public String mypage_page(Model model, String nick){
+	public String mypage_page(Model model, String nick, int id){
 		model.addAttribute("main_jsp","mypage/mypage.jsp");
 		MemberVO vo=dao.memberAllData(nick);
-		MemberVO qvo=dao.mypageQuestionSummary(nick);
+		List<QuestionVO> qvo=dao.mypageQuestionSummary(id);
 		model.addAttribute("vo", vo);
 		model.addAttribute("qvo",qvo);
 		return "main/main";
