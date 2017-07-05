@@ -31,5 +31,9 @@ public class MemberDAO {
 		
 	}
 	
+	public MemberVO mypageQuestionSummary(String member_nick){
+		return mMapper.mypageQuestionSummary(member_nick);
+	}
+	
 	
 }

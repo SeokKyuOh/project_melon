@@ -66,7 +66,7 @@ $(function(){
         
         <fieldset>
           <label for="nick">아이디</label>
-          <input type="text" name="member_nick" style="width:70%" readonly required>
+          <input type="text" name="member_nick" style="width:74%" readonly required>
           <input type="button" value="ID 중복체크" id="idcheckBtn">
                     
           <label for="password">비밀번호</label>
