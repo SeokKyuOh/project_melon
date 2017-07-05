@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberRestController {
 
 @RequestMapping("main/mypage_into.do")
-public String mypage_into(String nick){
+public String mypage_into(String nick, int id){
 	String data="";
 	if(nick==""){
 		data="<script>"
@@ -17,7 +17,7 @@ public String mypage_into(String nick){
 	}
 	else{
 		data="<script>"
-				+"location.href=\"mypage.do?nick="+nick+"\";"
+				+"location.href=\"mypage.do?nick="+nick+"&id="+id+"\";"
 				+"</script>";
 	}
 	return data;

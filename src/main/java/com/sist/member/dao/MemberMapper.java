@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
+import com.sist.board.dao.QuestionVO;
+
 public interface MemberMapper {
 	//비밀번호 확인
 	@Select("SELECT member_pwd FROM members WHERE member_nick=#{member_nick}")
@@ -23,8 +25,8 @@ public interface MemberMapper {
 		public MemberVO memberAllData(String member_nick);
 	
 	//마이페이지 문의내역 요약정보(타이틀, 작성날짜만)
-	@Select("SELECT question_title, question_regdate from question where member_nick=#{member_nick}")
-	public MemberVO mypageQuestionSummary(String member_nick);
+	@Select("SELECT question_title, question_regdate from question,members m where m.member_id=#{member_id}")
+	public List<QuestionVO> mypageQuestionSummary(int id);
 	//주소입력
 	@Select("SELECT zipcode,sido,gugun,dong,NVL(bunji, ' ') as bunji FROM zipcode "
 			+ "WHERE dong LIKE '%'||#{dong}||'%'")
