@@ -86,6 +86,7 @@ BoardVO vo = dao.boardContent(board_id);
 	//insert,update(board_content),delete(board_list)
 	@RequestMapping("main/board_insert_ok.do")
 	public String board_insert_ok(BoardVO vo){
+		System.out.println(vo.getBoardType_id());
 		List<MultipartFile> list=vo.getUpload();
 		if(list==null){ //업로드 안된거
 			vo.setBoard_filename("");
@@ -107,13 +108,16 @@ BoardVO vo = dao.boardContent(board_id);
 					
 				}
 			}
+			
 			vo.setBoard_filename(strName.substring(0, strName.lastIndexOf(",")));
 			vo.setBoard_filesize(strSize.substring(0, strSize.lastIndexOf(",")));
 			vo.setBoard_filecount(list.size());
 			
-			
 		}
+		
+		
 		dao.boardInsert(vo); //업로드 후 디비저장
+		
 		return "redirect:/main/board_list.do"; //sendRedirect 
 	}
 	
