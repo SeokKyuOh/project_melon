@@ -5,7 +5,7 @@ public class PlaylistMusicVO {
 	private int playlist_id;
 	private int playlist_count;
 	private int music_number;
-	
+	private int music_id;
 	
 	// join
 	private int member_id;
@@ -15,12 +15,12 @@ public class PlaylistMusicVO {
 	private String music_artist;
 	private String music_lyrics;
 	
-	private String m_number;
 	
-	
-	
-	public String getM_number() {
-		return m_number;
+	public int getMusic_id() {
+		return music_id;
+	}
+	public void setMusic_id(int music_id) {
+		this.music_id = music_id;
 	}
 	public int getPlaylist_music_id() {
 		return playlist_music_id;
@@ -42,10 +42,6 @@ public class PlaylistMusicVO {
 	}
 	public int getMusic_number() {
 		return music_number;
-	}
-	public void setMusic_number(int music_number) {
-		this.music_number = music_number;
-		this.m_number = Integer.toString(music_number);
 	}
 	public int getMember_id() {
 		return member_id;
