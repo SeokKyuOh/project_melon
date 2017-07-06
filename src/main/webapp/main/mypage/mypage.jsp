@@ -101,13 +101,18 @@ function deleteLine(obj) {
 			      </tr>
 			    </thead>
 			    <tbody id="tbody">
+			    
 			    	<c:forEach var="mvo" items="${mvo }">
-				      <tr>
-				        <td style="width:50%">${mvo.music_name }</td>
-				        <td style="width:40%">${mvo.music_artist }</td>
-				        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
-				        <td style="width:10%"><input type="button" class="glyphicon glyphicon-remove" value="X" id="del" onclick="deleteLine(this)" style="background-color: transparent;border:none"></td>
-				      </tr>
+			    	<form>
+					      <tr>
+					        <td style="width:50%">${mvo.music_name }</td>
+					        <td style="width:40%">${mvo.music_artist }</td>
+					        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
+					        <td style="width:10%">
+					        	<input type="button" class="glyphicon glyphicon-remove" value="X" id="del" onclick="deleteLine(this)" style="background-color: transparent;border:none">
+					        </td>
+					      </tr>
+				      </form>
 			      </c:forEach>
 			    </tbody>
 			  </table>
