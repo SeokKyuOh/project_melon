@@ -13,30 +13,14 @@
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="slick_slider"> <!-- 이동 버튼 -->
-          <div class="single_iteam"> <a href="pages/single_page.html"> <img src="images/slider_img4.jpg" alt=""></a>
-            <div class="slider_article">
-              <h2><a class="slider_tittle" href="pages/single_page.html">최신 앨범 이미지 구현할 예정</a></h2>
-              <p>자세한 설명 추가할 수 있음</p>
-            </div>
-          </div>
-          <div class="single_iteam"> <a href="pages/single_page.html"> <img src="images/slider_img2.jpg" alt=""></a>
-            <div class="slider_article">
-              <h2><a class="slider_tittle" href="pages/single_page.html">최신 앨범 이미지 구현할 예정</a></h2>
-              <p>자세한 설명 추가할 수 있음</p>
-            </div>
-          </div>
-          <div class="single_iteam"> <a href="pages/single_page.html"> <img src="images/slider_img3.jpg" alt=""></a>
-            <div class="slider_article">
-              <h2><a class="slider_tittle" href="pages/single_page.html">최신 앨범 이미지 구현할 예정</a></h2>
-              <p>자세한 설명 추가할 수 있음</p>
-            </div>
-          </div>
-          <div class="single_iteam"> <a href="pages/single_page.html"> <img src="images/slider_img1.jpg" alt=""></a>
-            <div class="slider_article">
-              <h2><a class="slider_tittle" href="pages/single_page.html">최신 앨범 이미지 구현할 예정</a></h2>
-              <p>자세한 설명 추가할 수 있음</p>
-            </div>
-          </div>
+          <c:forEach var="album_main" items="${album_main }">
+	          <div class="single_iteam"> <a href="#"> <img src="http://211.238.142.109:8080/album_img/${album_main.album_art }.jpg" ></a>
+	            <div class="slider_article">
+	              <h2><a class="slider_tittle" href="#">${album_main.album_name }</a></h2>
+	              <p>${album_main.music_artist }</p>
+	            </div>
+	          </div>
+          </c:forEach>
         </div>
       </div>
       <!-- 최신앨범 이미지 끝 -->

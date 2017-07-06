@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.chart.ChartService;
+import com.sist.chart.Daily_ChartVO;
 import com.sist.playlist.dao.AlbumVO;
 import com.sist.playlist.dao.MusicVO;
 import com.sist.search.dao.SearchDAO;
@@ -14,11 +16,15 @@ import com.sist.search.dao.SearchDAO;
 @Controller
 public class SearchController {
 	@Autowired
+	private ChartService service;
+	
+	@Autowired
 	private SearchDAO dao;
 	
 	List<MusicVO> artist_list;
 	List<MusicVO> song_list;
 	List<AlbumVO> album_list;
+	List<Daily_ChartVO> daily_list;
 	
 	int artist_list_size;
 	int song_list_size;
@@ -42,6 +48,10 @@ public class SearchController {
 		song_list_size = song_list.size();
 		album_list_size = album_list.size();
 		
+		//움직이는 차트 값 가져오기
+		daily_list=service.Daily_ChartData();
+		model.addAttribute("daily_list", daily_list);
+		
 		model.addAttribute("artist_list", artist_list);
 		model.addAttribute("song_list", song_list);
 		model.addAttribute("album_list", album_list);
@@ -54,6 +64,8 @@ public class SearchController {
 	
 	@RequestMapping("main/search_artist.do")
 	public String search_artist(Model model){
+		daily_list=service.Daily_ChartData();
+		model.addAttribute("daily_list", daily_list);
 		model.addAttribute("artist_list", artist_list);
 		model.addAttribute("artist_list_size", artist_list_size);
 		model.addAttribute("main_jsp", "search/search_artist.jsp");
@@ -62,6 +74,8 @@ public class SearchController {
 	
 	@RequestMapping("main/search_song.do")
 	public String search_song(Model model){
+		daily_list=service.Daily_ChartData();
+		model.addAttribute("daily_list", daily_list);
 		model.addAttribute("song_list", song_list);
 		model.addAttribute("song_list_size", song_list_size);
 		model.addAttribute("main_jsp", "search/search_song.jsp");
@@ -70,6 +84,8 @@ public class SearchController {
 	
 	@RequestMapping("main/search_album.do")
 	public String search_album(Model model){
+		daily_list=service.Daily_ChartData();
+		model.addAttribute("daily_list", daily_list);
 		model.addAttribute("album_list", album_list);
 		model.addAttribute("album_list_size", album_list_size);
 		model.addAttribute("main_jsp", "search/search_album.jsp");

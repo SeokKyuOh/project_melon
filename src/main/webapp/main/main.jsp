@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Melon:음악이 필요한 순간</title>
+<title>HoneyMusic:달달한 음악이 필요한 순간</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">  
@@ -149,9 +149,9 @@ $(function() {
 				
 				<div class="col-lg-5 col-md-5 col-sm-5">
 					<div class="footer_widget wow fadeInRightBig">
-						<h2>달달한 음악이 필요한 순간 Honey music</h2>
+						<h2>달달한 음악이 필요한 순간 Honey Music</h2>
 						<p>서울시 마포구 백범로 18(노고산동) 미화빌딩 2,3층</p>
-						<p>대표이사 : 김연실, 류오연, 문혜지, 박재욱, 오석규, 정현아, 차유경</p>
+						<p>대표이사 : 김연실, 류오연, 문혜지, 박재욱, 오석규, 장현아, 차유경</p>
 						<p>사업자등록번호 : 123-45-67899</p>
 						<p>통신판매업 신고번호 : 제2017-서울마포-4321호</p>
 						<p>문의전화(평일 09:00~18:00) : 1234-7777</p>

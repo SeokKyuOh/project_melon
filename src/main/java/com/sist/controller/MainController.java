@@ -11,6 +11,8 @@ import com.sist.board.dao.QuestionDAO;
 import com.sist.board.dao.QuestionVO;
 import com.sist.chart.ChartService;
 import com.sist.chart.Daily_ChartVO;
+import com.sist.genre.GenreService;
+import com.sist.genre.GenreVO;
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
 import com.sist.playlist.dao.MusicVO;
@@ -20,7 +22,10 @@ import com.sist.ticket.dao.Buy_streamingVO;
 @Controller
 public class MainController {
 	@Autowired
-	private ChartService service;
+	private ChartService service;	
+	
+	@Autowired									//메인 앨범 이미지 때문에 추가 (7/6 오석규)
+	private GenreService genreservice;	//메인 앨범 이미지 때문에 추가 (7/6 오석규)
 	
 	@Autowired
 	MemberDAO dao;
@@ -28,32 +33,19 @@ public class MainController {
 	@Autowired
 	QuestionDAO qdao;
 	
+	List<Daily_ChartVO> daily_list;		// 상단 차트순위 때문에 추가 (7/6 오석규)
+	
 	@RequestMapping("main/main.do")
 	public String main_page(Model model){
 		//실시간 차트 불러오기
-		List<Daily_ChartVO> daily_list=service.Daily_ChartData();
+		daily_list=service.Daily_ChartData();
+		List<GenreVO> album_main =genreservice.genreAlbumData(1);				//메인 앨범 이미지 때문에 추가 (7/6 오석규)
 		model.addAttribute("daily_list", daily_list);
+		model.addAttribute("album_main", album_main);									//메인 앨범 이미지 때문에 추가 (7/6 오석규)
 		model.addAttribute("main_jsp","default.jsp");
 		return "main/main";
 	}
 	
-	@RequestMapping("main/chart.do")
-	public String chart_page(Model model){
-		model.addAttribute("main_jsp","chart/chart.jsp");
-		return "main/main";
-	}
-	
-	@RequestMapping("main/new.do")
-	public String new_page(Model model){
-		model.addAttribute("main_jsp","new/new.jsp");
-		return "main/main";
-	}
-	
-	@RequestMapping("main/genre.do")
-	public String ganre_page(Model model){
-		model.addAttribute("main_jsp","genre/genre.jsp");
-		return "main/main";
-	}
 	
 	/*@RequestMapping("main/buy_ticket.do")
 	public String buy_ticket_page(Model model){
@@ -87,6 +79,10 @@ public class MainController {
       model.addAttribute("qvo",qvo);
       model.addAttribute("bsvo",bsvo);
       model.addAttribute("bdvo",bdvo);
+      
+      daily_list=service.Daily_ChartData();				// 상단 차트순위 때문에 추가 (7/6 오석규)
+      model.addAttribute("daily_list", daily_list);		// 상단 차트순위 때문에 추가 (7/6 오석규)
+		
       return "main/main";
    }
 

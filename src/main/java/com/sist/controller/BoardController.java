@@ -12,12 +12,20 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.sist.board.dao.BoardDAO;
 import com.sist.board.dao.BoardVO;
+import com.sist.chart.ChartService;
+import com.sist.chart.Daily_ChartVO;
 
 
 @Controller
 public class BoardController {
+	
+	@Autowired							// 상단 차트순위 때문에 추가 (7/6 오석규)
+	private ChartService service;	// 상단 차트순위 때문에 추가 (7/6 오석규)
+	
 	@Autowired	
 	private BoardDAO dao;
+	
+	List<Daily_ChartVO> daily_list;	// 상단 차트순위 때문에 추가 (7/6 오석규)
 	
 	@RequestMapping("main/board_list.do")
 	public String board_list(Model model, int boardType_id){//boardType_id 로 가져오기 
@@ -28,6 +36,9 @@ public class BoardController {
 		int end=rowSize*curPage;*/
 		
 		List<BoardVO> list=dao.boardList(boardType_id);
+		
+		daily_list=service.Daily_ChartData();	// 상단 차트순위 때문에 추가 (7/6 오석규)
+		model.addAttribute("daily_list", daily_list);							// 상단 차트순위 때문에 추가 (7/6 오석규)
 	
 		model.addAttribute("list",list);
 		//model.addAttribute("curPage", curPage);
@@ -44,6 +55,9 @@ public class BoardController {
 		
 		System.out.println(vo.getBoard_title());
 		
+		daily_list=service.Daily_ChartData();				// 상단 차트순위 때문에 추가 (7/6 오석규)
+		model.addAttribute("daily_list", daily_list);		// 상단 차트순위 때문에 추가 (7/6 오석규)
+		
 		model.addAttribute("vo", vo);
 		model.addAttribute("main_jsp","board/board_content.jsp");
 		
@@ -59,6 +73,9 @@ public class BoardController {
 BoardVO vo = dao.boardContent(board_id);
 		
 		System.out.println(vo.getBoard_title());
+		
+		daily_list=service.Daily_ChartData();					// 상단 차트순위 때문에 추가 (7/6 오석규)
+		model.addAttribute("daily_list", daily_list);			// 상단 차트순위 때문에 추가 (7/6 오석규)
 		
 		model.addAttribute("vo", vo);
 		
@@ -79,6 +96,10 @@ BoardVO vo = dao.boardContent(board_id);
 
 	@RequestMapping("main/board_insert.do")
 	public String board_insert(Model model){
+		
+		daily_list=service.Daily_ChartData();					// 상단 차트순위 때문에 추가 (7/6 오석규)
+		model.addAttribute("daily_list", daily_list);			// 상단 차트순위 때문에 추가 (7/6 오석규)
+		
 		model.addAttribute("main_jsp", "board/board_insert.jsp");
 		return "main/main";
 		

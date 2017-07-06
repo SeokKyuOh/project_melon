@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.chart.ChartService;
+import com.sist.chart.Daily_ChartVO;
 import com.sist.member.dao.MemberVO;
 import com.sist.ticket.dao.Buy_downloadVO;
 import com.sist.ticket.dao.Buy_streamingVO;
@@ -29,8 +31,17 @@ public class TicketController {
 	@Autowired
 	private DownloadDAO doDao;
 	
+	@Autowired							// 상단 차트순위 때문에 추가 (7/6 오석규)
+	private ChartService service;	//상단 차트순위 때문에 추가 (7/6 오석규)
+	
+	List<Daily_ChartVO> daily_list;//상단 차트순위 때문에 추가 (7/6 오석규)
+	
 	@RequestMapping("main/buy_ticket.do")
 	public String buy_ticket_page(Model model, HttpSession session){
+		
+		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
+		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
+		
 		List<DownloadVO> dList = doDao.download_list();
 		List<StreamingVO> sList = stDao.streaming_list();
 		
@@ -99,6 +110,10 @@ public class TicketController {
 	
 	@RequestMapping("main/payment.do")
 	public String ticket_payment(String id, String type, Model model, HttpSession session) {
+		
+		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
+		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
+		
 		System.out.println(id + ":" + type);
 		
 		int tid = Integer.parseInt(id);
