@@ -69,7 +69,9 @@ $(document).ready(function() {
 				$('#usr').focus();
 				return false;
 			}
-		} else if($('#deposit').css("display") != "none") {
+		} 
+		
+		if($('#deposit').css("display") != "none") {
 			alert("depositclick");
 			if($('#sel3').val() == 'st3') {
 				alert("은행을 선택해 주세요");
@@ -80,7 +82,9 @@ $(document).ready(function() {
 				$('#musr').focus();
 				return false;
 			}
-		} else if($('#card').css("display") != "none") {
+		} 
+		
+		if ($('#card').css("display") != "none") {
 			alert("cardclick");
 			if($('#n1').val() == '') {
 				alert("첫번째 번호를 입력하세요.");

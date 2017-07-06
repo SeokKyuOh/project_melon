@@ -54,11 +54,9 @@
 								<div>
 										<span>${vo.album_artist }</span>
 								</div>
-								<!-- 아티스트명 공간 초과시 더보기 버튼 노출 -->
-
-								<!-- //아티스트명 공간 초과시 더보기 버튼 노출 -->
 							</dd>
 							<dd>
+							<strong>타이틀곡</strong>
 							<span>${vo.music_name }</span>
 							</dd>
 							<dd>
