@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sist.board.dao.BoardDAO;
@@ -41,6 +42,8 @@ public class BoardController {
 		
 		BoardVO vo = dao.boardContent(board_id);
 		
+		System.out.println(vo.getBoard_title());
+		
 		model.addAttribute("vo", vo);
 		model.addAttribute("main_jsp","board/board_content.jsp");
 		
@@ -52,14 +55,27 @@ public class BoardController {
 	
 	@RequestMapping("main/board_update.do")
 	public String board_update(Model model,int board_id){
-		BoardVO vo = dao.boardUpdate(board_id);
+		//dao.boardUpdate(board_id);
+BoardVO vo = dao.boardContent(board_id);
+		
+		System.out.println(vo.getBoard_title());
+		
 		model.addAttribute("vo", vo);
+		
 		model.addAttribute("main_jsp", "board/board_update.jsp");
 		
 		
 		return "main/main";
 		
 	}
+	@RequestMapping("main/board_update_ok.do")
+	@ResponseBody
+	public String board_update_ok(BoardVO vo){
+		
+		
+		return "";
+	}
+	
 
 	@RequestMapping("main/board_insert.do")
 	public String board_insert(Model model){
@@ -70,6 +86,7 @@ public class BoardController {
 	//insert,update(board_content),delete(board_list)
 	@RequestMapping("main/board_insert_ok.do")
 	public String board_insert_ok(BoardVO vo){
+		System.out.println(vo.getBoardType_id());
 		List<MultipartFile> list=vo.getUpload();
 		if(list==null){ //업로드 안된거
 			vo.setBoard_filename("");
@@ -91,13 +108,16 @@ public class BoardController {
 					
 				}
 			}
+			
 			vo.setBoard_filename(strName.substring(0, strName.lastIndexOf(",")));
 			vo.setBoard_filesize(strSize.substring(0, strSize.lastIndexOf(",")));
 			vo.setBoard_filecount(list.size());
 			
-			
 		}
+		
+		
 		dao.boardInsert(vo); //업로드 후 디비저장
+		
 		return "redirect:/main/board_list.do"; //sendRedirect 
 	}
 	

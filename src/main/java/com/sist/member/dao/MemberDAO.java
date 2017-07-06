@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sist.board.dao.QuestionVO;
+import com.sist.ticket.dao.Buy_streamingVO;
 
 @Repository
 public class MemberDAO {
@@ -37,5 +38,8 @@ public class MemberDAO {
 		return mMapper.mypageQuestionSummary(id);
 	}
 	
+	public List<Buy_streamingVO> mypageStreamingInfo(int id){
+		return mMapper.mypageStreamingInfo(id);
+	}
 	
 }

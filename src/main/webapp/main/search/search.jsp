@@ -9,16 +9,11 @@
 </head>
 <body>
 	<section id="contentSection">
-	<ul class="nav nav-tabs" style="width:80%">
-		<li><a href="#">아티스트</a></li>
-		<li><a href="#">곡</a></li>
-		<li><a href="#">앨범</a></li>
-	</ul>
 		<div class="center_content" style="width:80%">
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>아티스트(검색갯수)</th>
+						<th>아티스트명으로 검색(<span style="color:red">${artist_list_size }</span>)</th>
 						<th></th>
 						<th></th>
 						<th></th>
@@ -31,23 +26,36 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="mvo_artist" items="${mvo_artist }">
-						<c:forEach var="i" begin="1" end="10" step="1">
-							<tr>
-								<td>1</td>
-								<td>${mvo_artist.music_name }</td>
-								<td>${mvo_artist.music_artist }</td>
-								<td>${mvo_artist.album_name }</td>
-							</tr>
-						</c:forEach>
+					<% int i = 1; %>
+					<c:if test="${artist_list.size()>=10}" >
+					<c:forEach var="artist_list" items="${artist_list }" begin="1" end="10" step="1">
+						<tr>
+							<td><%=i %></td>
+							<td>${artist_list.music_name }</td>
+							<td>${artist_list.music_artist }</td>
+							<td>${artist_list.album_name }</td>
+						</tr>
+						<% i++; %>
 					</c:forEach>
+					</c:if>
+					<c:if test="${artist_list.size()<10}" >
+					<c:forEach var="artist_list" items="${artist_list }">
+						<tr>
+							<td><%=i %></td>
+							<td>${artist_list.music_name }</td>
+							<td>${artist_list.music_artist }</td>
+							<td>${artist_list.album_name }</td>
+						</tr>
+						<% i++; %>
+					</c:forEach>
+					</c:if>
 				</tbody>
 			</table>
-			<div style="text-align:right"><a href="search_artist.do">아티스트 검색 결과 더보기</a></div>
+			<div style="text-align:right"><a href="search_artist.do" style="color: blue; font: bold;">아티스트 검색 결과 더보기</a></div>
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>곡(검색갯수)</th>
+						<th>곡명으로 검색(<span style="color:red">${song_list_size }</span>)</th>
 						<th></th>
 						<th></th>
 						<th></th>
@@ -60,17 +68,35 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="mvo_song" items="${mvo_song }">
+					<% int j = 1; %>
+					<c:if test="${song_list.size()>=10}">
+					<c:forEach var="song_list" items="${song_list }" begin="1" end="10" step="1">
 						<tr>
-							<td>1</td>
-							<td>${mvo_song.music_name }</td>
-							<td>${mvo_song.music_artist }</td>
-							<td>${mvo_song.album_name }</td>
+							<td><%=j %></td>
+							<td>${song_list.music_name }</td>
+							<td>${song_list.music_artist }</td>
+							<td>${song_list.album_name }</td>
 						</tr>
+					<% j++; %>
 					</c:forEach>
+					</c:if>
+					
+					<c:if test="${song_list.size()<10}">
+					<c:forEach var="song_list" items="${song_list }">
+						<tr>
+							<td><%=j %></td>
+							<td>${song_list.music_name }</td>
+							<td>${song_list.music_artist }</td>
+							<td>${song_list.album_name }</td>
+						</tr>
+					<% j++; %>
+					</c:forEach>
+					</c:if>
+					
 				</tbody>
 			</table>
-			<div style="text-align:right"><a href="search_song">곡 검색 결과 더보기</a></div>
+			<div style="text-align:right"><a href="search_song.do" style="color: blue; font: bold;">곡 검색 결과 더보기</a></div>
+			
 			<table class="table table-hover">
 				<thead>
 					<tr>

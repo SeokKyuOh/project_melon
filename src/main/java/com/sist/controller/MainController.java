@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sist.board.dao.QuestionVO;
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
+import com.sist.ticket.dao.Buy_streamingVO;
 
 @Controller
 public class MainController {
@@ -57,8 +58,15 @@ public class MainController {
 		model.addAttribute("main_jsp","mypage/mypage.jsp");
 		MemberVO vo=dao.memberAllData(nick);
 		List<QuestionVO> qvo=dao.mypageQuestionSummary(id);
+		List<Buy_streamingVO> bsvo=dao.mypageStreamingInfo(id);
+		//날짜 형식 변경(시분초 제거)
+		for(Buy_streamingVO vo2:bsvo){
+			vo2.setBuy_streaming_start(vo2.getBuy_streaming_start().substring(0,10));
+			vo2.setBuy_streaming_end(vo2.getBuy_streaming_end().substring(0,10));
+		}
 		model.addAttribute("vo", vo);
 		model.addAttribute("qvo",qvo);
+		model.addAttribute("bsvo",bsvo);
 		return "main/main";
 	}
 	
