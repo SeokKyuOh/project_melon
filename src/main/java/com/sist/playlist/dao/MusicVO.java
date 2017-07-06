@@ -13,15 +13,8 @@ public class MusicVO {
 	
 	//join(검색결과 찾기 용)
 	private String album_name;
-<<<<<<< HEAD
 	private String album_art;
 
-	
-=======
-
-	private String album_art;
-
->>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 	//join(mypage playlist)
 	private int playlist_music_id;
 
