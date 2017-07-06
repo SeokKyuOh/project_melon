@@ -126,9 +126,10 @@
 						<img src="<c:url value="/resources/img/add.png"/>"
 						style="width: 20px; height: 20px"></a> 
 				
-				<td>${vo.music_name }</td>
+				<td><a
+					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}">${vo.music_name }</a></td>
 				<td>${vo.music_artist }</td>
-				<td>${vo.album_name }</td>
+				<td><a href="albumInfo.do?album_id=${vo.album_id}">${vo.album_name }</a></td>
 			</tr>
 			<%
 					i++;
