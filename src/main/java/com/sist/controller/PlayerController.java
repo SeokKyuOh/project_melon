@@ -34,19 +34,12 @@ public class PlayerController {
 		List<PlaylistMusicVO> playlist = playlistDAO.getPlaylist(member_id);
 		
 		model.addAttribute("playlist", playlist);
-		return "forward:/main/player/player";
+		return "/main/player/player";
 		
 	}
 	
-	// 플레이어 구동(회원이 아니거나 이용권 없을 때) -> album_id or music_id만 받아 출력하기
-	@RequestMapping("main/player_temp.do")
-	public String runTempPlayer(int album_id, Model model){
-		List<MusicVO> playlist=playlistDAO.getTempList(album_id);
-		model.addAttribute("playlist", playlist);
-		return "main/player/player";
-	}
-	
 	// 재생 버튼을 누르거나 곡을 담을 때 가장 먼저 실행됨!!!
+	// 곡 개별 선택 시 실행되는 부분
 	// playlist_music에 곡을 담기 위해 playlist_id가져오기
 	// String member_id, ArrayList<Integer> musics, Model model
 	@RequestMapping("main/player_playlist_id.do")
@@ -90,17 +83,39 @@ public class PlayerController {
 			// 만약 playlist_id가 있고 이용권이 무효한 경우
 			else{
 				model.addAttribute("musics", musics);
-				return "redirect:/main/player_temp.do";
+				return "forward:/main/player_temp.do";
 			}
 		}
 		
-		// 회원이 아닌 경우
+		// 회원이 아닌 경우 
 		else{
-			return "redirect:/main/player_temp.do";
+			model.addAttribute("musics", musics);
+			return "forward:/main/player_temp.do";
 		}
 	}
 	
-	// music_id를 이용해 album_id가져오기
+	// album_id를 이용해 music_id가져오기(앨범 재생)
+	@RequestMapping("main/player_temp_db.do")
+	public String getMusicId(int album_id, Model model){
+		ArrayList<Integer> musics=playlistDAO.getMusicId(album_id);
+		model.addAttribute("musics", musics);
+		return "redirect:main/player_playlist_id.do";
+	}
+	
+
+	// music_id를 이용해 temp player 만들기
+	// 플레이어 구동(회원이 아니거나 이용권 없을 때) -> music_id만 받아 출력하기
+	@RequestMapping("main/player_temp.do")
+	public String openTempPlayer(ArrayList<Integer> musics, Model model){
+		List<MusicVO> playlist=null;
+		int music_id;
+		for(int i=0; i<musics.size(); i++){
+			music_id=musics.get(i);
+			playlist.add(playlistDAO.getTempList(music_id));
+		}
+		model.addAttribute("playlist", playlist);
+		return "forward:/main/player_temp.do";
+	}
 	
 	/*
 	 * @RequestMapping("main/player.do") public String getPlayer(Model model){
@@ -108,7 +123,7 @@ public class PlayerController {
 	 */
 	// 이용권이 없을 때 출력되는 페이지(이용권 구매 유도)
 
-	// playlist 테이블에 column 추가
+	// playlist 테이블에 column 추가(최초의 playlist_music을 만드는 경우)
 	
 	
 	// 재생 횟수 늘리기
@@ -132,7 +147,7 @@ public class PlayerController {
 			music_id=musics.get(i);
 			playlistDAO.insertMusic(playlist_id, music_id);
 		}
-		return "/main/player_index";
+		return "/main/player/player_index";
 	}
 
 	// 추후 구현 예정
