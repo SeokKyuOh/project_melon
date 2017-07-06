@@ -13,13 +13,12 @@ public class MusicVO {
 	
 	//join(검색결과 찾기 용)
 	private String album_name;
-<<<<<<< HEAD
+
 	private String album_art;
-=======
-	
+
 	//join(mypage playlist)
 	private int playlist_music_id;
->>>>>>> 30d8f06546351aad178ed6f12972dbc861fa3dcd
+
 	
 	public int getPlaylist_music_id() {
 		return playlist_music_id;
