@@ -17,7 +17,7 @@ function sendBuy(id, type) {
 </head>
 <body> 
 	<section id="contentSection">
-	<div class="container" style="width: 95%">
+	<div class="container" style="width: 80%">
   		<h2 align="center">이용권 구매</h2>
   		<div class="panel-body">
   			<img src="images/attention.png" width="50px" height="50px">
@@ -27,15 +27,15 @@ function sendBuy(id, type) {
     		<div class="panel-heading">스트리밍</div>
 	  		<c:forEach var="vo" items="${sList }">
     		<div class="panel-body">
-    			<img src="images/${vo.streaming_name }.png">
-    			<span style="width: 50px">${vo.streaming_name }</span>
+    			<img src="images/${vo.streaming_name }.png" width="200px">
+    			<span style="width: 50px;">${vo.streaming_name }</span>
     			<span style="width: 100px">가격 : ${vo.streaming_price }원</span>
     			<div class="btn-group" role="group" align="right" style="float:right">
     				<c:if test="${st_isvalid == 'no'}">
-    				<button type="button" class="btn btn-primary" style="top: 50px;" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
+    				<button type="button" class="btn btn-primary" style="top:30px;" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
     				</c:if>
     				<c:if test="${st_isvalid == 'yes'}">
-    				<button type="button" class="btn btn-primary" style="top: 50px;" disabled="disabled" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
+    				<button type="button" class="btn btn-primary" style="top:30px;" disabled="disabled" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
     				</c:if>
   				</div>
     		</div>
@@ -46,15 +46,15 @@ function sendBuy(id, type) {
     		<div class="panel-heading">다운로드</div>
     		<c:forEach var="vo" items="${dList }">
     		<div class="panel-body">
-    			<img src="images/${vo.download_name }.png">
+    			<img src="images/${vo.download_name }.png" width="200px">
     			<span style="width: 50px">${vo.download_name }</span>
     			<span style="width: 100px">가격 : ${vo.download_price }원</span>
     			<div class="btn-group" role="group" align="right" style="float: right">
     				<c:if test="${do_isvalid == 'no'}">
-    				<button type="button" class="btn btn-primary" style="top: 50px;" onclick="sendBuy(${vo.download_id},'download')">구매</button>
+    				<button type="button" class="btn btn-primary" style="top: 30px;" onclick="sendBuy(${vo.download_id},'download')">구매</button>
     				</c:if>
     				<c:if test="${do_isvalid == 'yes'}">
-    				<button type="button" class="btn btn-primary" style="top: 50px;" disabled="disabled" onclick="sendBuy(${vo.download_id},'download')">구매</button>
+    				<button type="button" class="btn btn-primary" style="top: 30px;" disabled="disabled" onclick="sendBuy(${vo.download_id},'download')">구매</button>
     				</c:if>
   				</div>
     		</div>

@@ -13,6 +13,8 @@ public class QuestionVO {
 	private int  question_filecount;
 	private int member_id;
 	
+	
+	
 	public int getQuestion_id() {
 		return question_id;
 	}
