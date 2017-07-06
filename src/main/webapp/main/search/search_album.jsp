@@ -23,7 +23,7 @@
 		<c:forEach var="album_list" items="${album_list }">
 				<div style="width: 500px; height: 150px ; float:left">
 					<div style="width: 150px; height: 150px; float: left" >
-						<img src="http://211.238.142.109:8080/food/main/album_img/${album_list.album_art }.jpg" width="140" height="140">
+						<img src="http://211.238.142.109:8080/album_img/${album_list.album_art }.jpg" width="140" height="140">
 					</div>
 					<div style="width: 350px; height: 150px; float: left" >
 						<br><span style="font-size: 14px">&nbsp;&nbsp;[${album_list.album_type }]</span><br>

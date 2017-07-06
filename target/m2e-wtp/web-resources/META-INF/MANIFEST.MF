@@ -1,13 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: mypc
-=======
-<<<<<<< HEAD
-Built-By: sist-jw
-=======
-Built-By: user
->>>>>>> eb9942e7bdede2b8c5fccc476bfe81240bbdb5a3
->>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 Build-Jdk: 1.8.0_131
 Created-By: Maven Integration for Eclipse
 

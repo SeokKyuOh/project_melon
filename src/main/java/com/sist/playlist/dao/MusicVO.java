@@ -19,16 +19,14 @@ public class MusicVO {
 	//join(mypage playlist)
 	private int playlist_music_id;
 
-	
-<<<<<<< HEAD
-=======
+
 	public int getPlaylist_music_id() {
 		return playlist_music_id;
 	}
 	public void setPlaylist_music_id(int playlist_music_id) {
 		this.playlist_music_id = playlist_music_id;
 	}
->>>>>>> 613891825d5a474306393382a77c736ba3087e7f
+
 	public int getMusic_id() {
 		return music_id;
 	}

@@ -51,7 +51,7 @@
             <% int i=1; %>
               <c:forEach var="daily_list" items="${daily_list}" begin="0" end="4" step="1">
               <li>
-                <div class="media"> <a href="daily_chart.do" class="media-left"> <img src="http://211.238.142.109:8080/food/main/album_img/${daily_list.album_art }.jpg"> </a>
+                <div class="media"> <a href="daily_chart.do" class="media-left"> <img src="http://211.238.142.109:8080/album_img/${daily_list.album_art }.jpg"> </a>
                   <div class="media-body"> <a href="daily_chart.do" ><%=i %>위 - ${daily_list. music_name} - ${daily_list.music_artist }</a> </div>
                 </div>
               </li>
