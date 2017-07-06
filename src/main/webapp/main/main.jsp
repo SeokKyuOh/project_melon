@@ -138,18 +138,18 @@ $(function() {
 				
 				<div class="col-lg-5 col-md-5 col-sm-5">
 					<div class="footer_widget wow fadeInRightBig">
-						<h2>회사정보</h2>
-						<p>회사이름이나 정보 넣으면 될 듯?</p>
-						<address>서울시 마포구 신촌동 ~ 주소입력</address>
+						<h2>달달한 음악이 필요한 순간 Honey music</h2>
+						<p>Honey music Company</p>
+						<address>서울특별시 마포구 노고산동 107-111 미화빌딩 2, 3층</address>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="footer_bottom">
-			<p class="copyright">
+			<!-- <p class="copyright">
 				Copyright &copy; 2045 <a href="index.html">NewsFeed</a>
 			</p>
-			<p class="developer">Developed By Wpfreeware</p>
+			<p class="developer">Developed By Wpfreeware</p> -->
 		</div>
 	</footer>
 	</div>
