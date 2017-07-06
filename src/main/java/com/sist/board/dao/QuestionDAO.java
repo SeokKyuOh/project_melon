@@ -24,4 +24,9 @@ public class QuestionDAO {
 		return qMapper.questionContent(question_id);
 	}
 	
+	//±Û¼öÁ¤
+	public void questionUpdate(QuestionVO vo){
+		qMapper.questionUpdate(vo);
+		
+	}
 }
