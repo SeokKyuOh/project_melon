@@ -42,23 +42,22 @@ $(function() {
 <div class="container">
   <header id="header">
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12">
+     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_top">
-          <div class="header_top_left">
-            <ul class="top_nav">
+         <div class="header_top_left">
+            <!-- <ul class="top_nav">
               <li><a href="main.do">Home</a></li>
               <li><a href="#">About</a></li>
-              <li><a href="pages/contact.html">Contact</a></li>
-            </ul>
+              <li><a href="pages/contact.html">Contact</a></li> -
+            </ul> -->
           </div>
           <div class="header_top_right">
-            <p>Friday, December 05, 2045</p>
           </div>
         </div>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
-          <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
+          <div class="logo_area"><a href="main.do" class="logo"><img src="images/honey_logo.png" alt=""></a></div>
           	<div style="margin: 5px 5px -90px 5px"> 
 				<form method="post" action="search.do" class="contact_form">
 					<input type="text" name=music_search style="width: 25%; height: 40px; margin: 30px 5px -120px 5px" placeholder="  검색어를 입력하세요"> 	
