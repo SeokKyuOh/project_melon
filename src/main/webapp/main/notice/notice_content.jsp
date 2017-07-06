@@ -26,9 +26,9 @@
 						 <input class="form-control" type="text" name="question_title" value="${vo.question_title }">
 						  <textarea
 							class="form-control" cols="30" rows="10" name="question_content" >${vo.question_content }</textarea>
-						<input type="submit" value="수정하기"> 
-						<input type="submit" value="삭제하기">
-						<input type="submit" value="취소하기" onClick="javascript:history.back()">
+						<input type=submit value="수정하기" class="btn btn-theme">
+						<input type="submit" value="삭제하기" class="btn btn-theme">
+						<input type="submit" value="취소하기" class="btn btn-theme" onClick="javascript:history.back()">
 					</form>
 				</div>
 			</div>

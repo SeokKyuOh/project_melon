@@ -172,7 +172,7 @@
           </div>
           
          <div>
-       		  <a href="notice_list.do?nick=${vo.member_nick }" >
+       		  <a href="notice_insert.do?nick=${vo.member_nick }&id=${vo.member_id}" >
 			  <input type=button value="1:1문의하기" class="btn btn-theme" align="right"></a>
 			 
           </div>

@@ -29,4 +29,9 @@ public class QuestionDAO {
 		qMapper.questionUpdate(vo);
 		
 	}
+	
+	//insert
+	public void questionInsert(QuestionVO vo){
+		qMapper.questionInsert(vo);
+	}
 }
