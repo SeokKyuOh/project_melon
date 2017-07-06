@@ -87,6 +87,11 @@
 	   p:sqlSessionFactory-ref="ssf"
 	   p:mapperInterface="com.sist.genre.GenreAlbumMapper"
 	/>
+	<bean id="aiMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.albumInfo/AlbumInfoMapper"
+	/>
 
 	<mvc:annotation-driven>
 		<mvc:message-converters>
