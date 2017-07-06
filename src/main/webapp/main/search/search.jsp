@@ -14,13 +14,14 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th colspan="4">아티스트명으로 검색(<span style="color:red">${artist_list_size }</span>)</th>
+						<th colspan="5">아티스트명으로 검색(<span style="color:red">${artist_list_size }</span>)</th>
 					</tr>
 					<tr>
 						<th>NO</th>
+						<th>앨범</th>
 						<th>곡명</th>
 						<th>아티스트</th>
-						<th>앨범</th>
+						<th>앨범정보</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,6 +30,11 @@
 					<c:forEach var="artist_list" items="${artist_list }" begin="0" end="9" step="1">
 						<tr>
 							<td><%=i %></td>
+							<td>
+								<img src="http://211.238.142.109:8080/album_img/${artist_list.album_art }.jpg" width="50" height="50">
+								<input type="image" id="bt_play" music_id="${artist_list.music_id} " src="<c:url value="/resources/img/play.png"/>" style="width: 20px; height: 20px">
+								<input type="image"	id="bt_add" src="<c:url value="/resources/img/add.png"/>" style="width: 20px; height: 20px"> 
+							</td>
 							<td>${artist_list.music_name }</td>
 							<td>${artist_list.music_artist }</td>
 							<td>${artist_list.album_name }</td>
@@ -40,6 +46,11 @@
 					<c:forEach var="artist_list" items="${artist_list }">
 						<tr>
 							<td><%=i %></td>
+							<td>
+								<img src="http://211.238.142.109:8080/album_img/${artist_list.album_art }.jpg" width="50" height="50">
+								<input type="image" id="bt_play" music_id="${artist_list.music_id} " src="<c:url value="/resources/img/play.png"/>" style="width: 20px; height: 20px">
+								<input type="image"	id="bt_add" src="<c:url value="/resources/img/add.png"/>" style="width: 20px; height: 20px"> 
+							</td>
 							<td>${artist_list.music_name }</td>
 							<td>${artist_list.music_artist }</td>
 							<td>${artist_list.album_name }</td>
@@ -53,13 +64,14 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th colspan="4">곡명으로 검색(<span style="color:red">${song_list_size }</span>)</th>
+						<th colspan="5">곡명으로 검색(<span style="color:red">${song_list_size }</span>)</th>
 					</tr>
 					<tr>
 						<th>NO</th>
+						<th>앨범</th>
 						<th>곡명</th>
 						<th>아티스트</th>
-						<th>앨범</th>
+						<th>앨범정보</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -68,6 +80,11 @@
 					<c:forEach var="song_list" items="${song_list }" begin="0" end="9" step="1">
 						<tr>
 							<td><%=j %></td>
+							<td>
+								<img src="http://211.238.142.109:8080/album_img/${song_list.album_art }.jpg" width="50" height="50">
+								<input type="image" id="bt_play" music_id="${song_list.music_id} " src="<c:url value="/resources/img/play.png"/>" style="width: 20px; height: 20px">
+								<input type="image"	id="bt_add" src="<c:url value="/resources/img/add.png"/>" style="width: 20px; height: 20px"> 
+							</td>
 							<td>${song_list.music_name }</td>
 							<td>${song_list.music_artist }</td>
 							<td>${song_list.album_name }</td>
@@ -80,6 +97,11 @@
 					<c:forEach var="song_list" items="${song_list }">
 						<tr>
 							<td><%=j %></td>
+							<td>
+								<img src="http://211.238.142.109:8080/album_img/${song_list.album_art }.jpg" width="50" height="50">
+								<input type="image" id="bt_play" music_id="${song_list.music_id} " src="<c:url value="/resources/img/play.png"/>" style="width: 20px; height: 20px">
+								<input type="image"	id="bt_add" src="<c:url value="/resources/img/add.png"/>" style="width: 20px; height: 20px"> 
+							</td>
 							<td>${song_list.music_name }</td>
 							<td>${song_list.music_artist }</td>
 							<td>${song_list.album_name }</td>

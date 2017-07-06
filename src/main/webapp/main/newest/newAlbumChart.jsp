@@ -24,6 +24,7 @@ $(function(){ //전체선택 체크박스 클릭
 			
 </script>
 <body>
+	<section id="contentSection">
 		<h6>최신곡</h6>
 
 		<input type=button class="btn btn-theme" value="선택담기">
@@ -63,6 +64,6 @@ $(function(){ //전체선택 체크박스 클릭
 		</tbody>
 	</table>
 		
-	
+	</section>
 </body>
 </html>

@@ -55,15 +55,15 @@ $(function() {
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="main.do" class="logo"><img src="images/honey_logo.png" alt=""></a></div>
-          	<div style="margin: 5px 5px -90px 5px"> 
+          	<div style="margin: 15px 5px -90px 5px"> 
 				<form method="post" action="search.do" class="contact_form">
-					<input type="text" name=music_search style="width: 25%; height: 40px; margin: 30px 5px -120px 5px" placeholder="  검색어를 입력하세요"> 	
-					<input type="submit" class="btn btn-theme" style="height: 40px" value="검색">
+					<input type="text" name=music_search style="width: 22%; height: 40px; margin: 30px 5px -80px 25px" placeholder="  검색어를 입력하세요"> 	
+					<input type="submit" class="btn btn-theme" style="height: 40px; width: 7%" value="검색">
 				</form>
 			</div>
           <c:if test="${sessionScope.membervo.member_nick==null}">
 	          <div align="right" style="margin: 50px 5px 10px 5px">
-	          	<a href="login.do"><input type="button" class="btn btn-theme" value="로그인"></a>
+	          	<a href="login.do"><input type="button" class="btn btn-theme" value="로그인" width="50px"></a>
 	            <h6><a href="#">아이디/비밀번호 찾기 |</a> <a href="join.do">회원가입</a></h6>          
 	          </div>
           </c:if>
@@ -71,7 +71,7 @@ $(function() {
 	          <div align="right" style="margin: 50px 5px 10px 5px">
 	          	<h5>${sessionScope.membervo.member_name }(${ sessionScope.membervo.member_nick})님 환영합니다</h5>
 	            <form method=post action="logout.do" id=logoutForm>
-	            <input type=button value="로그아웃" id=logoutBtn>   
+	            <input type=button class="btn btn-theme" value="로그아웃" id=logoutBtn>   
 	            </form>       
 	          </div>
           </c:if>

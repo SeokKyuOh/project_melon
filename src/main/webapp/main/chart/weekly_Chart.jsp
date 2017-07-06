@@ -88,7 +88,8 @@
 		});
 	})
 </script>
-
+<body>
+<section id="contentSection">
 	<input type=button class="btn btn-theme" value="선택 재생" id="bt_send">
 
 	<table class="table table-hover">
@@ -113,7 +114,7 @@
 						name="checkbox_name"></td>
 					<td><span><%=i%></span><span>위</span></td>
 					<td><img
-						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"
+						src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
 						width=50 height=50> 
 						<a href="main/player.do?member_id=${sessionScope.membervo.member_id}">
 						<img src="<c:url value="/resources/img/play.png"/>" style="width:20px; height:20px"></a>
@@ -129,7 +130,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
+</section>
 </body>
 </html>
 
