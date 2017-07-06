@@ -63,10 +63,9 @@ public class MainController {
 	public String mypage_page(Model model, String nick, int id){
 		model.addAttribute("main_jsp","mypage/mypage.jsp");
 		MemberVO vo=dao.memberAllData(nick);
-<<<<<<< HEAD
+
 		List<QuestionVO> qvo=qdao.questionList(id);
-=======
-		List<QuestionVO> qvo=dao.mypageQuestionSummary(id);
+
 		List<Buy_streamingVO> bsvo=dao.mypageStreamingInfo(id);
 		List<Buy_downloadVO> bdvo=dao.mypageDownloadInfo(id);
 		List<MusicVO> mvo=dao.mypagePlayList(id);
@@ -81,7 +80,14 @@ public class MainController {
 			vo2.setBuy_download_end(vo2.getBuy_download_end().substring(0,10));
 		}
 		model.addAttribute("mvo", mvo);
->>>>>>> b8e21c7abe43eb230f3bf0650662d1ff1aacad04
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> a26afdfb8723842baccdbec02c87effe4747c744
+>>>>>>> 22bb91bc35b2aae7bffabd61766a3ed15b72d8ff
 		model.addAttribute("vo", vo);
 		model.addAttribute("qvo",qvo);
 		model.addAttribute("bsvo",bsvo);

@@ -16,19 +16,19 @@
 				<div class="contact_area">
 					<h2>1:1문의하기</h2>
 					<p>공지 내용구성</p>
-					<form class="contact_form" method="post" action="notice_update.do"  enctype="multipart/form-data">
+					<form 
+						class="contact_form">
+
+
 						<input class="form-control" type="text" name="question_id"
 							value="${vo.question_id }">
 
-						  <input type=hidden name=nick value="${ nick}">
-						  <input type=hidden name=id value=" ${id }"> 
-						 
+						<%-- <input type=hidden name=question_id value="${q.id} "> --%>
 						 <input class="form-control" type="text" name="question_title" value="${vo.question_title }">
 						  <textarea
 							class="form-control" cols="30" rows="10" name="question_content" >${vo.question_content }</textarea>
-						<input type="submit" value="수정하기"> 
-						<input type="submit" value="삭제하기">
-						<input type="submit" value="취소하기" onClick="javascript:history.back()">
+						<input type="submit" value="글올리기"> <input type="submit"
+							value="삭제하기">
 					</form>
 				</div>
 			</div>

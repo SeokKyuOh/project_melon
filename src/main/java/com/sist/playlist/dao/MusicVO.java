@@ -14,7 +14,15 @@ public class MusicVO {
 	//join(검색결과 찾기 용)
 	private String album_name;
 	
+	//join(mypage playlist)
+	private int playlist_music_id;
 	
+	public int getPlaylist_music_id() {
+		return playlist_music_id;
+	}
+	public void setPlaylist_music_id(int playlist_music_id) {
+		this.playlist_music_id = playlist_music_id;
+	}
 	public int getMusic_id() {
 		return music_id;
 	}
