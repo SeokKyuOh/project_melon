@@ -126,10 +126,17 @@
 						<img src="<c:url value="/resources/img/add.png"/>"
 						style="width: 20px; height: 20px"></a> 
 				
+<<<<<<< HEAD
 				<td><a
 					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}">${vo.music_name }</a></td>
 				<td>${vo.music_artist }</td>
 				<td><a href="albumInfo.do?album_id=${vo.album_id}">${vo.album_name }</a></td>
+=======
+				<td><a href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}">
+				${vo.music_name }</a></td>
+				<td>${vo.music_artist }</td>
+				<td><a href="albumInfo.do?album_id=${vo.album_id }">${vo.album_name }</a></td>
+>>>>>>> e678526ded92fb85cd748734484ef628dc9c8d55
 			</tr>
 			<%
 					i++;
