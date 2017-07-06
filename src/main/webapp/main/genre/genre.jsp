@@ -1,236 +1,264 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 </head>
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?2"
-	id="favicon" />
-<link rel="stylesheet"
-	href="http://cdnimg.melon.co.kr/static/web/resource/style/w1/xk/q/1o7f6grizjx.css"
-	type="text/css" />
-<link rel="stylesheet"
-	href="http://cdnimg.melon.co.kr/static/web/resource/style/w1/lu/h/una7b19ci5.css"
-	type="text/css" />
-<!-- ´ñ±Û css ÆÄÀÏ ³×ÀÓ º¯°æ -->
-<link rel="stylesheet"
-	href="http://cdnimg.melon.co.kr/static/web/resource/style/w1/qd/e/uolshpokn9.css"
-	type="text/css" />
-<link rel="stylesheet"
-	href="/resource/style/web/genre/melonweb_genre.css" type="text/css" />
 <script type="text/javascript"
-	src="/resource/script/web/common/jquery-1.9.1.min.js"></script>
-<script type="text/javascript"
-	src="//member.melon.com/resource/script/web/member/melonweb_member_external.js?tm=20170424"></script>
-<script type="text/javascript"
-	src="http://cdnimg.melon.co.kr/static/web/resource/script/w1/g8/u/kv5d3h4q8t.js"></script>
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<script>
+$(function(){
+	$(document).ready(function () {
+	    /* Toggle menÃº de mÃ³viles  */
+	    $('#btn-drop').on('click', function (e) {
+	        e.preventDefault();
+	        $('#submenu').slideToggle(500);
+	    }); // fin click
+	    
+	    /* Hacer visible el menÃº al agrandar */
+	    $(window).resize(function () {
+	        if (innerWidth >= 480) {
+	            if ($('#submenu').css('display') == 'none') {
+	                $('#submenu').removeAttr('style');
+	            }
+	        }
+	    }); // fin resize
+	    $('.genre').on('click',function(){
+	    	  var id =  $(this).attr("id");
+	    	  alert(id);
+	    	});
+	    
+	    $('.new').each(function() {
+	    	console.log("wkre");
+	    	var page = location.href;
+	    	var id =page.substring(page.length-1,page.length);
+    		var url = $(this).attr("href");
+    	  	$(this).attr("href", url+id);
+    	  });
+	    
+	});
+	
+})
+
+</script>
 <style>
-#menu {
-     margin: 0;
-     width: auto;
-     background-color: #565656;
-     font-size: 16px;
-     font-family: Tahoma, Geneva, sans-serif;
-     font-weight: bold;
-     text-align: left;
-     padding: 8px;
-     border-radius: 8px;
-     -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-     -o-border-radius: 8px;
+html, body, ul, ol, li, form, fieldset, legend {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    color: #000;
+    background: #fff;
+    font: 90%/1.3"DejaVu Sans", "URW Gothic L", "Helvetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
 }
 
-#menu ul {
-     margin: 0;
-     padding: 8px 0;
-     list-style: none;
-     height: auto;
+ .clearfix:before, .clearfix:after {
+    content:" ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+.pagina {
+    width: 80%;
+    margin:auto;
+    background-color: #eee;
+}
+.barra-menu {
+    width: 100%;
+    overflow: hidden;
+    background-color: #666;
+}
+.menu {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: #333;
+}
+.lista-menu li {
+    display: inline-block;
+    float: left;
+    width: 25%;
+    border-right: 1px solid #7E7E7E;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.lista-menu li:last-child {
+    border-right: none;
+}
+.lista-menu a, .btn-menu {
+    display: block;
+    width: 100%;
+    height: 3em;
+    line-height: 3em;
+}
+.btn-menu {
+    display: none;
+}
 }
 
-#menu li {
-     display: inline;
-     padding: 8px;
+ .aln-izquierda {
+    text-align: left;
+}
+.aln-centro {
+    text-align: center;
+}
+.aln-derecha {
+    text-align: right;
 }
 
-#menu a {
-     color: #FFF;
-     padding: 10px;
-     text-decoration: none;
+ body {
+    font-family: arial, helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 100%;
+    color: #333;
+}
+.lista-menu a, .btn-menu {
+    text-decoration: none;
+    color: #fff;
+    background-color: #666;
+}
+.lista-menu a:hover {
+    background-color: #505050;
 }
 
-#menu a:hover {
-     background-color: #1B191B;
-     color: #FFF;
-     border-radius: 20px;
-     -webkit-border-radius: 20px;
-     -moz-border-radius: 20px;
-     -o-border-radius: 20px;
+ @media screen and (max-width:480px) {
+    #pagina {
+        width: 100%;
+    }
+    .btn-menu {
+        display: block;
+        background-color: #333;
+    }
+    #submenu {
+        display: none;
+    }
+    .lista-menu li {
+        display: block;
+        float: none;
+        width: 100%;
+        border-bottom: 1px solid #7E7E7E;
+    }
 }
 
-#menu li .active {
-     background-color: #1B191B;
-     color: #FFF;
-     border-radius: 20px;
-     -webkit-border-radius: 20px;
-     -moz-border-radius: 20px;
-     -o-border-radius: 20px;
-}	
 </style>
 <body>
-	<div id="menu">
-		<ul>
-			<li><a href="#" class="active">ÈüÇÕ</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Products</a></li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</div>
-	<h3 class="s_title01 mt25">ÃÖ½Å¾Ù¹ü</h3>
-	<div class="recm_album pb47">
+<div id="pagina">
+    <div class="barra-menu">
+        <a href="#" id="btn-drop" class="btn-menu aln-centro">Navegacion</a>	
+        
+        <ul id="submenu" class="lista-menu aln-centro">
+            <li><a href="genreMusicChart.do?genre_id=1" class="genre" id="1">ëŒ„ìŠ¤</a>
+
+            </li>
+            <li><a href="genreMusicChart.do?genre_id=2" class="genre" id="2">ë°œë¼ë“œ</a>
+
+            </li>
+            <li><a href="genreMusicChart.do?genre_id=3" class="genre" id="3">íŒì†Œìš¸</a>
+
+            </li>
+            <li><a href="genreMusicChart.do?genre_id=4" class="genre" id="4">í´ë˜ì‹</a>
+
+            </li>
+            <li><a href="genreMusicChart.do?genre_id=5" class="genre" id="5">í™í•©</a>
+
+            </li>
+            <li><a href="genreMusicChart.do?genre_id=6" class="genre" id="6">ë½/ë©”íƒˆ</a>
+
+            </li>
+            <li><a href="genreMusicChart.do?genre_id=7" class="genre" id="7">O.S.T</a>
+
+            </li>
+            <li><a href="genreMusicChart.do?genre_id=8" class="genre" id="8">ê¸°íƒ€</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 
 
-		<!-- ¾Ù¹ü4 -->
-		<ul class="list_album12 d_album_list">
+<h3 class="s_title01 mt25">ìµœì‹ ì•¨ë²”</h3>
+		<div>
+				
+	<ul>
+		<c:forEach var="dto" items="${album }">
+		<li>
+			<div style="float: left; width: 20%; padding:10px;">
+					<img width="170" height="170" src="http://211.238.142.109:8080/food/main/album_img/${dto.album_art }.jpg"/>
+				<dl>
+					<dt>
+						<strong class="none">ì•¨ë²”ëª…</strong>
+						<span class="ellipsis">
+						${dto.album_name }
+						</span>
+					</dt>
+					<dd>
+						<strong class="none">ì•„í‹°ìŠ¤íŠ¸ëª…</strong>
+						<div>
+							<span>${dto.music_artist }</span>
+						</div>
+					</dd>
+				</dl>
+			</div>
+		</li>
+		</c:forEach>
+	</ul>	
+</div>
 
-			<li class="first_child album12_li">
-				<div class="wrap_album05">
-					<a href="javascript:melon.link.goAlbumDetail('10073791');"
-						title="Purple - ÆäÀÌÁö ÀÌµ¿" class="thumb"> <span
-						class="thumb_frame"></span>
-					<!-- ÀÌ¹ÌÁö »ó´Ü ¹İÅõ¸í Border --> <img
-						onerror="WEBPOCIMG.defaultAlbumImg(this);" width="170"
-						height="170"
-						src="http://cdnimg.melon.co.kr/cm/album/images/100/73/791/10073791_500.jpg/melon/resize/170/quality/80/optimize"
-						alt="" />
-					</a> <a href="javascript:melon.play.playAlbum('25250101','10073791');"
-						class="bg_play big">Àç»ı</a>
-					<dl>
-						<dt>
-							<strong class="none">¾Ù¹ü¸í</strong> <span class="ellipsis">
-								<a href="javascript:melon.link.goAlbumDetail('10073791');"
-								title="Purple">Purple</a>
-							</span>
-						</dt>
-						<dd class="atistname">
-							<strong class="none">¾ÆÆ¼½ºÆ®¸í</strong>
-							<div class="ellipsis">
-								<a href="javascript:melon.link.goArtistDetail('750053');"
-									title="¸¶¸¶¹« - ÆäÀÌÁö ÀÌµ¿" class="play_artist"><span>¸¶¸¶¹«</span></a><span
-									class="checkEllipsis" style="display: none"><a
-									href="javascript:melon.link.goArtistDetail('750053');"
-									title="¸¶¸¶¹« - ÆäÀÌÁö ÀÌµ¿" class="play_artist"><span>¸¶¸¶¹«</span></a></span>
-							</div>
+<div id="pagina">
+    <div class="barra-menu">
+        <a href="#" id="btn-drop" class="btn-menu aln-centro">Navegacion</a>	
+        
+        <ul id="submenu" class="lista-menu aln-centro">
+            <li><a class="new" href="genreMusicChart.do?genre_id=">ìµœì‹ ê³¡</a>
+            </li>
+            <li><a class="new" href="genreAlbumChart.do?genre_id=">ìµœì‹ ì•¨ë²”</a>
+            </li>
 
-						</dd>
-						<dd class="cnt_click">
-							<a href="#" title="ÁÁ¾Æ¿ä" class="btn_like d_btn"
-								data-album-no="10073791" data-album-menuId="25250101">
-								<!-- class="on" Ãß°¡½Ã È°¼º --> <span class="icon">ÁÁ¾Æ¿ä</span> <strong
-								class="none">ÃÑ°Ç¼ö</strong>0
-							</a>
-						</dd>
-					</dl>
-				</div>
-			</li>
-		</ul>
-	</div>
-	<div class="wrap_tab05 page_move mt12" width=100%>
-		<ul class="tab_ul05" width=100%>
-			<li class="tab_li05 first_child on"><a
-				href="javascript:melon.link.goGenre4Song('GN0400', '');" title="ÃÖ½Å°î"
-				class="link_tab05">À½¿ø</a></li>
-			<li class="tab_li05 "><a
-				href="javascript:melon.link.goGenre4Album('GN0400', '');"
-				title="ÃÖ½Å¾Ù¹ü" class="link_tab05">¾Ù¹ü</a></li>
-		</ul>
-	</div>
-	<table border="1" style="width: 100%">
-		<colgroup>
-			<col style="width: 29px" />
-			<col style="width: 48px" />
-			<col />
-			<col style="width: 152px" />
-			<col style="width: 146px" />
-			<col style="width: 80px" />
-			<col style="width: 43px" />
-			<col style="width: 27px" />
-			<col style="width: 45px" />
-		</colgroup>
+        </ul>
+    </div>
+</div>
+
+
+	<table class="table table-hover">
 		<thead>
-
 			<tr>
-				<th scope="col"><div class="wrap pd_none left">
-						<input type="checkbox" title="°î ¸ñ·Ï ÀüÃ¼ ¼±ÅÃ"
-							class="input_check d_checkall" />
-					</div></th>
-				<th scope="col"><div class="wrap">NO</div></th>
-				<th scope="col"><div class="wrap">°î¸í</div></th>
-				<th scope="col" class="t_left"><div class="wrap">¾ÆÆ¼½ºÆ®</div></th>
-				<th scope="col" class="t_left"><div class="wrap">¾Ù¹ü</div></th>
-				<th scope="col" class="t_left"><div class="wrap right_none">ÁÁ¾Æ¿ä</div></th>
-				<th scope="col"><div class="wrap pd_none">´Ù¿î</div></th>
+				<th width=10%><input type="checkbox" value="" id="allCheck">
+				</th>
+				<th width=10%>ìˆœìœ„</th>
+				<th width=20%>ì•¨ë²”</th>
+				<th width=20%>ìŒì•…</th>
+				<th width=20%>ì•„í‹°ìŠ¤íŠ¸</th>
+				<th width=20%>ì•¨ë²”ì •ë³´</th>
 			</tr>
 		</thead>
 		<tbody>
-
+			<%
+				int i = 1;
+			%>
 			<c:forEach var="vo" items="${list }">
+
 				<tr>
-					<td><div class="wrap pd_none left">
-							<input type="checkbox" title="»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î °î ¼±ÅÃ"
-								class="input_check" name="input_check" value="30487099" />
-						</div></td>
-					<td class="no"><div class="wrap">1</div></td>
-					<td class="t_left"><div class="wrap pd_none">
-							<div class="ellipsis" style="max-width: 100%">
-								<button type="button" class="btn_icon play"
-									title="»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î Àç»ı - »õ Ã¢"
-									onClick="melon.play.playSong('25220101',30487099);">
-									<span class="odd_span">Àç»ı</span>
-								</button>
-								<button type="button" class="btn_icon add"
-									title="»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î °î´ã±â - »õ Ã¢"
-									onClick="melon.play.addPlayList('30487099');">
-									<span class="odd_span">´ã±â</span>
-								</button>
-								<a href="javascript:melon.link.goSongDetail('30487099');"
-									title="»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î °îÁ¤º¸ - ÆäÀÌÁö ÀÌµ¿" class="btn btn_icon_detail"><span
-									class="odd_span">»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î</span></a> <a
-									href="javascript:melon.play.playSong('25220101',30487099);"
-									class="fc_gray" title="»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î Àç»ı - »õ Ã¢">${vo.music_name }</a>
-							</div>
-						</div></td>
-					<td class="t_left"><div class="wrap wrapArtistName">
-							<div id="artistName" class="ellipsis" style="max-width: 122px">
-								<a href="javascript:melon.link.goArtistDetail('455161');"
-									title="¸®µğ¾Æ (Lydia) - ÆäÀÌÁö ÀÌµ¿" class="fc_mgray">${vo.music_artist }</a><span
-									class="checkEllipsis" style="display: none"><a
-									href="javascript:melon.link.goArtistDetail('455161');"
-									title="¸®µğ¾Æ (Lydia) - ÆäÀÌÁö ÀÌµ¿" class="fc_mgray">¸®µğ¾Æ (Lydia)</a></span>
-							</div>
-
-						</div></td>
-					<td class="t_left"><div class="wrap">
-							<div class="ellipsis" style="max-width: 70%">
-								<a href="javascript:melon.link.goAlbumDetail('10073565');"
-									title="»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î - ÆäÀÌÁö ÀÌµ¿" class="fc_mgray">${vo.album_name }</a>
-							</div>
-						</div></td>
-
-
-					<td><div class="wrap pd_none">
-							<button type="button" class="btn_icon dl"
-								title="»ç¶ûÀÏ±î »ç¶ûÀÌ ¾Æ´Ò±î ´Ù¿î·Îµå - »õ Ã¢"
-								onClick="melon.buy.goBuyProduct('frm', '30487099', '3C0001', '','0', '25220101');">
-								<span class="odd_span">´Ù¿î</span>
-							</button>
-						</div></td>
-
+					<td><input type="checkbox" value="${vo.music_id }" name="checkbox_name" >
+					</td>
+					<td><span><%=i%></span><span>ìœ„</span></td>
+					<td> <input type="button" value="ì¬ìƒ">
+						<input type="button" value="ë‹´ê¸°"></td>
+					<td>${vo.music_name }</td>
+					<td>${vo.music_artist }</td>
+					<td>${vo.album_name }</td>
 				</tr>
+				<%i++;%>
 			</c:forEach>
 		</tbody>
 	</table>
