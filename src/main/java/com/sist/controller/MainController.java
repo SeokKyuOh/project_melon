@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.board.dao.QuestionDAO;
 import com.sist.board.dao.QuestionVO;
+import com.sist.chart.ChartService;
+import com.sist.chart.Daily_ChartVO;
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
 import com.sist.playlist.dao.MusicVO;
@@ -17,49 +19,49 @@ import com.sist.ticket.dao.Buy_streamingVO;
 
 @Controller
 public class MainController {
+	@Autowired
+	private ChartService service;
+	
+	@Autowired
+	MemberDAO dao;
 
-   @Autowired
-   MemberDAO dao;
+	@Autowired
+	QuestionDAO qdao;
+	
+	@RequestMapping("main/main.do")
+	public String main_page(Model model){
+		//실시간 차트 불러오기
+		List<Daily_ChartVO> daily_list=service.Daily_ChartData();
+		model.addAttribute("daily_list", daily_list);
+		model.addAttribute("main_jsp","default.jsp");
+		return "main/main";
+	}
+	
+	@RequestMapping("main/chart.do")
+	public String chart_page(Model model){
+		model.addAttribute("main_jsp","chart/chart.jsp");
+		return "main/main";
+	}
+	
+	@RequestMapping("main/new.do")
+	public String new_page(Model model){
+		model.addAttribute("main_jsp","new/new.jsp");
+		return "main/main";
+	}
+	
+	@RequestMapping("main/genre.do")
+	public String ganre_page(Model model){
+		model.addAttribute("main_jsp","genre/genre.jsp");
+		return "main/main";
+	}
+	
+	/*@RequestMapping("main/buy_ticket.do")
+	public String buy_ticket_page(Model model){
+		model.addAttribute("main_jsp","buy_ticket/buy_ticket.jsp");
+		return "main/main";
+	}*/
 
-   @Autowired
-    QuestionDAO qdao;
-   
-   @RequestMapping("main/main.do")
-   public String main_page(Model model){
-      model.addAttribute("main_jsp","default.jsp");
-      return "main/main";
-   }
-   
-   @RequestMapping("main/chart.do")
-   public String chart_page(Model model){
-      model.addAttribute("main_jsp","chart/chart.jsp");
-      return "main/main";
-   }
-   
-   @RequestMapping("main/new.do")
-   public String new_page(Model model){
-      model.addAttribute("main_jsp","new/new.jsp");
-      return "main/main";
-   }
-   
-   @RequestMapping("main/genre.do")
-   public String ganre_page(Model model){
-      model.addAttribute("main_jsp","genre/genre.jsp");
-      return "main/main";
-   }
-   
-   /*@RequestMapping("main/buy_ticket.do")
-   public String buy_ticket_page(Model model){
-      model.addAttribute("main_jsp","buy_ticket/buy_ticket.jsp");
-      return "main/main";
-   }*/
-   
-/*   @RequestMapping("main/notice.do")
-   public String notice_page(Model model){
-      model.addAttribute("main_jsp","board/board_list.jsp");
-      return "main/main";
-   }
-   */
+ 
    @RequestMapping("main/mypage.do")
    public String mypage_page(Model model, String nick, int id){
       model.addAttribute("main_jsp","mypage/mypage.jsp");
@@ -88,13 +90,11 @@ public class MainController {
       return "main/main";
    }
 
-   
-
-   
    @RequestMapping("main/login.do")
    public String login_page(Model model){
       return "main/member/login";
    }
+<<<<<<< HEAD
    /*
    @RequestMapping("main/search.do")
    public String search_page(Model model){
@@ -110,6 +110,10 @@ public class MainController {
 	}
 	*/
 	
+=======
+ 
+
+>>>>>>> f2316d3fd760c5899f5d95860e10726b37e42aee
 }
 
 

@@ -51,7 +51,7 @@ $(function(){ //전체선택 체크박스 클릭
 					</td>
 					<td><span><%=i%></span><span>위</span></td>
 					<td><img
-						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"
+						src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
 						width=50 height=50> <input type="button" value="재생">
 						<input type="button" value="담기"></td>
 					<td>${vo.music_name }</td>

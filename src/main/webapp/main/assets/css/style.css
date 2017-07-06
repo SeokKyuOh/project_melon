@@ -193,7 +193,11 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 .single_sidebar ul li a{border-bottom:1px solid #333; display:block}
 .single_sidebar .spost_nav li a{border-bottom:none; float:left}
 #footer{display:inline; float:left; width:100%; margin-bottom:20px; height:200px}
+<<<<<<< HEAD
+.footer_top{background-color:#252525; color:#ddd; display:inline; float:left; padding:10px 30px 48px; width:100%; height:380px}
+=======
 .footer_top{background-color:#f7f7f7; color:#131313; display:inline; float:left; padding:10px 30px 48px; width:100%; height:200px}
+>>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 .footer_widget{display:inline; float:left; width:100%}
 .footer_widget > h2{border-bottom:3px solid #c5c5c5; font-family:À±°íµñ330,arial,Georgia,À±°íµñ330; font-size:13px; padding:10px 0; text-transform:uppercase}
 .tag_nav{}

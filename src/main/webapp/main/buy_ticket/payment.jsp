@@ -42,7 +42,18 @@ $(document).ready(function() {
 	
 	$.checkForm = function() {
 		//alert("call");
-		if($('#account').css("display") != "none"){
+		if($('#deposit').css("display") != "none") {
+			alert("depositclick");
+			if($('#sel3').val() == 'st3') {
+				alert("은행을 선택해 주세요");
+				$('#sel3').focus();
+				return false;
+			} else if($('#musr').val() == '') {
+				alert("예금주를 입력하세요.");
+				$('#musr').focus();
+				return false;
+			}
+		} else if($('#account').css("display") != "none"){
 			alert("accountclick");
 			if($('#sel2').val() == "st2") {
 				alert("은행을 선택해 주세요");
@@ -69,22 +80,7 @@ $(document).ready(function() {
 				$('#usr').focus();
 				return false;
 			}
-		} 
-		
-		if($('#deposit').css("display") != "none") {
-			alert("depositclick");
-			if($('#sel3').val() == 'st3') {
-				alert("은행을 선택해 주세요");
-				$('#sel3').focus();
-				return false;
-			} else if($('#musr').val() == '') {
-				alert("예금주를 입력하세요.");
-				$('#musr').focus();
-				return false;
-			}
-		} 
-		
-		if ($('#card').css("display") != "none") {
+		} else if ($('#card').css("display") != "none") {
 			alert("cardclick");
 			if($('#n1').val() == '') {
 				alert("첫번째 번호를 입력하세요.");
@@ -156,8 +152,8 @@ $(document).ready(function() {
 				<!-- <label for="sel1">Select list (select one):</label> -->
 				<select class="form-control" id="sel1">
 					<option value='st1'>-----선택-----</option>
-					<option value="account">실시간 계좌이체</option>
 	        		<option value="deposit">무통장 입금</option>
+					<option value="account">실시간 계좌이체</option>
 	        		<option value="card">카드 결제</option>
 	      		</select>
 	   		</div>
@@ -204,7 +200,7 @@ $(document).ready(function() {
 	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub">확인</button>
 	   		</div>
 	   		
-	   		<div id="deposit" style="display: none;width:80%;">
+	   		<div id="deposit" style="display: none;width:80%;" class="form-group">
 	   			<p>무통장 입금</p>
 	   			<select class="form-control" id="sel3">
 		   			<option value='st3'>---선택---</option>
@@ -221,7 +217,7 @@ $(document).ready(function() {
 	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub">확인</button>
 	   		</div>
 	   		
-	   		<div id="card" style="display: none;width:80%;">
+	   		<div id="card" style="display: none;width:80%;" class="form-group">
 	   			<p>카드 결제</p>
 	   			<div class="form-group row">
      				<div class="col-xs-2">
