@@ -4,16 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>HoneyMusicPlayer</title>
 <script>
-	//location.href="player.do";
-	
-	//window.open("HoneyMusicPlayer","player.do", "width=400, height=400");
-	window.open("player.do","HoneyMusicPlayer","width=500, height=800, left=500, top=500");
-	//location.href="redirect:/"
+//alert("사용 중인 이용권이 없습니다. 이용권을 구매해주세요.");
+window.open("warning.jsp","HoneyMusicPlayer","width=500, height=800, left=500, top=500");
 </script>
 </head>
 <body>
-
+	
 </body>
-</html> 	
+</html>

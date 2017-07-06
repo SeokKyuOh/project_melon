@@ -50,8 +50,19 @@
 			$("input[type=checkbox]:checked").each(function(){
 				checkArr.push($(this).attr("music_id"));	// 체크된 모든 music_id값을 배열에 저장
 			});
-			
-			
+			getValue();	
+		
+		});
+		 
+		 
+		 $('#bt_play').click(function(){
+			 checkArr.length=0;
+			 alert("개별 곡 클릭");
+			 checkArr.push($(this).attr("music_id"));
+			 getValue();
+		 });
+		 
+		var getValue=function(){
 			// member_id와 곡 id 전송
 			<%
 				// session에 로그인 정보가 없을 경우에는 member_id=null
@@ -65,7 +76,7 @@
 				}
 			%>
 			var member_id=<%=member_id%>;
-			var sendVal={"member_id":<%=session.getAttribute("member_id")%>, "musics":checkArr};
+			//var sendVal={"member_id":<%=session.getAttribute("member_id")%>, "musics":checkArr};
 			alert("member_id : "+member_id);
 			alert("musics : "+checkArr);
 			
@@ -82,12 +93,14 @@
 				},
 				success:function(data){
 					alert("성공");
+					// playlist_music이 없는 경우
+					//window.open("player/player_temp.jsp","HoneyMusicPlayer","width=450, height=800");
+					
+					// playlist_music이 있는 경우
 					window.open("player.do","HoneyMusicPlayer","width=450, height=800");
 				}
-			});	
-		
-		});
-		
+			});
+		}
 	})
 </script>
 
@@ -108,7 +121,7 @@
 	<tbody>
 		<%
 				int i = 1;
-			%>
+		%>
 		<c:forEach var="vo" items="${list }">
 			<tr>
 				<td><input type="checkbox" music_id="${vo.music_id }"
@@ -117,30 +130,27 @@
 				<td><img
 					src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
 					width=50 height=50> 
-					<a
-					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}"> 
-						<img src="<c:url value="/resources/img/play.png"/>"
-						style="width: 20px; height: 20px"></a>
-					<a
-					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}">	
-						<img src="<c:url value="/resources/img/add.png"/>"
-						style="width: 20px; height: 20px"></a> 
+					<input type="image" id="bt_play" music_id="${vo.music_id} "
+						src="<c:url value="/resources/img/play.png"/>"
+						style="width: 20px; height: 20px">
+					<input type="image"	id="bt_add"
+						src="<c:url value="/resources/img/add.png"/>"
+						style="width: 20px; height: 20px"> 
 				
-<<<<<<< HEAD
 				<td><a
-					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}">${vo.music_name }</a></td>
+					onClick="getValue()">${vo.music_name }</a></td>
 				<td>${vo.music_artist }</td>
-				<td><a href="albumInfo.do?album_id=${vo.album_id}">${vo.album_name }</a></td>
-=======
-				<td><a href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}">
+				<td><a href="javascript:getValue()">${vo.album_name }</a></td>
+
+				<td><a onClick="getValue()">
 				${vo.music_name }</a></td>
 				<td>${vo.music_artist }</td>
-				<td><a href="albumInfo.do?album_id=${vo.album_id }">${vo.album_name }</a></td>
->>>>>>> e678526ded92fb85cd748734484ef628dc9c8d55
+				<td><a onClick="getValue()">${vo.album_name }</a></td>
+
 			</tr>
 			<%
 					i++;
-				%>
+			%>
 		</c:forEach>
 	</tbody>
 </table>
