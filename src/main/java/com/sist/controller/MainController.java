@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.board.dao.QuestionDAO;
 import com.sist.board.dao.QuestionVO;
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
@@ -15,6 +16,9 @@ import com.sist.member.dao.MemberVO;
 public class MainController {
 	@Autowired
 	MemberDAO dao;
+
+	@Autowired
+	 QuestionDAO qdao;
 	
 	@RequestMapping("main/main.do")
 	public String main_page(Model model){
@@ -46,21 +50,23 @@ public class MainController {
 		return "main/main";
 	}*/
 	
-	@RequestMapping("main/notice.do")
+/*	@RequestMapping("main/notice.do")
 	public String notice_page(Model model){
 		model.addAttribute("main_jsp","board/board_list.jsp");
 		return "main/main";
 	}
-	
+	*/
 	@RequestMapping("main/mypage.do")
 	public String mypage_page(Model model, String nick, int id){
 		model.addAttribute("main_jsp","mypage/mypage.jsp");
 		MemberVO vo=dao.memberAllData(nick);
-		List<QuestionVO> qvo=dao.mypageQuestionSummary(id);
+		List<QuestionVO> qvo=qdao.questionList(id);
 		model.addAttribute("vo", vo);
 		model.addAttribute("qvo",qvo);
 		return "main/main";
 	}
+	
+
 	
 	@RequestMapping("main/login.do")
 	public String login_page(Model model){

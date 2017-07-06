@@ -98,23 +98,28 @@
 			    <tbody>
 				    <c:forEach var="q" items="${qvo }">
 				      <tr>
-				        <td>${q.question_title }</td>
+				        <td>
+				        	<a href="notice_content.do?question_id=${q.question_id }"> ${q.question_title }</a>
+				        
+				       </td>
 				        <td><fmt:formatDate value="${q.question_regdate }" pattern="yyyy-MM-dd"/></td>
 				      </tr>
 				    </c:forEach>
 			    </tbody>
 			  </table>
-			  <input type=button value="내 상세 문의 내역 보기" class="btn btn-theme">
+			  
           </div>
+          
+         <div>
+       		  <a href="notice_list.do?nick=${vo.member_nick }" >
+			  <input type=button value="글쓰기" class="btn btn-theme" align="right"></a>
+			 
+          </div>
+      
+          
         </aside>
       </div>
       
-
-      
-      
-      
-      
-
 
 	</div>
 	</section>
