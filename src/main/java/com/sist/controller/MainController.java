@@ -80,6 +80,10 @@ public class MainController {
 			vo2.setBuy_download_end(vo2.getBuy_download_end().substring(0,10));
 		}
 		model.addAttribute("mvo", mvo);
+<<<<<<< HEAD
+=======
+
+>>>>>>> a26afdfb8723842baccdbec02c87effe4747c744
 		model.addAttribute("vo", vo);
 		model.addAttribute("qvo",qvo);
 		model.addAttribute("bsvo",bsvo);
