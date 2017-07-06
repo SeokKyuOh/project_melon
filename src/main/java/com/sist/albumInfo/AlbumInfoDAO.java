@@ -11,8 +11,11 @@ public class AlbumInfoDAO {
 	private AlbumInfoMapper aiMapper;
 	
 	public AlbumInfoVO albumInfo(int album_id){
-		System.out.println("앨범아이디는 :"+album_id);
 		return aiMapper.AlbumInfo(album_id);
+		
+	}
+	public List<AlbumMusicVO> albumMusic(int album_id){
+		return aiMapper.AlbumMusic(album_id);
 		
 	}
 }
