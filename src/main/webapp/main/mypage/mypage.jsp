@@ -8,6 +8,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+function deleteLine(obj) {
+    var tr = $(obj).parent().parent();
+    //라인 삭제
+    tr.remove();
+}
+
+</script>
 </head>
 
 <body>
@@ -63,6 +72,13 @@
 												<td style="width: 30px">${bsvo.buy_streaming_end }</td>
 											</tr>
 										</c:forEach>
+										<c:forEach var="bdvo" items="${bdvo }">
+											<tr>
+												<td style="width: 60px">${bdvo.download_name }</td>
+												<td style="width: 30px">${bdvo.buy_download_start }</td>
+												<td style="width: 30px">${bdvo.buy_download_end }</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
                         	<br />
@@ -76,7 +92,7 @@
         <aside class="right_content">
           <div class="single_sidebar" style="OVERFLOW:auto; width:100%; height:330px;">
             <h2><span>나의 플레이리스트</span></h2>
-            <table class="table table-hover" valign=center>
+            <table class="table table-hover" valign=center id="mytable">
 			    <thead>
 			      <tr>
 			        <th>곡명</th>
@@ -84,12 +100,13 @@
 			        <th></th>
 			      </tr>
 			    </thead>
-			    <tbody>
-			    	<c:forEach var="i" begin="0" end="10">
+			    <tbody id="tbody">
+			    	<c:forEach var="mvo" items="${mvo }">
 				      <tr>
-				        <td style="width:30%">악뮤</td>
-				        <td style="width:60%">Doedfdfdfdfdfdfdf</td>
-				        <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>
+				        <td style="width:50%">${mvo.music_name }</td>
+				        <td style="width:40%">${mvo.music_artist }</td>
+				        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
+				        <td style="width:10%"><input type="button" class="glyphicon glyphicon-remove" value="X" id="del" onclick="deleteLine(this)" style="background-color: transparent;border:none"></td>
 				      </tr>
 			      </c:forEach>
 			    </tbody>

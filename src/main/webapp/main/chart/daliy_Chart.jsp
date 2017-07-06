@@ -51,6 +51,7 @@
 				checkArr.push($(this).attr("music_id"));	// 체크된 모든 music_id값을 배열에 저장
 			});
 			
+			
 			// member_id와 곡 id 전송
 			<%
 				// session에 로그인 정보가 없을 경우에는 member_id=null
@@ -83,52 +84,58 @@
 					alert("성공");
 					alert(data);
 				}
-			});
-
+			});	
+		
 		});
+		
 	})
 </script>
 
-	<input type=button class="btn btn-theme" value="선택 재생" id="bt_send">
+<input type=button class="btn btn-theme" value="선택 재생" id="bt_send">
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th width=10%><input type="checkbox" value="" id="allCheck">
-				</th>
-				<th width=10%>순위</th>
-				<th width=20%>앨범</th>
-				<th width=20%>음악</th>
-				<th width=20%>아티스트</th>
-				<th width=20%>앨범정보</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th width=10%><input type="checkbox" value="" id="allCheck">
+			</th>
+			<th width=10%>순위</th>
+			<th width=20%>앨범</th>
+			<th width=20%>음악</th>
+			<th width=20%>아티스트</th>
+			<th width=20%>앨범정보</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%
 				int i = 1;
 			%>
-			<c:forEach var="vo" items="${list }">
-				<tr>
-					<td><input type="checkbox" music_id="${vo.music_id }" album_id="${vo.album_id}"
-						name="checkbox_name"></td>
-					<td><span><%=i%></span><span>위</span></td>
-					<td><img
-						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"
-						width=50 height=50> 
-						<a href="main/player.do?member_id=${sessionScope.membervo.member_id}">
-						<img src="<c:url value="/resources/img/play.png"/>" style="width:20px; height:20px"></a>
-						<a href="main/player.do?member_id=${sessionScope.membervo.member_id}">
-						<img src="<c:url value="/resources/img/add.png"/>" style="width:20px; height:20px"></a>
-					<td>${vo.music_name }</td>
-					<td>${vo.music_artist }</td>
-					<td>${vo.album_name }</td>
-				</tr>
-				<%
+		<c:forEach var="vo" items="${list }">
+			<tr>
+				<td><input type="checkbox" music_id="${vo.music_id }"
+					album_id="${vo.album_id}" name="checkbox_name"></td>
+				<td><span><%=i%></span><span>위</span></td>
+				<td><img
+					src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"
+					width=50 height=50> 
+					<a
+					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}"> 
+						<img src="<c:url value="/resources/img/play.png"/>"
+						style="width: 20px; height: 20px"></a>
+					<a
+					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}">	
+						<img src="<c:url value="/resources/img/add.png"/>"
+						style="width: 20px; height: 20px"></a> 
+				
+				<td>${vo.music_name }</td>
+				<td>${vo.music_artist }</td>
+				<td>${vo.album_name }</td>
+			</tr>
+			<%
 					i++;
 				%>
-			</c:forEach>
-		</tbody>
-	</table>
+		</c:forEach>
+	</tbody>
+</table>
 
 </body>
 </html>
