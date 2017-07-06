@@ -6,9 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script>
-	location.href="main/player.do";
+	//location.href="player.do";
 	
-	//window.open("player.do", "width=400, height=400");
+	//window.open("HoneyMusicPlayer","player.do", "width=400, height=400");
+	window.open("player.do","HoneyMusicPlayer","width=450, height=800");
+	//location.href="redirect:/"
 </script>
 </head>
 <body>
