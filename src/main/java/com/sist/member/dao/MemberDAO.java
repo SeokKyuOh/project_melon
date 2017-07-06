@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sist.board.dao.QuestionVO;
+import com.sist.playlist.dao.MusicVO;
+import com.sist.ticket.dao.Buy_downloadVO;
 import com.sist.ticket.dao.Buy_streamingVO;
 
 @Repository
@@ -41,5 +43,17 @@ public class MemberDAO {
 	public List<Buy_streamingVO> mypageStreamingInfo(int id){
 		return mMapper.mypageStreamingInfo(id);
 	}
+	public List<Buy_downloadVO> mypageDownloadInfo(int id){
+		return mMapper.mypageDownloadInfo(id);
+	}
+	
+	public List<MusicVO> mypagePlayList(int id){
+		return mMapper.mypagePlayList(id);
+	}
+	
+	public void memberUpdate(MemberVO vo){
+		mMapper.memberUpdate(vo);
+	}
 	
 }
+

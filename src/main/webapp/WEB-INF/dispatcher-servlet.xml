@@ -43,6 +43,15 @@
 		p:mapperInterface="com.sist.board.dao.BoardMapper"
 	/>
 	
+	<!-- QuestionMapper -->
+	<bean
+		id="qMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean"
+		p:sqlSessionFactory-ref="ssf"
+		p:mapperInterface="com.sist.board.dao.QuestionMapper"
+	/>
+	
+	
 	<!-- SearchMapper -->
 	<bean
 		id="searchMapper"
