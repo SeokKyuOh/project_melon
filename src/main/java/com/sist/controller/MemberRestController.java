@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberRestController {
 
 @RequestMapping("main/mypage_into.do")
-public String mypage_into(String nick, int id){
+public String mypage_into(String nick, String id){
+	//System.out.println("1");
+	//System.out.println("nick:"+nick+",id:"+id);
 	String data="";
-	if(nick==""){
+	if(nick.equals("")){
 		data="<script>"
 				+"alert(\"로그인 후 이용해주세요\");"
 				+"location.href=\"login.do\";"

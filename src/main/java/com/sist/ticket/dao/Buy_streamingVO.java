@@ -6,9 +6,20 @@ public class Buy_streamingVO {
 	private int buy_streaming_id;
 	private String buy_streaming_start;
 	private String buy_streaming_end;
-	private Date buy_streaming_date;
+	private String buy_streaming_date;
 	private int streaming_id;
 	private int member_id;
+	
+	//join
+	private String streaming_name;
+	
+	public String getStreaming_name() {
+		return streaming_name;
+	}
+
+	public void setStreaming_name(String streaming_name) {
+		this.streaming_name = streaming_name;
+	}
 
 	public int getBuy_streaming_id() {
 		return buy_streaming_id;
@@ -34,11 +45,11 @@ public class Buy_streamingVO {
 		this.buy_streaming_end = buy_streaming_end;
 	}
 
-	public Date getBuy_streaming_date() {
+	public String getBuy_streaming_date() {
 		return buy_streaming_date;
 	}
 
-	public void setBuy_streaming_date(Date buy_streaming_date) {
+	public void setBuy_streaming_date(String buy_streaming_date) {
 		this.buy_streaming_date = buy_streaming_date;
 	}
 

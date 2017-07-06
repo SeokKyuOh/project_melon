@@ -1,8 +1,12 @@
 package com.sist.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,23 +67,13 @@ public class MemberController {
 		@RequestMapping("main/info_update.do")
 		public String member_info_update(String nick, Model model){
 			MemberVO vo=dao.memberAllData(nick);
-			//System.out.println("nick:"+nick);ookokoko
-			//String[] addr=vo.getMember_addr().split("-");
-			//System.out.println("addr:"+vo.getMember_addr());
 			String addr1=vo.getMember_addr().substring(0, vo.getMember_addr().indexOf("-"));
 			String addr2=vo.getMember_addr().substring(vo.getMember_addr().indexOf("-")+1, vo.getMember_addr().length());
-			//System.out.println("addr1:"+addr1+",addr2:"+addr2);
-			
-			//MemberVO vo_part=new MemberVO();
+
 			vo.setMember_addr1(addr1);
 			vo.setMember_addr2(addr2);
-			//System.out.println(vo_part.getMember_addr1());
-			//System.out.println(vo_part.getMember_addr2());
-			//System.out.println("post:"+vo.getMember_post());
 			String[] post=vo.getMember_post().split("-");
-			//System.out.println("post1:"+post[0]+",post2:"+post[1]);
 			String[] phone=vo.getMember_phone().split("-");
-			//System.out.println("phone1:"+phone[0]+",phone2:"+phone[1]);
 			
 			vo.setMember_post1(post[0]);
 			vo.setMember_post2(post[1]);
@@ -87,12 +81,23 @@ public class MemberController {
 			vo.setMember_phone2(phone[1]);
 			vo.setMember_phone3(phone[2]);
 			
+			//날짜 형식 변경
+			/*SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			String dt=sdf.format(vo.getMember_birthdate()); //date->string
+			SimpleDateFormat sdf2=new SimpleDateFormat("yyyy-MM-dd");
 			
-			/*System.out.println(vo.getMember_post1());
-			System.out.println(vo.getMember_post2());
-			System.out.println(vo.getMember_phone1());
-			System.out.println(vo.getMember_phone2());
-			System.out.println(vo.getMember_phone3());*/
+			try {
+				Date birth=sdf2.parse(dt);//string->date
+				vo.setMember_birthdate(birth);
+				System.out.println(vo.getMember_birthdate());
+			} catch (ParseException e) {
+				e.printStackTrace();
+			} */
+			
+			//말고 생일만 스트링으로 따로보내기 (나중에 스트링으로 vo 일괄변경해도되고..)
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			String birthdate=sdf.format(vo.getMember_birthdate()); //date->string
+			model.addAttribute("birthdate",birthdate);
 			model.addAttribute("vo",vo);
 			return "main/mypage/info_update";
 		}
