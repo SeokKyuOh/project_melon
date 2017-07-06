@@ -84,21 +84,27 @@ public class PlayerController {
 			// 만약 playlist_id가 없고 이용권이 무효한 경우
 			else if(playlist_id==null && isPlayerValid==0){
 				// 이용권이 무효하므로 playlist column을 생성할 필요가 없음!
+				// 그냥 못듣게 하자...이용권 있을때만 들어라
 				model.addAttribute("musics", musics);
 				return "redirect:/main/player_temp.do";
+				//return "main/player/buy_ticket";
 			}
 			
 			// 만약 playlist_id가 있고 이용권이 무효한 경우
 			else{
+				// 그냥 못듣게 하자...이용권 있을때만 들어라
 				model.addAttribute("musics", musics);
 				return "redirect:/main/player_temp.do";
+				//return "main/player/buy_ticket";
 			}
 		}
 		
 		// 회원이 아닌 경우 
 		else{
+			System.out.println("회원이 아닌 경우");
+			System.out.println(musics);
 			model.addAttribute("musics", musics);
-			return "forward:/main/player_temp.do";
+			return "redirect:/main/player_temp.do";
 		}
 	}
 	
@@ -107,22 +113,23 @@ public class PlayerController {
 	public String getMusicId(int album_id, Model model){
 		ArrayList<Integer> musics=playlistDAO.getMusicId(album_id);
 		model.addAttribute("musics", musics);
-		return "redirect:main/player_playlist_id.do";
+		return "redirect:main/player_playlist_temp.do";
 	}
 	
 
 	// music_id를 이용해 temp player 만들기
-	// 플레이어 구동(회원이 아니거나 이용권 없을 때) -> music_id만 받아 출력하기
+	// 플레이어 구동(회원이 아니거나 이용권 없을 때) -> music_id만 받아 출력하기(join은 player.do와 동일하게!)
 	@RequestMapping("main/player_temp.do")
-	public String openTempPlayer(ArrayList<Integer> musics, Model model){
-		List<MusicVO> playlist=null;
-		int music_id;
+	public String openTempPlayer(@RequestParam("musics") ArrayList<Integer> musics, Model model){
+		List<MusicVO> playlist=new ArrayList<MusicVO>();
+		int music_id=0;
 		for(int i=0; i<musics.size(); i++){
 			music_id=musics.get(i);
-			playlist.add(playlistDAO.getTempList(music_id));
+			MusicVO vo=playlistDAO.getTempList(music_id);
+			playlist.add(vo);
 		}
 		model.addAttribute("playlist", playlist);
-		return "redirect:/main/player/player.jsp";
+		return "main/player/player_temp";
 	}
 	
 	/*
