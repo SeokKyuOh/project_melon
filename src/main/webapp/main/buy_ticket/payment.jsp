@@ -29,6 +29,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+	<section id="contentSection">
 	<div class="container">
 		<h2>결제 선택</h2>
 		<!-- 내가 선택한 이용권 출력하기 -->
@@ -166,5 +167,6 @@ $(document).ready(function() {
 	   		</div>
 	  	</form>
 	</div>
+	</section>
 </body>
 </html>
