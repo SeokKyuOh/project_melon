@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.board.dao.QuestionDAO;
 import com.sist.board.dao.QuestionVO;
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
@@ -18,6 +19,9 @@ import com.sist.ticket.dao.Buy_streamingVO;
 public class MainController {
 	@Autowired
 	MemberDAO dao;
+
+	@Autowired
+	 QuestionDAO qdao;
 	
 	@RequestMapping("main/main.do")
 	public String main_page(Model model){
@@ -49,16 +53,19 @@ public class MainController {
 		return "main/main";
 	}*/
 	
-	@RequestMapping("main/notice.do")
+/*	@RequestMapping("main/notice.do")
 	public String notice_page(Model model){
 		model.addAttribute("main_jsp","board/board_list.jsp");
 		return "main/main";
 	}
-	
+	*/
 	@RequestMapping("main/mypage.do")
 	public String mypage_page(Model model, String nick, int id){
 		model.addAttribute("main_jsp","mypage/mypage.jsp");
 		MemberVO vo=dao.memberAllData(nick);
+<<<<<<< HEAD
+		List<QuestionVO> qvo=qdao.questionList(id);
+=======
 		List<QuestionVO> qvo=dao.mypageQuestionSummary(id);
 		List<Buy_streamingVO> bsvo=dao.mypageStreamingInfo(id);
 		List<Buy_downloadVO> bdvo=dao.mypageDownloadInfo(id);
@@ -74,12 +81,15 @@ public class MainController {
 			vo2.setBuy_download_end(vo2.getBuy_download_end().substring(0,10));
 		}
 		model.addAttribute("mvo", mvo);
+>>>>>>> b8e21c7abe43eb230f3bf0650662d1ff1aacad04
 		model.addAttribute("vo", vo);
 		model.addAttribute("qvo",qvo);
 		model.addAttribute("bsvo",bsvo);
 		model.addAttribute("bdvo",bdvo);
 		return "main/main";
 	}
+
+	
 
 	
 	@RequestMapping("main/login.do")
