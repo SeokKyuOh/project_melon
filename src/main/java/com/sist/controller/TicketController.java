@@ -106,7 +106,8 @@ public class TicketController {
 	
 		if(session.getAttribute("membervo") == null) {
 			System.out.println("로그인 창으로 이동");
-			model.addAttribute("main_jsp", "member/login.jsp");
+			//model.addAttribute("main_jsp", "member/login.jsp");
+			return "redirect:/main/login.do";
 		}
 		else {
 			if(type.equals("streaming")) {
@@ -123,10 +124,11 @@ public class TicketController {
 			
 			model.addAttribute("type", type);
 			model.addAttribute("main_jsp","buy_ticket/payment.jsp");
+			
+			return "main/main";
 		} 
 		
 		
-		return "main/main";
 	}
 	
 	@RequestMapping("main/payment_ok.do")
