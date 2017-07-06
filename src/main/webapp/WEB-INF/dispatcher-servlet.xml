@@ -91,6 +91,11 @@
 	   p:sqlSessionFactory-ref="ssf"
 	   p:mapperInterface="com.sist.ticket.dao.DownloadMapper"
 	/>
+	<bean id="gaMapper"
+	   class="org.mybatis.spring.mapper.MapperFactoryBean"
+	   p:sqlSessionFactory-ref="ssf"
+	   p:mapperInterface="com.sist.genre.GenreAlbumMapper"
+	/>
 
 	<mvc:annotation-driven>
 		<mvc:message-converters>

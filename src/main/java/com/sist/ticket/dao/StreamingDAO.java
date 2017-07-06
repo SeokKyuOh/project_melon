@@ -26,5 +26,14 @@ public class StreamingDAO {
 	public void insert_buy_streaming(Buy_streamingVO vo) {
 		sMapper.insert_buy_streaming(vo);
 	}
+	
+	public Buy_streamingVO select_one_buy_streaming(int member_id) {
+		Buy_streamingVO vo = sMapper.select_one_buy_streaming(member_id);
+		return vo;
+	}
+	
+	public int count_buy_streaming(int member_id) {
+		return sMapper.count_buy_streaming(member_id);
+	}
 
 }

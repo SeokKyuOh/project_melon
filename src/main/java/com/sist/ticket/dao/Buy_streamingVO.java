@@ -9,6 +9,17 @@ public class Buy_streamingVO {
 	private Date buy_streaming_date;
 	private int streaming_id;
 	private int member_id;
+	
+	//join
+	private String streaming_name;
+	
+	public String getStreaming_name() {
+		return streaming_name;
+	}
+
+	public void setStreaming_name(String streaming_name) {
+		this.streaming_name = streaming_name;
+	}
 
 	public int getBuy_streaming_id() {
 		return buy_streaming_id;
