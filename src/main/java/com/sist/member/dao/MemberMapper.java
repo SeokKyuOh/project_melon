@@ -41,7 +41,7 @@ public interface MemberMapper {
 		public List<Buy_downloadVO> mypageDownloadInfo(int id);
 		
 		//마이페이지 플레이리스트 정보 출력-yk
-		@Select("SELECT m.music_name, m.music_artist, p.member_id FROM playlist_music pm, music m, playlist p WHERE p.member_id=#{member_id} and pm.music_id=m.music_id ORDER BY pm.playlist_music_id")
+		@Select("SELECT m.music_name, m.music_artist, p.member_id FROM playlist_music pm, music m, playlist p WHERE p.member_id=#{member_id} and pm.music_id=m.music_id and pm.playlist_id=p.playlist_id ORDER BY pm.playlist_music_id")
 		public List<MusicVO> mypagePlayList(int id);
 		
 		//회원 정보 수정(업데이트)-yk

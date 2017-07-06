@@ -101,13 +101,18 @@ function deleteLine(obj) {
 			      </tr>
 			    </thead>
 			    <tbody id="tbody">
+			    
 			    	<c:forEach var="mvo" items="${mvo }">
-				      <tr>
-				        <td style="width:50%">${mvo.music_name }</td>
-				        <td style="width:40%">${mvo.music_artist }</td>
-				        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
-				        <td style="width:10%"><input type="button" class="glyphicon glyphicon-remove" value="X" id="del" onclick="deleteLine(this)" style="background-color: transparent;border:none"></td>
-				      </tr>
+			    	<form>
+					      <tr>
+					        <td style="width:50%">${mvo.music_name }</td>
+					        <td style="width:40%">${mvo.music_artist }</td>
+					        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
+					        <td style="width:10%">
+					        	<input type="button" class="glyphicon glyphicon-remove" value="X" id="del" onclick="deleteLine(this)" style="background-color: transparent;border:none">
+					        </td>
+					      </tr>
+				      </form>
 			      </c:forEach>
 			    </tbody>
 			  </table>
@@ -130,16 +135,32 @@ function deleteLine(obj) {
 			    <tbody>
 				    <c:forEach var="q" items="${qvo }">
 				      <tr>
-				        <td>${q.question_title }</td>
+				        <td>
+				        	<a href="notice_content.do?question_id=${q.question_id }"> ${q.question_title }</a>
+				        
+				       </td>
 				        <td><fmt:formatDate value="${q.question_regdate }" pattern="yyyy-MM-dd"/></td>
 				      </tr>
 				    </c:forEach>
 			    </tbody>
 			  </table>
-			  <input type=button value="내 상세 문의 내역 보기" class="btn btn-theme">
+			  
           </div>
+          
+         <div>
+       		  <a href="notice_list.do?nick=${vo.member_nick }" >
+			  <input type=button value="글쓰기" class="btn btn-theme" align="right"></a>
+			 
+          </div>
+      
+          
         </aside>
       </div>
+<<<<<<< HEAD
+      
+
+=======
+>>>>>>> b8e21c7abe43eb230f3bf0650662d1ff1aacad04
 	</div>
 	</section>
 </body>

@@ -55,6 +55,11 @@ public interface PlaylistMapper {
 	@Select("select album_art, music_lyrics, music_name, music_artist from music inner join ALBUM a on a.ALBUM_ID = music.ALBUM_ID and music_id=#{music_id}")
 	public MusicVO getTempList(int music_id);
 	
+	// playlist 컬럼 만들기
+	@SelectKey(keyProperty="playlist_id", resultType=int.class, before=true, statement="select nvl(max(playlist_id)+1, 1) as playlist_music_id from playlist")
+	@Insert("insert into playlist(playlist_id, member_id) values(#{playlist_id}, #{member_id})")
+	public void makePlaylist(int member_id);
+	
 	// 앨범 재생을 클릭했을 때 album_id를 가지고 music_id 구하기
 	@Select("select music_id from music where album_id=#{album_id} order by music_id")
 	public ArrayList<Integer> getMusicId(int album_id);
