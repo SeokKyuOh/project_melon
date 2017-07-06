@@ -121,7 +121,7 @@
 	<tbody>
 		<%
 				int i = 1;
-			%>
+		%>
 		<c:forEach var="vo" items="${list }">
 			<tr>
 				<td><input type="checkbox" music_id="${vo.music_id }"
@@ -150,7 +150,7 @@
 			</tr>
 			<%
 					i++;
-				%>
+			%>
 		</c:forEach>
 	</tbody>
 </table>
