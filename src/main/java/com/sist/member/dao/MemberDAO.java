@@ -31,7 +31,6 @@ public class MemberDAO {
 	
 	public void memberInsert(MemberVO vo){
 		mMapper.memberInsert(vo);
-		
 	}
 	
 	public List<QuestionVO> mypageQuestionSummary(int id){

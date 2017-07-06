@@ -43,7 +43,7 @@ public interface MemberMapper {
 			+ "WHERE dong LIKE '%'||#{dong}||'%'")
 	public List<ZipcodeVO> zipcodeListData(String dong);
 	
-	//회원가입 입력	(시퀀스 만들어야함)
+	//회원가입 입력
 	@Insert("INSERT INTO members VALUES("
 			+ "members_seq.nextval, #{member_name}, #{member_phone}, #{member_email}, #{member_addr}, #{member_nick}, #{member_pwd},#{member_birthdate}, #{member_gender}, SYSDATE, 0, #{member_post})")
 	public void memberInsert(MemberVO vo);

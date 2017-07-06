@@ -31,8 +31,8 @@
 	<!-- MemberMapper -->
 	<bean id="mMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean"
-		p:mapperInterface="com.sist.member.dao.MemberMapper"
 		p:sqlSessionFactory-ref="ssf"
+		p:mapperInterface="com.sist.member.dao.MemberMapper"
 	/>
 	
 	<!-- BoardMapper -->

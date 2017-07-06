@@ -8,17 +8,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.board.dao.QuestionVO;
+import com.sist.chart.ChartService;
+import com.sist.chart.Daily_ChartVO;
 import com.sist.member.dao.MemberDAO;
 import com.sist.member.dao.MemberVO;
 import com.sist.ticket.dao.Buy_streamingVO;
 
 @Controller
 public class MainController {
+	
+	@Autowired
+	private ChartService service;
+	
 	@Autowired
 	MemberDAO dao;
 	
 	@RequestMapping("main/main.do")
 	public String main_page(Model model){
+		//실시간 차트 불러오기
+		List<Daily_ChartVO> daily_list=service.Daily_ChartData();
+		model.addAttribute("daily_list", daily_list);
 		model.addAttribute("main_jsp","default.jsp");
 		return "main/main";
 	}

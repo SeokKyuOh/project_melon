@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet"
@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="http://cdnimg.melon.co.kr/static/web/resource/style/w1/lu/h/una7b19ci5.css"
 	type="text/css" />
-<!-- ´ñ±Û css ÆÄÀÏ ³×ÀÓ º¯°æ -->
+<!-- ëŒ“ê¸€ css íŒŒì¼ ë„¤ì„ ë³€ê²½ -->
 <link rel="stylesheet"
 	href="http://cdnimg.melon.co.kr/static/web/resource/style/w1/qd/e/uolshpokn9.css"
 	type="text/css" />
@@ -29,16 +29,16 @@
 	src="http://cdnimg.melon.co.kr/static/web/resource/script/w1/g8/u/kv5d3h4q8t.js"></script>
 <script type="text/javascript"></script>
 <body>
-	<h2 class="title2">ÃÖ½Å¾Ù¹ü</h2>
+	<h2 class="title2">ìµœì‹ ì•¨ë²”</h2>
 	<div class="wrap_tab03 type02">
 		<ul>
 			<li class="first_child on"><a href="javascript:;"
 				class="link_tab e_link_tab" data-area-flg="I"> <span
-					class="cntt">±¹³»</span>
+					class="cntt">êµ­ë‚´</span>
 			</a></li>
 			<li class="last_child "><a href="javascript:;"
 				class="link_tab e_link_tab" data-area-flg="O"> <span
-					class="cntt">ÇØ¿Ü</span>
+					class="cntt">í•´ì™¸</span>
 			</a></li>
 		</ul>
 	</div>
@@ -51,38 +51,38 @@
 			<li class="album15_li ">
 				<div class="wrap_album04">
 					<a href="javascript:melon.link.goAlbumDetail('10073513');"
-						title="LISTEN 010 ÁÁ´Ï - ÆäÀÌÁö ÀÌµ¿" class="thumb"> <span
+						title="LISTEN 010 ì¢‹ë‹ˆ - í˜ì´ì§€ ì´ë™" class="thumb"> <span
 						class="thumb_frame"></span> <img
 						onerror="WEBPOCIMG.defaultAlbumImg(this);" width="130"
 						height="130"
 						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg" 
 						alt="" />
 					</a> <a href="javascript:melon.play.playAlbum('18020123','10073513');"
-						class="bg_play medium">Àç»ı</a>
+						class="bg_play medium">ì¬ìƒ</a>
 					<div class="atist_info">
 						<dl>
 							<dt>
-								<span class="vdo_name">[${vo.album_type }]</span> <strong class="none">¾Ù¹ü¸í</strong>
+								<span class="vdo_name">[${vo.album_type }]</span> <strong class="none">ì•¨ë²”ëª…</strong>
 								<a href="javascript:melon.link.goAlbumDetail('10073513');"
-									class="ellipsis" title="LISTEN 010 ÁÁ´Ï - ÆäÀÌÁö ÀÌµ¿">${vo.album_name }</a>
+									class="ellipsis" title="LISTEN 010 ì¢‹ë‹ˆ - í˜ì´ì§€ ì´ë™">${vo.album_name }</a>
 							</dt>
 							<dd class="atistname">
-								<strong class="none">¾ÆÆ¼½ºÆ®¸í</strong>
+								<strong class="none">ì•„í‹°ìŠ¤íŠ¸ëª…</strong>
 								<div class="ellipsis">
 									<a href="javascript:melon.link.goArtistDetail('437');"
-										title="À±Á¾½Å - ÆäÀÌÁö ÀÌµ¿" class="play_artist"><span>${vo.album_artist }</span></a><span
+										title="ìœ¤ì¢…ì‹  - í˜ì´ì§€ ì´ë™" class="play_artist"><span>${vo.album_artist }</span></a><span
 										class="checkEllipsis" style="display: none"><a
 										href="javascript:melon.link.goArtistDetail('437');"
-										title="À±Á¾½Å - ÆäÀÌÁö ÀÌµ¿" class="play_artist"><span>${vo.album_artist }</span></a></span>
+										title="ìœ¤ì¢…ì‹  - í˜ì´ì§€ ì´ë™" class="play_artist"><span>${vo.album_artist }</span></a></span>
 								</div>
-								<!-- ¾ÆÆ¼½ºÆ®¸í °ø°£ ÃÊ°ú½Ã ´õº¸±â ¹öÆ° ³ëÃâ -->
+								<!-- ì•„í‹°ìŠ¤íŠ¸ëª… ê³µê°„ ì´ˆê³¼ì‹œ ë”ë³´ê¸° ë²„íŠ¼ ë…¸ì¶œ -->
 
-								<!-- //¾ÆÆ¼½ºÆ®¸í °ø°£ ÃÊ°ú½Ã ´õº¸±â ¹öÆ° ³ëÃâ -->
+								<!-- //ì•„í‹°ìŠ¤íŠ¸ëª… ê³µê°„ ì´ˆê³¼ì‹œ ë”ë³´ê¸° ë²„íŠ¼ ë…¸ì¶œ -->
 							</dd>
 							<dd class="btn_play">
-								<a href="#" title="ÁÁ´Ï Àç»ı - »õ Ã¢"
+								<a href="#" title="ì¢‹ë‹ˆ ì¬ìƒ - ìƒˆ ì°½"
 									onclick="melon.play.playSong('18020123',30486509);"
-									class="btn_play_song "> <span class="icon_play">°îÀç»ı</span>
+									class="btn_play_song "> <span class="icon_play">ê³¡ì¬ìƒ</span>
 
 
 
@@ -90,28 +90,28 @@
 								</a>
 							</dd>
 							<dd class="wrap_btn">
-								<strong class="none">¾Ù¹ü ¹ß¸ÅÀÏ</strong> <span class="cnt_view">
+								<strong class="none">ì•¨ë²” ë°œë§¤ì¼</strong> <span class="cnt_view">
 								<fmt:formatDate value="${vo.album_release }" 
             						pattern="yyyy.MM.dd" /></span>
-								<em class="bar">|</em> <span class="tot_song">${vo.count }°î</span> <em
-									class="bar">|</em> <a href="#" title="LISTEN 010 ÁÁ´Ï ÁÁ¾Æ¿ä "
+								<em class="bar">|</em> <span class="tot_song">${vo.count }ê³¡</span> <em
+									class="bar">|</em> <a href="#" title="LISTEN 010 ì¢‹ë‹ˆ ì¢‹ì•„ìš” "
 									class="btn_like d_btn" data-album-no="10073513"
 									data-album-menuId="18020123">
-									<!-- class="on" Ãß°¡½Ã È°¼º --> <span class="icon">ÁÁ¾Æ¿ä</span> <strong
-									class="none">ÃÑ°Ç¼ö</strong>0
+									<!-- class="on" ì¶”ê°€ì‹œ í™œì„± --> <span class="icon">ì¢‹ì•„ìš”</span> <strong
+									class="none">ì´ê±´ìˆ˜</strong>0
 								</a>
 							</dd>
 							<dd class="wrap_func">
 								<!-- or not album.sellAlbum / album.sellAlbum and  -->
-								<button type="button" title="LISTEN 010 ÁÁ´Ï Àç»ı - »õ Ã¢"
+								<button type="button" title="LISTEN 010 ì¢‹ë‹ˆ ì¬ìƒ - ìƒˆ ì°½"
 									class="btn_small play"
 									onClick="melon.play.playAlbum('18020123','10073513');">
-									<span class="odd_span"><span class="even_span">¾Ù¹üµè±â</span></span>
+									<span class="odd_span"><span class="even_span">ì•¨ë²”ë“£ê¸°</span></span>
 								</button>
-								<button type="button" title="LISTEN 010 ÁÁ´Ï ´Ù¿î - »õ Ã¢"
+								<button type="button" title="LISTEN 010 ì¢‹ë‹ˆ ë‹¤ìš´ - ìƒˆ ì°½"
 									class="btn_small download"
 									onClick="melon.buy.goBuyProduct('frm','10073513','3B0001','','0','18020123','1');">
-									<span class="odd_span"><span class="even_span">¾Ù¹ü´Ù¿î</span></span>
+									<span class="odd_span"><span class="even_span">ì•¨ë²”ë‹¤ìš´</span></span>
 								</button>
 							</dd>
 						</dl>
