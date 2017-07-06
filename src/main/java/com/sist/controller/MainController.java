@@ -94,28 +94,7 @@ public class MainController {
    public String login_page(Model model){
       return "main/member/login";
    }
-<<<<<<< HEAD
-   /*
-   @RequestMapping("main/search.do")
-   public String search_page(Model model){
-      model.addAttribute("main_jsp", "search/search.jsp");
-      return "main/main";
-   }*/
-
-	
-/*	@RequestMapping("main/notice.do")
-	public String notice_page(Model model){
-		model.addAttribute("main_jsp","board/board_list.jsp");
-		return "main/main";
-	}
-	*/
-	
-=======
- 
-
->>>>>>> f2316d3fd760c5899f5d95860e10726b37e42aee
 }
-
 
 
 
