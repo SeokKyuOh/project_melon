@@ -5,15 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script>
-	//location.href="player.do";
-	
-	//window.open("HoneyMusicPlayer","player.do", "width=400, height=400");
-	window.open("player.do","HoneyMusicPlayer","width=500, height=800, left=500, top=500");
-	//location.href="redirect:/"
-</script>
 </head>
 <body>
-
+	테스트
 </body>
-</html> 	
+</html>

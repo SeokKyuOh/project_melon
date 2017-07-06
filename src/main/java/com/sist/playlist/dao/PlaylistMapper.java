@@ -52,7 +52,7 @@ public interface PlaylistMapper {
 	public List<PlaylistMusicVO> getPlaylist(int member_id);
 	
 	// 임시 플레이어 구동(비회원 or 회원이지만 이용권이 없는 경우)
-	@Select("select album_art, music_lyrics, music_name, music_artist from music inner join ALBUM a on a.ALBUM_ID = music.ALBUM_ID and music_id=#{music_id}")
+	@Select("select music_number, album_art, music_lyrics, music_name, music_artist from music inner join ALBUM a on a.ALBUM_ID = music.ALBUM_ID and music_id=#{music_id}")
 	public MusicVO getTempList(int music_id);
 	
 	// playlist 컬럼 만들기

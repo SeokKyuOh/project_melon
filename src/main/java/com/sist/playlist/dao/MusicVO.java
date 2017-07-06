@@ -13,9 +13,13 @@ public class MusicVO {
 	
 	//join(검색결과 찾기 용)
 	private String album_name;
+<<<<<<< HEAD
+	private String album_art;
+=======
 	
 	//join(mypage playlist)
 	private int playlist_music_id;
+>>>>>>> 30d8f06546351aad178ed6f12972dbc861fa3dcd
 	
 	public int getPlaylist_music_id() {
 		return playlist_music_id;
@@ -82,6 +86,12 @@ public class MusicVO {
 	}
 	public void setAlbum_name(String album_name) {
 		this.album_name = album_name;
+	}
+	public String getAlbum_art() {
+		return album_art;
+	}
+	public void setAlbum_art(String album_art) {
+		this.album_art = album_art;
 	}
 	
 	
