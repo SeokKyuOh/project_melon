@@ -27,7 +27,7 @@ function sendBuy(id, type) {
     		<div class="panel-heading">스트리밍</div>
 	  		<c:forEach var="vo" items="${sList }">
     		<div class="panel-body">
-    			<img src="images/30.JPG">
+    			<img src="images/${vo.streaming_name }.png">
     			<span style="width: 50px">${vo.streaming_name }</span>
     			<span style="width: 100px">가격 : ${vo.streaming_price }원</span>
     			<div class="btn-group" role="group" align="right" style="float:right">
@@ -46,7 +46,7 @@ function sendBuy(id, type) {
     		<div class="panel-heading">다운로드</div>
     		<c:forEach var="vo" items="${dList }">
     		<div class="panel-body">
-    			<img src="images/30.JPG">
+    			<img src="images/${vo.download_name }.png">
     			<span style="width: 50px">${vo.download_name }</span>
     			<span style="width: 100px">가격 : ${vo.download_price }원</span>
     			<div class="btn-group" role="group" align="right" style="float: right">
