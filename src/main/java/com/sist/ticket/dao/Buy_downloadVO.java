@@ -10,6 +10,17 @@ public class Buy_downloadVO {
 	private int download_qt;
 	private int download_id;
 	private int member_id;
+	
+	//join
+	private String download_name;
+
+	public String getDownload_name() {
+		return download_name;
+	}
+
+	public void setDownload_name(String download_name) {
+		this.download_name = download_name;
+	}
 
 	public int getBuy_download_id() {
 		return buy_download_id;
