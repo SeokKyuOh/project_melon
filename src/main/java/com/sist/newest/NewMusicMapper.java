@@ -13,4 +13,5 @@ public interface NewMusicMapper {
 			+"ON M.album_id = A.album_id "
 			+"order by M.music_count DESC")	
 public List<NewMusicVO> NewMusicData();
+
 }

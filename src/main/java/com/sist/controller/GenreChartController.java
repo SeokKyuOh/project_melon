@@ -19,10 +19,23 @@ public class GenreChartController {
 	@RequestMapping("main/genreMusicChart.do")
 	public String genreChart_list(int genre_id,Model model){
 		List<GenreVO> list = service.genreListData(genre_id);
-
-		model.addAttribute("list", list);
-	
+		model.addAttribute("list", list);		
+		List<GenreVO> album = service.genreAlbumData(genre_id);
+		model.addAttribute("album", album);
 		model.addAttribute("main_jsp", "genre/genre.jsp");
+
 		return "main/main";
 	}
+	@RequestMapping("main/genreAlbumChart.do")
+	public String genreAlbum_list(int genre_id,Model model){
+		List<GenreVO> chart = service.genreAlbumList(genre_id);
+		model.addAttribute("chart", chart);		
+		List<GenreVO> album = service.genreAlbumData(genre_id);
+		model.addAttribute("album", album);
+		model.addAttribute("main_jsp", "genre/genreAlbum.jsp");
+
+		return "main/main";
+	}
+	
+
 }
