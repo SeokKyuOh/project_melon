@@ -12,6 +12,9 @@ public class AlbumVO {
 	private String album_agency;
 	private String album_dist;
 	
+	//join(검색 결과용)
+	private String music_name;
+		
 	public int getAlbum_id() {
 		return album_id;
 	}
@@ -59,6 +62,12 @@ public class AlbumVO {
 	}
 	public void setAlbum_dist(String album_dist) {
 		this.album_dist = album_dist;
+	}
+	public String getMusic_name() {
+		return music_name;
+	}
+	public void setMusic_name(String music_name) {
+		this.music_name = music_name;
 	}
 	
 	

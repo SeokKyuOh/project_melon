@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.playlist.dao.AlbumVO;
 import com.sist.playlist.dao.MusicVO;
 import com.sist.search.dao.SearchDAO;
 
@@ -17,27 +18,36 @@ public class SearchController {
 	
 	List<MusicVO> artist_list;
 	List<MusicVO> song_list;
+	List<AlbumVO> album_list;
 	
 	int artist_list_size;
 	int song_list_size;
+	int album_list_size;
 	
 	@RequestMapping("main/search.do")
 	public String search_result(String music_search, Model model){
 		artist_list = null;
 		song_list = null;
+		album_list =null;
+		
 		artist_list_size = 0;
 		song_list_size = 0;
+		album_list_size = 0;
 		
 		artist_list = dao.artistData(music_search);
 		song_list = dao.songData(music_search);
+		album_list = dao.albumData(music_search);
 		
 		artist_list_size = artist_list.size();
 		song_list_size = song_list.size();
+		album_list_size = album_list.size();
 		
 		model.addAttribute("artist_list", artist_list);
 		model.addAttribute("song_list", song_list);
+		model.addAttribute("album_list", album_list);
 		model.addAttribute("artist_list_size", artist_list_size);
 		model.addAttribute("song_list_size", song_list_size);
+		model.addAttribute("album_list_size", album_list_size);
 		model.addAttribute("main_jsp", "search/search.jsp");
 		return "main/main";
 	}
@@ -60,6 +70,8 @@ public class SearchController {
 	
 	@RequestMapping("main/search_album.do")
 	public String search_album(Model model){
+		model.addAttribute("album_list", album_list);
+		model.addAttribute("album_list_size", album_list_size);
 		model.addAttribute("main_jsp", "search/search_album.jsp");
 		return "main/main";
 	}

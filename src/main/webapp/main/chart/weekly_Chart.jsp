@@ -119,7 +119,7 @@
 						<img src="<c:url value="/resources/img/play.png"/>" style="width:20px; height:20px"></a>
 						<a href="main/player.do?member_id=${sessionScope.membervo.member_id}">
 						<img src="<c:url value="/resources/img/add.png"/>" style="width:20px; height:20px"></a>
-					<td>${vo.music_name }</td>
+					<td><a href="music_countIncrement.do?music_id=${vo.music_id }">${vo.music_name }</a></td>
 					<td>${vo.music_artist }</td>
 					<td>${vo.album_name }</td>
 				</tr>

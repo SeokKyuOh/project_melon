@@ -10,7 +10,15 @@ public class Daily_ChartVO {
 	private int album_id;
 	private String album_name;
 	private String album_art;
+	private int music_count;
 	
+	
+	public int getMusic_count() {
+		return music_count;
+	}
+	public void setMusic_count(int music_count) {
+		this.music_count = music_count;
+	}
 	public String getAlbum_art() {
 		return album_art;
 	}

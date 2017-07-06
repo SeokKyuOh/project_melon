@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -47,27 +48,16 @@
           <div class="latest_post_container">
             <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
             <ul class="latest_postnav">
+            <% int i=1; %>
+              <c:forEach var="daily_list" items="${daily_list}" begin="0" end="4" step="1">
               <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title">1위 - 남이 될 수 있을까 - 볼빨간사춘기</a> </div>
+                <div class="media"> <a href="daily_chart.do" class="media-left"> <img src="http://211.238.142.109:8080/album_img/${daily_list.album_art }.jpg"> </a>
+                  <div class="media-body"> <a href="daily_chart.do" ><%=i %>위 - ${daily_list. music_name} - ${daily_list.music_artist }</a> </div>
                 </div>
               </li>
-              <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 2위 - 무제(無題) (Untitled, 2014) G-DRAGON</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title">3위 - 처음부터 너와 나 - 볼빨간사춘기</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 4위 - SIGNAL TWICE (트와이스)</a> </div>
-                </div>
-              </li>
-              
+              <% i++; %>
+              </c:forEach>
+               <li></li>
             </ul>
             <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
           </div>
@@ -84,13 +74,13 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>추가구현 예정 1</span></h2>
+            <h2><span>뮤직비디오</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
                 <li>
                   <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img1.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="pages/single_page.html">추가정보 구현1(타이틀)</a> </figcaption>
-                    <p>추가정보 구현1(상세)</p>
+                    <figcaption> <a href="pages/single_page.html">뮤직비디오 1</a> </figcaption>
+                    <p>뮤직비디오1 설명</p>
                   </figure>
                 </li>
               </ul>
@@ -99,22 +89,22 @@
               <ul class="spost_nav">
                 <li>
                   <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)1</a> </div>
+                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오2</a> </div>
                   </div>
                 </li>
                 <li>
                   <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)2</a> </div>
+                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오3</a> </div>
                   </div>
                 </li>
                 <li>
                   <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)3</a> </div>
+                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오4</a> </div>
                   </div>
                 </li>
                 <li>
                   <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 추가정보 구현 2(리스트형)4</a> </div>
+                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오5</a> </div>
                   </div>
                 </li>
               </ul>
@@ -127,28 +117,10 @@
       <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">
-            <h2><span>오른쪽 추가정보</span></h2>
+            <h2><span>해시태그</span></h2>
             <ul class="spost_nav">
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 오른쪽 추가정보 1</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 오른쪽 추가정보 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 오른쪽 추가정보 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                  <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 오른쪽 추가정보 4</a> </div>
-                </div>
-              </li>
+              #여름 추천 #신나는 노래<br>
+              #우울할때 #발라드 추천
             </ul>
           </div>
         </aside>

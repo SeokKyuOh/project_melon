@@ -36,4 +36,11 @@ public class QuestionController {
 		return "redirect:/main/mypage.do?nick="+nick+"&id="+id;
 
 	}
+	
+	@RequestMapping("main/notice_insert.do")
+	public String question_insert(Model model){
+		model.addAttribute("main_jsp", "notice/notice_insert.jsp");
+		return "main/main";
+		
+	}
 }
