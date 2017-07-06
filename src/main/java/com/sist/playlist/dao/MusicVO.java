@@ -17,8 +17,12 @@ public class MusicVO {
 
 	//join(mypage playlist)
 	private int playlist_music_id;
+<<<<<<< HEAD
+	
+=======
 
 
+>>>>>>> f2316d3fd760c5899f5d95860e10726b37e42aee
 	public int getPlaylist_music_id() {
 		return playlist_music_id;
 	}
