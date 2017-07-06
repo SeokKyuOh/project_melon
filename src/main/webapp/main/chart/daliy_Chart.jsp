@@ -82,7 +82,7 @@
 				},
 				success:function(data){
 					alert("성공");
-					alert(data);
+					window.open("player.do","HoneyMusicPlayer","width=450, height=800");
 				}
 			});	
 		
@@ -115,7 +115,7 @@
 					album_id="${vo.album_id}" name="checkbox_name"></td>
 				<td><span><%=i%></span><span>위</span></td>
 				<td><img
-					src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"
+					src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
 					width=50 height=50> 
 					<a
 					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}"> 

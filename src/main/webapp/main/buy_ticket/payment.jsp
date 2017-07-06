@@ -29,6 +29,7 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+	<section id="contentSection">
 	<div class="container">
 		<h2>결제 선택</h2>
 		<!-- 내가 선택한 이용권 출력하기 -->
@@ -37,7 +38,7 @@ $(document).ready(function() {
     			<ul class="thumbnails" style="list-style:none;">
                 	<li class="span5 clearfix">
                   		<div class="thumbnail clearfix">
-                    		<img src="images/30.JPG" class="pull-left span2 clearfix" style='margin-right:10px'>
+                    		<img src="images/${name }.png" class="pull-left span2 clearfix" style='margin-right:10px'>
                     		<div class="caption" class="pull-left">
                      			<h3 style="color: blue">${name }</h3>
                       			<b>가격: ${price} 원</b>
@@ -166,5 +167,6 @@ $(document).ready(function() {
 	   		</div>
 	  	</form>
 	</div>
+	</section>
 </body>
 </html>

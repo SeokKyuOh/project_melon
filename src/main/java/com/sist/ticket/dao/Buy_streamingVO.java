@@ -6,7 +6,7 @@ public class Buy_streamingVO {
 	private int buy_streaming_id;
 	private String buy_streaming_start;
 	private String buy_streaming_end;
-	private String buy_streaming_date;
+	private Date buy_streaming_date;
 	private int streaming_id;
 	private int member_id;
 	
@@ -45,11 +45,11 @@ public class Buy_streamingVO {
 		this.buy_streaming_end = buy_streaming_end;
 	}
 
-	public String getBuy_streaming_date() {
+	public Date getBuy_streaming_date() {
 		return buy_streaming_date;
 	}
 
-	public void setBuy_streaming_date(String buy_streaming_date) {
+	public void setBuy_streaming_date(Date buy_streaming_date) {
 		this.buy_streaming_date = buy_streaming_date;
 	}
 

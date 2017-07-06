@@ -1097,7 +1097,7 @@ html {
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "À±°íµñ330", À±°íµñ330, Arial, À±°íµñ330;
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #333;
@@ -4616,7 +4616,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-	border-color: #101010
+	border-color: #ffffff
 }
 
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,
