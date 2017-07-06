@@ -14,7 +14,6 @@ public class MusicVO {
 	//join(검색결과 찾기 용)
 	private String album_name;
 	
-	
 	public int getMusic_id() {
 		return music_id;
 	}
@@ -75,7 +74,5 @@ public class MusicVO {
 	public void setAlbum_name(String album_name) {
 		this.album_name = album_name;
 	}
-	
-	
 	
 }
