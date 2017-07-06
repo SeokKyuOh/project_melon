@@ -10,12 +10,35 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-function deleteLine(obj) {
+ $(function(){
+	$('.del').click(function(){
+		var del=$(this);
+		var playlist_music_id=$(this).attr("data");
+		$.ajax({
+			type:"POST", 
+	        url: "del_playlist.do",
+	        data: {"playlist_music_id":playlist_music_id},
+	        success: function(response){
+	            if (response.trim()==1) {
+	                $(del).parent().parent().remove();
+	               
+	            } else{
+	                alert("삭제할 수 없습니다. 나도 왠지 몰라");
+	            }
+	        }
+	    });
+	}); 
+}); 
+
+/* function deleteLine(obj) {
     var tr = $(obj).parent().parent();
     //라인 삭제
     tr.remove();
-}
-
+} */
+/* $('.del').click(function(){
+		$(this).parent().parent().remove();
+	});
+*/
 </script>
 </head>
 
@@ -101,13 +124,19 @@ function deleteLine(obj) {
 			      </tr>
 			    </thead>
 			    <tbody id="tbody">
+			    
 			    	<c:forEach var="mvo" items="${mvo }">
-				      <tr>
-				        <td style="width:50%">${mvo.music_name }</td>
-				        <td style="width:40%">${mvo.music_artist }</td>
-				        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
-				        <td style="width:10%"><input type="button" class="glyphicon glyphicon-remove" value="X" id="del" onclick="deleteLine(this)" style="background-color: transparent;border:none"></td>
-				      </tr>
+			    	<%-- <form method="post" action="del_playlist.do?playlist_music_id=${playlist_music_id }" id="delPlaylist"> --%>
+					      <tr>
+					        <td style="width:50%">${mvo.music_name }</td>
+					        <td style="width:40%">${mvo.music_artist }</td>
+					        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
+					        <td style="width:10%">
+					        	<input type="button" value="X" class="del" data="${mvo.playlist_music_id }"  style="background-color: transparent;border:none">
+					        		<!-- onclick="deleteLine(this)" -->
+					        </td>
+					      </tr>
+				     <!--  </form> -->
 			      </c:forEach>
 			    </tbody>
 			  </table>

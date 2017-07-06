@@ -55,5 +55,9 @@ public class MemberDAO {
 		mMapper.memberUpdate(vo);
 	}
 	
+	public void myPlaylistDelete(int playlist_music_id){
+		mMapper.myPlaylistDelete(playlist_music_id);
+	}
+	
 }
 

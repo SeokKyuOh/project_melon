@@ -42,11 +42,11 @@
 }
 
 .latest_newsarea span {
-	background: none repeat scroll 0 0 black /* 실시간앨범순위 */
+	background: none repeat scroll 0 0  /* 실시간앨범순위 */
 }
 
 .latest_post>h2 span {
-	background: none repeat scroll 0 0 #B5D7BB
+	background: none repeat scroll 0 0 
 }
 
 #prev-button {

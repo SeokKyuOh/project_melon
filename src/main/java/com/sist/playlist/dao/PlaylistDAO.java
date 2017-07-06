@@ -29,6 +29,12 @@ public class PlaylistDAO {
 		return pMapper.getTempList(music_id);
 	}
 	
+	// playlist를 처음 만들때
+	public void makePlaylist(int member_id){
+		System.out.println("makePlaylist");
+		pMapper.makePlaylist(member_id);
+	}
+	
 	// 앨범 재생을 클릭했을 때 music_id 구하기
 	public ArrayList<Integer> getMusicId(int album_id){
 		System.out.println("getMusicId");

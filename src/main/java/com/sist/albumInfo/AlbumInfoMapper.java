@@ -1,0 +1,23 @@
+package com.sist.albumInfo;
+
+
+
+
+
+import org.apache.ibatis.annotations.Select;
+
+
+
+public interface AlbumInfoMapper {
+	@Select("SELECT m.ALBUM_ID,m.GENRE_ID,a.ALBUM_ID,a.ALBUM_NAME " 
+			+",a.ALBUM_ART,a.ALBUM_AGENCY,a.ALBUM_DIST,a.ALBUM_TYPE,a.ALBUM_ARTIST,g.GENRE_NAME,g.GENRE_ID "
+			+"FROM MUSIC m, ALBUM a, GENRE g "
+			+"WHERE m.ALBUM_ID=a.ALBUM_ID "
+			+"and g.GENRE_ID = m.GENRE_ID "
+			+"and m.music_title='y' "
+			+"and a.ALBUM_ID =#{album_id} "
+			+"group by m.ALBUM_ID,m.GENRE_ID,a.ALBUM_ID,a.ALBUM_NAME " 
+			+",a.ALBUM_ART,a.ALBUM_AGENCY,a.ALBUM_DIST,a.ALBUM_TYPE,a.ALBUM_ARTIST,g.GENRE_NAME,g.GENRE_ID")
+	public AlbumInfoVO AlbumInfo(int album_id); 
+	
+}

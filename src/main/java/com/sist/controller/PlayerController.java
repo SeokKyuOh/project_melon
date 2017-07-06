@@ -30,6 +30,8 @@ public class PlayerController {
 		MemberVO vo=(MemberVO)session.getAttribute("membervo");
 		int member_id=vo.getMember_id();
 		
+		System.out.println("member_id"+member_id);
+		
 		// Playlist, Playlist_music, Album, Music join
 		List<PlaylistMusicVO> playlist = playlistDAO.getPlaylist(member_id);
 		
@@ -61,7 +63,7 @@ public class PlayerController {
 			// 만약 playlist_id가 없고, 이용권이 유효한 경우 
 			if(playlist_id==null && isPlayerValid>0){
 				// playlist column 생성
-				
+				playlistDAO.makePlaylist(member_id);
 				
 				// playlist_id와 music_id list 넘기기
 				model.addAttribute("musics", musics);
@@ -80,10 +82,16 @@ public class PlayerController {
 			}
 			
 			// 만약 playlist_id가 없고 이용권이 무효한 경우
+			else if(playlist_id==null && isPlayerValid==0){
+				// 이용권이 무효하므로 playlist column을 생성할 필요가 없음!
+				model.addAttribute("musics", musics);
+				return "redirect:/main/player_temp.do";
+			}
+			
 			// 만약 playlist_id가 있고 이용권이 무효한 경우
 			else{
 				model.addAttribute("musics", musics);
-				return "forward:/main/player_temp.do";
+				return "redirect:/main/player_temp.do";
 			}
 		}
 		
@@ -114,7 +122,7 @@ public class PlayerController {
 			playlist.add(playlistDAO.getTempList(music_id));
 		}
 		model.addAttribute("playlist", playlist);
-		return "forward:/main/player_temp.do";
+		return "redirect:/main/player/player.jsp";
 	}
 	
 	/*
@@ -139,6 +147,7 @@ public class PlayerController {
 	// playlist_music에 곡 추가 후 재생
 	@RequestMapping("main/player_insert.do")
 	public String insertMusic(int playlist_id, @RequestParam("musics") ArrayList<Integer> musics){
+		try{
 		for(int i=0; i<musics.size(); i++){
 			System.out.println("musics : "+musics.get(i)+"\n");
 		}
@@ -147,7 +156,13 @@ public class PlayerController {
 			music_id=musics.get(i);
 			playlistDAO.insertMusic(playlist_id, music_id);
 		}
-		return "/main/player/player_index";
+		
+		System.out.println("나왔어");
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return "main/player/player_index";
 	}
 
 	// 추후 구현 예정
@@ -156,4 +171,8 @@ public class PlayerController {
 	public String deleteMusic(int playlist_music_id) {
 		return "main/player/player";
 	}
+	
+	
+	
+	
 }

@@ -15,8 +15,8 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/bar-ui.css"/>" />
 <script>
 	
-	var albumURL="http://211.238.142.109:8080/food/main/album_img/";
-	var musicURL="http://211.238.142.109:8080/food/main/music/";
+	var albumURL="http://211.238.142.109:8080/album_img/";
+	var musicURL="http://211.238.142.109:8080/music/";
 	
 	var isImageClicked=0;		// 앨범아트 클릭 여부 확인
 	
@@ -80,7 +80,7 @@
 			1) 다른 페이지로 값을 넘기며 요청 -> 넘긴 페이지에서 재생 횟수를 증가시키기(창이 띄워지지는 않음)
 			*/
 			var playlist_music_id=$(this).attr("playlist_music_id");
-			alert("main/player_db.do?playlist_music_id="+playlist_music_id);
+			
 			$.ajax({
 				type:"GET",
 				url:"player_count.do?playlist_music_id="+playlist_music_id,
@@ -124,8 +124,8 @@
 	<div id="album" style="position:relative; width:450px; height:400">
 		<c:set var="album_art" value="${playlist[0].album_art }"/>
 		<c:set var="lyric" value="${playlist[0].music_lyrics }"/>
-		<%-- <img id="image" src="http://211.238.142.109:8080/food/main/album_img/${album_art}.jpg" width=450 height=400>  --%>
-		<img src="../main/player/cover/album1.jpg" id="image" width=450 height=400>
+		<img id="image" src="http://211.238.142.109:8080/album_img/${album_art}.jpg" width=450 height=400> 
+		<!-- <img src="../main/player/cover/album1.jpg" id="image" width=450 height=400> -->
 		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:20%; left:45%">
 			<p>
 				${lyric }
@@ -239,7 +239,7 @@
 					<c:forEach var="vo" items="${playlist}" varStatus="status">
 						<%-- <li id="${vo.music_number }"> --%>
 						<li class="mclick" album_art="${vo.album_art }" music_lyrics="${vo.music_lyrics}" playlist_music_id="${vo.playlist_music_id }" index="${status.index }">
-							<a href="http://211.238.142.109:8080/food/main/music/${vo.music_number }.mp3">
+							<a href="http://211.238.142.109:8080/music/${vo.music_number }.mp3">
 								${vo.music_name } - ${vo.music_artist }
 							</a>
 						</li>
