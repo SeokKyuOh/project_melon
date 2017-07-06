@@ -19,7 +19,6 @@ import com.sist.chart.Daily_ChartVO;
 public class ChartController {
 	   @Autowired
 	   private ChartService service;
-	   
 	   @RequestMapping("main/daily_chart.do")
 	   public String dayliyChart_list(Model model){
 	
@@ -28,7 +27,21 @@ public class ChartController {
 		   model.addAttribute("main_jsp", "chart/daliy_Chart.jsp");
 		   return "main/main";
 	   }
-	   
+	   @RequestMapping("main/weekly_chart.do")
+	   public String weeklyChart_list(Model model){
+	
+		   List<Daily_ChartVO> list=service.Weekly_ChartData();
+		   model.addAttribute("list", list);
+		   model.addAttribute("main_jsp", "chart/weekly_Chart.jsp");
+		   return "main/main";
+	   }
+	   @RequestMapping("main/music_countIncrement.do")
+	   public String musci_countIncrement(int music_id,Model model)
+	   {
+		   service.musicCountIncrement(music_id);
+		   model.addAttribute("main_jsp", "chart/music_countIncrement.jsp");
+		   return "main/main";
+	   }
 
 }
 

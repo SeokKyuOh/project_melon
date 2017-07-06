@@ -30,12 +30,64 @@ public class TicketController {
 	private DownloadDAO doDao;
 	
 	@RequestMapping("main/buy_ticket.do")
-	public String buy_ticket_page(Model model){
+	public String buy_ticket_page(Model model, HttpSession session){
 		List<DownloadVO> dList = doDao.download_list();
 		List<StreamingVO> sList = stDao.streaming_list();
 		
 		for(StreamingVO vo : sList) {
 			System.out.println(vo.getStreaming_name()+" " + vo.getStreaming_period()+  " "+ vo.getStreaming_price());
+		}
+		
+		model.addAttribute("st_isvalid", "no");
+		model.addAttribute("do_isvalid", "no");
+		
+		if(session.getAttribute("membervo") != null) {
+			MemberVO mvo = (MemberVO) session.getAttribute("membervo");
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			
+			int st_count = stDao.count_buy_streaming(mvo.getMember_id());
+			int do_count = doDao.count_buy_download(mvo.getMember_id());
+			
+			if(st_count != 0) {
+				Buy_streamingVO svo = stDao.select_one_buy_streaming(mvo.getMember_id());
+				
+				try {
+					Date endDate = sdf.parse(svo.getBuy_streaming_end());
+					Date nowDate = new Date();
+					
+					int compare = endDate.compareTo(nowDate);
+					
+					if(compare >= 0) {//기한남음
+						model.addAttribute("st_isvalid", "yes");
+					} 
+					else {
+						model.addAttribute("st_isvalid", "no");
+					}
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			if(do_count != 0) {
+				Buy_downloadVO dvo = doDao.select_one_buy_download(mvo.getMember_id());
+				
+				try {
+					Date endDate = sdf.parse(dvo.getBuy_download_end());
+					Date nowDate = new Date();
+					
+					int compare = endDate.compareTo(nowDate);
+					
+					if(compare >= 0) {//기한남음
+						model.addAttribute("do_isvalid", "yes");
+					} 
+					else {
+						model.addAttribute("do_isvalid", "no");
+					}
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		model.addAttribute("dList", dList);
@@ -54,7 +106,8 @@ public class TicketController {
 	
 		if(session.getAttribute("membervo") == null) {
 			System.out.println("로그인 창으로 이동");
-			model.addAttribute("main_jsp", "member/login.jsp");
+			//model.addAttribute("main_jsp", "member/login.jsp");
+			return "redirect:/main/login.do";
 		}
 		else {
 			if(type.equals("streaming")) {
@@ -71,10 +124,11 @@ public class TicketController {
 			
 			model.addAttribute("type", type);
 			model.addAttribute("main_jsp","buy_ticket/payment.jsp");
+			
+			return "main/main";
 		} 
 		
 		
-		return "main/main";
 	}
 	
 	@RequestMapping("main/payment_ok.do")

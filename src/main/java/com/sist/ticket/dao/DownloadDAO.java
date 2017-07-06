@@ -26,4 +26,12 @@ public class DownloadDAO {
 	public void insert_buy_download(Buy_downloadVO vo) {
 		downMapper.insert_buy_download(vo);
 	}
+	
+	public Buy_downloadVO select_one_buy_download(int member_id) {
+		return downMapper.select_one_buy_download(member_id);
+	}
+	
+	public int count_buy_download(int member_id) {
+		return downMapper.count_buy_download(member_id);
+	}
 }

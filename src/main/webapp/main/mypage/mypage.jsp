@@ -8,6 +8,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+ $(function(){
+	$('.del').click(function(){
+		var del=$(this);
+		var playlist_music_id=$(this).attr("data");
+		$.ajax({
+			type:"POST", 
+	        url: "del_playlist.do",
+	        data: {"playlist_music_id":playlist_music_id},
+	        success: function(response){
+	            if (response.trim()==1) {
+	                $(del).parent().parent().remove();
+	               
+	            } else{
+	                alert("삭제할 수 없습니다. 나도 왠지 몰라");
+	            }
+	        }
+	    });
+	}); 
+}); 
+
+/* function deleteLine(obj) {
+    var tr = $(obj).parent().parent();
+    //라인 삭제
+    tr.remove();
+} */
+/* $('.del').click(function(){
+		$(this).parent().parent().remove();
+	});
+*/
+</script>
 </head>
 
 <body>
@@ -63,6 +95,13 @@
 												<td style="width: 30px">${bsvo.buy_streaming_end }</td>
 											</tr>
 										</c:forEach>
+										<c:forEach var="bdvo" items="${bdvo }">
+											<tr>
+												<td style="width: 60px">${bdvo.download_name }</td>
+												<td style="width: 30px">${bdvo.buy_download_start }</td>
+												<td style="width: 30px">${bdvo.buy_download_end }</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
                         	<br />
@@ -76,7 +115,7 @@
         <aside class="right_content">
           <div class="single_sidebar" style="OVERFLOW:auto; width:100%; height:330px;">
             <h2><span>나의 플레이리스트</span></h2>
-            <table class="table table-hover" valign=center>
+            <table class="table table-hover" valign=center id="mytable">
 			    <thead>
 			      <tr>
 			        <th>곡명</th>
@@ -84,13 +123,20 @@
 			        <th></th>
 			      </tr>
 			    </thead>
-			    <tbody>
-			    	<c:forEach var="i" begin="0" end="10">
-				      <tr>
-				        <td style="width:30%">악뮤</td>
-				        <td style="width:60%">Doedfdfdfdfdfdfdf</td>
-				        <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove"></i></a></td>
-				      </tr>
+			    <tbody id="tbody">
+			    
+			    	<c:forEach var="mvo" items="${mvo }">
+			    	<%-- <form method="post" action="del_playlist.do?playlist_music_id=${playlist_music_id }" id="delPlaylist"> --%>
+					      <tr>
+					        <td style="width:50%">${mvo.music_name }</td>
+					        <td style="width:40%">${mvo.music_artist }</td>
+					        <!-- <td style="width:10%"><a href=""><i class="glyphicon glyphicon-remove" id="del"></i></a></td> -->
+					        <td style="width:10%">
+					        	<input type="button" value="X" class="del" data="${mvo.playlist_music_id }"  style="background-color: transparent;border:none">
+					        		<!-- onclick="deleteLine(this)" -->
+					        </td>
+					      </tr>
+				     <!--  </form> -->
 			      </c:forEach>
 			    </tbody>
 			  </table>
@@ -113,16 +159,28 @@
 			    <tbody>
 				    <c:forEach var="q" items="${qvo }">
 				      <tr>
-				        <td>${q.question_title }</td>
+				        <td>
+				        	<a href="notice_content.do?question_id=${q.question_id }&nick=${vo.member_nick}&id=${vo.member_id}"> ${q.question_title }</a>
+				        
+				       </td>
 				        <td><fmt:formatDate value="${q.question_regdate }" pattern="yyyy-MM-dd"/></td>
 				      </tr>
 				    </c:forEach>
 			    </tbody>
 			  </table>
-			  <input type=button value="내 상세 문의 내역 보기" class="btn btn-theme">
+			  
           </div>
+          
+         <div>
+       		  <a href="notice_list.do?nick=${vo.member_nick }" >
+			  <input type=button value="1:1문의하기" class="btn btn-theme" align="right"></a>
+			 
+          </div>
+      
+          
         </aside>
       </div>
+
 	</div>
 	</section>
 </body>

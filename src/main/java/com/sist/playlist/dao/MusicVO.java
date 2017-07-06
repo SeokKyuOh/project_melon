@@ -13,7 +13,22 @@ public class MusicVO {
 	
 	//join(검색결과 찾기 용)
 	private String album_name;
+
+	private String album_art;
+
+	//join(mypage playlist)
+	private int playlist_music_id;
+
 	
+<<<<<<< HEAD
+=======
+	public int getPlaylist_music_id() {
+		return playlist_music_id;
+	}
+	public void setPlaylist_music_id(int playlist_music_id) {
+		this.playlist_music_id = playlist_music_id;
+	}
+>>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 	public int getMusic_id() {
 		return music_id;
 	}
@@ -73,6 +88,12 @@ public class MusicVO {
 	}
 	public void setAlbum_name(String album_name) {
 		this.album_name = album_name;
+	}
+	public String getAlbum_art() {
+		return album_art;
+	}
+	public void setAlbum_art(String album_art) {
+		this.album_art = album_art;
 	}
 	
 }

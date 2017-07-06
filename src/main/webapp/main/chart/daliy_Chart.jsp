@@ -50,7 +50,19 @@
 			$("input[type=checkbox]:checked").each(function(){
 				checkArr.push($(this).attr("music_id"));	// 체크된 모든 music_id값을 배열에 저장
 			});
-			
+			getValue();	
+		
+		});
+		 
+		 
+		 $('#bt_play').click(function(){
+			 checkArr.length=0;
+			 alert("개별 곡 클릭");
+			 checkArr.push($(this).attr("music_id"));
+			 getValue();
+		 });
+		 
+		var getValue=function(){
 			// member_id와 곡 id 전송
 			<%
 				// session에 로그인 정보가 없을 경우에는 member_id=null
@@ -64,7 +76,7 @@
 				}
 			%>
 			var member_id=<%=member_id%>;
-			var sendVal={"member_id":<%=session.getAttribute("member_id")%>, "musics":checkArr};
+			//var sendVal={"member_id":<%=session.getAttribute("member_id")%>, "musics":checkArr};
 			alert("member_id : "+member_id);
 			alert("musics : "+checkArr);
 			
@@ -81,54 +93,67 @@
 				},
 				success:function(data){
 					alert("성공");
-					alert(data);
+					// playlist_music이 없는 경우
+					//window.open("player/player_temp.jsp","HoneyMusicPlayer","width=450, height=800");
+					
+					// playlist_music이 있는 경우
+					window.open("player.do","HoneyMusicPlayer","width=450, height=800");
 				}
 			});
-
-		});
+		}
 	})
 </script>
 
-	<input type=button class="btn btn-theme" value="선택 재생" id="bt_send">
+<input type=button class="btn btn-theme" value="선택 재생" id="bt_send">
 
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th width=10%><input type="checkbox" value="" id="allCheck">
-				</th>
-				<th width=10%>순위</th>
-				<th width=20%>앨범</th>
-				<th width=20%>음악</th>
-				<th width=20%>아티스트</th>
-				<th width=20%>앨범정보</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th width=10%><input type="checkbox" value="" id="allCheck">
+			</th>
+			<th width=10%>순위</th>
+			<th width=20%>앨범</th>
+			<th width=20%>음악</th>
+			<th width=20%>아티스트</th>
+			<th width=20%>앨범정보</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%
 				int i = 1;
 			%>
-			<c:forEach var="vo" items="${list }">
-				<tr>
-					<td><input type="checkbox" music_id="${vo.music_id }" album_id="${vo.album_id}"
-						name="checkbox_name"></td>
-					<td><span><%=i%></span><span>위</span></td>
-					<td><img
-						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"
-						width=50 height=50> 
-						<a href="main/player.do?member_id=${sessionScope.membervo.member_id}">
-						<img src="<c:url value="/resources/img/play.png"/>" style="width:20px; height:20px"></a>
-						<a href="main/player.do?member_id=${sessionScope.membervo.member_id}">
-						<img src="<c:url value="/resources/img/add.png"/>" style="width:20px; height:20px"></a>
-					<td>${vo.music_name }</td>
-					<td>${vo.music_artist }</td>
-					<td>${vo.album_name }</td>
-				</tr>
-				<%
+		<c:forEach var="vo" items="${list }">
+			<tr>
+				<td><input type="checkbox" music_id="${vo.music_id }"
+					album_id="${vo.album_id}" name="checkbox_name"></td>
+				<td><span><%=i%></span><span>위</span></td>
+				<td><img
+					src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
+					width=50 height=50> 
+					<input type="image" id="bt_play" music_id="${vo.music_id} "
+						src="<c:url value="/resources/img/play.png"/>"
+						style="width: 20px; height: 20px">
+					<input type="image"	id="bt_add"
+						src="<c:url value="/resources/img/add.png"/>"
+						style="width: 20px; height: 20px"> 
+				
+				<td><a
+					onClick="getValue()">${vo.music_name }</a></td>
+				<td>${vo.music_artist }</td>
+				<td><a href="javascript:getValue()">${vo.album_name }</a></td>
+
+				<td><a onClick="getValue()">
+				${vo.music_name }</a></td>
+				<td>${vo.music_artist }</td>
+				<td><a onClick="getValue()">${vo.album_name }</a></td>
+
+			</tr>
+			<%
 					i++;
 				%>
-			</c:forEach>
-		</tbody>
-	</table>
+		</c:forEach>
+	</tbody>
+</table>
 
 </body>
 </html>

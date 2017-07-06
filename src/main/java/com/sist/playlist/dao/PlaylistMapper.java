@@ -1,5 +1,6 @@
 package com.sist.playlist.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
@@ -39,6 +40,7 @@ public interface PlaylistMapper {
 	)
 
 */
+	// 회원의 플레이리스트 목록 가져오기(이용권이 있는 경우)
 	@Select("select playlist_music_id, p.playlist_id, m.music_number,"
 			+"p.member_id,"
 			+"m.music_name, m.music_artist, m.music_lyrics,"
@@ -46,12 +48,21 @@ public interface PlaylistMapper {
 			+"from playlist_music full outer join PLAYLIST p on playlist_music.playlist_id=p.playlist_id "
 			+"inner join MUSIC m on playlist_music.music_id=m.music_id "
 			+"inner join ALBUM a on m.album_id=a.album_id "
-			+"where p.member_id=#{member_id} order by playlist_music.MUSIC_ID")
+			+"where p.member_id=#{member_id} order by playlist_music.playlist_music_id")
 	public List<PlaylistMusicVO> getPlaylist(int member_id);
 	
 	// 임시 플레이어 구동(비회원 or 회원이지만 이용권이 없는 경우)
-	@Select("select album_art, music_lyrics, music_name, music_artist from music inner join ALBUM a on a.ALBUM_ID = music.ALBUM_ID and a.ALBUM_ID=#{album_id}")
-	public List<MusicVO> getTempList(int album_id);
+	@Select("select music_number, album_art, music_lyrics, music_name, music_artist from music inner join ALBUM a on a.ALBUM_ID = music.ALBUM_ID and music_id=#{music_id}")
+	public MusicVO getTempList(int music_id);
+	
+	// playlist 컬럼 만들기
+	@SelectKey(keyProperty="playlist_id", resultType=int.class, before=true, statement="select nvl(max(playlist_id)+1, 1) as playlist_music_id from playlist")
+	@Insert("insert into playlist(playlist_id, member_id) values(#{playlist_id}, #{member_id})")
+	public void makePlaylist(int member_id);
+	
+	// 앨범 재생을 클릭했을 때 album_id를 가지고 music_id 구하기
+	@Select("select music_id from music where album_id=#{album_id} order by music_id")
+	public ArrayList<Integer> getMusicId(int album_id);
 	
 	// member_id를 가지고 playlist_id찾기(없는 경우 null값 return)
 	@Select("select playlist_id from playlist where member_id=#{member_id}")

@@ -10,7 +10,49 @@ public class GenreVO {
 	private int album_id;
 	private String album_name;
 	private String genre_name;
+	private String album_art;
+	private String album_release;
+	private String album_type;
+	private String music_title;
+	private String album_artist;
+	private int count;
 	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public String getAlbum_artist() {
+		return album_artist;
+	}
+	public void setAlbum_artist(String album_artist) {
+		this.album_artist = album_artist;
+	}
+	public String getAlbum_release() {
+		return album_release;
+	}
+	public void setAlbum_release(String album_release) {
+		this.album_release = album_release;
+	}
+	public String getAlbum_type() {
+		return album_type;
+	}
+	public void setAlbum_type(String album_type) {
+		this.album_type = album_type;
+	}
+	public String getMusic_title() {
+		return music_title;
+	}
+	public void setMusic_title(String music_title) {
+		this.music_title = music_title;
+	}
+	public String getAlbum_art() {
+		return album_art;
+	}
+	public void setAlbum_art(String album_art) {
+		this.album_art = album_art;
+	}
 	public int getMusic_id() {
 		return music_id;
 	}

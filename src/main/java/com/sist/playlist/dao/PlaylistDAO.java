@@ -19,13 +19,26 @@ public class PlaylistDAO {
 		// 중간 : 곡 이름, 아티스트
 		// 하단 : 곡 리스트(제목 - 아티스트)
 		System.out.println("getPlaylist");
+		System.out.println(pMapper.getPlaylistId(member_id));
 		return pMapper.getPlaylist(member_id);
 	}
 	
 	// 임시 player구동
-	public List<MusicVO> getTempList(int album_id){
+	public MusicVO getTempList(int music_id){
 		System.out.println("getTempList");
-		return pMapper.getTempList(album_id);
+		return pMapper.getTempList(music_id);
+	}
+	
+	// playlist를 처음 만들때
+	public void makePlaylist(int member_id){
+		System.out.println("makePlaylist");
+		pMapper.makePlaylist(member_id);
+	}
+	
+	// 앨범 재생을 클릭했을 때 music_id 구하기
+	public ArrayList<Integer> getMusicId(int album_id){
+		System.out.println("getMusicId");
+		return pMapper.getMusicId(album_id);
 	}
 	
 	// member_id를 가지고 playlist_id찾기(없는 경우 null값 return)

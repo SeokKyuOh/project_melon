@@ -29,6 +29,7 @@
 	src="http://cdnimg.melon.co.kr/static/web/resource/script/w1/g8/u/kv5d3h4q8t.js"></script>
 <script type="text/javascript"></script>
 <body>
+<<<<<<< HEAD
 	<h2 class="title2">ìµœì‹ ì•¨ë²”</h2>
 	<div class="wrap_tab03 type02">
 		<ul>
@@ -42,12 +43,17 @@
 			</a></li>
 		</ul>
 	</div>
+=======
+	<h2>ÃÖ½Å¾Ù¹ü</h2>
+>>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 
 
-	<div class="list_album15 d_album_list">
 
-		<ul class="album15_ul">
+	<div>
+
+		<ul>
 			<c:forEach var="vo" items="${list }">
+<<<<<<< HEAD
 			<li class="album15_li ">
 				<div class="wrap_album04">
 					<a href="javascript:melon.link.goAlbumDetail('10073513');"
@@ -113,6 +119,36 @@
 									onClick="melon.buy.goBuyProduct('frm','10073513','3B0001','','0','18020123','1');">
 									<span class="odd_span"><span class="even_span">ì•¨ë²”ë‹¤ìš´</span></span>
 								</button>
+=======
+			<li>
+				<div style="float: left; width: 20%; padding: 10px;">
+					<img
+						width="130"
+						height="130"
+						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"/>
+					<div>
+						<dl>
+							<dt>
+								<span>[${vo.album_type }]</span> <strong>¾Ù¹ü¸í</strong>
+								${vo.album_name }
+							</dt>
+							<dd>
+								<strong>¾ÆÆ¼½ºÆ®¸í</strong>
+								<div>
+										<span>${vo.album_artist }</span>
+								</div>
+							</dd>
+							<dd>
+							<strong>Å¸ÀÌÆ²°î</strong>
+							<span>${vo.music_name }</span>
+							</dd>
+							<dd>
+								<strong>¾Ù¹ü ¹ß¸ÅÀÏ</strong> 
+								<span>
+								<fmt:formatDate value="${vo.album_release }" 
+            						pattern="yyyy.MM.dd" /></span>
+								<em class="bar">|</em> <span>${vo.count }°î</span>
+>>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 							</dd>
 						</dl>
 					</div>

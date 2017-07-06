@@ -1,22 +1,23 @@
 @font-face {
-	font-family: "Oswald";
+	font-family: "À±°íµñ330";
 	font-style: normal;
-	font-weight: 400;
-	src: local("Oswald Regular"), local("Oswald-Regular"),
-		url("../fonts/Oswald-Regular-400.woff") format("woff")
+	font-weight: 330;
+	src: local("À±°íµñ Regular"), local("À±°íµñ-Regular"),
+		url("../fonts/À±°íµñ-Regular-330.woff") format("ttf")
 }
 
 @font-face {
 	font-family: "Varela";
-	font-style: normal;
+	font-style: Bold;
 	font-weight: 400;
-	src: local("Varela"), url("../fonts/Varela-400.woff") format("woff")
+	src: local("Varela Bold"), url("../fonts/Varela-400.woff") format("woff")
 }
 
 @font-face {
-	font-family: "Open Sans";
+	font-family: "À±°íµñ330";
 	font-style: normal;
-	font-weight: 400;
-	src: local("Open Sans"), local("OpenSans"),
-		url("../fonts/OpenSans-400.woff") format("woff")
+	font-weight: 330;
+	src: local("À±°íµñ Regular"), local("À±°íµñ-Regular"),
+		url("../fonts/À±°íµñ-Regular-330.woff") format("ttf")
+}
 }

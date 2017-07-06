@@ -7,17 +7,14 @@
 <title>Melon:음악이 필요한 순간</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css"
-	href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="assets/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css">
 <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
-<link rel="stylesheet" type="text/css"
-	href="assets/css/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css">
 <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <!--[if lt IE 9]>
@@ -42,23 +39,22 @@ $(function() {
 <div class="container">
   <header id="header">
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12">
+     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_top">
-          <div class="header_top_left">
-            <ul class="top_nav">
+         <div class="header_top_left">
+            <!-- <ul class="top_nav">
               <li><a href="main.do">Home</a></li>
               <li><a href="#">About</a></li>
-              <li><a href="pages/contact.html">Contact</a></li>
-            </ul>
+              <li><a href="pages/contact.html">Contact</a></li> -
+            </ul> -->
           </div>
           <div class="header_top_right">
-            <p>Friday, December 05, 2045</p>
           </div>
         </div>
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
-          <div class="logo_area"><a href="main.do" class="logo"><img src="images/logo_melon.png" alt=""></a></div>
+          <div class="logo_area"><a href="main.do" class="logo"><img src="images/honey_logo.png" alt=""></a></div>
           	<div style="margin: 5px 5px -90px 5px"> 
 				<form method="post" action="search.do" class="contact_form">
 					<input type="text" name=music_search style="width: 25%; height: 40px; margin: 30px 5px -120px 5px" placeholder="  검색어를 입력하세요"> 	
@@ -116,8 +112,12 @@ $(function() {
   <section id="newsSection">
     <div class="row">
       <div class="col-lg-12 col-md-12">
+<<<<<<< HEAD
         <div class="latest_newsarea"> <span>실시간 앨범 순위</span>
          <% int i=1; %>
+=======
+        <div class="latest_newsarea"> <span></span>
+>>>>>>> 613891825d5a474306393382a77c736ba3087e7f
           <ul id="ticker01" class="news_sticker">
           	<c:forEach var="daily_list" items="${daily_list}" begin="0" end="9" step="1">
 	            <li><a href="daily_chart.do"><img src="http://211.238.142.109:8080/food/main/album_img/${daily_list.album_art }.jpg"><%=i %>위 - ${daily_list. music_name} - ${daily_list.music_artist }</a></li>
@@ -153,6 +153,7 @@ $(function() {
 				
 				<div class="col-lg-5 col-md-5 col-sm-5">
 					<div class="footer_widget wow fadeInRightBig">
+<<<<<<< HEAD
 						<h2>회사정보</h2>
 						<p>서울시 마포구 백범로 18(노고산동) 미화빌딩 2,3층</p>
 						<p>대표이사 : 김연실, 류오연, 문혜지, 박재욱, 오석규, 정현아, 차유경</p>
@@ -161,11 +162,23 @@ $(function() {
 						<p>문의전화(평일 09:00~18:00) : 1234-7777</p>
 						<p>이메일 : honeyinfo@honey.com</p><br>
 						<p>© 2017. HONEY Entertainment, Inc. ALL RIGHTS RESERVED.</p>
+=======
+						<h2>달달한 음악이 필요한 순간 Honey music</h2>
+						<p>Honey music Company</p>
+						<address>서울특별시 마포구 노고산동 107-111 미화빌딩 2, 3층</address>
+>>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="footer_bottom">
+<<<<<<< HEAD
+=======
+			<!-- <p class="copyright">
+				Copyright &copy; 2045 <a href="index.html">NewsFeed</a>
+			</p>
+			<p class="developer">Developed By Wpfreeware</p> -->
+>>>>>>> 613891825d5a474306393382a77c736ba3087e7f
 		</div>
 	</footer>
 	</div>

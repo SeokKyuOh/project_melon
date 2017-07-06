@@ -30,23 +30,18 @@ public class PlayerController {
 		MemberVO vo=(MemberVO)session.getAttribute("membervo");
 		int member_id=vo.getMember_id();
 		
+		System.out.println("member_id"+member_id);
+		
 		// Playlist, Playlist_music, Album, Music join
 		List<PlaylistMusicVO> playlist = playlistDAO.getPlaylist(member_id);
 		
 		model.addAttribute("playlist", playlist);
-		return "forward:/main/player/player";
+		return "/main/player/player";
 		
 	}
 	
-	// 플레이어 구동(회원이 아니거나 이용권 없을 때) -> album_id or music_id만 받아 출력하기
-	@RequestMapping("main/player_temp.do")
-	public String runTempPlayer(int album_id, Model model){
-		List<MusicVO> playlist=playlistDAO.getTempList(album_id);
-		model.addAttribute("playlist", playlist);
-		return "main/player/player";
-	}
-	
 	// 재생 버튼을 누르거나 곡을 담을 때 가장 먼저 실행됨!!!
+	// 곡 개별 선택 시 실행되는 부분
 	// playlist_music에 곡을 담기 위해 playlist_id가져오기
 	// String member_id, ArrayList<Integer> musics, Model model
 	@RequestMapping("main/player_playlist_id.do")
@@ -68,7 +63,7 @@ public class PlayerController {
 			// 만약 playlist_id가 없고, 이용권이 유효한 경우 
 			if(playlist_id==null && isPlayerValid>0){
 				// playlist column 생성
-				
+				playlistDAO.makePlaylist(member_id);
 				
 				// playlist_id와 music_id list 넘기기
 				model.addAttribute("musics", musics);
@@ -87,20 +82,55 @@ public class PlayerController {
 			}
 			
 			// 만약 playlist_id가 없고 이용권이 무효한 경우
-			// 만약 playlist_id가 있고 이용권이 무효한 경우
-			else{
+			else if(playlist_id==null && isPlayerValid==0){
+				// 이용권이 무효하므로 playlist column을 생성할 필요가 없음!
+				// 그냥 못듣게 하자...이용권 있을때만 들어라
 				model.addAttribute("musics", musics);
 				return "redirect:/main/player_temp.do";
+				//return "main/player/buy_ticket";
+			}
+			
+			// 만약 playlist_id가 있고 이용권이 무효한 경우
+			else{
+				// 그냥 못듣게 하자...이용권 있을때만 들어라
+				model.addAttribute("musics", musics);
+				return "redirect:/main/player_temp.do";
+				//return "main/player/buy_ticket";
 			}
 		}
 		
-		// 회원이 아닌 경우
+		// 회원이 아닌 경우 
 		else{
+			System.out.println("회원이 아닌 경우");
+			System.out.println(musics);
+			model.addAttribute("musics", musics);
 			return "redirect:/main/player_temp.do";
 		}
 	}
 	
-	// music_id를 이용해 album_id가져오기
+	// album_id를 이용해 music_id가져오기(앨범 재생)
+	@RequestMapping("main/player_temp_db.do")
+	public String getMusicId(int album_id, Model model){
+		ArrayList<Integer> musics=playlistDAO.getMusicId(album_id);
+		model.addAttribute("musics", musics);
+		return "redirect:main/player_playlist_temp.do";
+	}
+	
+
+	// music_id를 이용해 temp player 만들기
+	// 플레이어 구동(회원이 아니거나 이용권 없을 때) -> music_id만 받아 출력하기(join은 player.do와 동일하게!)
+	@RequestMapping("main/player_temp.do")
+	public String openTempPlayer(@RequestParam("musics") ArrayList<Integer> musics, Model model){
+		List<MusicVO> playlist=new ArrayList<MusicVO>();
+		int music_id=0;
+		for(int i=0; i<musics.size(); i++){
+			music_id=musics.get(i);
+			MusicVO vo=playlistDAO.getTempList(music_id);
+			playlist.add(vo);
+		}
+		model.addAttribute("playlist", playlist);
+		return "main/player/player_temp";
+	}
 	
 	/*
 	 * @RequestMapping("main/player.do") public String getPlayer(Model model){
@@ -108,7 +138,7 @@ public class PlayerController {
 	 */
 	// 이용권이 없을 때 출력되는 페이지(이용권 구매 유도)
 
-	// playlist 테이블에 column 추가
+	// playlist 테이블에 column 추가(최초의 playlist_music을 만드는 경우)
 	
 	
 	// 재생 횟수 늘리기
@@ -124,6 +154,7 @@ public class PlayerController {
 	// playlist_music에 곡 추가 후 재생
 	@RequestMapping("main/player_insert.do")
 	public String insertMusic(int playlist_id, @RequestParam("musics") ArrayList<Integer> musics){
+		try{
 		for(int i=0; i<musics.size(); i++){
 			System.out.println("musics : "+musics.get(i)+"\n");
 		}
@@ -132,7 +163,13 @@ public class PlayerController {
 			music_id=musics.get(i);
 			playlistDAO.insertMusic(playlist_id, music_id);
 		}
-		return "/main/player_index";
+		
+		System.out.println("나왔어");
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return "main/player/player_index";
 	}
 
 	// 추후 구현 예정
@@ -141,4 +178,8 @@ public class PlayerController {
 	public String deleteMusic(int playlist_music_id) {
 		return "main/player/player";
 	}
+	
+	
+	
+	
 }
