@@ -7,17 +7,14 @@
 <title>Melon:음악이 필요한 순간</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css"
-	href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"
-	href="assets/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 <link rel="stylesheet" type="text/css" href="assets/css/font.css">
 <link rel="stylesheet" type="text/css" href="assets/css/li-scroller.css">
 <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
-<link rel="stylesheet" type="text/css"
-	href="assets/css/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.css">
 <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <!--[if lt IE 9]>
@@ -115,7 +112,7 @@ $(function() {
   <section id="newsSection">
     <div class="row">
       <div class="col-lg-12 col-md-12">
-        <div class="latest_newsarea"> <span>실시간 앨범 순위</span>
+        <div class="latest_newsarea"> <span></span>
           <ul id="ticker01" class="news_sticker">
             <li><a href="#"><img src="images/news_thumbnail3.jpg" alt="">1위 - 남이 될 수 있을까 - 볼빨간사춘기</a></li>
             <li><a href="#"><img src="images/news_thumbnail3.jpg" alt="">2위 - 무제(無題) (Untitled, 2014) G-DRAGON</a></li>
