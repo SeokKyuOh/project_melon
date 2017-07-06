@@ -131,7 +131,7 @@ function deleteLine(obj) {
 				    <c:forEach var="q" items="${qvo }">
 				      <tr>
 				        <td>
-				        	<a href="notice_content.do?question_id=${q.question_id }"> ${q.question_title }</a>
+				        	<a href="notice_content.do?question_id=${q.question_id }&nick=${vo.member_nick}&id=${vo.member_id}"> ${q.question_title }</a>
 				        
 				       </td>
 				        <td><fmt:formatDate value="${q.question_regdate }" pattern="yyyy-MM-dd"/></td>
@@ -144,18 +144,14 @@ function deleteLine(obj) {
           
          <div>
        		  <a href="notice_list.do?nick=${vo.member_nick }" >
-			  <input type=button value="글쓰기" class="btn btn-theme" align="right"></a>
+			  <input type=button value="1:1문의하기" class="btn btn-theme" align="right"></a>
 			 
           </div>
       
           
         </aside>
       </div>
-<<<<<<< HEAD
-      
 
-=======
->>>>>>> b8e21c7abe43eb230f3bf0650662d1ff1aacad04
 	</div>
 	</section>
 </body>
