@@ -167,5 +167,15 @@ public class MemberController {
 		return "main/member/postfind_result";
 	}
 
+	//마이페이지 플레이리스트삭제-디비에서
+		@RequestMapping("main/del_playlist.do")
+		public String deletePlaylist(int playlist_music_id, Model model){
+			int res=0;
+			dao.myPlaylistDelete(playlist_music_id);
+			res=1;
+			System.out.println("res:"+res);
+			model.addAttribute("res", res);
+			return "main/mypage/delete_playlist_result";
+		}
 	
 }

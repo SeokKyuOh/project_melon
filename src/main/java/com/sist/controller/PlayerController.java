@@ -156,4 +156,8 @@ public class PlayerController {
 	public String deleteMusic(int playlist_music_id) {
 		return "main/player/player";
 	}
+	
+	
+	
+	
 }
