@@ -55,7 +55,7 @@
 		});
 		 
 		 
-		 $('#bt_play').click(function(){
+		 $('.bt_play').click(function(){
 			 checkArr.length=0;
 			 alert("개별 곡 클릭");
 			 checkArr.push($(this).attr("music_id"));
@@ -97,7 +97,7 @@
 					//window.open("player/player_temp.jsp","HoneyMusicPlayer","width=450, height=800");
 					
 					// playlist_music이 있는 경우
-					window.open("player.do","HoneyMusicPlayer","width=450, height=800");
+					window.open("player.do","HoneyMusicPlayer","width=500px, height=700");
 				}
 			});
 		}
@@ -131,7 +131,7 @@
 				<td><img
 					src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
 					width=50 height=50> 
-					<input type="image" id="bt_play" music_id="${vo.music_id} "
+					<input type="image" class="bt_play" music_id="${vo.music_id} "
 						src="<c:url value="/resources/img/play.png"/>"
 						style="width: 20px; height: 20px">
 					<input type="image"	id="bt_add"
