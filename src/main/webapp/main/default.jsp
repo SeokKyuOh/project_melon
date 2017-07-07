@@ -165,10 +165,31 @@
         <aside class="right_content">
           <div class="single_sidebar">
             <h2><span>해시태그</span></h2>
+<<<<<<< HEAD
             <ul class="spost_nav">
               &nbsp;&nbsp;#여름 추천 #신나는 노래<br>
               &nbsp;&nbsp;#우울할 때 #발라드 추천
             </ul>
+=======
+            
+            
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="category">
+                <ul>
+                  <li class="cat-item"><a href="#">#여름추천</a></li>
+                  <li class="cat-item"><a href="#">#우울할때</a></li>
+                  <li class="cat-item"><a href="#">#신나는노래</a></li>
+                  <li class="cat-item"><a href="#">#발라드추천</a></li>
+                  <li class="cat-item"><a href="#">#비오는날</a></li>
+                </ul>
+              </div>
+              </div>
+              
+              
+              
+              
+          
+>>>>>>> aa23b4020ce08b9c5e00de75cc9c07734b6f3f01
           </div>
         </aside>
       </div>
