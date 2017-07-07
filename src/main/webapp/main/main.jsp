@@ -149,6 +149,14 @@ $(function() {
 				
 				<div class="col-lg-5 col-md-5 col-sm-5">
 					<div class="footer_widget wow fadeInRightBig">
+<<<<<<< HEAD
+=======
+
+						<h2>달달한 음악이 필요한 순간 Honey music</h2>
+						<p>Honey music Company</p>
+						<address>서울특별시 마포구 노고산동 107-111 미화빌딩 2층</address>
+
+>>>>>>> 4fd3c9897984e6e10e8e9d968925c6476917ae07
 						<h2>달달한 음악이 필요한 순간 Honey Music</h2>
 						<p>서울시 마포구 백범로 18(노고산동) 미화빌딩 2,3층</p>
 						<p>대표이사 : 김연실, 류오연, 문혜지, 박재욱, 오석규, 장현아, 차유경</p>
@@ -157,6 +165,10 @@ $(function() {
 						<p>문의전화(평일 09:00~18:00) : 1234-7777</p>
 						<p>이메일 : honeyinfo@honey.com</p><br>
 						<p>© Honey music Company, Inc. ALL RIGHTS RESERVED.</p>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4fd3c9897984e6e10e8e9d968925c6476917ae07
 					</div>
 				</div>
 			</div>

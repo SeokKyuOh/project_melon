@@ -97,7 +97,7 @@
 					//window.open("player/player_temp.jsp","HoneyMusicPlayer","width=450, height=800");
 					
 					// playlist_music이 있는 경우
-					window.open("player.do","HoneyMusicPlayer","width=500px, height=700");
+					window.open("player.do","HoneyMusicPlayer","width=500px, height=700px");
 				}
 			});
 		}
@@ -131,9 +131,17 @@
 				<a href="albumInfo.do?album_id=${vo.album_id }">
 				<img
 					src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
+<<<<<<< HEAD
 					width=50 height=50>
 				</a>	 
 					<input type="image" id="bt_play" music_id="${vo.music_id} "
+=======
+					width=50 height=50> 
+					
+				</a>	
+				 
+					<input type="image" class="bt_play" music_id="${vo.music_id} "
+>>>>>>> 4fd3c9897984e6e10e8e9d968925c6476917ae07
 						src="<c:url value="/resources/img/play.png"/>"
 						style="width: 20px; height: 20px">
 					<input type="image"	id="bt_add"
