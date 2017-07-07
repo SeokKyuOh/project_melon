@@ -60,6 +60,12 @@ public class PlaylistDAO {
 		System.out.println("¼º°ø");
 	}
 	
+	// music_id È½¼öµµ ´Ã¸®±â
+	public void increaseMusicCount(int music_id){
+		System.out.println("music_count ´Ã¸®±â");
+		pMapper.increaseMusicCount(music_id);
+	}
+	
 	// °î Ãß°¡
 	public void insertMusic(int playlist_id, int music_id){
 		System.out.println("insertMusic");
