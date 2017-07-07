@@ -143,10 +143,14 @@ public class PlayerController {
 	
 	// Àç»ý È½¼ö ´Ã¸®±â
 	@RequestMapping("main/player_count.do")
-	public String increaseCount(int playlist_music_id) {
+	public String increaseCount(int playlist_music_id, int music_id) {
 		//int id = Integer.parseInt(playlist_music_id);
 		System.out.println("playlist_music id:" + playlist_music_id);
+		System.out.println("music_id:" + music_id);
 		playlistDAO.increaseCount(playlist_music_id);
+		
+		// music_countµµ ´Ã¸®±â
+		playlistDAO.increaseMusicCount(music_id);
 
 		return "main/player/player";
 	}
