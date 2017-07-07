@@ -51,7 +51,6 @@
       p:mapperInterface="com.sist.board.dao.QuestionMapper"
    />
    
-   
    <!-- SearchMapper -->
    <bean
       id="searchMapper"

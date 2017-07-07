@@ -131,14 +131,9 @@
 				<a href="albumInfo.do?album_id=${vo.album_id }">
 				<img
 					src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
-<<<<<<< HEAD
-					width=50 height=50> 
-					<input type="image" class="bt_play" music_id="${vo.music_id} "
-=======
 					width=50 height=50>
 				</a>	 
 					<input type="image" id="bt_play" music_id="${vo.music_id} "
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 						src="<c:url value="/resources/img/play.png"/>"
 						style="width: 20px; height: 20px">
 					<input type="image"	id="bt_add"
