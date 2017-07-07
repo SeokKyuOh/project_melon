@@ -173,7 +173,7 @@ $(document).ready(function() {
             	</ul>
        	 	</div>	
         </div>	
-		<div style="margin: auto;text-align: left;">해당 이용권을 결제할 수단을 선택해주세요.</div>
+		<div style="margin: auto;text-align: center;">해당 이용권을 결제할 수단을 선택해주세요.</div>
 		<form method="post" action="payment_ok.do" id="form1">
 			<input type="hidden" value="${id}" name="id">
 			<input type="hidden" value="${type}" name="type">
