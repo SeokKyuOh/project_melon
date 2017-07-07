@@ -1,12 +1,12 @@
 package com.sist.controller;
  
 import java.util.List;
-
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+ 
 import com.sist.board.dao.QuestionDAO;
 import com.sist.board.dao.QuestionVO;
 import com.sist.chart.ChartService;
@@ -21,7 +21,6 @@ import com.sist.ticket.dao.Buy_streamingVO;
  
 @Controller
 public class MainController {
-
    @Autowired
    private ChartService service;   
    
@@ -91,7 +90,5 @@ public class MainController {
    public String login_page(Model model){
       return "main/member/login";
    }
-
 }
  
-

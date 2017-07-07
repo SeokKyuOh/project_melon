@@ -79,4 +79,3 @@ public class QuestionController {
       return "redirect:/main/mypage.do?nick="+nick +"&id="+id;
    }
 }
-
