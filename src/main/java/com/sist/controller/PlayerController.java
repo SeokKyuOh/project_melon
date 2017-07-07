@@ -73,6 +73,8 @@ public class PlayerController {
 				// playlist_id와 music_id list 넘기기
 				model.addAttribute("musics", musics);
 				model.addAttribute("playlist_id", playlistId);
+				
+				// 이용권 여부를 위한 isPlayerValie도 넘기기
 				model.addAttribute("isPlayerValid", isPlayerValid);
 				return "redirect:/main/player_insert.do";
 			}
@@ -126,11 +128,11 @@ public class PlayerController {
 	}
 	
 	// album_id를 이용해 music_id가져오기(앨범 재생)
-	@RequestMapping("main/player_temp_db.do")
-	public String getMusicId(int album_id, Model model){
+	@RequestMapping("main/player_album.do")
+	public String getMusicId(@RequestParam("member_id") int member_id, int album_id, Model model){
 		ArrayList<Integer> musics=playlistDAO.getMusicId(album_id);
 		model.addAttribute("musics", musics);
-		return "redirect:main/player_playlist_temp.do";
+		return "redirect:main/player_playlist_id.do";
 	}
 	
 
