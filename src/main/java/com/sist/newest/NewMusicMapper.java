@@ -11,7 +11,7 @@ public interface NewMusicMapper {
 			+"FROM music M "
 			+"INNER JOIN album A "
 			+"ON M.album_id = A.album_id "
-			+"order by A.album_release DESC,M.music_count DESC")	
+			+"order by A.album_release DESC")	
 public List<NewMusicVO> NewMusicData();
 
 }

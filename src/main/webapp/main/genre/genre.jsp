@@ -191,7 +191,7 @@ body {
 		<div>
 				
 	<ul>
-		<c:forEach var="dto" items="${album }" begin="0" end="4">
+		<c:forEach var="dto" items="${album }" begin="1" end="5">
 		<li>
 			<div style="float: left; width: 20%; padding:10px;">
 					<img width="170" height="170" src="http://211.238.142.109:8080/album_img/${dto.album_art }.jpg"/>
