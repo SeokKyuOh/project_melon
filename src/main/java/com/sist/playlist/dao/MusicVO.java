@@ -18,13 +18,13 @@ public class MusicVO {
 	//join(mypage playlist)
 	private int playlist_music_id;
 
-	
 	public int getPlaylist_music_id() {
 		return playlist_music_id;
 	}
 	public void setPlaylist_music_id(int playlist_music_id) {
 		this.playlist_music_id = playlist_music_id;
 	}
+
 	public int getMusic_id() {
 		return music_id;
 	}
@@ -91,7 +91,5 @@ public class MusicVO {
 	public void setAlbum_art(String album_art) {
 		this.album_art = album_art;
 	}
-	
-	
 	
 }

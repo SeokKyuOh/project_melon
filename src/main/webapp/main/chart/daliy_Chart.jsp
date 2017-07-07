@@ -103,7 +103,8 @@
 		}
 	})
 </script>
-
+<body>
+<section id="contentSection">
 <input type=button class="btn btn-theme" value="선택 재생" id="bt_send">
 
 <table class="table table-hover">
@@ -154,7 +155,7 @@
 		</c:forEach>
 	</tbody>
 </table>
-
+</section>
 </body>
 </html>
 

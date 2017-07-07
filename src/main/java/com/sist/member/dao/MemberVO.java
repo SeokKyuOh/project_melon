@@ -11,7 +11,7 @@ public class MemberVO {
 	private String member_post;
 	private String member_nick;
 	private String member_pwd;
-	private Date member_birthdate;
+	private String member_birthdate;
 	private String member_gender;
 	private String member_regdate;
 	private int member_cash;
@@ -72,10 +72,10 @@ public class MemberVO {
 	public void setMember_pwd(String member_pwd) {
 		this.member_pwd = member_pwd;
 	}
-	public Date getMember_birthdate() {
+	public String getMember_birthdate() {
 		return member_birthdate;
 	}
-	public void setMember_birthdate(Date member_birthdate) {
+	public void setMember_birthdate(String member_birthdate) {
 		this.member_birthdate = member_birthdate;
 	}
 	public String getMember_gender() {
@@ -138,7 +138,6 @@ public class MemberVO {
 	public void setMember_post2(String member_post2) {
 		this.member_post2 = member_post2;
 	}
-	
 	
 	
 	
