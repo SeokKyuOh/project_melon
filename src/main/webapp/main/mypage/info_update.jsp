@@ -61,7 +61,7 @@ $(function(){
 <body>
 
       <form method="post" action="info_update_ok.do" name="join_frm">
-      
+      <input type=hidden name="member_id" value="${vo.member_id }" >
         <h1>내 정보</h1>
         
         <fieldset>
@@ -80,9 +80,14 @@ $(function(){
           <input type="text" name="member_name" value="${vo.member_name }" required>
           
           <label>성별</label>
-          <input type="radio" value="Male" name="member_gender" checked>남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="radio" value="Female" name="member_gender">여자
-          
+          <c:if test="${vo.member_gender eq 'Female'}">
+	          <input type="radio" value="Male" name="member_gender" >남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	          <input type="radio" value="Female" name="member_gender" checked>여자 
+          </c:if>
+          <c:if test="${vo.member_gender eq 'Male'}">
+	          <input type="radio" value="Male" name="member_gender"  checked>남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	          <input type="radio" value="Female" name="member_gender">여자 
+          </c:if>
           <label for="phone">전화번호</label>
           <select name="member_phone1" required>
           	<option>010</option>
@@ -95,11 +100,11 @@ $(function(){
           <input type="tel" name="member_phone3" style="width:25%" value="${vo.member_phone3 }">
           
           <label for="birth">생년월일</label>
-          <input type="date" name="member_birthdate" value="${birthdate }">
+          <input type="date" name="member_birthdate" value="${vo.member_birthdate }">
           
           <label for="post">우편번호</label>
-          <input type="number" name="member_post1" style="width:35%" value="${vo.member_post1 }" readonly required>-
-          <input type="number" name="member_post2" style="width:35%" value="${vo.member_post2 }" readonly required>
+          <input type="text" name="member_post1" style="width:35%" value="${vo.member_post1 }" readonly required>-
+          <input type="text" name="member_post2" style="width:35%" value="${vo.member_post2 }" readonly required>
           <input type="button" value="주소검색" id="postBtn">
           
           <label for="addr1">주소</label>

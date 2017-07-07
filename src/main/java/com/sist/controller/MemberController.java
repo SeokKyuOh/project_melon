@@ -95,16 +95,15 @@ public class MemberController {
 				} */
 				
 				//말고 생일만 스트링으로 따로보내기 (나중에 스트링으로 vo 일괄변경해도되고..)
-				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-				String birthdate=sdf.format(vo.getMember_birthdate()); //date->string
-				model.addAttribute("birthdate",birthdate);
+				//SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+				//vo.setMember_birthdate(sdf.format(vo.getMember_birthdate())); //date->string
+				//model.addAttribute("birthdate",birthdate);
 				model.addAttribute("vo",vo);
 				return "main/mypage/info_update";
 			}
 			
 			//회원정보 수정(업데이트) 완료
 			@RequestMapping("main/info_update_ok.do")
-			@ResponseBody
 			public String member_info_update_ok(MemberVO vo){
 				//mypage 페이지에 수정된 정보 넘기기. 세션에는?
 				System.out.println("11");
@@ -114,9 +113,9 @@ public class MemberController {
 				vo.setMember_addr(vo.getMember_addr1()+"-"+vo.getMember_addr2());
 				dao.memberUpdate(vo);
 				System.out.println("id:"+vo.getMember_id()+",name:"+vo.getMember_name());
-				MemberVO mvo=dao.memberAllData(vo.getMember_nick());
+				//MemberVO mvo=dao.memberAllData(vo.getMember_nick());
 				//session.setAttribute("membervo", mvo);
-				return "main/mypage/mypage";
+				return "redirect:/main/mypage.do?nick="+vo.getMember_nick()+"&id="+vo.getMember_id();
 			}
 
 	
