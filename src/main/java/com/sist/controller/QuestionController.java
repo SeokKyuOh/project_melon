@@ -24,14 +24,11 @@ public class QuestionController {
 	List<Daily_ChartVO> daily_list;	//상단 차트순위 때문에 추가 (7/6 오석규)
 
 	@RequestMapping("main/notice_content.do")
-<<<<<<< HEAD
-	public String question_Content(int question_id, String nick, int id, Model model) {
-=======
+
 	public String question_Content(int question_id, String nick, int id,Model model) {
 		
 		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
 		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
->>>>>>> 00b1880f3dd84f8c00f75dd21a90f1e1060fa163
 
 		QuestionVO vo = dao.questionContent(question_id);
 
@@ -53,15 +50,15 @@ public class QuestionController {
 	}
 
 	@RequestMapping("main/notice_insert.do")
-<<<<<<< HEAD
-	public String question_insert(Model model, String nick, int id) {
-=======
+	/*
+	 * public String question_insert(Model model, String nick, int id) {
+	 */
+
 	public String question_insert(Model model){
 		
 		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
 		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
 		
->>>>>>> 00b1880f3dd84f8c00f75dd21a90f1e1060fa163
 		model.addAttribute("main_jsp", "notice/notice_insert.jsp");
 		return "main/main";
 
