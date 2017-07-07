@@ -32,10 +32,10 @@ function sendBuy(id, type) {
     			<span style="width: 100px">가격 : ${vo.streaming_price }원</span>
     			<div class="btn-group" role="group" align="right" style="float:right">
     				<c:if test="${st_isvalid == 'no'}">
-    				<button type="button" class="btn btn-primary" style="top:30px;" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
+    				<button type="button" class="btn btn-primary active" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
     				</c:if>
     				<c:if test="${st_isvalid == 'yes'}">
-    				<button type="button" class="btn btn-primary" style="top:30px;" disabled="disabled" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
+    				<button type="button" class="btn btn-primary disabled" onclick="sendBuy(${vo.streaming_id},'streaming')">구매</button>
     				</c:if>
   				</div>
     		</div>
@@ -51,10 +51,10 @@ function sendBuy(id, type) {
     			<span style="width: 100px">가격 : ${vo.download_price }원</span>
     			<div class="btn-group" role="group" align="right" style="float: right">
     				<c:if test="${do_isvalid == 'no'}">
-    				<button type="button" class="btn btn-primary" style="top: 30px;" onclick="sendBuy(${vo.download_id},'download')">구매</button>
+    				<button type="button" class="btn btn-primary active" onclick="sendBuy(${vo.download_id},'download')">구매</button>
     				</c:if>
     				<c:if test="${do_isvalid == 'yes'}">
-    				<button type="button" class="btn btn-primary" style="top: 30px;" disabled="disabled" onclick="sendBuy(${vo.download_id},'download')">구매</button>
+    				<button type="button" class="btn btn-primary disabled" onclick="sendBuy(${vo.download_id},'download')">구매</button>
     				</c:if>
   				</div>
     		</div>
