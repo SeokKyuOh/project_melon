@@ -226,7 +226,7 @@ $(document).ready(function() {
 				  <input type="text" class="form-control" id="usr">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub1">확인</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub1">확인</button>
 	   		</div>
 	   		
 	   		<div id="deposit" style="display: none;width:80%;margin: auto;" class="form-group">
@@ -243,7 +243,7 @@ $(document).ready(function() {
 				  <input type="text" class="form-control" id="musr">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub2">확인</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub2">확인</button>
 	   		</div>
 	   		
 	   		<div id="card" style="display: none;width:80%;margin: auto;" class="form-group">
@@ -288,7 +288,7 @@ $(document).ready(function() {
 				  <input type="text" class="form-control" id="csv">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub3">확인</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub3">확인</button>
 	   		</div>
 	  	</form>
 	</div>
