@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -94,16 +95,15 @@ public class MemberController {
 				} */
 				
 				//말고 생일만 스트링으로 따로보내기 (나중에 스트링으로 vo 일괄변경해도되고..)
-				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-				String birthdate=sdf.format(vo.getMember_birthdate()); //date->string
-				model.addAttribute("birthdate",birthdate);
+				//SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+				//vo.setMember_birthdate(sdf.format(vo.getMember_birthdate())); //date->string
+				//model.addAttribute("birthdate",birthdate);
 				model.addAttribute("vo",vo);
 				return "main/mypage/info_update";
 			}
 			
 			//회원정보 수정(업데이트) 완료
 			@RequestMapping("main/info_update_ok.do")
-			@ResponseBody
 			public String member_info_update_ok(MemberVO vo){
 				//mypage 페이지에 수정된 정보 넘기기. 세션에는?
 				System.out.println("11");
@@ -113,9 +113,9 @@ public class MemberController {
 				vo.setMember_addr(vo.getMember_addr1()+"-"+vo.getMember_addr2());
 				dao.memberUpdate(vo);
 				System.out.println("id:"+vo.getMember_id()+",name:"+vo.getMember_name());
-				MemberVO mvo=dao.memberAllData(vo.getMember_nick());
+				//MemberVO mvo=dao.memberAllData(vo.getMember_nick());
 				//session.setAttribute("membervo", mvo);
-				return "main/mypage/mypage";
+				return "redirect:/main/mypage.do?nick="+vo.getMember_nick()+"&id="+vo.getMember_id();
 			}
 
 	
@@ -125,13 +125,23 @@ public class MemberController {
 		model.addAttribute("main_jsp", "member/join.jsp");		
 		return "main/member/join";
 	}
+	
 	//회원가입 완료
 	@RequestMapping("main/join_ok.do")
-	public String member_join_ok(MemberVO vo, Model model){
+	public String member_join_ok(@ModelAttribute("vo") MemberVO vo, Model model){
 		vo.setMember_phone(vo.getMember_phone1()+"-"+vo.getMember_phone2()+"-"+vo.getMember_phone3());
 		vo.setMember_post(vo.getMember_post1()+"-"+vo.getMember_post2());
 		vo.setMember_addr(vo.getMember_addr1()+"-"+vo.getMember_addr2());
 		dao.memberInsert(vo);
+		System.out.println("member_name : "+vo.getMember_name());
+		System.out.println("member_phone : "+vo.getMember_phone());
+		System.out.println("member_emai : "+vo.getMember_email());
+		System.out.println("member_addr : "+vo.getMember_addr());
+		System.out.println("member_nick : "+vo.getMember_nick());
+		System.out.println("member_pwd : "+vo.getMember_pwd());
+		System.out.println("member_birthdate : "+vo.getMember_birthdate());
+		System.out.println("member_gender : "+vo.getMember_gender());
+		System.out.println("member_post : "+vo.getMember_post());
 		model.addAttribute("main_jsp", "member/join_ok.jsp");
 		return "main/main";
 	}

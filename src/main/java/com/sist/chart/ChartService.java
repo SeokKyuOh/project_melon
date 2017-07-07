@@ -1,6 +1,7 @@
 package com.sist.chart;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,14 @@ public class ChartService {
 	public List<Daily_ChartVO> Daily_ChartData()
 	{
 		return dMapper.Daily_ChartData();
+	}
+	public List<Daily_ChartVO> Weekly_ChartData()
+	{
+		return dMapper.Weekly_ChartData();
+	}
+	public void musicCountIncrement(int music_id)
+	{
+		dMapper.musicCountIncrement(music_id);
 	}
 
 }

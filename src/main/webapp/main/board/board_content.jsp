@@ -71,9 +71,10 @@
 </script> -->
 </head>
 <body>
+<section id="contentSection">
 	<center>
 		<h3>내용보기</h3>
-		<table id="table_content" width=600 class="mytable">
+		<table id="table_content" width=90% class="mytable">
 			<tr>
 				<th width=20%>번호</th>
 				<td width=30% align=center>${vo.board_id }</td>
@@ -105,7 +106,7 @@
 				<td colspan="4" align="left" valign="top" height="100"><pre>${vo.board_content }</pre></td>
 			</tr>
 		</table>
-		<table id="table_content" width=600>
+		<table id="table_content" width=90%>
 			<tr>
 				<td align=right><a href="board_update.do?board_id=${vo.board_id }">수정</a>&nbsp; 
 					<a>삭제</a>&nbsp; 
@@ -188,6 +189,7 @@
 			</table>
 		</div> 
  --%>	</center>
+ </section>
 </body>
 </html>
 

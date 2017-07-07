@@ -25,7 +25,7 @@ $(document).ready(function() {
 		
 	});
 	
-	$('#sub').click(function() {
+	$('#sub1').click(function() {
 		//alert("click");
 		
 		var ch = $.checkForm();
@@ -39,10 +39,50 @@ $(document).ready(function() {
 			$('#form1').submit();			
 		}
 	});
+	$('#sub2').click(function() {
+		//alert("click");
+		
+		var ch = $.checkForm();
+		
+		if(ch == false) {
+			alert("fail");
+			return;
+		} 
+		else {
+			alert("submit");
+			$('#form1').submit();			
+		}
+	});
+	$('#sub3').click(function() {
+		//alert("click");
+		
+		var ch = $.checkForm();
+		
+		if(ch == false) {
+			alert("fail");
+			return;
+		} 
+		else {
+			alert("submit");
+			$('#form1').submit();			
+		}
+	});
+
 	
 	$.checkForm = function() {
 		//alert("call");
-		if($('#account').css("display") != "none"){
+		if($('#deposit').css("display") != "none") {
+			alert("depositclick");
+			if($('#sel3').val() == 'st3') {
+				alert("은행을 선택해 주세요");
+				$('#sel3').focus();
+				return false;
+			} else if($('#musr').val() == '') {
+				alert("예금주를 입력하세요.");
+				$('#musr').focus();
+				return false;
+			}
+		} else if($('#account').css("display") != "none"){
 			alert("accountclick");
 			if($('#sel2').val() == "st2") {
 				alert("은행을 선택해 주세요");
@@ -69,18 +109,7 @@ $(document).ready(function() {
 				$('#usr').focus();
 				return false;
 			}
-		} else if($('#deposit').css("display") != "none") {
-			alert("depositclick");
-			if($('#sel3').val() == 'st3') {
-				alert("은행을 선택해 주세요");
-				$('#sel3').focus();
-				return false;
-			} else if($('#musr').val() == '') {
-				alert("예금주를 입력하세요.");
-				$('#musr').focus();
-				return false;
-			}
-		} else if($('#card').css("display") != "none") {
+		} else if ($('#card').css("display") != "none") {
 			alert("cardclick");
 			if($('#n1').val() == '') {
 				alert("첫번째 번호를 입력하세요.");
@@ -125,18 +154,18 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-	<section id="contentSection">
-	<div class="container" style="width: 90%">
-		<h2 align="center">결제 선택</h2>
+	<section id="contentSection" style="margin: auto;">
+	<div class="container" style="width: 90%;margin: auto;">
+		<h2 align="center">결제 선택</h2><br>
 		<!-- 내가 선택한 이용권 출력하기 -->
-		<div class="row" style="width: 80%">
+		<div class="row" style="width: 80%;margin: auto;">
         	<div class="span12">
     			<ul class="thumbnails" style="list-style:none;">
                 	<li class="span5 clearfix">
                   		<div class="thumbnail clearfix">
-                    		<img src="images/${name }.png" class="pull-left span2 clearfix" style="margin-right:10px;float: left;" width="200px">
-                    		<div class="caption" class="pull-left" style="float: left;margin-left: 40px">
-                     			<h3 style="color: blue">${name }</h3>
+                    		<img src="images/${name }.png" class="pull-left span2 clearfix" style="margin-top:10px;float: left;" width="200px">
+                    		<div class="caption" class="pull-left" style="float: left;margin-left: 40px;margin-top: -20px">
+                     			<h3 style="color: #2b2b2b">${name }</h3>
                       			<b>가격: ${price} 원</b>
                     		</div>
                   		</div>
@@ -144,22 +173,22 @@ $(document).ready(function() {
             	</ul>
        	 	</div>	
         </div>	
-		<p>해당 이용권을 결제할 수단을 선택해주세요.</p>
+		<div style="margin: auto;text-align: center;">해당 이용권을 결제할 수단을 선택해주세요.</div>
 		<form method="post" action="payment_ok.do" id="form1">
 			<input type="hidden" value="${id}" name="id">
 			<input type="hidden" value="${type}" name="type">
-			<div class="form-group" style="width:80%;">
+			<div class="form-group" style="width:80%;margin: auto;">
 				<!-- <label for="sel1">Select list (select one):</label> -->
 				<select class="form-control" id="sel1">
 					<option value='st1'>-----선택-----</option>
-					<option value="account">실시간 계좌이체</option>
 	        		<option value="deposit">무통장 입금</option>
+					<option value="account">실시간 계좌이체</option>
 	        		<option value="card">카드 결제</option>
 	      		</select>
 	   		</div>
 	   		<hr>
 	   		
-	   		<div id="account" style="display: none;width:80%;" class="form-group"> 
+	   		<div id="account" style="display: none;width:80%;margin: auto;" class="form-group"> 
 				<p>실시간 계좌이체</p>
 				<select class="form-control" id="sel2">
 		   			<option value='st2'>---선택---</option>
@@ -197,10 +226,10 @@ $(document).ready(function() {
 				  <input type="text" class="form-control" id="usr">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub">확인</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub1">확인</button>
 	   		</div>
 	   		
-	   		<div id="deposit" style="display: none;width:80%;">
+	   		<div id="deposit" style="display: none;width:80%;margin: auto;" class="form-group">
 	   			<p>무통장 입금</p>
 	   			<select class="form-control" id="sel3">
 		   			<option value='st3'>---선택---</option>
@@ -214,10 +243,10 @@ $(document).ready(function() {
 				  <input type="text" class="form-control" id="musr">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub">확인</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub2">확인</button>
 	   		</div>
 	   		
-	   		<div id="card" style="display: none;width:80%;">
+	   		<div id="card" style="display: none;width:80%;margin: auto;" class="form-group">
 	   			<p>카드 결제</p>
 	   			<div class="form-group row">
      				<div class="col-xs-2">
@@ -259,7 +288,7 @@ $(document).ready(function() {
 				  <input type="text" class="form-control" id="csv">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub">확인</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #A2C5F9; color:white;" id="sub3">확인</button>
 	   		</div>
 	  	</form>
 	</div>

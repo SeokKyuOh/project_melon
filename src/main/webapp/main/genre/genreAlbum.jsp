@@ -53,8 +53,8 @@ body {
 	margin: 0;
 	color: #000;
 	background: #fff;
-	font: 90%/1.3 "DejaVu Sans", "URW Gothic L", "Helvetica Neue", Helvetica,
-		Arial, "Microsoft Sans Serif", sans-serif;
+	/*font: 90%/1.3 "DejaVu Sans", "URW Gothic L", "Helvetica Neue", Helvetica,
+		Arial, "Microsoft Sans Serif", sans-serif;*/
 }
 
 .clearfix:before, .clearfix:after {
@@ -130,9 +130,9 @@ body {
 }
 
 body {
-	font-family: arial, helvetica, sans-serif;
+	/*font-family: arial, helvetica, sans-serif;
 	font-weight: normal;
-	font-size: 100%;
+	font-size: 100%;*/
 	color: #333;
 }
 
@@ -166,6 +166,7 @@ body {
 }
 </style>
 <body>
+<section id="contentSection">
 	<div id="pagina">
 		<div class="barra-menu">
 			<a href="#" id="btn-drop" class="btn-menu aln-centro">Navegacion</a>
@@ -176,7 +177,7 @@ body {
 				<li><a href="genreMusicChart.do?genre_id=2" class="genre"
 					id="2">발라드</a></li>
 				<li><a href="genreMusicChart.do?genre_id=3" class="genre"
-					id="3">팝소울</a></li>
+					id="3">팝/소울</a></li>
 				<li><a href="genreMusicChart.do?genre_id=4" class="genre"
 					id="4">클래식</a></li>
 				<li><a href="genreMusicChart.do?genre_id=5" class="genre"
@@ -197,11 +198,11 @@ body {
 	<div>
 
 		<ul>
-			<c:forEach var="dto" items="${album }">
+			<c:forEach var="dto" items="${album }" begin="1" end="5">
 				<li>
 					<div style="float: left; width: 20%; padding: 10px;">
 						<img width="170" height="170"
-							src="http://211.238.142.109:8080/food/main/album_img/${dto.album_art }.jpg" />
+							src="http://211.238.142.109:8080/album_img/${dto.album_art }.jpg" />
 						<dl>
 							<dt>
 								<strong class="none">앨범명</strong> <span class="ellipsis">
@@ -255,7 +256,7 @@ body {
 					<td>
 						
 							<span class="thumb_frame"></span> <img width="104" height="104"
-								src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg" />
+								src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg" />
 						
 						<span>${vo.album_type }</span> 
 						<strong>앨범명</strong>
@@ -273,6 +274,6 @@ body {
 			</c:forEach>
 		</tbody>
 	</table>
-
+</section>
 </body>
 </html>

@@ -70,7 +70,7 @@
                             <br /><br>
                             <i class="glyphicon glyphicon-envelope"></i>&nbsp;${vo.member_email }
                             <br /><br>
-                            <i class="glyphicon glyphicon-gift"></i>&nbsp;<fmt:formatDate value="${vo.member_birthdate }" pattern="yyyy-MM-dd"/></p><br>
+                            <i class="glyphicon glyphicon-gift"></i>&nbsp;${vo.member_birthdate }</p><br>
                             <a href="info_update.do?nick=${vo.member_nick }" ><input type=button value="내 정보 수정" class="btn btn-theme"></a>
 					  </div>
 					</div>
@@ -172,8 +172,8 @@
           </div>
           
          <div>
-       		  <a href="notice_list.do?nick=${vo.member_nick }" >
-			  <input type=button value="1:1문의하기" class="btn btn-theme" align="right"></a>
+       		  <a href="notice_insert.do?nick=${vo.member_nick }&id=${vo.member_id}" >
+			  <input type=button value="글쓰기" class="btn btn-theme" align="right"></a>
 			 
           </div>
       

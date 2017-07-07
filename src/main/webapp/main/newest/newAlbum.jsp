@@ -27,7 +27,6 @@
 	src="//member.melon.com/resource/script/web/member/melonweb_member_external.js?tm=20170424"></script>
 <script type="text/javascript"
 	src="http://cdnimg.melon.co.kr/static/web/resource/script/w1/g8/u/kv5d3h4q8t.js"></script>
-<script type="text/javascript"></script>
 <body>
 	<h2>최신앨범</h2>
 
@@ -38,12 +37,14 @@
 		<ul>
 			<c:forEach var="vo" items="${list }">
 			<li>
-				<div style="float: left; width: 20%; padding: 10px;">
+				<div style="float: left; width: 50%; padding: 10px;">
+					<a href="albumInfo.do?album_id=${vo.album_id }">
 					<img
 						width="130"
 						height="130"
-						src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg"/>
-					<div>
+						src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"/>
+						</a>
+					<div style="float: right;width: 50%; padding: 10px; ">
 						<dl>
 							<dt>
 								<span>[${vo.album_type }]</span> <strong>앨범명</strong>
@@ -54,11 +55,9 @@
 								<div>
 										<span>${vo.album_artist }</span>
 								</div>
-								<!-- 아티스트명 공간 초과시 더보기 버튼 노출 -->
-
-								<!-- //아티스트명 공간 초과시 더보기 버튼 노출 -->
 							</dd>
 							<dd>
+							<strong>타이틀곡</strong>
 							<span>${vo.music_name }</span>
 							</dd>
 							<dd>
