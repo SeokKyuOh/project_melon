@@ -97,7 +97,7 @@
 					//window.open("player/player_temp.jsp","HoneyMusicPlayer","width=450, height=800");
 					
 					// playlist_music이 있는 경우
-					window.open("player.do","HoneyMusicPlayer","width=500px, height=700px");
+					window.open("player.do","HoneyMusicPlayer","width=517px, height=680px");
 				}
 			});
 		}

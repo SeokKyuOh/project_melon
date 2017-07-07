@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>Honey Music Player</title>
 <script type="text/javascript" src="<c:url value="/resources/js/soundmanager2.js"/>"></script>
 <script src="<c:url value="/resources/js/bar-ui.js"/>"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -130,8 +130,8 @@
 		<c:set var="lyric" value="${playlist[0].music_lyrics }"/>
 		<img id="image" src="http://211.238.142.109:8080/album_img/${album_art}.jpg" width=450 height=400> 
 		<!-- <img src="../main/player/cover/album1.jpg" id="image" width=450 height=400> -->
-		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:10%; left:10%; overflow-y:scroll; word-wrap:break-word">
-			<p class="music_lyrics">
+		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:10%; left:10%;  ">
+			<p class="music_lyrics" style="word-wrap:break-all; overflow-y:scroll;">
 				${lyric }
 			</p>
 		</div>

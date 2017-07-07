@@ -15,6 +15,101 @@ import com.sist.chart.Daily_ChartVO;
 @Controller
 public class QuestionController {
 
+<<<<<<< HEAD
+ 
+
+	@Autowired
+
+	private QuestionDAO dao;
+
+	@Autowired							// 상단 차트순위 때문에 추가 (7/6 오석규)
+
+	private ChartService service;	//상단 차트순위 때문에 추가 (7/6 오석규)
+
+	List<Daily_ChartVO> daily_list;	//상단 차트순위 때문에 추가 (7/6 오석규)
+
+ 
+
+	@RequestMapping("main/notice_content.do")
+
+	public String question_Content(int question_id, String nick, int id,Model model) {
+
+		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
+
+		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
+
+ 
+
+ 
+
+		QuestionVO vo = dao.questionContent(question_id);
+
+ 
+
+		model.addAttribute("vo", vo);
+
+		model.addAttribute("id", id);
+
+		model.addAttribute("nick", nick);
+
+		model.addAttribute("main_jsp", "notice/notice_content.jsp");
+
+ 
+
+		return "main/main";
+
+ 
+
+	}
+
+ 
+
+	@RequestMapping("main/notice_update.do")
+
+	public String question_Update(QuestionVO vo, String nick, int id, Model model) {
+
+		dao.questionUpdate(vo);
+
+		model.addAttribute("main_jsp", "mypage.jsp");
+
+		return "redirect:/main/mypage.do?nick=" + nick + "&id=" + id;
+
+ 
+
+	}
+
+ 
+
+	@RequestMapping("main/notice_insert.do")
+
+ 
+
+	public String question_insert(Model model, String nick, int id) {
+
+		System.out.println(nick + " : " + id);
+
+		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
+
+		model.addAttribute("daily_list", daily_list);		// 상단 차트순위 때문에 추가 (7/6 오석규)
+
+		model.addAttribute("nick", nick);
+
+		model.addAttribute("id", id);
+
+ 
+
+		model.addAttribute("main_jsp", "notice/notice_insert.jsp");
+
+		return "main/main";
+
+ 
+
+	}
+
+ 
+
+	@RequestMapping("main/notice_insert_ok.do")
+=======
    @Autowired
    private QuestionDAO dao;
    
@@ -22,6 +117,7 @@ public class QuestionController {
    private ChartService service;   //상단 차트순위 때문에 추가 (7/6 오석규)
    
    List<Daily_ChartVO> daily_list;   //상단 차트순위 때문에 추가 (7/6 오석규)
+>>>>>>> aa23b4020ce08b9c5e00de75cc9c07734b6f3f01
 
    @RequestMapping("main/notice_content.do")
    public String question_Content(int question_id, String nick, int id,Model model) {
