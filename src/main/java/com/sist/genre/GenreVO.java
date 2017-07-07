@@ -11,7 +11,7 @@ public class GenreVO {
 	private String album_name;
 	private String genre_name;
 	private String album_art;
-	private String album_release;
+	private Date album_release;
 	private String album_type;
 	private String music_title;
 	private String album_artist;
@@ -29,10 +29,10 @@ public class GenreVO {
 	public void setAlbum_artist(String album_artist) {
 		this.album_artist = album_artist;
 	}
-	public String getAlbum_release() {
+	public Date getAlbum_release() {
 		return album_release;
 	}
-	public void setAlbum_release(String album_release) {
+	public void setAlbum_release(Date album_release) {
 		this.album_release = album_release;
 	}
 	public String getAlbum_type() {
