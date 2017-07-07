@@ -55,7 +55,7 @@
 		});
 		 
 		 
-		 $('#bt_play').click(function(){
+		 $('.bt_play').click(function(){
 			 checkArr.length=0;
 			 alert("개별 곡 클릭");
 			 checkArr.push($(this).attr("music_id"));
@@ -97,14 +97,13 @@
 					//window.open("player/player_temp.jsp","HoneyMusicPlayer","width=450, height=800");
 					
 					// playlist_music이 있는 경우
-					window.open("player.do","HoneyMusicPlayer","width=450, height=800");
+					window.open("player.do","HoneyMusicPlayer","width=500px, height=700px");
 				}
 			});
 		}
 	})
 </script>
-<body>
-<section id="contentSection">
+
 <input type=button class="btn btn-theme" value="선택 재생" id="bt_send">
 
 <table class="table table-hover">
@@ -122,40 +121,40 @@
 	<tbody>
 		<%
 				int i = 1;
-		%>
+			%>
 		<c:forEach var="vo" items="${list }">
 			<tr>
 				<td><input type="checkbox" music_id="${vo.music_id }"
 					album_id="${vo.album_id}" name="checkbox_name"></td>
 				<td><span><%=i%></span><span>위</span></td>
-				<td><img
+				<td>
+				<a href="albumInfo.do?album_id=${vo.album_id }">
+				<img
 					src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"
 					width=50 height=50> 
-					<input type="image" id="bt_play" music_id="${vo.music_id} "
+					
+				</a>	
+				 
+					<input type="image" class="bt_play" music_id="${vo.music_id} "
 						src="<c:url value="/resources/img/play.png"/>"
 						style="width: 20px; height: 20px">
 					<input type="image"	id="bt_add"
 						src="<c:url value="/resources/img/add.png"/>"
 						style="width: 20px; height: 20px"> 
-				
-				<td><a
-					onClick="getValue()">${vo.music_name }</a></td>
-				<td>${vo.music_artist }</td>
-				<td><a href="javascript:getValue()">${vo.album_name }</a></td>
 
 				<td><a onClick="getValue()">
 				${vo.music_name }</a></td>
 				<td>${vo.music_artist }</td>
-				<td><a onClick="getValue()">${vo.album_name }</a></td>
+				<td><a href="albumInfo.do?album_id=${vo.album_id }">${vo.album_name }</a></td>
 
 			</tr>
 			<%
 					i++;
-			%>
+				%>
 		</c:forEach>
 	</tbody>
 </table>
-</section>
+
 </body>
 </html>
 

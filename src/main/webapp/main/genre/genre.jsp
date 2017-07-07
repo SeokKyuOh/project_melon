@@ -28,7 +28,6 @@ $(function(){
 	    }); // fin resize
 	    $('.genre').on('click',function(){
 	    	  var id =  $(this).attr("id");
-	    	  alert(id);
 	    	});
 	    
 	    $('.new').each(function() {
@@ -165,7 +164,7 @@ body {
             <li><a href="genreMusicChart.do?genre_id=2" class="genre" id="2">발라드</a>
 
             </li>
-            <li><a href="genreMusicChart.do?genre_id=3" class="genre" id="3">팝소울</a>
+            <li><a href="genreMusicChart.do?genre_id=3" class="genre" id="3">팝/소울</a>
 
             </li>
             <li><a href="genreMusicChart.do?genre_id=4" class="genre" id="4">클래식</a>
@@ -192,7 +191,7 @@ body {
 		<div>
 				
 	<ul>
-		<c:forEach var="dto" items="${album }">
+		<c:forEach var="dto" items="${album }" begin="0" end="4">
 		<li>
 			<div style="float: left; width: 20%; padding:10px;">
 					<img width="170" height="170" src="http://211.238.142.109:8080/album_img/${dto.album_art }.jpg"/>
@@ -237,10 +236,9 @@ body {
 				<th width=10%><input type="checkbox" value="" id="allCheck">
 				</th>
 				<th width=10%>순위</th>
-				<th width=20%>앨범</th>
-				<th width=20%>음악</th>
+				<th width=30%>음악</th>
 				<th width=20%>아티스트</th>
-				<th width=20%>앨범정보</th>
+				<th width=30%>앨범정보</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -253,9 +251,14 @@ body {
 					<td><input type="checkbox" value="${vo.music_id }" name="checkbox_name" >
 					</td>
 					<td><span><%=i%></span><span>위</span></td>
-					<td> <input type="button" value="재생">
-						<input type="button" value="담기"></td>
-					<td>${vo.music_name }</td>
+					<td>
+					<input type="image" id="bt_play" music_id="${vo.music_id} "
+						src="<c:url value="/resources/img/play.png"/>"
+						style="width: 20px; height: 20px">
+					<input type="image"	id="bt_add"
+						src="<c:url value="/resources/img/add.png"/>"
+						style="width: 20px; height: 20px"> 
+					${vo.music_name }</td>
 					<td>${vo.music_artist }</td>
 					<td>${vo.album_name }</td>
 				</tr>

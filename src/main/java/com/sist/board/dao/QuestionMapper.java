@@ -30,7 +30,7 @@ public interface QuestionMapper {
 		  //board_id, 'board_title', 'board_writer', board_content, board_regdate, board_hit, 'board_filename', 'board_filesize', board_filecount, question_id, boardtype_id
 		  //±Û¾²±â
 	        @Insert("INSERT INTO question VALUES("
-	                +"question_seq.nextval,#{question_title},#{question_content},SYSDATE,0,")
+	                +"question_seq.nextval,#{question_title},#{question_content},SYSDATE,0,#{question_filename},#{question_filesize},#{question_filecount},#{member_id})")
 	               
 	           public void questionInsert(QuestionVO vo);
 	        //board_id, 'board_title', 'board_writer', board_content, board_regdate, board_hit, 'board_filename', 'board_filesize', board_filecount, question_id, boardtype_id
