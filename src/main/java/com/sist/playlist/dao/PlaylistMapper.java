@@ -56,7 +56,7 @@ public interface PlaylistMapper {
 	public MusicVO getTempList(int music_id);
 	
 	// playlist 컬럼 만들기
-	@SelectKey(keyProperty="playlist_id", resultType=int.class, before=true, statement="select nvl(max(playlist_id)+1, 1) as playlist_music_id from playlist")
+	@SelectKey(keyProperty="playlist_id", resultType=int.class, before=true, statement="select nvl(max(playlist_id)+1, 1) as playlist_id from playlist")
 	@Insert("insert into playlist(playlist_id, member_id) values(#{playlist_id}, #{member_id})")
 	public void makePlaylist(int member_id);
 	
