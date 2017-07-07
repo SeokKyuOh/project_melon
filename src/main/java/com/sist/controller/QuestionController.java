@@ -46,32 +46,15 @@ public class QuestionController {
 
 	@RequestMapping("main/notice_content.do")
 
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
->>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
->>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
 	public String question_Content(int question_id, String nick, int id,Model model) {
 
 		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
 
 		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
-<<<<<<< HEAD
-=======
 
  
 
  
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
->>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
->>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
 
 		QuestionVO vo = dao.questionContent(question_id);
 
@@ -112,17 +95,6 @@ public class QuestionController {
  
 
 	@RequestMapping("main/notice_insert.do")
-<<<<<<< HEAD
-	/*
-	 * public String question_insert(Model model, String nick, int id) {
-	 */
-
-	public String question_insert(Model model){
-		
-		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
-		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
-		
-=======
 
  
 
@@ -140,19 +112,6 @@ public class QuestionController {
 
  
 
-<<<<<<< HEAD
-=======
-=======
-	public String question_insert(Model model, String nick, int id) {
-		System.out.println(nick + " : " + id);
-		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
-		model.addAttribute("daily_list", daily_list);		// 상단 차트순위 때문에 추가 (7/6 오석규)
-		model.addAttribute("nick", nick);
-		model.addAttribute("id", id);
-
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
->>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
->>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
 		model.addAttribute("main_jsp", "notice/notice_insert.jsp");
 
 		return "main/main";
