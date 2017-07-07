@@ -1,5 +1,4 @@
 package com.sist.controller;
-<<<<<<< HEAD
 
  
 
@@ -9,11 +8,6 @@ import java.util.List;
 
  
 
-=======
- 
-import java.util.List;
- 
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -21,13 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
 
  
 
-=======
- 
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 import com.sist.board.dao.QuestionDAO;
 
 import com.sist.board.dao.QuestionVO;
@@ -49,19 +39,17 @@ import com.sist.playlist.dao.MusicVO;
 import com.sist.ticket.dao.Buy_downloadVO;
 
 import com.sist.ticket.dao.Buy_streamingVO;
-<<<<<<< HEAD
 
  
 
-=======
- 
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 @Controller
 
 public class MainController {
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
    @Autowired
@@ -132,6 +120,7 @@ public class MainController {
 =======
 >>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 >>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
+>>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
 	@Autowired
 
 	private ChartService service;	
@@ -157,7 +146,6 @@ public class MainController {
 =======
 
 	
-<<<<<<< HEAD
 
 	@Autowired
 
@@ -169,13 +157,6 @@ public class MainController {
 
 	QuestionDAO qdao;
 
-=======
-	@Autowired
-	MemberDAO dao;
- 
-	@Autowired
-	QuestionDAO qdao;
->>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 	
 
 	List<Daily_ChartVO> daily_list;		// 상단 차트순위 때문에 추가 (7/6 오석규)
@@ -219,8 +200,7 @@ public class MainController {
 		return "main/main";
 
 	}*/
- 
->>>>>>> 1488bbb8153b34da661b967748189091037b4c63
+
  
 
 <<<<<<< HEAD
@@ -235,7 +215,6 @@ public class MainController {
       model.addAttribute("main_jsp","mypage/mypage.jsp");
 
       MemberVO vo=dao.memberAllData(nick);
-<<<<<<< HEAD
 
  
 
@@ -245,6 +224,8 @@ public class MainController {
 
  
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 =======
@@ -253,6 +234,7 @@ public class MainController {
  
 >>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 >>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
+>>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
       List<Buy_streamingVO> bsvo=dao.mypageStreamingInfo(id);
 
       List<Buy_downloadVO> bdvo=dao.mypageDownloadInfo(id);
@@ -293,7 +275,10 @@ public class MainController {
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 >>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
+>>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
 
       daily_list=service.Daily_ChartData();				// 상단 차트순위 때문에 추가 (7/6 오석규)
 
@@ -310,6 +295,8 @@ public class MainController {
 >>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
 
    }
+<<<<<<< HEAD
+=======
 =======
       daily_list=service.Daily_ChartData();            // 상단 차트순위 때문에 추가 (7/6 오석규)
       model.addAttribute("daily_list", daily_list);      // 상단 차트순위 때문에 추가 (7/6 오석규)
@@ -334,6 +321,7 @@ public class MainController {
 
 
 >>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
+>>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
 
  
 
@@ -343,9 +331,11 @@ public class MainController {
 
       return "main/member/login";
 
-<<<<<<< HEAD
    }
 
+<<<<<<< HEAD
+}
+=======
 }
 =======
 =======
@@ -353,3 +343,4 @@ public class MainController {
 >>>>>>> 1488bbb8153b34da661b967748189091037b4c63
 >>>>>>> 7345ee227f99252cabf2acf84ff15494b1af1a0f
 >>>>>>> 37269e7a797a3d4a02951081e09072dd3231acce
+>>>>>>> fc507dbc8a0aa07f43cffa7ad3a3169b6e7d86fc
