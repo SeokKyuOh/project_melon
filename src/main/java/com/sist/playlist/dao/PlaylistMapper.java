@@ -43,7 +43,7 @@ public interface PlaylistMapper {
 	// 회원의 플레이리스트 목록 가져오기(이용권이 있는 경우)
 	@Select("select playlist_music_id, p.playlist_id, m.music_number,"
 			+"p.member_id,"
-			+"m.music_name, m.music_artist, m.music_lyrics,"
+			+"m.music_name, m.music_artist, m.music_lyrics, m.music_id, "
 			+"a.album_name, a.album_art "
 			+"from playlist_music full outer join PLAYLIST p on playlist_music.playlist_id=p.playlist_id "
 			+"inner join MUSIC m on playlist_music.music_id=m.music_id "
@@ -78,6 +78,10 @@ public interface PlaylistMapper {
 	// 곡 클릭시마다 재생횟수 늘리기
 	@Update("update playlist_music set playlist_count=playlist_count+1 where playlist_music_id=#{playlist_music_id}")
 	public void increaseCount(int playlist_music_id);
+	
+	// music_count도 같이 올리기!
+	@Update("update music set music_count=music_count+1 where music_id=#{music_id}")
+	public void increaseMusicCount(int music_id);
 	
 	// playlist_music_seq.nextval
 	// 곡 선택 후 playlist_music에 저장

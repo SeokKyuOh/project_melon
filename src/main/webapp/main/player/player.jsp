@@ -53,6 +53,7 @@
 		});
 		 */
 		 
+		
 		// 현재 재생되고 있는 곡인지 check -> <li> 클릭 시 index로 구분
 		// 각 곡을 클릭하면 곡에 해당하는 앨범아트와 가사 가져오기
 		$(".mclick").click(function(){
@@ -67,9 +68,11 @@
 			var album_replace="../main/player/cover/album.jpg";
 			$("#image").attr("src", album_replace);
 			$("#image").attr("src", albumURL+album_art+".jpg");
+			
 			//$("#image").attr("src", "../main/player/cover/album"+index+".jpg");
 			// 가사 바꾸기
-			var lyrics=lyrics;
+			$('.music_lyrics').replaceWith(music_lyrics);
+			
 			alert(album_replace);
 			alert("album_art : "+album_art+", music_lyrics : "+music_lyrics);
 			
@@ -80,10 +83,11 @@
 			1) 다른 페이지로 값을 넘기며 요청 -> 넘긴 페이지에서 재생 횟수를 증가시키기(창이 띄워지지는 않음)
 			*/
 			var playlist_music_id=$(this).attr("playlist_music_id");
+			var music_id=$(this).attr("music_id");
 			
 			$.ajax({
 				type:"GET",
-				url:"player_count.do?playlist_music_id="+playlist_music_id,
+				url:"player_count.do?playlist_music_id="+playlist_music_id+"&music_id="+music_id,
 				dataType:"text",
 				error:function(request, status, error){
 					alert('통신 실패');
@@ -126,8 +130,8 @@
 		<c:set var="lyric" value="${playlist[0].music_lyrics }"/>
 		<img id="image" src="http://211.238.142.109:8080/album_img/${album_art}.jpg" width=450 height=400> 
 		<!-- <img src="../main/player/cover/album1.jpg" id="image" width=450 height=400> -->
-		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:20%; left:45%">
-			<p>
+		<div id="lyrics" style="position:absolute; color:white; text-align:center; top:10%; left:10%; overflow-y:scroll; word-wrap:break-word">
+			<p class="music_lyrics">
 				${lyric }
 			</p>
 		</div>
@@ -238,7 +242,7 @@
 					 
 					<c:forEach var="vo" items="${playlist}" varStatus="status">
 						<%-- <li id="${vo.music_number }"> --%>
-						<li class="mclick" album_art="${vo.album_art }" music_lyrics="${vo.music_lyrics}" playlist_music_id="${vo.playlist_music_id }" index="${status.index }">
+						<li class="mclick" album_art="${vo.album_art }" music_lyrics="${vo.music_lyrics}" playlist_music_id="${vo.playlist_music_id }" music_id="${vo.music_id}" index="${status.index }">
 							<a href="http://211.238.142.109:8080/music/${vo.music_number }.mp3">
 								${vo.music_name } - ${vo.music_artist }
 							</a>
