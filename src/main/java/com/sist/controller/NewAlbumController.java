@@ -34,4 +34,32 @@ public class NewAlbumController {
 		model.addAttribute("main_jsp", "newest/newAlbum.jsp");
 		return "main/main";
 	}
+	
+	//뮤직비디오 연결 추가(7/7 오석규)
+	@RequestMapping("main/newMusicVideo.do")
+	public String newMusicVideo_list(Model model){
+		String [] mv ={
+				"twice_signal",
+                "minzy_ninano", 
+                "ftisland_wind",
+                "Lovelyz",
+                "hyukoh_tomboy",
+                "50cent"
+        };
+		String [] mvid = {
+				"VQtonf1fv_s",
+				"nmZGpBIz_Gg",
+				"QhPOwcvhGSA",
+				"wMCoQaE0LvQ",
+				"pC6tPEaAiYU",
+				"5qm8PH4xAss"
+		};
+		
+		int mv_size = mv.length;
+		model.addAttribute("mv_size", mv_size);
+		model.addAttribute("mv", mv);
+		model.addAttribute("mvid", mvid);
+		model.addAttribute("main_jsp", "newest/newMusicVideo.jsp");
+		return "main/main";
+	}
 }

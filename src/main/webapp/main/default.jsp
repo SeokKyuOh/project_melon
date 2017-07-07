@@ -6,6 +6,82 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+ <script type="text/javascript">
+        /**
+         * Youtube API 로드
+         */
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+ 
+        /**
+         * onYouTubeIframeAPIReady 함수는 필수로 구현해야 한다.
+         * 플레이어 API에 대한 JavaScript 다운로드 완료 시 API가 이 함수 호출한다.
+         * 페이지 로드 시 표시할 플레이어 개체를 만들어야 한다.
+         */
+        var player;
+            
+        //가수,노래제목
+        var mv = [
+                     'twice_signal',
+                     'minzy_ninano', 
+                     'ftisland_wind',
+                     'Lovelyz',
+                     'hyukoh_tomboy',
+                     '50cent'
+                     ];
+        
+        //유튜브 뮤비 링크값
+        var mvid = [
+                    'VQtonf1fv_s',
+                    'nmZGpBIz_Gg',
+                    'QhPOwcvhGSA',
+                    'wMCoQaE0LvQ',
+                    'pC6tPEaAiYU',
+                    '5qm8PH4xAss'
+                    ];
+        
+        
+        function onYouTubeIframeAPIReady() {
+        	for(i=0;i<=mv.length;i++){
+	        	player = new YT.Player(mv[i], {
+	                height: '270',            // <iframe> 태그 지정시 필요없음
+	                width: '460',             // <iframe> 태그 지정시 필요없음
+	                videoId: mvid[i],   // <iframe> 태그 지정시 필요없음
+	                playerVars: {             // <iframe> 태그 지정시 필요없음
+	                    controls: '2'
+	                },
+	                events: {
+	                    'onReady': onPlayerReady,               // 플레이어 로드가 완료되고 API 호출을 받을 준비가 될 때마다 실행
+	                    'onStateChange': onPlayerStateChange    // 플레이어의 상태가 변경될 때마다 실행
+	                }
+	            });
+            }
+        }
+        //https://youtu.be/9bZkp7q19f0
+        function onPlayerReady(event) {
+            console.log('onPlayerReady 실행');
+            // 플레이어 자동실행 (주의: 모바일에서는 자동실행되지 않음)
+			// event.target.playVideo();
+        }
+        function onPlayerStateChange(event) {
+            playerState = event.data == YT.PlayerState.ENDED ? '종료됨' :
+                    event.data == YT.PlayerState.PLAYING ? '재생 중' :
+                    event.data == YT.PlayerState.PAUSED ? '일시중지 됨' :
+                    event.data == YT.PlayerState.BUFFERING ? '버퍼링 중' :
+                    event.data == YT.PlayerState.CUED ? '재생준비 완료됨' :
+                    event.data == -1 ? '시작되지 않음' : '예외';
+ 
+            console.log('onPlayerStateChange 실행: ' + playerState); 
+            
+        }
+ 
+        function playYoutube() {
+            // 플레이어 자동실행 (주의: 모바일에서는 자동실행되지 않음)
+            player.playVideo();
+        }
+    </script>
 </head>
 <body>
 <section id="sliderSection">
@@ -62,35 +138,22 @@
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
                 <li>
-                  <figure class="bsbig_fig"> <a href="pages/single_page.html" class="featured_img"> <img alt="" src="images/featured_img1.jpg"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="pages/single_page.html">뮤직비디오 1</a> </figcaption>
-                    <p>뮤직비디오1 설명</p>
+                  <figure class="bsbig_fig"> <a href="newMusicVideo.do" class="featured_img"> <div id="${mv[0] }" style="width:100%; height: 280px"></div> <span class="overlay"></span> </a>
+                    <figcaption> <a href="newMusicVideo.do">${mv[0] }</a> </figcaption>
+                    <p></p>
                   </figure>
                 </li>
               </ul>
             </div>
+            
             <div class="single_post_content_right">
               <ul class="spost_nav">
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오2</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오3</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오4</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="pages/single_page.html" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="pages/single_page.html" class="catg_title"> 뮤직비디오5</a> </div>
-                  </div>
-                </li>
+              	<c:forEach var="mv" items="${mv }" begin="1" end="2" step="1">
+	              	<li>
+	                  <figure class="bsbig_fig"> <a href="newMusicVideo.do" class="featured_img"> <div id="${mv }" style="width:100%; height: 180px"></div> <span class="overlay"></span> </a>
+	                  </figure>
+	                </li>
+                </c:forEach>
               </ul>
             </div>
           </div>
@@ -103,8 +166,8 @@
           <div class="single_sidebar">
             <h2><span>해시태그</span></h2>
             <ul class="spost_nav">
-              #여름 추천 #신나는 노래<br>
-              #우울할때 #발라드 추천
+              &nbsp;&nbsp;#여름 추천 #신나는 노래<br>
+              &nbsp;&nbsp;#우울할 때 #발라드 추천
             </ul>
           </div>
         </aside>

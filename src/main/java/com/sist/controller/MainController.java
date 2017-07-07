@@ -40,6 +40,26 @@ public class MainController {
 		//실시간 차트 불러오기
 		daily_list=service.Daily_ChartData();
 		List<GenreVO> album_main =genreservice.genreAlbumData(1);				//메인 앨범 이미지 때문에 추가 (7/6 오석규)
+		
+		//뮤직 비디오 불러오기
+		String [] mv ={
+				"twice_signal",
+                "minzy_ninano", 
+                "ftisland_wind",
+                "Lovelyz",
+                "hyukoh_tomboy",
+                "50cent"
+        };
+		String [] mvid = {
+				"VQtonf1fv_s",
+				"nmZGpBIz_Gg",
+				"QhPOwcvhGSA",
+				"wMCoQaE0LvQ",
+				"pC6tPEaAiYU",
+				"5qm8PH4xAss"
+		};
+		model.addAttribute("mv", mv);
+		model.addAttribute("mvid", mvid);		
 		model.addAttribute("daily_list", daily_list);
 		model.addAttribute("album_main", album_main);									//메인 앨범 이미지 때문에 추가 (7/6 오석규)
 		model.addAttribute("main_jsp","default.jsp");

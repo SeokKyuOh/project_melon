@@ -97,7 +97,7 @@ $(function() {
             <ul class="dropdown-menu" role="menu">
               	<li><a href="newAlbumChart.do">최신곡</a></li>
               	<li><a href="newAlbum.do">최신앨범</a></li>
-              	<li><a href="#">최신뮤직비디오</a></li>
+              	<li><a href="newMusicVideo.do">최신뮤직비디오</a></li>
               	<li><a href="#">예약</a></li>
             </ul>
           </li>
