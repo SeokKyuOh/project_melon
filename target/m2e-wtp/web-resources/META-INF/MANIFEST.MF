@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: user
-Build-Jdk: 1.8.0_121
-=======
 Built-By: sistt
 Build-Jdk: 1.8.0_131
->>>>>>> 30d8f06546351aad178ed6f12972dbc861fa3dcd
 Created-By: Maven Integration for Eclipse
 

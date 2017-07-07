@@ -140,7 +140,7 @@ $(function() {
 					<div class="footer_widget wow fadeInRightBig">
 						<h2>달달한 음악이 필요한 순간 Honey music</h2>
 						<p>Honey music Company</p>
-						<address>서울특별시 마포구 노고산동 107-111 미화빌딩 2, 3층</address>
+						<address>서울특별시 마포구 노고산동 107-111 미화빌딩 2층</address>
 					</div>
 				</div>
 			</div>
