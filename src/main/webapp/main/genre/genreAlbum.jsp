@@ -177,7 +177,7 @@ body {
 				<li><a href="genreMusicChart.do?genre_id=2" class="genre"
 					id="2">발라드</a></li>
 				<li><a href="genreMusicChart.do?genre_id=3" class="genre"
-					id="3">팝소울</a></li>
+					id="3">팝/소울</a></li>
 				<li><a href="genreMusicChart.do?genre_id=4" class="genre"
 					id="4">클래식</a></li>
 				<li><a href="genreMusicChart.do?genre_id=5" class="genre"
@@ -198,7 +198,7 @@ body {
 	<div>
 
 		<ul>
-			<c:forEach var="dto" items="${album }">
+			<c:forEach var="dto" items="${album }" begin="1" end="5">
 				<li>
 					<div style="float: left; width: 20%; padding: 10px;">
 						<img width="170" height="170"
@@ -256,7 +256,7 @@ body {
 					<td>
 						
 							<span class="thumb_frame"></span> <img width="104" height="104"
-								src="http://211.238.142.109:8080/food/main/album_img/${vo.album_art }.jpg" />
+								src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg" />
 						
 						<span>${vo.album_type }</span> 
 						<strong>앨범명</strong>
