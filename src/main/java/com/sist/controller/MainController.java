@@ -1,11 +1,5 @@
 package com.sist.controller;
-<<<<<<< HEAD
 
- 
-
-=======
- 
->>>>>>> aa23b4020ce08b9c5e00de75cc9c07734b6f3f01
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +30,6 @@ public class MainController {
 	@Autowired
 	MemberDAO dao;
 
-<<<<<<< HEAD
 	@Autowired
 	QuestionDAO qdao;
 	
@@ -73,128 +66,19 @@ public class MainController {
 		return "main/main";
 	}
   
-=======
-<<<<<<< HEAD
-	@Autowired
-
-	private ChartService service;	
-
-	
-
-	@Autowired									//메인 앨범 이미지 때문에 추가 (7/6 오석규)
-
-	private GenreService genreservice;	//메인 앨범 이미지 때문에 추가 (7/6 오석규)
-
-	
-
-	@Autowired
-
-	MemberDAO dao;
-
- 
-
-	@Autowired
-
-	QuestionDAO qdao;
-
-	
-
-	List<Daily_ChartVO> daily_list;		// 상단 차트순위 때문에 추가 (7/6 오석규)
-
-	
-
-	@RequestMapping("main/main.do")
-
-	public String main_page(Model model){
-
-		//실시간 차트 불러오기
-
-		daily_list=service.Daily_ChartData();
-
-		List<GenreVO> album_main =genreservice.genreAlbumData(1);				//메인 앨범 이미지 때문에 추가 (7/6 오석규)
-
-		model.addAttribute("daily_list", daily_list);
-
-		model.addAttribute("album_main", album_main);									//메인 앨범 이미지 때문에 추가 (7/6 오석규)
-
-		model.addAttribute("main_jsp","default.jsp");
-
-		return "main/main";
-
-	}
-
-	
-
-	
-
-	/*@RequestMapping("main/buy_ticket.do")
-
-	public String buy_ticket_page(Model model){
-
-		model.addAttribute("main_jsp","buy_ticket/buy_ticket.jsp");
-
-		return "main/main";
-
-	}*/
-
- 
-
- 
-
-=======
-   @Autowired
-   private ChartService service;   
-   
-   @Autowired                           //메인 앨범 이미지 때문에 추가 (7/6 오석규)
-   private GenreService genreservice;   //메인 앨범 이미지 때문에 추가 (7/6 오석규)
-   
-   @Autowired
-   MemberDAO dao;
- 
-   @Autowired
-   QuestionDAO qdao;
-   
-   List<Daily_ChartVO> daily_list;      // 상단 차트순위 때문에 추가 (7/6 오석규)
-   
-   @RequestMapping("main/main.do")
-   public String main_page(Model model){
-      //실시간 차트 불러오기
-      daily_list=service.Daily_ChartData();
-      List<GenreVO> album_main =genreservice.genreAlbumData(1);            //메인 앨범 이미지 때문에 추가 (7/6 오석규)
-      model.addAttribute("daily_list", daily_list);
-      model.addAttribute("album_main", album_main);                           //메인 앨범 이미지 때문에 추가 (7/6 오석규)
-      model.addAttribute("main_jsp","default.jsp");
-      return "main/main";
-   }
-   
-   
->>>>>>> ab043a3aa3d4aa13bcfcf1edeff10517692aac11
    /*@RequestMapping("main/buy_ticket.do")
    public String buy_ticket_page(Model model){
       model.addAttribute("main_jsp","buy_ticket/buy_ticket.jsp");
       return "main/main";
    }*/
- 
-<<<<<<< HEAD
-=======
- 
->>>>>>> aa23b4020ce08b9c5e00de75cc9c07734b6f3f01
->>>>>>> ab043a3aa3d4aa13bcfcf1edeff10517692aac11
+
    @RequestMapping("main/mypage.do")
    public String mypage_page(Model model, String nick, int id){
       model.addAttribute("main_jsp","mypage/mypage.jsp");
       MemberVO vo=dao.memberAllData(nick);
- 
-<<<<<<< HEAD
 
-=======
->>>>>>> aa23b4020ce08b9c5e00de75cc9c07734b6f3f01
       List<QuestionVO> qvo=qdao.questionList(id);
  
-<<<<<<< HEAD
-
-=======
->>>>>>> aa23b4020ce08b9c5e00de75cc9c07734b6f3f01
       List<Buy_streamingVO> bsvo=dao.mypageStreamingInfo(id);
       List<Buy_downloadVO> bdvo=dao.mypageDownloadInfo(id);
       List<MusicVO> mvo=dao.mypagePlayList(id);
@@ -213,31 +97,7 @@ public class MainController {
       model.addAttribute("qvo",qvo);
       model.addAttribute("bsvo",bsvo);
       model.addAttribute("bdvo",bdvo);
-      
-<<<<<<< HEAD
-
-      daily_list=service.Daily_ChartData();				// 상단 차트순위 때문에 추가 (7/6 오석규)
-
-      model.addAttribute("daily_list", daily_list);		// 상단 차트순위 때문에 추가 (7/6 오석규)
-
-		
-
-      return "main/main";
-
-   }
-
- 
-
-   @RequestMapping("main/login.do")
-
-   public String login_page(Model model){
-
-      return "main/member/login";
-
-   }
-
-}
-=======
+  
       daily_list=service.Daily_ChartData();            // 상단 차트순위 때문에 추가 (7/6 오석규)
       model.addAttribute("daily_list", daily_list);      // 상단 차트순위 때문에 추가 (7/6 오석규)
       
@@ -250,9 +110,3 @@ public class MainController {
    }
 
 }
-<<<<<<< HEAD
-=======
- 
-
->>>>>>> aa23b4020ce08b9c5e00de75cc9c07734b6f3f01
->>>>>>> ab043a3aa3d4aa13bcfcf1edeff10517692aac11
