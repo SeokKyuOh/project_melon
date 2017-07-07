@@ -24,14 +24,11 @@ public class QuestionController {
 	List<Daily_ChartVO> daily_list;	//상단 차트순위 때문에 추가 (7/6 오석규)
 
 	@RequestMapping("main/notice_content.do")
-<<<<<<< HEAD
-	public String question_Content(int question_id, String nick, int id, Model model) {
-=======
 	public String question_Content(int question_id, String nick, int id,Model model) {
 		
 		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
 		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
->>>>>>> 00b1880f3dd84f8c00f75dd21a90f1e1060fa163
+
 
 		QuestionVO vo = dao.questionContent(question_id);
 
@@ -53,15 +50,14 @@ public class QuestionController {
 	}
 
 	@RequestMapping("main/notice_insert.do")
-<<<<<<< HEAD
+
 	public String question_insert(Model model, String nick, int id) {
-=======
-	public String question_insert(Model model){
-		
+		System.out.println(nick + " : " + id);
 		daily_list=service.Daily_ChartData();						// 상단 차트순위 때문에 추가 (7/6 오석규)
-		model.addAttribute("daily_list", daily_list);				// 상단 차트순위 때문에 추가 (7/6 오석규)
-		
->>>>>>> 00b1880f3dd84f8c00f75dd21a90f1e1060fa163
+		model.addAttribute("daily_list", daily_list);		// 상단 차트순위 때문에 추가 (7/6 오석규)
+		model.addAttribute("nick", nick);
+		model.addAttribute("id", id);
+
 		model.addAttribute("main_jsp", "notice/notice_insert.jsp");
 		return "main/main";
 
@@ -69,15 +65,17 @@ public class QuestionController {
 
 	@RequestMapping("main/notice_insert_ok.do")
 	public String question_insert_ok(QuestionVO vo, String nick, int id) {
-
+		System.out.println(vo.getQuestion_title());
+		System.out.println("ok_nick:"+nick+",id:"+id);
 		dao.questionInsert(vo);
-		return "redirect:/main/mypage.do?nick=" + nick + "&id=" + id;
+		System.out.println("insert end");
+		return "redirect:/main/mypage.do?nick="+nick +"&id="+id;
 	}
 
 	@RequestMapping("main/notice_delete.do")
-	public String board_delete(int question_id, Model model) {
-		model.addAttribute("question_id", question_id);
+	public String board_delete(int question_id,String nick, int id, Model model) {
+		System.out.println("del" + question_id );
 		dao.questionDelete(question_id);
-		return "main/notice/notice_delete";
+		return "redirect:/main/mypage.do?nick="+nick +"&id="+id;
 	}
 }

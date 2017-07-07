@@ -31,6 +31,7 @@ public class QuestionDAO {
 
 	// insert
 	public void questionInsert(QuestionVO vo) {
+		System.out.println("Áú¹® dao");
 		qMapper.questionInsert(vo);
 	}
 

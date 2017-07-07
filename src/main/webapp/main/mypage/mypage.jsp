@@ -160,7 +160,7 @@
 				    <c:forEach var="q" items="${qvo }">
 				      <tr>
 				        <td>
-				        	<a href="notice_content.do?question_id=${q.question_id }"> ${q.question_title }</a>
+				        	<a href="notice_content.do?question_id=${q.question_id }&nick=${vo.member_nick}&id=${vo.member_id}"> ${q.question_title }</a>
 				        
 				       </td>
 				        <td><fmt:formatDate value="${q.question_regdate }" pattern="yyyy-MM-dd"/></td>
@@ -172,7 +172,7 @@
           </div>
           
          <div>
-       		  <a href="notice_list.do?nick=${vo.member_nick }" >
+       		  <a href="notice_insert.do?nick=${vo.member_nick }&id=${vo.member_id}" >
 			  <input type=button value="글쓰기" class="btn btn-theme" align="right"></a>
 			 
           </div>
