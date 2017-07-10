@@ -138,7 +138,7 @@
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
                 <li>
-                  <figure class="bsbig_fig"> <a href="newMusicVideo.do" class="featured_img"> <div id="${mv[0] }" style="width:100%; height: 280px"></div> <span class="overlay"></span> </a>
+                  <figure class="bsbig_fig"> <a href="newMusicVideo.do" class="featured_img"> <div id="${mv[0] }" style="width:100%; height: 250px"></div> <span class="overlay"></span> </a>
                     <figcaption> <a href="newMusicVideo.do">${mv[0] }</a> </figcaption>
                     <p></p>
                   </figure>

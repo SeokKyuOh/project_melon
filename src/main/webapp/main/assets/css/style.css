@@ -130,7 +130,7 @@ img:hover{opacity:0.75}
 .single_post_content{float:left; display:inline; width:100%; margin-bottom:20px}
 .single_post_content > h2{background:none repeat scroll 0 0 #ffffff; color:#fff; font-family:'À±°íµñ330',À±°íµñ330; font-size:17px; font-weight:400; margin-bottom:10px; margin-left:0; margin-top:5px; padding:0; position:relative; text-align:center; text-transform:uppercase; margin-bottom:20px}
 .single_post_content > h2 span{padding:4px 10px}
-.single_post_content_left{float:left; display:inline; width:40%}
+.single_post_content_left{float:left; display:inline; width:49%}
 .business_catgnav{}
 .business_catgnav li{float:left; display:block; width:100%}
 .bsbig_fig{width:100%}
@@ -202,11 +202,11 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 .footer_widget > h2{border-bottom:3px solid #c5c5c5; font-family:À±°íµñ330,arial,Georgia,À±°íµñ330; font-size:13px; padding:10px 0; text-transform:uppercase}
 .tag_nav{}
 .tag_nav li{}
-.tag_nav li a{border-bottom:1px solid #ddd; color:#ccc; display:block; padding:6px 6px 6px 0; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
+.tag_nav li a{border-bottom:1px solid #ddd; color:#000000; display:block; padding:6px 6px 6px 0; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .tag_nav li a:hover{padding-left:10px}
-/* .footer_bottom{float:left; display:inline; width:100%; padding:10px 30px; background-color:#303030; color:#ccc}
+ .footer_bottom{float:left; display:inline; width:100%; height:5px; padding:10px 30px; background-color:#ffffff; color:#ccc}
 .copyright{float:left; width:50%; padding-top:5px; text-align:left}
-.copyright a{color:#ccc} */
+.copyright a{color:#ccc} 
 .developer{float:right; width:50%; text-align:right; padding-top:5px; color:#222}
 .developer a{color:#222}
 .catgArchive{border:medium none; color:#fff; display:inline; float:left; font-weight:bold; padding:10px 15px; width:100%; margin-top:15px}

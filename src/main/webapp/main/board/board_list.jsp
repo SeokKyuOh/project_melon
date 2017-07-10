@@ -39,7 +39,7 @@ $(document).ready(function(){
 	<section id="contentSection">
 	<tr>
 		<td>
-			<a href="board_insert.do">새글</a>
+			<a href="board_insert.do"></a>
 		</td>
 	</tr>
 	<table class="table table-hover">
