@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="shadow/css/shadowbox.css">
 <link rel="stylesheet" type="text/css" href="style/table.css">
@@ -61,7 +61,7 @@
 			Shadowbox.open({
 				content:'board_delete.do?no='+no+'&page='+page,
 				player:'iframe',
-				title:'»èÁ¦',
+				title:'ì‚­ì œ',
 				width:300,
 				height:150
 			});
@@ -73,24 +73,24 @@
 <body>
 <section id="contentSection">
 	<center>
-		<h3>³»¿ëº¸±â</h3>
+		<h3>ë‚´ìš©ë³´ê¸°</h3>
 		<table id="table_content" width=90% class="mytable">
 			<tr>
-				<th width=20%>¹øÈ£</th>
+				<th width=20%>ë²ˆí˜¸</th>
 				<td width=30% align=center>${vo.board_id }</td>
-				<th width=20%>ÀÛ¼ºÀÏ</th>
+				<th width=20%>ì‘ì„±ì¼</th>
 				<td width=30% align=center>
 				<fmt:formatDate value="${vo.board_regdate }" pattern="yyyy-MM-dd" /></td>
 			</tr>
 			<tr>
-				<th width=20%>ÀÌ¸§</th>
+				<th width=20%>ì´ë¦„</th>
 				<td width=30% align=center>${vo.board_writer }</td>
-				<th width=20%>Á¶È¸¼ö</th>
+				<th width=20%>ì¡°íšŒìˆ˜</th>
 				<td width=30% align=center>${vo.board_hit}</td>
 			</tr>
  			<c:if test="${vo.board_filecount>0 }">
 				<tr>
-					<th width=20%>Ã·ºÎÆÄÀÏ</th>
+					<th width=20%>ì²¨ë¶€íŒŒì¼</th>
 					<td colspan="3" align=left><c:forEach var="fvo"
 							items="${vo.board_fileList }">
 							<a href="board_download.do?fn=${fvo.board_filename}">${fvo.board_filename }</a>
@@ -99,7 +99,7 @@
 				</tr>
 			</c:if>
 			<tr>
-				<th width=20%>Á¦¸ñ</th>
+				<th width=20%>ì œëª©</th>
 				<td colspan="3" align=left>${vo.board_title }</td>
 			</tr>
 			<tr>
@@ -110,7 +110,7 @@
 			<tr>
 				<td align=right><a href="board_update.do?board_id=${vo.board_id }"></a>&nbsp; 
 					<a></a>&nbsp; 
-					<a href="board_list.do?boardType_id=1">¸ñ·Ï</a>
+					<a href="board_list.do?boardType_id=1">ëª©ë¡</a>
 				</td>
 			</tr>
 		</table>
@@ -132,11 +132,11 @@
 							</c:if> ${rvo.msg }</td>
 						<td align=right width=30%>
 						<c:if test="${sessionScope.id==rvo.id && sessionScope.id!=null}">
-         					¦¦<a href="#" class="modify" value="${rvo.no }">¼öÁ¤</a>&nbsp;
-        					 ¦¦<a href="reply_delete.do?no=${rvo.no }&bno=${vo.no }&page=${page}" >»èÁ¦</a>&nbsp;
+         					â””<a href="#" class="modify" value="${rvo.no }">ìˆ˜ì •</a>&nbsp;
+        					 â””<a href="reply_delete.do?no=${rvo.no }&bno=${vo.no }&page=${page}" >ì‚­ì œ</a>&nbsp;
         				 </c:if> 
         				 <c:if test="${sessionScope.id!=null}">
-         					¦¦<a href="#" class="insert" value="${rvo.no }">´ñ±Û</a>
+         					â””<a href="#" class="insert" value="${rvo.no }">ëŒ“ê¸€</a>
 						 </c:if></td>
 					</tr>
 					<tr style="display: none" id="i${rvo.no }">
@@ -149,7 +149,7 @@
 									<textarea rows="3" cols="60" name=msg></textarea>
 								</div>
 								<div style="float: left">
-									<input type="submit" value="´ñ±Û¾²±â" style="height: 45px">
+									<input type="submit" value="ëŒ“ê¸€ì“°ê¸°" style="height: 45px">
 								</div>
 							</form>
 						</td>
@@ -158,13 +158,13 @@
 						<td colspan="2">
 							<form method="post" action="reply_update.do">
 								<div style="float: left; height: 45px">
-									<input type="hidden" name="bno" value="${vo.no }"><!-- ÄÁÅÙÆ®·Î ´Ù½Ã µ¹¾Æ¿À±â À§ÇØ ÇÊ¿äÇÑ°Å -->
-									<input type="hidden" name="page" value="${page }"><!-- ¾êµµ -->
+									<input type="hidden" name="bno" value="${vo.no }"><!-- ì»¨í…íŠ¸ë¡œ ë‹¤ì‹œ ëŒì•„ì˜¤ê¸° ìœ„í•´ í•„ìš”í•œê±° -->
+									<input type="hidden" name="page" value="${page }"><!-- ì–˜ë„ -->
 									<input type="hidden" name="no" value="${rvo.no }">
 									<textarea rows="3" cols="60" name=msg>${rvo.msg }</textarea>
 								</div>
 								<div style="float: left">
-									<input type="submit" value="¼öÁ¤ÇÏ±â" style="height: 45px">
+									<input type="submit" value="ìˆ˜ì •í•˜ê¸°" style="height: 45px">
 								</div>
 							</form>
 						</td>
@@ -180,7 +180,7 @@
 									<textarea rows="3" cols="60" name=msg></textarea>
 								</div>
 								<div style="float: left">
-									<input type="submit" value="´ñ±Û¾²±â" style="height: 45px">
+									<input type="submit" value="ëŒ“ê¸€ì“°ê¸°" style="height: 45px">
 								</div>
 							</form>
 						</td>

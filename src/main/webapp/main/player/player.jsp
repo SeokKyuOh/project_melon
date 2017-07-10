@@ -1,13 +1,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sist.playlist.dao.PlaylistMusicVO"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Honey Music Player</title>
 <script type="text/javascript" src="<c:url value="/resources/js/soundmanager2.js"/>"></script>
 <script src="<c:url value="/resources/js/bar-ui.js"/>"></script>
@@ -18,17 +18,17 @@
 	var albumURL="http://211.238.142.109:8080/album_img/";
 	var musicURL="http://211.238.142.109:8080/music/";
 	
-	var isImageClicked=0;		// ¾Ù¹ü¾ÆÆ® Å¬¸¯ ¿©ºÎ È®ÀÎ
+	var isImageClicked=0;		// ì•¨ë²”ì•„íŠ¸ í´ë¦­ ì—¬ë¶€ í™•ì¸
 	
 	$(function(){
-		// ÀÌ¿ë±Ç ¿©ºÎ È®ÀÎ
+		// ì´ìš©ê¶Œ ì—¬ë¶€ í™•ì¸
 		
 		$('#lyrics').hide();
 		
 		var album_art=[];
 		var music_lyrics=[];
 		
-		// ¾Ù¹ü ¾ÆÆ®¸¦ Å¬¸¯ÇÏ¸é ÇöÀç Àç»ıµÇ°í ÀÖ´Â °îÀÇ °¡»ç ºÒ·¯¿À±â
+		// ì•¨ë²” ì•„íŠ¸ë¥¼ í´ë¦­í•˜ë©´ í˜„ì¬ ì¬ìƒë˜ê³  ìˆëŠ” ê³¡ì˜ ê°€ì‚¬ ë¶ˆëŸ¬ì˜¤ê¸°
 		$('#album').click(function(){
 			if(isImageClicked==0){
 				//alert(isImageClicked);
@@ -36,15 +36,15 @@
 				$('#image').fadeTo(1000, 0.4);
 				$('#lyrics').show();
 			}
-			// ´Ù½Ã Å¬¸¯ÇÏ¸é ¿ø·¡ ÀÌ¹ÌÁö´ë·Î Ãâ·Â
+			// ë‹¤ì‹œ í´ë¦­í•˜ë©´ ì›ë˜ ì´ë¯¸ì§€ëŒ€ë¡œ ì¶œë ¥
 			else{
 				//alert(isImageClicked);
 				isImageClicked--;
 				$('#image').fadeTo(1000, 1);
-				// ÀÌ¹ÌÁöÀÇ Åõ¸íµµ(opacity)¸¦ ³·Ãß°í °¡»ç Ãâ·Â
+				// ì´ë¯¸ì§€ì˜ íˆ¬ëª…ë„(opacity)ë¥¼ ë‚®ì¶”ê³  ê°€ì‚¬ ì¶œë ¥
 				$('#lyrics').hide();
 				
-				// ÇöÀç Àç»ıµÇ°í ÀÖ´Â °îÀÎÁö check -> <li> Å¬¸¯ ½Ã index·Î ±¸ºĞ
+				// í˜„ì¬ ì¬ìƒë˜ê³  ìˆëŠ” ê³¡ì¸ì§€ check -> <li> í´ë¦­ ì‹œ indexë¡œ êµ¬ë¶„
 			}
 		});
 		/* 
@@ -54,8 +54,8 @@
 		 */
 		 
 		
-		// ÇöÀç Àç»ıµÇ°í ÀÖ´Â °îÀÎÁö check -> <li> Å¬¸¯ ½Ã index·Î ±¸ºĞ
-		// °¢ °îÀ» Å¬¸¯ÇÏ¸é °î¿¡ ÇØ´çÇÏ´Â ¾Ù¹ü¾ÆÆ®¿Í °¡»ç °¡Á®¿À±â
+		// í˜„ì¬ ì¬ìƒë˜ê³  ìˆëŠ” ê³¡ì¸ì§€ check -> <li> í´ë¦­ ì‹œ indexë¡œ êµ¬ë¶„
+		// ê° ê³¡ì„ í´ë¦­í•˜ë©´ ê³¡ì— í•´ë‹¹í•˜ëŠ” ì•¨ë²”ì•„íŠ¸ì™€ ê°€ì‚¬ ê°€ì ¸ì˜¤ê¸°
 		$(".mclick").click(function(){
 			var index=$(this).attr("index");
 			var album_art=$(this).attr("album_art");
@@ -64,23 +64,23 @@
 			//$("li:eq("+index+")")
 			//var url=$("#image").attr("src");
 			//alert(url);
-			// ¾Ù¹ü¾ÆÆ® ¹Ù²Ù±â(ÃßÈÄ Å¬¸¯ÇÑ °îÀÇ album_art url ³Ö±â)
+			// ì•¨ë²”ì•„íŠ¸ ë°”ê¾¸ê¸°(ì¶”í›„ í´ë¦­í•œ ê³¡ì˜ album_art url ë„£ê¸°)
 			var album_replace="../main/player/cover/album.jpg";
 			$("#image").attr("src", album_replace);
 			$("#image").attr("src", albumURL+album_art+".jpg");
 			
 			//$("#image").attr("src", "../main/player/cover/album"+index+".jpg");
-			// °¡»ç ¹Ù²Ù±â
+			// ê°€ì‚¬ ë°”ê¾¸ê¸°
 			$('.music_lyrics').replaceWith(music_lyrics);
 			
 			alert(album_replace);
 			alert("album_art : "+album_art+", music_lyrics : "+music_lyrics);
 			
-			// Àç»ı È½¼ö ´Ã¸®±â
-			// + Àç»ı È½¼ö ´Ã¸®±â(¾î¶»°Ô...???)
-			// Àç»ı È½¼ö ´Ã¸®´Â ¹æ¹ı
+			// ì¬ìƒ íšŸìˆ˜ ëŠ˜ë¦¬ê¸°
+			// + ì¬ìƒ íšŸìˆ˜ ëŠ˜ë¦¬ê¸°(ì–´ë–»ê²Œ...???)
+			// ì¬ìƒ íšŸìˆ˜ ëŠ˜ë¦¬ëŠ” ë°©ë²•
 			/*
-			1) ´Ù¸¥ ÆäÀÌÁö·Î °ªÀ» ³Ñ±â¸ç ¿äÃ» -> ³Ñ±ä ÆäÀÌÁö¿¡¼­ Àç»ı È½¼ö¸¦ Áõ°¡½ÃÅ°±â(Ã¢ÀÌ ¶ç¿öÁöÁö´Â ¾ÊÀ½)
+			1) ë‹¤ë¥¸ í˜ì´ì§€ë¡œ ê°’ì„ ë„˜ê¸°ë©° ìš”ì²­ -> ë„˜ê¸´ í˜ì´ì§€ì—ì„œ ì¬ìƒ íšŸìˆ˜ë¥¼ ì¦ê°€ì‹œí‚¤ê¸°(ì°½ì´ ë„ì›Œì§€ì§€ëŠ” ì•ŠìŒ)
 			*/
 			var playlist_music_id=$(this).attr("playlist_music_id");
 			var music_id=$(this).attr("music_id");
@@ -90,16 +90,16 @@
 				url:"player_count.do?playlist_music_id="+playlist_music_id+"&music_id="+music_id,
 				dataType:"text",
 				error:function(request, status, error){
-					alert('Åë½Å ½ÇÆĞ');
+					alert('í†µì‹  ì‹¤íŒ¨');
 					alert("code : "+request.status+"\n"+"message : "+request.responseText+"\n"+"error : "+error);
 				},
 				success:function(){
-					alert("¼º°ø");
+					alert("ì„±ê³µ");
 				}
 			});
 		});
 		/* 	
-		// »èÁ¦ ¹öÆ° Å¬¸¯ ½Ã 
+		// ì‚­ì œ ë²„íŠ¼ í´ë¦­ ì‹œ 
 		$('.btclick').click({
 			var playlist_music_id=$(this).attr('playlist_music_id');
 			alert(playlist_music_id);
@@ -108,10 +108,10 @@
 				url:"player_delete.do?playlist_music_id="+playlist_music_id,
 				dataType:"text",
 				error:function(){
-					alert('Åë½Å ½ÇÆĞ');
+					alert('í†µì‹  ì‹¤íŒ¨');
 				},
 				success:function(){
-					alert("¼º°ø");
+					alert("ì„±ê³µ");
 					$('.mclick').remove();
 				}
 			})
@@ -123,8 +123,8 @@
 </head>
 <body>
 
-	<!-- ¾Ù¹ü¾ÆÆ® ¹× °¡»ç ±¸Çö -->
-	<!-- ¼±ÅÃµÈ °îÀÌ ¿©·¯°³ÀÏ °æ¿ì °¡Àå À§¿¡ ÀÖ´Â °îÀÇ ¾Ù¹ü¾ÆÆ®, °î ÇÏ³ª¸¦ Å¬¸¯ÇØ Ãß°¡µÇ¾úÀ» °æ¿ì ÇØ´ç °îÀÇ ¾Ù¹ü¾ÆÆ® -->
+	<!-- ì•¨ë²”ì•„íŠ¸ ë° ê°€ì‚¬ êµ¬í˜„ -->
+	<!-- ì„ íƒëœ ê³¡ì´ ì—¬ëŸ¬ê°œì¼ ê²½ìš° ê°€ì¥ ìœ„ì— ìˆëŠ” ê³¡ì˜ ì•¨ë²”ì•„íŠ¸, ê³¡ í•˜ë‚˜ë¥¼ í´ë¦­í•´ ì¶”ê°€ë˜ì—ˆì„ ê²½ìš° í•´ë‹¹ ê³¡ì˜ ì•¨ë²”ì•„íŠ¸ -->
 	<div id="album" style="position:relative; width:450px; height:400">
 		<c:set var="album_art" value="${playlist[0].album_art }"/>
 		<c:set var="lyric" value="${playlist[0].music_lyrics }"/>
@@ -164,8 +164,8 @@
 						</noscript>
 					</div>
 				</div>
-				<!-- »óÅÂ¹Ù(ÇöÀç´Â ÇÃ·¹ÀÌ¾î ÆäÀÌÁö°¡ ¶ß¸é¼­ Àç»ı ¹öÆ°À» ´­·¯¾ß Àç»ı ½ÃÀÛ! 
-				°îÀ» Å¬¸¯ÇØ¼­ ÇÃ·¹ÀÌ¾î·Î µé¾î¿ÔÀ» ¶§  -->
+				<!-- ìƒíƒœë°”(í˜„ì¬ëŠ” í”Œë ˆì´ì–´ í˜ì´ì§€ê°€ ëœ¨ë©´ì„œ ì¬ìƒ ë²„íŠ¼ì„ ëˆŒëŸ¬ì•¼ ì¬ìƒ ì‹œì‘! 
+				ê³¡ì„ í´ë¦­í•´ì„œ í”Œë ˆì´ì–´ë¡œ ë“¤ì–´ì™”ì„ ë•Œ  -->
 				<div class="sm2-progress">
 					<div class="sm2-row">
 						<div class="sm2-inline-time">0:00</div>
@@ -210,11 +210,11 @@
 			<div class="sm2-inline-texture">
 				<div class="sm2-box-shadow"></div>
 			</div>
-			<!-- °î ¸®½ºÆ® ±¸Çö -->
+			<!-- ê³¡ ë¦¬ìŠ¤íŠ¸ êµ¬í˜„ -->
 			<div class="sm2-playlist-wrapper">
 
 				<ul class="sm2-playlist-bd">
-					<!-- °î ´Ù¿î·Îµå ¸µÅ© ÀÖ´Â ¸®½ºÆ® ±¸Çö -->
+					<!-- ê³¡ ë‹¤ìš´ë¡œë“œ ë§í¬ ìˆëŠ” ë¦¬ìŠ¤íŠ¸ êµ¬í˜„ -->
 					<!-- 
 					<li>
 						<div class="sm2-row">

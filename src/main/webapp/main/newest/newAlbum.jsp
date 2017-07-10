@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet"
@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="http://cdnimg.melon.co.kr/static/web/resource/style/w1/lu/h/una7b19ci5.css"
 	type="text/css" />
-<!-- ´ñ±Û css ÆÄÀÏ ³×ÀÓ º¯°æ -->
+<!-- ëŒ“ê¸€ css íŒŒì¼ ë„¤ì„ ë³€ê²½ -->
 <link rel="stylesheet"
 	href="http://cdnimg.melon.co.kr/static/web/resource/style/w1/qd/e/uolshpokn9.css"
 	type="text/css" />
@@ -28,55 +28,54 @@
 <script type="text/javascript"
 	src="http://cdnimg.melon.co.kr/static/web/resource/script/w1/g8/u/kv5d3h4q8t.js"></script>
 <body>
-	<h2>ÃÖ½Å¾Ù¹ü</h2>
+	<section id="contentSection">
+		<h2>ìµœì‹ ì•¨ë²”</h2>
 
-
-
-	<div>
-
-		<ul>
-			<c:forEach var="vo" items="${list }">
-			<li>
-				<div style="float: left; width: 50%; padding: 10px;">
-					<a href="albumInfo.do?album_id=${vo.album_id }">
-					<img
-						width="130"
-						height="130"
-						src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"/>
-						</a>
-					<div style="float: right;width: 50%; padding: 10px; ">
-						<dl>
-							<dt>
-								<span>[${vo.album_type }]</span> <strong>¾Ù¹ü¸í</strong>
-								${vo.album_name }
-							</dt>
-							<dd>
-								<strong>¾ÆÆ¼½ºÆ®¸í</strong>
-								<div>
-										<span>${vo.album_artist }</span>
-								</div>
-							</dd>
-							<dd>
-							<strong>Å¸ÀÌÆ²°î</strong>
-							<span>${vo.music_name }</span>
-							</dd>
-							<dd>
-								<strong>¾Ù¹ü ¹ß¸ÅÀÏ</strong> 
-								<span>
-								<fmt:formatDate value="${vo.album_release }" 
-            						pattern="yyyy.MM.dd" /></span>
-								<em class="bar">|</em> <span>${vo.count }°î</span>
-							</dd>
-						</dl>
+		<div>
+	
+			<ul>
+				<c:forEach var="vo" items="${list }">
+				<li>
+					<div style="float: left; width: 50%; padding: 10px;">
+						<a href="albumInfo.do?album_id=${vo.album_id }">
+						<img
+							width="130"
+							height="130"
+							src="http://211.238.142.109:8080/album_img/${vo.album_art }.jpg"/>
+							</a>
+						<div style="float: right;width: 50%; padding: 10px; ">
+							<dl>
+								<dt>
+									<span>[${vo.album_type }]</span> <strong>ì•¨ë²”ëª…</strong>
+									${vo.album_name }
+								</dt>
+								<dd>
+									<strong>ì•„í‹°ìŠ¤íŠ¸ëª…</strong>
+									<div>
+											<span>${vo.album_artist }</span>
+									</div>
+								</dd>
+								<dd>
+								<strong>íƒ€ì´í‹€ê³¡</strong>
+								<span>${vo.music_name }</span>
+								</dd>
+								<dd>
+									<strong>ì•¨ë²” ë°œë§¤ì¼</strong> 
+									<span>
+									<fmt:formatDate value="${vo.album_release }" 
+	            						pattern="yyyy.MM.dd" /></span>
+									<em class="bar">|</em> <span>${vo.count }ê³¡</span>
+								</dd>
+							</dl>
+						</div>
+	
 					</div>
-
-				</div>
-				<!-- //class="wrap_album04" -->
-			</li>
-			</c:forEach>
-		</ul>
-	</div>
-
+					<!-- //class="wrap_album04" -->
+				</li>
+				</c:forEach>
+			</ul>
+		</div>
+	</section>
 
 </body>
 </html>

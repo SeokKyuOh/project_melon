@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>°áÁ¦</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ê²°ì œ</title>
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#sel1').change(function() {
@@ -15,7 +15,6 @@ $(document).ready(function() {
 			$('#card').hide();
 		} else if($(this).val() == "deposit") {
 			$('#account').hide();
-			$('#deposit').show();
 			$('#card').hide();
 		} else if($(this).val() == "card") {
 			$('#account').hide();
@@ -74,73 +73,73 @@ $(document).ready(function() {
 		if($('#deposit').css("display") != "none") {
 			alert("depositclick");
 			if($('#sel3').val() == 'st3') {
-				alert("ÀºÇàÀ» ¼±ÅÃÇØ ÁÖ¼¼¿ä");
+				alert("ì€í–‰ì„ ì„ íƒí•´ ì£¼ì„¸ìš”");
 				$('#sel3').focus();
 				return false;
 			} else if($('#musr').val() == '') {
-				alert("¿¹±İÁÖ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ì˜ˆê¸ˆì£¼ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#musr').focus();
 				return false;
 			}
 		} else if($('#account').css("display") != "none"){
 			alert("accountclick");
 			if($('#sel2').val() == "st2") {
-				alert("ÀºÇàÀ» ¼±ÅÃÇØ ÁÖ¼¼¿ä");
+				alert("ì€í–‰ì„ ì„ íƒí•´ ì£¼ì„¸ìš”");
 				$('#sel2').focus();
 				return false;
 			} else if($('#num1').val() == '') {
-				alert("Ã¹¹øÂ° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ì²«ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#num1').focus();
 				return false;
 			} else if($('#num2').val() == '') {
-				alert("µÎ¹øÂ° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ë‘ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#num2').focus();
 				return false;
 			} else if($('#num3').val() == '') {
-				alert("¼¼¹øÂ° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ì„¸ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#num3').focus();
 				return false;
 			} else if($('#pwd').val() == '') {
-				alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#num4').focus();
 				return false;
 			} else if($('#usr').val() == '') {
-				alert("¿¹±İÁÖ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ì˜ˆê¸ˆì£¼ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#usr').focus();
 				return false;
 			}
 		} else if ($('#card').css("display") != "none") {
 			alert("cardclick");
 			if($('#n1').val() == '') {
-				alert("Ã¹¹øÂ° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ì²«ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#n1').focus();
 				return false;
 			} else if($('#n2').val() == '') {
-				alert("µÎ¹øÂ° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ë‘ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#n2').focus();
 				return false;
 			} else if($('#n3').val() == '') {
-				alert("¼¼¹øÂ° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ì„¸ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#n3').focus();
 				return false;
 			} else if($('#n4').val() == '') {
-				alert("³×¹øÂ° ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ë„¤ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#n4').focus();
 				return false;
 			} else if($('#e1').val() == '') {
-				alert("À¯È¿±â°£ÀÇ ¿ùÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ìœ íš¨ê¸°ê°„ì˜ ì›”ì„ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#e1').focus();
 				return false;
 			} else if($('#e2').val() == '') {
-				alert("À¯È¿±â°£ÀÇ ³âÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ìœ íš¨ê¸°ê°„ì˜ ë…„ì„ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#e2').focus();
 				return false;
 			} else if($('#cpwd').val() == '') {
-				alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#cpwd').focus();
 				return false;
 			} else if($('#csv').val() == '') {
-				alert("csv ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+				alert("csv ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 				$('#csv').focus();
 				return false;
 			}
@@ -156,8 +155,8 @@ $(document).ready(function() {
 <body>
 	<section id="contentSection" style="margin: auto;">
 	<div class="container" style="width: 90%;margin: auto;">
-		<h2 align="center">°áÁ¦ ¼±ÅÃ</h2><br>
-		<!-- ³»°¡ ¼±ÅÃÇÑ ÀÌ¿ë±Ç Ãâ·ÂÇÏ±â -->
+		<h2 align="center">ê²°ì œ ì„ íƒ</h2><br>
+		<!-- ë‚´ê°€ ì„ íƒí•œ ì´ìš©ê¶Œ ì¶œë ¥í•˜ê¸° -->
 		<div class="row" style="width: 80%;margin: auto;">
         	<div class="span12">
     			<ul class="thumbnails" style="list-style:none;">
@@ -166,129 +165,129 @@ $(document).ready(function() {
                     		<img src="images/${name }.png" class="pull-left span2 clearfix" style="margin-top:10px;float: left;" width="200px">
                     		<div class="caption" class="pull-left" style="float: left;margin-left: 40px;margin-top: -20px">
                      			<h3 style="color: #2b2b2b">${name }</h3>
-                      			<b>°¡°İ: ${price} ¿ø</b>
+                      			<b>ê°€ê²©: ${price} ì›</b>
                     		</div>
                   		</div>
                 	</li>  
             	</ul>
        	 	</div>	
         </div>	
-		<div style="margin: auto;text-align: center;">ÇØ´ç ÀÌ¿ë±ÇÀ» °áÁ¦ÇÒ ¼ö´ÜÀ» ¼±ÅÃÇØÁÖ¼¼¿ä.</div>
+		<div style="margin: auto;text-align: center;">í•´ë‹¹ ì´ìš©ê¶Œì„ ê²°ì œí•  ìˆ˜ë‹¨ì„ ì„ íƒí•´ì£¼ì„¸ìš”.</div>
 		<form method="post" action="payment_ok.do" id="form1">
 			<input type="hidden" value="${id}" name="id">
 			<input type="hidden" value="${type}" name="type">
 			<div class="form-group" style="width:80%;margin: auto;">
 				<!-- <label for="sel1">Select list (select one):</label> -->
 				<select class="form-control" id="sel1">
-					<option value='st1'>-----¼±ÅÃ-----</option>
-	        		<option value="deposit">¹«ÅëÀå ÀÔ±İ</option>
-					<option value="account">½Ç½Ã°£ °èÁÂÀÌÃ¼</option>
-	        		<option value="card">Ä«µå °áÁ¦</option>
+					<option value='st1'>-----ì„ íƒ-----</option>
+	        		<option value="deposit">ë¬´í†µì¥ ì…ê¸ˆ</option>
+					<option value="account">ì‹¤ì‹œê°„ ê³„ì¢Œì´ì²´</option>
+	        		<option value="card">ì¹´ë“œ ê²°ì œ</option>
 	      		</select>
 	   		</div>
 	   		<hr>
 	   		
 	   		<div id="account" style="display: none;width:80%;margin: auto;" class="form-group"> 
-				<p>½Ç½Ã°£ °èÁÂÀÌÃ¼</p>
+				<p>ì‹¤ì‹œê°„ ê³„ì¢Œì´ì²´</p>
 				<select class="form-control" id="sel2">
-		   			<option value='st2'>---¼±ÅÃ---</option>
-					<option value='SCÁ¦ÀÏÀºÇà'>SCÁ¦ÀÏ</option>
-			       	<option value='±¹¹ÎÀºÇà'>±¹¹Î</option>
+		   			<option value='st2'>---ì„ íƒ---</option>
+					<option value='SCì œì¼ì€í–‰'>SCì œì¼</option>
+			       	<option value='êµ­ë¯¼ì€í–‰'>êµ­ë¯¼</option>
 			       	<option value='NH'>NH</option>
-			       	<option value='½ÅÇÑÀºÇà'>½ÅÇÑ</option>
-			       	<option value='¿ì¸®ÀºÇà'>¿ì¸®</option>
-			      	<option value='¿ìÃ¼±¹'>¿ìÃ¼±¹</option>
-			       	<option value='ÇÏ³ªÀºÇà'>ÇÏ³ª</option>
+			       	<option value='ì‹ í•œì€í–‰'>ì‹ í•œ</option>
+			       	<option value='ìš°ë¦¬ì€í–‰'>ìš°ë¦¬</option>
+			      	<option value='ìš°ì²´êµ­'>ìš°ì²´êµ­</option>
+			       	<option value='í•˜ë‚˜ì€í–‰'>í•˜ë‚˜</option>
 		       	</select>
 		       	<br>
 		       	<div class="form-group row">
      				<div class="col-xs-2">
-     					<label for="ex1">°èÁÂ¹øÈ£ ÀÔ·Â</label>
-        				<input class="form-control" id="num1" type="text" placeholder="Ã¹ ÀÚ¸® ¹øÈ£ ÀÔ·Â"> 
+     					<label for="ex1">ê³„ì¢Œë²ˆí˜¸ ì…ë ¥</label>
+        				<input class="form-control" id="num1" type="text" placeholder="ì²« ìë¦¬ ë²ˆí˜¸ ì…ë ¥"> 
       				</div>
       				<div class="col-xs-2">
       					<label for="ex1">&nbsp;&nbsp;</label>
-        				<input class="form-control" id="num2" type="text" placeholder="µÎ¹øÂ° ÀÚ¸® ¹øÈ£ ÀÔ·Â"> 
+        				<input class="form-control" id="num2" type="text" placeholder="ë‘ë²ˆì§¸ ìë¦¬ ë²ˆí˜¸ ì…ë ¥"> 
       				</div>
       				<div class="col-xs-2">
       					<label for="ex1">&nbsp;&nbsp;</label>
-        				<input class="form-control" id="num3" type="text" placeholder="¸¶Áö¸· ÀÚ¸® ¹øÈ£ ÀÔ·Â"> 
+        				<input class="form-control" id="num3" type="text" placeholder="ë§ˆì§€ë§‰ ìë¦¬ ë²ˆí˜¸ ì…ë ¥"> 
       				</div>
     			</div>
 				<br>
 				<div class="form-group">
-  					<label for="pwd">°èÁÂ ºñ¹Ğ¹øÈ£:</label>
+  					<label for="pwd">ê³„ì¢Œ ë¹„ë°€ë²ˆí˜¸:</label>
   					<input type="password" class="form-control" id="pwd">
 				</div>
 				<br>
 				<div class="form-group">
-				  <label for="usr">¿¹±İÁÖ:</label>
+				  <label for="usr">ì˜ˆê¸ˆì£¼:</label>
 				  <input type="text" class="form-control" id="usr">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub1">È®ÀÎ</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub1">í™•ì¸</button>
 	   		</div>
 	   		
 	   		<div id="deposit" style="display: none;width:80%;margin: auto;" class="form-group">
-	   			<p>¹«ÅëÀå ÀÔ±İ</p>
+	   			<p>ë¬´í†µì¥ ì…ê¸ˆ</p>
 	   			<select class="form-control" id="sel3">
-		   			<option value='st3'>---¼±ÅÃ---</option>
-					<option value='±¹¹Î'>±¹¹ÎÀºÇà : 152568-45-962457</option>
-			       	<option value='½ÅÇÑ'>½ÅÇÑÀºÇà : 312-475-513476</option>
-			       	<option value='ÇÏ³ª'>ÇÏ³ªÀºÇà : 166-216570-86429</option>
+		   			<option value='st3'>---ì„ íƒ---</option>
+					<option value='êµ­ë¯¼'>êµ­ë¯¼ì€í–‰ : 152568-45-962457</option>
+			       	<option value='ì‹ í•œ'>ì‹ í•œì€í–‰ : 312-475-513476</option>
+			       	<option value='í•˜ë‚˜'>í•˜ë‚˜ì€í–‰ : 166-216570-86429</option>
 		       	</select>
 		       	<br>
 				<div class="form-group">
-				  <label for="usr">¿¹±İÁÖ:</label>
+				  <label for="usr">ì˜ˆê¸ˆì£¼:</label>
 				  <input type="text" class="form-control" id="musr">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub2">È®ÀÎ</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub2">í™•ì¸</button>
 	   		</div>
 	   		
 	   		<div id="card" style="display: none;width:80%;margin: auto;" class="form-group">
-	   			<p>Ä«µå °áÁ¦</p>
+	   			<p>ì¹´ë“œ ê²°ì œ</p>
 	   			<div class="form-group row">
      				<div class="col-xs-2">
-     					<label for="ex1">Ä«µå ¹øÈ£ ÀÔ·Â</label>
-        				<input class="form-control" id="n1" type="text" placeholder="Ã¹¹øÂ° ¹øÈ£ ÀÔ·Â"> 
+     					<label for="ex1">ì¹´ë“œ ë²ˆí˜¸ ì…ë ¥</label>
+        				<input class="form-control" id="n1" type="text" placeholder="ì²«ë²ˆì§¸ ë²ˆí˜¸ ì…ë ¥"> 
       				</div>
       				<div class="col-xs-2">
       					<label for="ex1">&nbsp;&nbsp;</label>
-        				<input class="form-control" id="n2" type="text" placeholder="µÎ¹øÂ° ¹øÈ£ ÀÔ·Â"> 
+        				<input class="form-control" id="n2" type="text" placeholder="ë‘ë²ˆì§¸ ë²ˆí˜¸ ì…ë ¥"> 
       				</div>
       				<div class="col-xs-2">
       					<label for="ex1">&nbsp;&nbsp;</label>
-        				<input class="form-control" id="n3" type="text" placeholder="¼¼¹øÂ° ¹øÈ£ ÀÔ·Â"> 
+        				<input class="form-control" id="n3" type="text" placeholder="ì„¸ë²ˆì§¸ ë²ˆí˜¸ ì…ë ¥"> 
       				</div>
       				<div class="col-xs-2">
       					<label for="ex1">&nbsp;&nbsp;</label>
-        				<input class="form-control" id="n4" type="text" placeholder="¸¶Áö¸· ¹øÈ£ ÀÔ·Â"> 
+        				<input class="form-control" id="n4" type="text" placeholder="ë§ˆì§€ë§‰ ë²ˆí˜¸ ì…ë ¥"> 
       				</div>
     			</div>
 				<br>
 				<div class="form-group row">
      				<div class="col-xs-2">
-     					<label for="ex1">Ä«µå À¯È¿±â°£</label>
-        				<input class="form-control" id="e1" type="text" placeholder="¿ù"> 
+     					<label for="ex1">ì¹´ë“œ ìœ íš¨ê¸°ê°„</label>
+        				<input class="form-control" id="e1" type="text" placeholder="ì›”"> 
       				</div>
       				<div class="col-xs-2">
       					<label for="ex1">&nbsp;&nbsp;</label>
-        				<input class="form-control" id="e2" type="text" placeholder="³â"> 
+        				<input class="form-control" id="e2" type="text" placeholder="ë…„"> 
       				</div>
     			</div>
     			<br>
 				<div class="form-group">
-  					<label for="pwd">°áÁ¦ ºñ¹Ğ¹øÈ£:</label>
+  					<label for="pwd">ê²°ì œ ë¹„ë°€ë²ˆí˜¸:</label>
   					<input type="password" class="form-control" id="cpwd">
 				</div>
 				<br>
 				<div class="form-group">
-				  <label for="usr">csv ¹øÈ£:</label>
+				  <label for="usr">csv ë²ˆí˜¸:</label>
 				  <input type="text" class="form-control" id="csv">
 				</div>
 				<br>
-	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub3">È®ÀÎ</button>
+	   			<button type="button" class="btn btn-default" style="background-color: #B5D7BB; color:white;" id="sub3">í™•ì¸</button>
 	   		</div>
 	  	</form>
 	</div>

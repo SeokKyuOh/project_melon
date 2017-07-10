@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="style/table.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -28,15 +28,15 @@ $(function(){
     			
     			if(response.trim()==1)
     			{
-    				//alert("»èÁ¦ ¿Ï·á");
+    				//alert("ì‚­ì œ ì™„ë£Œ");
     				parent.location.href="board_list.do?page="+page;
     				parent.Shadowbox.close();
     			}
     			else
     			{
-    				$('#pwd').val(""); //ºñ¹Ğ¹øÈ£ Áö¿ì°í
-    				$('#pwd').focus(); //Æ÷Ä¿½º
-    				$('#result').html("<font color=red>ºñ¹Ğ¹øÈ£ Æ²¸³´Ï´Ù</font>");
+    				$('#pwd').val(""); //ë¹„ë°€ë²ˆí˜¸ ì§€ìš°ê³ 
+    				$('#pwd').focus(); //í¬ì»¤ìŠ¤
+    				$('#result').html("<font color=red>ë¹„ë°€ë²ˆí˜¸ í‹€ë¦½ë‹ˆë‹¤</font>");
     			}
     		}
     	});
@@ -55,7 +55,7 @@ $(function(){
       <td align=left>
       <input type=hidden name=no value="${board_id } }" id="board_id">
       
-       ºñ¹Ğ¹øÈ£:<input type="password" name=pwd id=pwd size=12>
+       ë¹„ë°€ë²ˆí˜¸:<input type="password" name=pwd id=pwd size=12>
       </td>
      </tr>
      <tr>
@@ -63,8 +63,8 @@ $(function(){
      </tr>
      <tr>
       <td align=center>
-       <input type=button value="»èÁ¦" id="delBtn">
-       <input type=button value="Ãë¼Ò" id="canBtn">
+       <input type=button value="ì‚­ì œ" id="delBtn">
+       <input type=button value="ì·¨ì†Œ" id="canBtn">
       </td>
      </tr>
     </table>

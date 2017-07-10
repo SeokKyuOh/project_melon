@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 
 <body>
-	<h2>¾Ù¹ü Á¤º¸</h2>
+	<h2>ì•¨ë²” ì •ë³´</h2>
 	<div>
 		<div>
-			<h3>¾Ù¹ü ±âº»Á¤º¸</h3>
+			<h3>ì•¨ë²” ê¸°ë³¸ì •ë³´</h3>
 			<div style="float: left; width: 20%; padding: 10px;">
 				<span><img
 						 width="216"
@@ -23,40 +23,40 @@
 
 			<div>
 				<p class="albumname">
-					<strong class="none">¾Ù¹ü¸í</strong> <span>[${ vo.album_type}]</span>${vo.album_name }
+					<strong class="none">ì•¨ë²”ëª…</strong> <span>[${ vo.album_type}]</span>${vo.album_name }
 				</p>
 				<dl>
-					<dt>¾ÆÆ¼½ºÆ®</dt>
+					<dt>ì•„í‹°ìŠ¤íŠ¸</dt>
 					<dd>
 						<span>${vo.album_artist }</span>
 					</dd>
-					<dt>¹ß¸ÅÀÏ</dt>
+					<dt>ë°œë§¤ì¼</dt>
 					<dd>
 					<span>
 								<fmt:formatDate value="${vo.album_release }" 
             						pattern="yyyy.MM.dd" /></span>
 					</dd>
-					<dt>¹ß¸Å»ç</dt>
+					<dt>ë°œë§¤ì‚¬</dt>
 					<dd>${vo.album_agency }</dd>
-					<dt>±âÈ¹»ç</dt>
+					<dt>ê¸°íšì‚¬</dt>
 					<dd>${vo.album_dist }</dd>
-					<dt>Àå¸£</dt>
+					<dt>ì¥ë¥´</dt>
 					<dd>${vo.genre_name }</dd>
 				</dl>
 		</div>
 	</div>
 </div>	
 
-<input type=button class="btn btn-theme" value="¼±ÅÃ Àç»ı" id="bt_send">
+<input type=button class="btn btn-theme" value="ì„ íƒ ì¬ìƒ" id="bt_send">
 
 <table class="table table-hover">
 	<thead>
 		<tr>
 			<th width=10%><input type="checkbox" value="" id="allCheck">
 			</th>
-			<th width=20%>¼øÀ§</th>
-			<th width=60%>°î¸í</th>
-			<th width=20%>¾ÆÆ¼½ºÆ®</th>
+			<th width=20%>ìˆœìœ„</th>
+			<th width=60%>ê³¡ëª…</th>
+			<th width=20%>ì•„í‹°ìŠ¤íŠ¸</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -67,7 +67,7 @@
 			<tr>
 				<td><input type="checkbox" music_id="${vo.music_id }"
 					album_id="${vo.album_id}" name="checkbox_name"></td>
-				<td><span><%=i%></span><span>À§</span></td>
+				<td><span><%=i%></span><span>ìœ„</span></td>
 				<td> 
 					<a
 					href="player_playlist_id.do?member_id=${sessionScope.membervo.member_id}&musics=${vo.music_id}"> 

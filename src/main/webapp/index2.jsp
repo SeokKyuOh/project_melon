@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +47,8 @@
 			<li class="dropdown">
 			<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chart<span class="caret"></span></a>
 			<ul class="dropdown-menu">
-      			<li><a href="#">¿œ∞£</a></li>
-      			<li><a href="#">¡÷∞£</a></li>
+      			<li><a href="#">ÏùºÍ∞Ñ</a></li>
+      			<li><a href="#">Ï£ºÍ∞Ñ</a></li>
     		</ul>
 			</li>
 			<li>

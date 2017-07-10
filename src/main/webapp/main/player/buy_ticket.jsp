@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>HoneyMusicPlayer</title>
 <script>
-//alert("»ç¿ë ÁßÀÎ ÀÌ¿ë±ÇÀÌ ¾ø½À´Ï´Ù. ÀÌ¿ë±ÇÀ» ±¸¸ÅÇØÁÖ¼¼¿ä.");
+//alert("ì‚¬ìš© ì¤‘ì¸ ì´ìš©ê¶Œì´ ì—†ìŠµë‹ˆë‹¤. ì´ìš©ê¶Œì„ êµ¬ë§¤í•´ì£¼ì„¸ìš”.");
 window.open("warning.jsp","HoneyMusicPlayer","width=500, height=800, left=500, top=500");
 </script>
 </head>

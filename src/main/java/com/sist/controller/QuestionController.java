@@ -78,10 +78,6 @@ public class QuestionController {
       dao.questionDelete(question_id);
       return "redirect:/main/mypage.do?nick="+nick +"&id="+id;
    }
-<<<<<<< HEAD
+
 }
 
-
-=======
-}
->>>>>>> c92aabd64cbe85f7f0b604bcb71cb630cb6f5431

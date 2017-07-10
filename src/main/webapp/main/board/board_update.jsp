@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="style/table.css">
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script><!-- ¶óÀÌºê·¯¸® ·Îµå -->
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script><!-- ë¼ì´ë¸ŒëŸ¬ë¦¬ ë¡œë“œ -->
 <script type="text/javascript">
 /*
- 	jquery : javascript ¶óÀÌºê·¯¸® (DOMSCRIPT)
+ 	jquery : javascript ë¼ì´ë¸ŒëŸ¬ë¦¬ (DOMSCRIPT)
 	====
-		DOM => ÅÂ±×¸¦ Á¦¾îÇÏ´Â ÇÁ·Î±×·¥
-		1)selector - ÅÂ±× °®°í¿Ã ¶§ ¾²´Â°Í
+		DOM => íƒœê·¸ë¥¼ ì œì–´í•˜ëŠ” í”„ë¡œê·¸ë¨
+		1)selector - íƒœê·¸ ê°–ê³ ì˜¬ ë•Œ ì“°ëŠ”ê²ƒ
  
  */
  var fileIndex=0;
@@ -20,7 +20,7 @@
  	$('#addBtn').click(function(){
  		$('#fileView').append(
  		   '<tr id=f'+fileIndex+'>'
- 		  +'<td width=20%>ÆÄÀÏ'+(fileIndex+1)+'</td>'
+ 		  +'<td width=20%>íŒŒì¼'+(fileIndex+1)+'</td>'
  		  +'<td width=80%><input type=file name=upload['+fileIndex+'] size=25></td>'
  		  +'</tr>'
  		);
@@ -40,11 +40,11 @@
 </head>
 <body>
 	<center>
-		<h3>¼öÁ¤ÇÏ±â</h3>
+		<h3>ìˆ˜ì •í•˜ê¸°</h3>
 		<form method=post action="board_update_ok.do" enctype="multipart/form-data">
 			<table id="table_content" width=600>
 				<tr>
-					<td width=15%>ÀÌ¸§</td>
+					<td width=15%>ì´ë¦„</td>
 					<td width=85%>
 						<input type="text" name="board_writer" size=12 value="${vo.board_writer }">
 						<input type=hidden name=board_id value="${vo.board_id }">
@@ -52,27 +52,27 @@
 					</td>
 				</tr>
 				<tr>
-					<td width=15%>Á¦¸ñ</td>
+					<td width=15%>ì œëª©</td>
 					<td width=85%>
 						<input type="text" name="board_title" size=50 value="${vo.board_title }">
 					</td>
 				</tr>
 				<tr>
-					<td width=15%>³»¿ë</td>
+					<td width=15%>ë‚´ìš©</td>
 					<td width=85%>
 						<textarea rows="10" cols="55" name="board_content">${vo.board_content }</textarea>
 					</td>
 				</tr>
 <!-- 				<tr>
-					<td width=15%>ºñ¹Ğ¹øÈ£</td>
+					<td width=15%>ë¹„ë°€ë²ˆí˜¸</td>
 					<td width=85%>
 						<input type="password" name=pwd size=10>
 					</td>
 				</tr>
  -->				<tr>
 					<td colspan="2" align="center">
-						<input type=submit value="¼öÁ¤">
-						<input type=button value="Ãë¼Ò" onClick="javascript:history.back()"> <!-- °ø¹éÀÌ ¾øÀ¸¸é µû¿ÈÇ¥ ¾È ºÙ¿©µµ µÇÁö¸¸ ÀÖÀ¸¸é µû¿ÈÇ¥ ¹İµå½Ã ºÙ¿©¾ßÇØ -->
+						<input type=submit value="ìˆ˜ì •">
+						<input type=button value="ì·¨ì†Œ" onClick="javascript:history.back()"> <!-- ê³µë°±ì´ ì—†ìœ¼ë©´ ë”°ì˜´í‘œ ì•ˆ ë¶™ì—¬ë„ ë˜ì§€ë§Œ ìˆìœ¼ë©´ ë”°ì˜´í‘œ ë°˜ë“œì‹œ ë¶™ì—¬ì•¼í•´ -->
 					</td>
 				</tr>
 			</table>
