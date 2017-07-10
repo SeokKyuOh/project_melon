@@ -14,7 +14,7 @@ form {
   max-width: 300px;
   margin: 10px auto;
   padding: 10px 20px;
-  background: #f4f7f8;
+  background: #f7ffea;
   border-radius: 8px;
 }
 
@@ -28,14 +28,14 @@ h1 {
 input[type="button"] {
   padding: 1px 5px 1px 5px;
   color: #FFF;
-  background-color: #4bc970;
+  background-color: #f5d22e;
   font-size: 16px;
   text-align: center;
   font-style: normal;
   border-radius: 5px;
   width: 25%;
   height: 50px;
-  border: 1px solid #3ac162;
+  border: 1px solid ;
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 3px;
@@ -81,13 +81,13 @@ select {
 button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
-  background-color: #4bc970;
+  background-color: #f5d22e;
   font-size: 18px;
   text-align: center;
   font-style: normal;
   border-radius: 5px;
   width: 100%;
-  border: 1px solid #3ac162;
+  border: 1px solid #f5d22e;
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
